@@ -4,23 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alpha Films</title>
-  <meta name="description" content="Alpha Films is a one-stop film and video production company offering end-to-end production solutions. From concept development and pre-production to filming, post-production, and final delivery, we create high-quality films, commercials, and digital content that stand out." />
+  <meta name="description" content="Alpha Films is a one-stop film and video production company offering end-to-end production solutions." />
 
-  <!-- Favicon - browser tab logo -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo.png">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <style>
     :root {
       --bg: #0a0a0a;
-      --bg-dark: #000;
       --fg: #ffffff;
       --muted: #a8a8a8;
       --accent: #f5c518;
-      --accent-dark: #e6b800;
-      --gradient: linear-gradient(90deg, #f5c518, #ff6b35, #f5c518);
+      --whatsapp: #25D366;
+      --instagram: #E4405F;
     }
 
     * {
@@ -37,9 +37,7 @@
       overflow-x: hidden;
     }
 
-    a { text-decoration: none; color: inherit; }
-
-    /* Navigation */
+    /* Navigation - Desktop */
     header {
       position: fixed;
       top: 0;
@@ -74,52 +72,92 @@
       filter: drop-shadow(0 0 10px var(--accent));
     }
 
-    .nav-tabs {
+    /* Desktop Menu */
+    .desktop-menu {
       display: flex;
-      gap: 0.5rem;
+      gap: 2rem;
     }
 
-    .nav-tab {
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
+    .nav-link {
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
       font-weight: 500;
-      cursor: pointer;
       transition: all 0.3s ease;
-      border: 2px solid transparent;
       position: relative;
     }
 
-    .nav-tab.active {
-      background: var(--gradient);
-      background-size: 200% 200%;
-      animation: shimmer 3s infinite;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      border-color: var(--accent);
+    .nav-link:hover {
+      background: rgba(245,197,24,0.1);
+      color: var(--accent);
     }
 
-    @keyframes shimmer {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--fg);
+      cursor: pointer;
+      padding: 0.5rem;
     }
 
-    .whatsapp-btn {
-      background: #25D366;
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(10,10,10,0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    .mobile-nav-link {
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #1a1a1a;
+      font-size: 1.1rem;
+    }
+
+    /* Floating Action Buttons */
+    .floating-buttons {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 2000;
+    }
+
+    .fab {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
       color: white;
-      padding: 0.875rem 1.75rem;
-      border-radius: 50px;
-      font-weight: 600;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
       transition: all 0.3s ease;
     }
 
-    .whatsapp-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(37,211,102,0.6);
+    .fab:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.5);
     }
 
-    /* Hero Section */
+    .fab.whatsapp { background: var(--whatsapp); }
+    .fab.instagram { background: var(--instagram); }
+
+    /* Hero */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -127,7 +165,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 12rem 2rem 4rem;
+      padding: 10rem 2rem 6rem;
       position: relative;
       overflow: hidden;
     }
@@ -191,7 +229,7 @@
       font-size: 2.5rem;
       text-align: center;
       margin-bottom: 3rem;
-      background: var(--gradient);
+      background: linear-gradient(90deg, var(--accent), #ff6b35);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -218,41 +256,77 @@
       box-shadow: 0 20px 40px rgba(245,197,24,0.15);
     }
 
-    /* Mobile */
+    /* Team Section */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .team-member {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .team-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--accent), #ff6b35);
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid #2a2a2a;
+      color: var(--muted);
+    }
+
+    /* Mobile Responsive */
     @media (max-width: 768px) {
+      .desktop-menu {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+      }
+
       .nav {
-        flex-direction: column;
-        gap: 1rem;
         padding: 1rem;
       }
 
-      .nav-tabs {
-        order: 2;
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .nav-tab {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-      }
-
       .hero {
-        padding: 10rem 1rem 4rem;
+        padding: 8rem 1rem 6rem;
       }
 
-      .tagline {
-        font-size: 1.1rem;
+      .floating-buttons {
+        bottom: 1.5rem;
+        right: 1.5rem;
       }
 
-      .action-item {
-        font-size: 1.2rem;
-        padding: 0 2rem;
+      .fab {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
       }
     }
 
-    /* Smooth scroll */
+    /* Desktop */
+    @media (min-width: 769px) {
+      .mobile-menu-toggle,
+      .mobile-menu {
+        display: none !important;
+      }
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -267,17 +341,43 @@
         <img src="images/logo.png" alt="Alpha Films Logo">
         <span>ALPHA FILMS</span>
       </div>
-      <div class="nav-tabs">
-        <div class="nav-tab active" onclick="showSection('hero')">Home</div>
-        <div class="nav-tab" onclick="showSection('services')">Services</div>
-        <div class="nav-tab" onclick="showSection('portfolio')">Portfolio</div>
-        <div class="nav-tab" onclick="showSection('contact')">Contact</div>
+      
+      <!-- Desktop Menu -->
+      <div class="desktop-menu">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#team" class="nav-link">Team</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </div>
-      <a class="whatsapp-btn" href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%0AI%20want%20to%20book%20your%20studio%2Fvideo%20production%20services.%0AWhat's%20next%3F" target="_blank">
-        Book on WhatsApp
-      </a>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero" class="mobile-nav-link" onclick="toggleMobileMenu()">Home</a>
+        <a href="#services" class="mobile-nav-link" onclick="toggleMobileMenu()">Services</a>
+        <a href="#portfolio" class="mobile-nav-link" onclick="toggleMobileMenu()">Portfolio</a>
+        <a href="#team" class="mobile-nav-link" onclick="toggleMobileMenu()">Team</a>
+        <a href="#contact" class="mobile-nav-link" onclick="toggleMobileMenu()">Contact</a>
+      </div>
     </nav>
   </header>
+
+  <!-- Floating Action Buttons -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%0AI%20want%20to%20book%20your%20studio%2Fvideo%20production%20services.%0AWhat's%20next%3F" 
+       class="fab whatsapp" target="_blank" title="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://instagram.com/alphafilmsofficial" 
+       class="fab instagram" target="_blank" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
 
   <!-- Hero -->
   <section id="hero" class="hero">
@@ -333,7 +433,42 @@
     </div>
   </section>
 
-  <!-- Portfolio (placeholder - add your actual work) -->
+  <!-- Team -->
+  <section id="team">
+    <h2>Our Team</h2>
+    <div class="team-grid">
+      <div class="team-member card">
+        <div class="team-avatar">
+          <i class="fas fa-video"></i>
+        </div>
+        <h3>Director</h3>
+        <p>Visionary storyteller with 5+ years crafting cinematic experiences</p>
+      </div>
+      <div class="team-member card">
+        <div class="team-avatar">
+          <i class="fas fa-camera"></i>
+        </div>
+        <h3>Cinematographer</h3>
+        <p>Master of light and shadow, capturing emotion frame by frame</p>
+      </div>
+      <div class="team-member card">
+        <div class="team-avatar">
+          <i class="fas fa-cut"></i>
+        </div>
+        <h3>Editor</h3>
+        <p>Transforming raw footage into compelling narratives</p>
+      </div>
+      <div class="team-member card">
+        <div class="team-avatar">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>Producer</h3>
+        <p>Making creative visions reality, on time and on budget</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
   <section id="portfolio">
     <h2>Featured Work</h2>
     <div class="grid">
@@ -349,49 +484,37 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer id="contact" style="padding: 3rem 2rem; text-align: center; border-top: 1px solid #2a2a2a; color: var(--muted);">
+  <!-- Contact -->
+  <footer id="contact">
     <div style="max-width: 600px; margin: 0 auto;">
-      <h3 style="color: var(--fg); margin-bottom: 1rem;">Ready to create?</h3>
-      <p>📍 Delhi, India | 📱 +91 85870 90302 | 📧 alphafilmsofficial@gmail.com</p>
-      <p style="margin-top: 1rem; opacity: 0.7;">© 2026 Alpha Films. All rights reserved.</p>
+      <h2 style="color: var(--fg); margin-bottom: 1rem;">Ready to create?</h2>
+      <p style="font-size: 1.1rem;">📍 Delhi, India | 📱 +91 85870 90302 | 📧 alphafilmsofficial@gmail.com</p>
+      <p style="margin-top: 2rem; opacity: 0.7;">© 2026 Alpha Films. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    // Dynamic year
-    document.getElementById('year') ? document.getElementById('year').textContent = new Date().getFullYear() : null;
-
-    // Smooth scroll to sections
-    function showSection(sectionId) {
-      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-      
-      // Update active tab
-      document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-      event.target.classList.add('active');
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
     }
 
-    // WhatsApp pre-filled message opens correctly
-    document.querySelector('.whatsapp-btn').addEventListener('click', function(e) {
-      e.preventDefault();
-      window.open(this.href, '_blank');
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      if (!toggle.contains(event.target) && !menu.contains(event.target)) {
+        menu.classList.remove('active');
+      }
     });
 
-    // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
+    // Smooth scroll for desktop links
+    document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
       });
-    });
-
-    document.querySelectorAll('section').forEach(section => {
-      section.style.opacity = '0';
-      section.style.transform = 'translateY(30px)';
-      section.style.transition = 'all 0.6s ease';
-      observer.observe(section);
     });
   </script>
 </body>
