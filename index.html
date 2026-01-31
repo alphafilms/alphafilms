@@ -73,23 +73,27 @@
     }
 
     /* Desktop Menu */
-    .desktop-menu {
-      display: flex;
-      gap: 2rem;
-    }
+  .desktop-menu {
+    display: flex;
+    gap: 2rem;
+  }
 
-    .nav-link {
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
-    }
+  .nav-link {
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    color: white !important;  /* Pure white */
+    text-decoration: none !important;  /* No underline */
+  }
 
-    .nav-link:hover {
-      background: rgba(245,197,24,0.1);
-      color: var(--accent);
-    }
+  .nav-link:hover {
+    background: rgba(245,197,24,0.1);
+    color: var(--accent) !important;  /* Gold on hover */
+    text-decoration: none !important;
+  }
+
 
     /* Mobile Menu */
     .mobile-menu-toggle {
@@ -122,6 +126,8 @@
       padding: 1rem 2rem;
       border-bottom: 1px solid #1a1a1a;
       font-size: 1.1rem;
+      color: white !important;
+      text-decoration: none !important;
     }
 
     /* Floating Action Buttons */
