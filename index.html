@@ -56,8 +56,19 @@
       align-items: center;
     }
 
-    .nav h1 {
-      font-size: 20px;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .logo span {
+      font-size: 18px;
       font-weight: 700;
       letter-spacing: 1px;
     }
@@ -144,6 +155,10 @@
       .hero h2 {
         font-size: 32px;
       }
+
+      .logo img {
+        height: 30px;
+      }
     }
   </style>
 </head>
@@ -152,7 +167,10 @@
   <!-- NAV -->
   <header>
     <div class="nav">
-      <h1>ALPHA FILMS</h1>
+      <div class="logo">
+        <img src="images/logo.png" alt="Alpha Films Logo">
+        <span>ALPHA FILMS</span>
+      </div>
       <a class="button" href="https://wa.me/91XXXXXXXXXX" target="_blank">Book on WhatsApp</a>
     </div>
   </header>
@@ -162,7 +180,7 @@
     <div class="container hero-content">
       <h2>Cinematic Film & Video Production in Delhi</h2>
       <p>
-        Alpha Films is a full‑service production studio offering video production, photo shoots, studio rental, editing, and social media content for brands, creators, and businesses.
+        Alpha Films is a full-service production studio offering video production, photo shoots, studio rental, editing, and social media content for brands, creators, and businesses.
       </p>
       <a class="cta" href="#services">Explore Services</a>
     </div>
@@ -176,7 +194,7 @@
 
         <div class="card">
           <h3>Video Production</h3>
-          <p>End‑to‑end production from concept to final cinematic edit.</p>
+          <p>End-to-end production from concept to final cinematic edit.</p>
         </div>
 
         <div class="card">
@@ -196,7 +214,7 @@
 
         <div class="card">
           <h3>Editing & Reels</h3>
-          <p>High‑impact edits for reels, ads, courses, and social media.</p>
+          <p>High-impact edits for reels, ads, courses, and social media.</p>
         </div>
 
         <div class="card">
