@@ -28,7 +28,7 @@
       --bg-soft: #f8f9fa;      /* Cards */
       --fg: #1a1a1a;           /* Text */
       --muted: #6c757d;        /* Subtext */
-      --accent: #b29b76;       /* Gold */
+      --accent: #ffffff;       /* Gold */
       --accent-soft: #e8e2d3;  /* Gold hover */
       --border: #e9ecef;       /* Borders */
       --whatsapp: #25D366;
@@ -202,6 +202,46 @@
       padding: 9rem 2rem 6rem;
       position: relative;
       overflow: hidden;
+    }
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      gap: 4rem;
+    }
+
+    .hero-logo {
+      flex: 0 0 200px;
+      text-align: center;
+    }
+
+    .hero-logo img {
+      height: 180px;
+      width: auto;
+    }
+
+    .hero-text {
+      flex: 1;
+      text-align: center;
+      max-width: 650px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        flex-direction: column;
+        gap: 2rem;
+      }
+  
+      .hero-logo {
+        flex: none;
+      }
+  
+      .hero-logo img {
+        height: 120px;
+      }
     }
 
     .tagline {
@@ -460,15 +500,26 @@
         <div class="action-item">*LIGHTS | CAMERA | ACTION*</div>
         <div class="action-item">*LIGHTS | CAMERA | ACTION*</div>
         <div class="action-item">*LIGHTS | CAMERA | ACTION*</div>
+        <div class="action-item">*LIGHTS | CAMERA | ACTION*</div>
+        <div class="action-item">*LIGHTS | CAMERA | ACTION*</div>
+        <div class="action-item">*LIGHTS | CAMERA | ACTION*</div>
       </div>
     </div>
-    <div>
-      <div class="tagline">Frame by frame. Feeling by feeling.</div>
-      <div class="hero-subtitle">
-        Alpha Films is a one-stop film and video production company offering end-to-end production solutions.
-        From concept development and pre-production to filming, post-production, and final delivery,
-        we create high-quality films, commercials, and digital content that stand out.
+    <div class="hero-content">
+      <!-- Left: Logo -->
+      <div class="hero-logo">
+        <img src="images/logo.png" alt="Alpha Films Logo">
+      </div>
+    
+      <!-- Right: Text (center-aligned within right side) -->
+      <div class="hero-text">
+        <div class="tagline">Frame by frame. Feeling by feeling.</div>
+        <div class="hero-subtitle">
+        Alpha Films is a one-stop film and video production company offering end-to-end production solutions. 
+        From concept development and pre-production to filming, post-production, and final delivery, 
+        we create high-quality films, commercials, and digital content that stand out. 
         Our experienced team combines creativity, technical excellence, and storytelling to elevate your brand's visual narrative.
+        </div>
       </div>
     </div>
   </section>
