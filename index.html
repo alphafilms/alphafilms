@@ -24,16 +24,17 @@
 
   <style>
     :root {
-      --bg: #f6f1e9;          /* light beige / LVMH style */
-      --bg-soft: #fdf9f2;
-      --fg: #222222;
-      --muted: #666666;
-      --accent: #b29b76;      /* champagne gold */
-      --accent-soft: #e1d3b8;
-      --border: #e0d4c5;
+      --bg: #ffffff;           /* Main background */
+      --bg-soft: #f8f9fa;      /* Cards */
+      --fg: #1a1a1a;           /* Text */
+      --muted: #6c757d;        /* Subtext */
+      --accent: #b29b76;       /* Gold */
+      --accent-soft: #e8e2d3;  /* Gold hover */
+      --border: #e9ecef;       /* Borders */
       --whatsapp: #25D366;
       --instagram: #E4405F;
     }
+
 
     * {
       margin: 0;
@@ -562,28 +563,33 @@
         <div class="news-meta">JAN 2026 · DELHI</div>
         <div class="news-title">Alpha Films at Digital Media Summit</div>
         <p>Sharing insights on cinematic storytelling, short-form content, and building a studio brand in Delhi NCR.</p>
-        <a href="news.html" class="news-link">Know more →</a>
       </div>
       <div class="card">
         <div class="news-meta">DEC 2025 · MUMBAI</div>
         <div class="news-title">Commercial Shoot for Emerging D2C Brand</div>
         <p>End-to-end production for a new product launch, from concept boards to final TVC master.</p>
-        <a href="news.html" class="news-link">Know more →</a>
       </div>
       <div class="card">
         <div class="news-meta">NOV 2025 · ONLINE</div>
         <div class="news-title">Workshop: Creating High-Impact Reels</div>
         <p>Live session for creators on lighting, framing, and editing workflows for social platforms.</p>
-        <a href="news.html" class="news-link">Know more →</a>
       </div>
+      <a href="news.html" class="news-link">Know more →</a>
     </div>
   </section>
 
   <!-- Contact -->
   <footer id="contact">
     <div style="max-width: 600px; margin: 0 auto;">
-      <h2 style="color:#222;margin-bottom:1rem;font-size:1.6rem;letter-spacing:0.12em;text-transform:uppercase;">Ready to create?</h2>
-      <p style="font-size:1.05rem;">📍 Delhi, India | 📱 +91 85870 90302 | 📧 alphafilmsofficial@gmail.com</p>
+      <h2 style="color:var(--fg);margin-bottom:1rem;">Ready to create?</h2>
+      <p style="font-size:1.05rem;margin-bottom:1rem;">
+      📍 Delhi, India | 📱 +91 85870 90302 | 📧 alphafilmsofficial@gmail.com
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="https://instagram.com/alphafilmsofficial" target="_blank" style="color:var(--instagram);font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/alphafilms" target="_blank" style="color:#0077B5;font-size:1.2rem;"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/918587090302" target="_blank" style="color:var(--whatsapp);font-size:1.2rem;"><i class="fab fa-whatsapp"></i></a>
+      </div>
       <p style="margin-top:2rem;opacity:0.7;">© 2026 Alpha Films. All rights reserved.</p>
     </div>
   </footer>
