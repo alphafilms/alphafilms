@@ -24,17 +24,16 @@
 
   <style>
     :root {
-      --bg: #ffffff;           /* Main background */
-      --bg-soft: #f8f9fa;      /* Cards */
-      --fg: #1a1a1a;           /* Text */
-      --muted: #6c757d;        /* Subtext */
-      --accent: #ffffff;       /* Gold */
-      --accent-soft: #e8e2d3;  /* Gold hover */
-      --border: #e9ecef;       /* Borders */
+      --bg: #ffffff;           /* Pure white background */
+      --bg-soft: #f8f8f8;      /* Very light gray for cards */
+      --fg: #1a1a1a;           /* Dark black text */
+      --muted: #666666;        /* Medium gray subtext */
+      --accent: #000000;       /* Black for accents */
+      --accent-soft: #333333;  /* Dark gray hover */
+      --border: #e0e0e0;       /* Light gray borders */
       --whatsapp: #25D366;
       --instagram: #E4405F;
     }
-
 
     * {
       margin: 0;
@@ -61,7 +60,7 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(246,241,233,0.95);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
@@ -82,12 +81,13 @@
       font-size: 1.4rem;
       font-weight: 700;
       letter-spacing: 0.12em;
+      color: var(--fg);
     }
 
     .logo img {
       height: 2.2rem;
       width: auto;
-      filter: none;            /* no yellow glow */
+      filter: none;
     }
 
     /* Desktop Menu */
@@ -139,7 +139,7 @@
       top: 100%;
       left: 0;
       width: 100%;
-      background: rgba(246,241,233,0.98);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(18px);
       flex-direction: column;
       border-top: 1px solid var(--border);
@@ -202,7 +202,9 @@
       padding: 9rem 2rem 6rem;
       position: relative;
       overflow: hidden;
+      background: var(--bg);
     }
+
     .hero-content {
       display: flex;
       align-items: center;
@@ -249,9 +251,9 @@
       font-weight: 600;
       margin-bottom: 1.5rem;
       letter-spacing: 0.06em;
+      color: var(--fg);
     }
 
-    /* phone: break tagline into 2 lines */
     @media (max-width: 768px) {
       .tagline {
         font-size: 1.9rem;
@@ -275,7 +277,7 @@
       left: 0;
       width: 100%;
       height: 60px;
-      background: linear-gradient(180deg, rgba(246,241,233,0.7), rgba(246,241,233,1));
+      background: rgba(248, 248, 248, 0.9);
       overflow: hidden;
       border-top: 1px solid var(--border);
     }
@@ -305,6 +307,7 @@
       padding: 5rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
+      background: var(--bg);
     }
 
     h2.section-title {
@@ -313,7 +316,7 @@
       margin-bottom: 2.5rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #333;
+      color: var(--fg);
     }
 
     .grid {
@@ -328,6 +331,7 @@
       border-radius: 18px;
       border: 1px solid var(--border);
       transition: all 0.35s ease;
+      color: var(--fg);
     }
 
     .card:hover {
@@ -346,6 +350,7 @@
     .team-member {
       text-align: center;
       padding: 2rem;
+      color: var(--fg);
     }
 
     .team-avatar {
@@ -353,7 +358,7 @@
       height: 110px;
       border-radius: 50%;
       border: 2px solid var(--accent-soft);
-      background: #fff;
+      background: var(--bg);
       margin: 0 auto 1rem;
       display: flex;
       align-items: center;
@@ -381,6 +386,7 @@
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
+      color: var(--fg);
     }
 
     .news-link {
@@ -402,7 +408,7 @@
       text-align: center;
       border-top: 1px solid var(--border);
       color: var(--muted);
-      background: #f9f4eb;
+      background: var(--bg);
     }
 
     /* Mobile Responsive */
@@ -633,15 +639,15 @@
   <footer id="contact">
     <div style="max-width: 600px; margin: 0 auto;">
       <h2 style="color:var(--fg);margin-bottom:1rem;">Ready to create?</h2>
-      <p style="font-size:1.05rem;margin-bottom:1rem;">
-      📍 Delhi, India | 📱 +91 85870 90302 | 📧 alphafilmsofficial@gmail.com
+      <p style="font-size:1.05rem;margin-bottom:1rem;color:var(--muted);">
+      📍 Delhi, India | 📱 +91 85870 90302 | 📧 <a href="mailto:alphafilmsofficial@gmail.com" style="color:var(--fg);">alphafilmsofficial@gmail.com</a>
       </p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
         <a href="https://instagram.com/alphafilmsofficial" target="_blank" style="color:var(--instagram);font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
         <a href="https://www.linkedin.com/company/alphafilms" target="_blank" style="color:#0077B5;font-size:1.2rem;"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://wa.me/918587090302" target="_blank" style="color:var(--whatsapp);font-size:1.2rem;"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <p style="margin-top:2rem;opacity:0.7;">© 2026 Alpha Films. All rights reserved.</p>
+      <p style="margin-top:2rem;opacity:0.7;color:var(--muted);">© 2026 Alpha Films. All rights reserved.</p>
     </div>
   </footer>
 
