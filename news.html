@@ -19,12 +19,15 @@
 
   <style>
     :root {
-      --bg: #f6f1e9;
-      --bg-soft: #fdf9f2;
-      --fg: #222222;
-      --muted: #666666;
-      --accent: #b29b76;
-      --border: #e0d4c5;
+      --bg: #ffffff;           /* Pure white background */
+      --bg-soft: #f8f8f8;      /* Very light gray for cards */
+      --fg: #1a1a1a;           /* Dark black text */
+      --muted: #666666;        /* Medium gray subtext */
+      --accent: #000000;       /* Black for accents */
+      --accent-soft: #333333;  /* Dark gray hover */
+      --border: #e0e0e0;       /* Light gray borders */
+      --whatsapp: #25D366;
+      --instagram: #E4405F;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -39,7 +42,7 @@
     header {
       padding: 1.5rem 2rem;
       border-bottom: 1px solid var(--border);
-      background: rgba(246,241,233,0.98);
+      background: rgba(255,255,255,0.98);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -54,16 +57,23 @@
       gap: 1rem;
     }
 
-    .top-bar a {
-      text-decoration: none;
-      color: var(--fg);
+    .logo-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
-    .brand {
+    .logo-brand img {
+      height: 2rem;
+      width: auto;
+    }
+
+    .brand-text {
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      color: var(--fg);
     }
 
     .back-link {
@@ -71,6 +81,7 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--accent);
+      text-decoration: none;
     }
 
     main {
@@ -84,11 +95,13 @@
       margin-bottom: 1rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      color: var(--fg);
     }
 
     .intro {
       color: var(--muted);
       margin-bottom: 2.5rem;
+      font-size: 1.05rem;
     }
 
     .news-list {
@@ -101,7 +114,14 @@
       background: var(--bg-soft);
       border-radius: 16px;
       border: 1px solid var(--border);
-      padding: 1.5rem 1.75rem;
+      padding: 1.75rem 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .news-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      border-color: var(--accent-soft);
     }
 
     .news-meta {
@@ -109,18 +129,20 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--muted);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.75rem;
     }
 
     .news-title {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--fg);
     }
 
     .news-body {
-      font-size: 0.98rem;
-      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--fg);
     }
 
     .news-tags {
@@ -129,17 +151,35 @@
     }
 
     @media (max-width: 768px) {
-      header, main { padding-left: 1.25rem; padding-right: 1.25rem; }
+      header, main { 
+        padding-left: 1.25rem; 
+        padding-right: 1.25rem; 
+      }
+      
+      .logo-brand img {
+        height: 1.6rem;
+      }
+      
+      .brand-text {
+        font-size: 0.9rem;
+      }
+      
+      h1 {
+        font-size: 1.7rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-      <div class="top-bar">
-        <a href="/" class="brand">ALPHA FILMS</a>  <!-- Changed to / -->
-        <a href="index.html#news" class="back-link">Home</a>
-      </div>
-    </header>
+    <div class="top-bar">
+      <a href="/" class="logo-brand">
+        <img src="images/logo.png" alt="Alpha Films Logo">
+        <span class="brand-text">ALPHA FILMS</span>
+      </a>
+      <a href="index.html#news" class="back-link">← Back to Home</a>
+    </div>
+  </header>
 
   <main>
     <h1>News & Updates</h1>
@@ -173,8 +213,6 @@
         </p>
         <p class="news-tags">Tags: Workshop, Reels, Creators</p>
       </div>
-
-      <!-- Add more news blocks here over time -->
     </div>
   </main>
 </body>
