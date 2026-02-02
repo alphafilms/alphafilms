@@ -202,9 +202,8 @@
       padding: 9rem 2rem 6rem;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(248,248,248,0.05) 100%);
+  /* Very light overlay - image now VISIBLE */ 
     }
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
@@ -212,16 +211,20 @@
   100% { background-position: 0% 50%; }
 }
     .hero::before {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 9rem 2rem 6rem;
-      position: relative;
-      overflow: hidden;
-      background: var(--bg);  /* Pure white again */
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('images/studio-bg.JPG');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      /* MUCH lighter treatment */
+      filter: blur(4px) brightness(0.85) contrast(1.1);
+      opacity: 0.7;
+      z-index: -1;
     }
 
     .hero-content {
