@@ -18,6 +18,23 @@
    ✅ Main page: Top of "Latest 5"
    ✅ Portfolio: Full list
 
+
+🎯 HOW TO ADD NEWS (30 seconds):
+javascript
+{
+  id: 6,                    // Next number
+  title: "Your New Title",  // News headline
+  category: "projects",     // studio/projects/events/workshops
+  date: "2026-03-01",       // YYYY-MM-DD
+  excerpt: "Your text...",  // 1-2 sentences
+  linkText: "Action",       // CTA text
+  linkUrl: "internal-link"  // index.html#section or portfolio.html
+}
+
+
+
+
+
 Here are some ideas to get you started:
 
 - 🔭 I’m currently working on ...
