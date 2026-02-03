@@ -511,6 +511,34 @@
   opacity: 1;
   transform: translateY(0);
 }
+/* More Work Button */
+.work-cta-section {
+  text-align: center;
+  margin: 3rem 0 1rem;
+}
+
+.more-work-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.more-work-btn:hover {
+  background: var(--accent-soft);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  color: white;
+  text-decoration: none;
+}
 
 /* Mobile */
 @media (max-width: 768px) {
@@ -811,51 +839,13 @@
   </div>
 
   <!-- YOUR ORIGINAL 4-BLOCK GRID (unchanged structure) -->
-  <div class="work-grid">
-    <!-- Item 1 -->
-    <a href="https://www.youtube.com/watch?v=kwVuPcAiNjY" target="_blank" class="work-item">
-      <div class="work-thumb">
-        <img src="images/nightshift.jpg" alt="Night Shift">
-        <div class="work-overlay">
-          <span class="work-tag">Short Film</span>
-          <span class="work-title">Night Shift</span>
-          <span class="work-cta">Watch on YouTube ↗</span>
-        </div>
-      </div>
-    </a>
-
-    <!-- Item 2 -->
-    <a href="https://www.youtube.com/watch?v=vQYMIPsxp4c" target="_blank" class="work-item">
-      <div class="work-thumb">
-        <img src="images/intothesea.jpg" alt="Into the Sea">
-        <div class="work-overlay">
-          <span class="work-tag">Cinematic Short</span>
-          <span class="work-title">Into the Sea</span>
-          <span class="work-cta">Watch on YouTube ↗</span>
-        </div>
-      </div>
-    </a>
-
-    <!-- Item 3 -->
-    <a href="https://www.youtube.com/watch?v=VB-Ql4tNCZI" target="_blank" class="work-item">
-      <div class="work-thumb">
-        <img src="images/goan.jpg" alt="Goan Classic 350">
-        <div class="work-overlay">
-          <span class="work-tag">Motorcycle Film</span>
-          <span class="work-title">Goan Classic 350</span>
-          <span class="work-cta">Watch on YouTube ↗</span>
-        </div>
-      </div>
-    </a>
-
-    <!-- Item 4 -->
-      <div class="work-thumb">
-        <img src="images/bnd.jpg" alt="BND Motorsport Event">
-        <div class="work-overlay">
-          <span class="work-tag">BND Motorsport Event</span>
-        </div>
-      </div>
-    </a>
+  <div class="work-grid" id="featured-grid">
+    <!-- Latest 5 will load automatically -->
+  </div>
+  <div class="work-cta-section">
+  <a href="portfolio.html" class="more-work-btn">
+    More Featured Work →
+  </a>
   </div>
 </section>
 
@@ -960,5 +950,44 @@
       });
     });
   </script>
+<script>
+// SAME PROJECT ARRAY (shared data)
+const allProjects = [
+  // Copy EXACT SAME ARRAY from portfolio.html
+  // When you add new project here, it appears EVERYWHERE
+];
+
+function renderLatest5() {
+  const container = document.getElementById('featured-grid');
+  if (!container) return;
+  
+  container.innerHTML = ''; // Clear
+  
+  // Show only latest 5 (reverse order = newest first)
+  const latest5 = allProjects.slice(0, 5);
+  
+  latest5.forEach(project => {
+    const item = document.createElement('a');
+    item.href = project.url;
+    item.target = '_blank';
+    item.className = 'work-item';
+    item.innerHTML = `
+      <div class="work-thumb">
+        <img src="${project.image}" alt="${project.title}">
+        <div class="work-overlay">
+          <span class="work-tag">${project.tag}</span>
+          <span class="work-title">${project.title}</span>
+          <span class="work-cta">Watch on YouTube ↗</span>
+        </div>
+      </div>
+    `;
+    container.appendChild(item);
+  });
+}
+
+// Run on page load
+renderLatest5();
+</script>
+
 </body>
 </html>
