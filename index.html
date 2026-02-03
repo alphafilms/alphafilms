@@ -364,6 +364,78 @@
       box-shadow: 0 16px 35px rgba(0,0,0,0.08);
       border-color: var(--accent-soft);
     }
+    /* Featured Work collage */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .work-item {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .work-thumb {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: #000;
+      aspect-ratio: 16 / 9;
+    }
+
+    .work-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .work-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.1rem 1.3rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.05));
+      color: #ffffff;
+      gap: 0.2rem;
+    }
+
+    .work-tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .work-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .work-cta {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all 0.25s ease;
+    }
+
+    /* Hover effects */
+    .work-thumb:hover img {
+      transform: scale(1.06);
+    }
+
+    .work-thumb:hover .work-cta {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* Team Section */
     .team-grid {
@@ -377,7 +449,7 @@
       padding: 2rem;
       color: var(--fg);
     }
-
+    
     .team-avatar {
       width: 110px;
       height: 110px;
@@ -596,16 +668,55 @@
   <!-- Featured Work -->
   <section id="portfolio">
     <h2 class="section-title">Featured Work</h2>
-    <div class="grid">
-      <div class="card" style="aspect-ratio: 16/9; display:flex;align-items:center;justify-content:center;">
-        <span style="font-size:1.4rem;font-weight:600;">TVC Campaign<br>Client: Brand X</span>
-      </div>
-      <div class="card" style="aspect-ratio: 16/9; display:flex;align-items:center;justify-content:center;">
-        <span style="font-size:1.4rem;font-weight:600;">Music Video<br>Artist: XYZ</span>
-      </div>
-      <div class="card" style="aspect-ratio: 16/9; display:flex;align-items:center;justify-content:center;">
-        <span style="font-size:1.4rem;font-weight:600;">Product Shoot<br>Delhi Brands</span>
-      </div>
+
+    <div class="work-grid">
+      <!-- Item 1 -->
+      <a href="https://www.youtube.com/watch?v=AhzQTAfnsCs" target="_blank" class="work-item">
+        <div class="work-thumb">
+          <img src="images/broken.jpg" alt="Broken Reflections">
+          <div class="work-overlay">
+            <span class="work-tag">Short Movie</span>
+            <span class="work-title">Broken Reflections</span>
+            <span class="work-cta">Watch on YouTube ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Item 2 -->
+      <a href="https://www.youtube.com/watch?v=kwVuPcAiNjY" target="_blank" class="work-item">
+        <div class="work-thumb">
+          <img src="images/nightshift.jpg" alt="Night Shift">
+          <div class="work-overlay">
+            <span class="work-tag">Short Movie</span>
+            <span class="work-title">Night Shift</span>
+            <span class="work-cta">Watch on YouTube ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Item 3 -->
+      <a href="https://www.youtube.com/watch?v=vQYMIPsxp4c" target="_blank" class="work-item">
+        <div class="work-thumb">
+          <img src="images/intothesea.jpg" alt="Into the sea">
+          <div class="work-overlay">
+            <span class="work-tag">Short Movie</span>
+            <span class="work-title">Into the sea</span>
+            <span class="work-cta">Watch on YouTube ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Item 4 (optional extra tile) -->
+      <a href="https://www.youtube.com/watch?v=VB-Ql4tNCZI" target="_blank" class="work-item">
+        <div class="work-thumb">
+          <img src="images/goan.jpg" alt="Goan Classic 350">
+          <div class="work-overlay">
+            <span class="work-tag">Youtube Video</span>
+            <span class="work-title">Goan Classic 350</span>
+            <span class="work-cta">Watch on YouTube ↗</span>
+          </div>
+        </div>
+      </a>
     </div>
   </section>
 
