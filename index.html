@@ -364,109 +364,55 @@
       box-shadow: 0 16px 35px rgba(0,0,0,0.08);
       border-color: var(--accent-soft);
     }
-    /* FIXED Cinematic Collage - Clean & Professional */
-.collage-wrapper {
-  max-width: 1200px;
-  margin: 0 auto 3rem;
-  height: 80vh;
-  min-height: 650px;
-  position: relative;
+    /* Hero + 4 Blocks Layout */
+.portfolio-hero {
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  margin-bottom: 3rem;
   border-radius: 24px;
   overflow: hidden;
-  background: linear-gradient(135deg, #111 0%, #000 100%);
+  position: relative;
   box-shadow: 0 30px 90px rgba(0,0,0,0.4);
 }
 
-.collage-hero {
-  position: absolute;
-  top: 8%;
-  right: 4%;
-  width: 52%;
-  height: 75%;
-  z-index: 10;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 25px 70px rgba(0,0,0,0.6);
-}
-
-.collage-hero img {
+.hero-item {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: all 0.4s ease;
-}
-
-/* Photo Rows */
-.photo-row {
-  position: absolute;
-  display: flex;
-  gap: 1.5rem;
-  width: 100%;
-  height: 100%;
-}
-
-.top-row {
-  top: 0;
-  left: 2%;
-  align-items: flex-start;
-  padding-top: 12%;
-}
-
-.bottom-row {
-  bottom: 0;
-  right: 2%;
-  align-items: flex-end;
-  padding-bottom: 12%;
-}
-
-/* Individual Photos */
-.photo-item {
-  flex: 0 0 22%;
-  height: 36%;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 15px 45px rgba(0,0,0,0.4);
-  transition: all 0.4s ease;
+  display: block;
   position: relative;
 }
 
-.photo-left-top { transform: rotate(-1deg); }
-.photo-right-top { transform: rotate(1deg); margin-left: auto; }
-.photo-left-bottom { transform: rotate(-2deg); }
-.photo-right-bottom { transform: rotate(2deg); margin-right: auto; }
-
-.photo-item img {
+.hero-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: all 0.4s ease;
 }
 
-/* Overlay */
-.collage-overlay {
+.hero-overlay {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
-  background: rgba(0,0,0,0.9);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
   color: white;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  backdrop-filter: blur(10px);
+  padding: 3rem 2rem 2rem;
 }
 
-.collage-tag {
-  display: block;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
+.hero-overlay .collage-tag {
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   opacity: 0.9;
-  margin-bottom: 0.2rem;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
-.collage-title {
-  font-weight: 600;
-  font-size: 0.95rem;
+.hero-overlay .collage-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .play-icon {
@@ -474,57 +420,109 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3.8rem;
+  font-size: 6rem;
   color: rgba(255,255,255,0.95);
-  text-shadow: 0 3px 12px rgba(0,0,0,0.7);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
-/* Hovers */
-.collage-hero:hover img,
-.photo-item:hover img {
-  transform: scale(1.04);
+/* 4 Blocks Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+.grid-item {
+  display: block;
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 280px;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+  transition: all 0.4s ease;
+}
+
+.grid-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  color: white;
+  padding: 1.5rem 1.5rem 1.2rem;
+}
+
+.grid-overlay .collage-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.9;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.grid-overlay .collage-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Hover Effects */
+.hero-item:hover img {
+  transform: scale(1.05);
   filter: brightness(1.1);
 }
 
-.collage-hero:hover .play-icon {
+.hero-item:hover .play-icon {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1.1);
 }
 
-.photo-item:hover {
-  transform: translateY(-5px) scale(1.02) rotate(0deg) !important;
-}
-
-.photo-item:hover .collage-overlay {
-  background: rgba(0,0,0,1);
-}
-
-/* Mobile */
+/* Mobile Responsive */
 @media (max-width: 768px) {
-  .collage-wrapper {
-    height: 70vh;
-    min-height: 500px;
+  .portfolio-hero {
+    height: 60vh;
+    min-height: 400px;
+    margin-bottom: 2rem;
     border-radius: 18px;
   }
   
-  .collage-hero {
-    width: 65%;
-    height: 68%;
-    right: 1%;
-    top: 10%;
+  .hero-overlay {
+    padding: 2rem 1.5rem 1.5rem;
   }
   
-  .photo-row {
-    gap: 1rem;
+  .hero-overlay .collage-title {
+    font-size: 1.8rem;
   }
   
-  .photo-item {
-    flex: 0 0 28%;
-    height: 40%;
+  .play-icon {
+    font-size: 4rem;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .grid-item {
+    height: 250px;
   }
 }
+
 
     /* Team Section */
     .team-grid {
