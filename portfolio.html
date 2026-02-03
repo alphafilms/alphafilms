@@ -317,7 +317,7 @@
   <!-- Navigation - EXACT SAME AS INDEX.HTML -->
   <header>
     <nav class="nav">
-      <div class="logo">
+      <div class="logo" onclick="goHome()">
         <img src="images/logo.png" alt="Alpha Films Logo">
         <span>ALPHA FILMS</span>
       </div>
@@ -446,6 +446,11 @@
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('active');
     }
+  </script>
+  <script>
+  function goHome() {
+    window.location.href = 'index.html';
+  }
   </script>
 </body>
 </html>
