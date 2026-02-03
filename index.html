@@ -254,9 +254,9 @@
       </a>
     </div>
 
-    <!-- Latest 5 Projects -->
+    <!-- Latest 4 Projects -->
     <div class="work-grid" id="featured-grid">
-      <!-- Automated - Latest 5 projects -->
+      <!-- Automated - Latest 4 projects -->
     </div>
 
     <!-- More Work Button -->
@@ -321,7 +321,7 @@
 
   <!-- COMPLETE AUTOMATION SCRIPTS -->
   <script>
-    // 1. PROJECTS ARRAY (Latest 5 on homepage, all on portfolio.html)
+    // 1. PROJECTS ARRAY (Latest 4 on homepage, all on portfolio.html)
     const allProjects = [
       {
         title: "Night Shift",
@@ -342,17 +342,10 @@
         url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI"
       },
       {
-        title: "Brand Commercial 1",
-        tag: "TVC Campaign",
-        image: "images/project4.jpg",
-        url: "https://youtube.com/..."
+        title: "BND Motorsport Event",
+        tag: "Race Event",
+        image: "images/bnd.jpg",
       },
-      {
-        title: "Music Video",
-        tag: "Music Video",
-        image: "images/project5.jpg", 
-        url: "https://youtube.com/..."
-      }
       // ADD NEW PROJECTS AT TOP ↑
     ];
 
@@ -395,15 +388,15 @@
       return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' }).replace(' ', ' ');
     }
 
-    // Render Featured Work (Latest 5)
+    // Render Featured Work (Latest 4)
     function renderFeaturedWork() {
       const container = document.getElementById('featured-grid');
       if (!container) return;
       
       container.innerHTML = '';
-      const latest5 = allProjects.slice(0, 5);
+      const latest4 = allProjects.slice(0, 4);
       
-      latest5.forEach(project => {
+      latest4.forEach(project => {
         const item = document.createElement('a');
         item.href = project.url;
         item.target = '_blank';
