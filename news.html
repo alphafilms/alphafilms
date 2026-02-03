@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4NXETF7WV7"></script>
   <script>
       window.dataLayer = window.dataLayer || [];
@@ -12,208 +12,222 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>News & Updates | Alpha Films</title>
-  <meta name="description" content="News, seminars, and industry updates from Alpha Films." />
+  <title>News & Updates - Alpha Films</title>
+  <meta name="description" content="Latest news, updates, events, and announcements from Alpha Films. Studio openings, new projects, workshops, and industry insights." />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Futura:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <style>
+    /* EXACT SAME CSS as portfolio.html - COPY ALL */
     :root {
-      --bg: #ffffff;           /* Pure white background */
-      --bg-soft: #f8f8f8;      /* Very light gray for cards */
-      --fg: #1a1a1a;           /* Dark black text */
-      --muted: #666666;        /* Medium gray subtext */
-      --accent: #000000;       /* Black for accents */
-      --accent-soft: #333333;  /* Dark gray hover */
-      --border: #e0e0e0;       /* Light gray borders */
+      --bg: #ffffff;
+      --bg-soft: #f8f8f8;
+      --fg: #1a1a1a;
+      --muted: #666666;
+      --accent: #000000;
+      --accent-soft: #333333;
+      --border: #e0e0e0;
       --whatsapp: #25D366;
       --instagram: #E4405F;
     }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
-
-    body {
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
       font-family: 'Futura', sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
+      background: var(--bg); 
+      color: var(--fg); 
+      line-height: 1.6; 
+      overflow-x: hidden; 
     }
+    a { color: inherit; text-decoration: none; }
 
+    /* Navigation */
     header {
-      padding: 1.5rem 2rem;
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.98);
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
+    .nav { max-width: 1200px; margin: auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 0.75rem; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.12em; color: var(--fg); cursor: pointer; }
+    .logo img { height: 2.2rem; width: auto; }
+    .desktop-menu { display: flex; gap: 2rem; }
+    .nav-link { padding: 0.5rem 0; font-weight: 500; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg) !important; position: relative; }
+    .nav-link::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--accent); transition: width 0.2s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: var(--fg); cursor: pointer; }
+    .mobile-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(18px); flex-direction: column; border-top: 1px solid var(--border); }
+    .mobile-menu.active { display: flex; }
+    .mobile-nav-link { padding: 1rem 2rem; border-bottom: 1px solid var(--border); font-size: 1rem; color: var(--fg) !important; letter-spacing: 0.08em; text-transform: uppercase; }
 
-    .top-bar {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
+    /* Main Content */
+    main { padding: 9rem 2rem 6rem; min-height: calc(100vh - 200px); max-width: 1400px; margin: 0 auto; }
+    h1.section-title { font-size: 3.2rem; text-align: center; margin-bottom: 4rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fg); }
 
-    .logo-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+    /* News Cards */
+    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2.5rem; }
+    .news-card { background: var(--bg-soft); border-radius: 24px; padding: 2.5rem; border: 1px solid var(--border); transition: all 0.4s ease; position: relative; overflow: hidden; }
+    .news-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--instagram), var(--whatsapp), var(--accent)); }
+    .news-card:hover { transform: translateY(-12px); box-shadow: 0 35px 90px rgba(0,0,0,0.15); border-color: var(--accent-soft); }
+    .news-meta { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted); margin-bottom: 1rem; font-weight: 500; }
+    .news-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 1.2rem; color: var(--fg); line-height: 1.3; }
+    .news-excerpt { color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+    .news-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); transition: all 0.3s ease; }
+    .news-link:hover { color: var(--accent-soft); transform: translateX(4px); }
 
-    .logo-brand img {
-      height: 2rem;
-      width: auto;
-    }
+    /* Back Button */
+    .back-section { text-align: center; margin: 6rem 0 3rem; }
+    .back-btn { display: inline-block; background: transparent; color: var(--fg); padding: 1.2rem 3rem; border: 2px solid var(--accent); border-radius: 50px; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.3s ease; }
+    .back-btn:hover { background: var(--accent); color: white; transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
 
-    .brand-text {
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 0.95rem;
-      color: var(--fg);
-    }
-
-    .back-link {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 2rem 4rem;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--fg);
-    }
-
-    .intro {
-      color: var(--muted);
-      margin-bottom: 2.5rem;
-      font-size: 1.05rem;
-    }
-
-    .news-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .news-item {
-      background: var(--bg-soft);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      padding: 1.75rem 2rem;
-      transition: all 0.3s ease;
-    }
-
-    .news-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-      border-color: var(--accent-soft);
-    }
-
-    .news-meta {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .news-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      color: var(--fg);
-    }
-
-    .news-body {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      color: var(--fg);
-    }
-
-    .news-tags {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
+    /* Footer */
+    footer { padding: 3rem 2rem 2.5rem; text-align: center; border-top: 1px solid var(--border); color: var(--muted); background: var(--bg); }
+    
+    /* Mobile */
     @media (max-width: 768px) {
-      header, main { 
-        padding-left: 1.25rem; 
-        padding-right: 1.25rem; 
-      }
-      
-      .logo-brand img {
-        height: 1.6rem;
-      }
-      
-      .brand-text {
-        font-size: 0.9rem;
-      }
-      
-      h1 {
-        font-size: 1.7rem;
-      }
+      .desktop-menu { display: none; }
+      .mobile-menu-toggle { display: block; }
+      .nav { padding: 0.75rem 1rem; }
+      main { padding: 8rem 1.5rem 4rem; }
+      h1.section-title { font-size: 2.5rem; margin-bottom: 3rem; }
+      .news-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .news-card { padding: 2rem; border-radius: 18px; }
     }
+    @media (min-width: 769px) { .mobile-menu-toggle, .mobile-menu { display: none !important; } }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
+
+  <!-- Navigation -->
   <header>
-    <div class="top-bar">
-      <a href="/" class="logo-brand">
+    <nav class="nav" onclick="logoClick(event)">
+      <div class="logo" onclick="goHome()">
         <img src="images/logo.png" alt="Alpha Films Logo">
-        <span class="brand-text">ALPHA FILMS</span>
-      </a>
-      <a href="index.html#news" class="back-link">← Back to Home</a>
-    </div>
+        <span>ALPHA FILMS</span>
+      </div>
+
+      <div class="desktop-menu">
+        <a href="index.html#hero" class="nav-link">Home</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="index.html#portfolio" class="nav-link">Featured</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="news.html" class="nav-link active">News</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu(event)">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#hero" class="mobile-nav-link" onclick="toggleMobileMenu()">Home</a>
+        <a href="index.html#services" class="mobile-nav-link" onclick="toggleMobileMenu()">Services</a>
+        <a href="index.html#portfolio" class="mobile-nav-link" onclick="toggleMobileMenu()">Featured</a>
+        <a href="portfolio.html" class="mobile-nav-link" onclick="toggleMobileMenu()">Portfolio</a>
+        <a href="news.html" class="mobile-nav-link active" onclick="toggleMobileMenu()">News</a>
+        <a href="index.html#contact" class="mobile-nav-link" onclick="toggleMobileMenu()">Contact</a>
+      </div>
+    </nav>
   </header>
 
+  <!-- News Content -->
   <main>
-    <h1>News & Updates</h1>
-    <p class="intro">Seminars, shoots, and industry updates from the Alpha Films team.</p>
-
-    <div class="news-list">
-      <div class="news-item">
-        <div class="news-meta">JAN 2026 · DELHI</div>
-        <div class="news-title">Alpha Films at Digital Media Summit</div>
-        <p class="news-body">
-          Invited as a speaker on the future of cinematic storytelling, short-form content, and building a modern studio brand in Delhi NCR.
-          We showcased case studies from brand campaigns and creator collaborations.
+    <h1 class="section-title">News & Updates</h1>
+    
+    <div class="news-grid">
+      <!-- News Card 1 -->
+      <article class="news-card">
+        <div class="news-meta">FEB 2026 · DELHI NCR</div>
+        <h2 class="news-title">Alpha Films Studio Grand Opening</h2>
+        <p class="news-excerpt">
+          Our new 8-hour professional shooting space is now open in Delhi NCR. 
+          Fully equipped with AC, power backup, lighting rigs, and production support.
         </p>
-        <p class="news-tags">Tags: Seminar, Delhi, Storytelling, Short-form</p>
-      </div>
+        <a href="#contact" class="news-link">Book Studio →</a>
+      </article>
 
-      <div class="news-item">
+      <!-- News Card 2 -->
+      <article class="news-card">
+        <div class="news-meta">JAN 2026 · DIGITAL MEDIA SUMMIT</div>
+        <h2 class="news-title">Speaking at Digital Media Summit</h2>
+        <p class="news-excerpt">
+          Sharing insights on cinematic storytelling, short-form content strategies, 
+          and building a production studio brand in India's competitive market.
+        </p>
+        <a href="mailto:alphafilmsofficial@gmail.com?subject=Digital%20Media%20Summit" class="news-link">Get Details →</a>
+      </article>
+
+      <!-- News Card 3 -->
+      <article class="news-card">
         <div class="news-meta">DEC 2025 · MUMBAI</div>
-        <div class="news-title">Commercial Shoot for Emerging D2C Brand</div>
-        <p class="news-body">
-          A full TVC-style campaign for an emerging D2C brand, covering concept, scripting, casting, multi-day studio production, and post-production delivery for TV and digital.
+        <h2 class="news-title">Major Commercial Shoot Complete</h2>
+        <p class="news-excerpt">
+          End-to-end production for emerging D2C brand product launch. 
+          From concept boards to final TVC master delivered in 10 days.
         </p>
-        <p class="news-tags">Tags: Commercial, D2C, Studio Production</p>
-      </div>
+        <a href="portfolio.html" class="news-link">View Project →</a>
+      </article>
 
-      <div class="news-item">
-        <div class="news-meta">NOV 2025 · ONLINE</div>
-        <div class="news-title">Workshop: Creating High-Impact Reels</div>
-        <p class="news-body">
-          Hosted a live online workshop for creators and brands on planning, shooting, and editing high-retention Reels and Shorts with simple, repeatable workflows.
+      <!-- News Card 4 -->
+      <article class="news-card">
+        <div class="news-meta">NOV 2025 · ONLINE WORKSHOP</div>
+        <h2 class="news-title">High-Impact Reels Workshop</h2>
+        <p class="news-excerpt">
+          Live session for 200+ creators covering lighting, framing, editing workflows, 
+          and social media optimization strategies.
         </p>
-        <p class="news-tags">Tags: Workshop, Reels, Creators</p>
-      </div>
+        <a href="mailto:alphafilmsofficial@gmail.com?subject=Reels%20Workshop" class="news-link">Join Next →</a>
+      </article>
+
+      <!-- Add more news cards as needed -->
+    </div>
+
+    <div class="back-section">
+      <a href="index.html" class="back-btn">← Back to Home</a>
     </div>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <div style="max-width: 600px; margin: 0 auto;">
+      <h2 style="color:var(--fg);margin-bottom:1rem;">Ready to create?</h2>
+      <p style="font-size:1.05rem;margin-bottom:1rem;color:var(--muted);">
+      📍 Delhi, India | 📱 +91 85870 90302 | 📧 <a href="mailto:alphafilmsofficial@gmail.com" style="color:var(--fg);">alphafilmsofficial@gmail.com</a>
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="https://instagram.com/alphafilmsofficial" target="_blank" style="color:var(--instagram) !important;font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/alphafilms" target="_blank" style="color:#0077B5 !important;font-size:1.2rem;"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/918587090302" target="_blank" style="color:var(--whatsapp) !important;font-size:1.2rem;"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p style="margin-top:2rem;opacity:0.7;color:var(--muted);">© 2026 Alpha Films. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Logo click goes to home
+    function goHome() {
+      window.location.href = 'index.html';
+    }
+
+    function toggleMobileMenu(event) {
+      event.stopPropagation();
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      if (!toggle.contains(event.target) && !menu.contains(event.target)) {
+        menu.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
