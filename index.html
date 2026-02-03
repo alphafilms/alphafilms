@@ -151,7 +151,37 @@
       .play-icon { font-size: 4rem; }
       .team-grid { gap: 1.5rem; padding: 0 2rem; }
       .team-card { flex: 0 0 260px; }
-      .team-nav { width: 45px; height: 45px; font-size: 1rem; }
+      .team-nav { 
+        position: absolute; 
+        top: 50%; 
+        transform: translateY(-50%); 
+        width: 48px;  /* Slightly smaller */
+        height: 48px; 
+        border-radius: 50%; 
+        background: rgba(255,255,255,0.9); 
+        backdrop-filter: blur(12px); 
+        border: 1px solid var(--border); 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        cursor: pointer; 
+        transition: all 0.3s ease; 
+        font-size: 1.1rem;  /* Slightly smaller icon */
+        color: var(--accent); 
+        z-index: 10; 
+      }
+      .team-nav:hover { 
+        background: white; 
+        transform: translateY(-50%) scale(1.1); 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+        color: var(--accent-soft); 
+      }
+      .team-nav.prev { left: 0.5rem; }
+      .team-nav.next { right: 0.5rem; } /* Fixed positioning */
+      .team-container {
+        padding-right: 3.5rem; /* Extra breathing room for right arrow */
+      }
+    }
     }
     @media (min-width: 769px) { .mobile-menu-toggle, .mobile-menu { display: none !important; } }
     html { scroll-behavior: smooth; }
@@ -596,7 +626,7 @@
       if (prevBtn) prevBtn.onclick = prevTeam;
       
       // Auto-rotate every 5 seconds
-      setInterval(nextTeam, 5000);
+      setInterval(nextTeam, 30000);
     }
 
     // Handle resize for responsive team display
