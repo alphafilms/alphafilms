@@ -4,10 +4,10 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4NXETF7WV7"></script>
   <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-4NXETF7WV7');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4NXETF7WV7');
   </script>
 
   <meta charset="UTF-8" />
@@ -106,75 +106,23 @@
     .more-work-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; }
     .more-work-btn:hover { background: var(--accent-soft); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); color: white; text-decoration: none; }
 
-/* ✅ NEW PROFESSIONAL TEAM CAROUSEL */
-.team-wrapper {
-  max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
-  position: relative;
-}
-
-.team-carousel {
-  display: flex; overflow-x: auto; 
-  scroll-snap-type: x mandatory;
-  gap: 1.5rem; padding: 2rem 0;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
-
-.team-carousel::-webkit-scrollbar { display: none; } /* Chrome/Safari */
-
-.team-card {
-  flex: 0 0 320px; /* FIXED width */
-  scroll-snap-align: center;
-  background: #ffffff;
-  border-radius: 24px; padding: 2.5rem 2rem;
-  text-align: center; border: 1px solid var(--border);
-  transition: all 0.3s ease; opacity: 1;
-}
-
-.team-card.active {
-  opacity: 1; transform: scale(1.05);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-  border-color: var(--accent-soft);
-}
-
-.team-avatar { 
-  width: 120px; height: 120px; border-radius: 50%;
-  margin: 0 auto 1.5rem; overflow: hidden;
-  border: 3px solid var(--border);
-}
-.team-avatar img { width: 100%; height: 100%; object-fit: cover; }
-
-.team-role { font-size: 0.85rem; color: var(--muted); 
-  text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
-.team-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
-.team-bio { font-size: 0.95rem; line-height: 1.6; opacity: 1; }
-
-.team-nav {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 50px; height: 50px; border-radius: 50%;
-  background: white; border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; font-size: 1.2rem; color: var(--accent);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  transition: all 0.3s ease; z-index: 10;
-}
-.team-nav:hover { transform: translateY(-50%) scale(1.1); 
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
-
-.team-nav.prev { left: 1rem; }
-.team-nav.next { right: 1rem; }
-
-.team-dots {
-  display: flex; gap: 0.5rem; justify-content: center; margin-top: 2rem;
-}
-.team-dot {
-  width: 12px; height: 12px; border-radius: 50%;
-  background: var(--border); cursor: pointer;
-  transition: all 0.3s ease;
-}
-.team-dot.active { 
-  background: var(--accent); transform: scale(1.3); 
-}
+    /* Team Carousel */
+    .team-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; position: relative; }
+    .team-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1.5rem; padding: 2rem 0; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth; }
+    .team-carousel::-webkit-scrollbar { display: none; }
+    .team-card { flex: 0 0 320px; scroll-snap-align: center; background: var(--bg-soft); border-radius: 24px; padding: 2.5rem 2rem; text-align: center; border: 1px solid var(--border); transition: all 0.3s ease; min-width: 320px; }
+    .team-avatar { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1.5rem; overflow: hidden; border: 3px solid var(--border); }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .team-role { font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
+    .team-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
+    .team-bio { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; }
+    .team-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; background: white; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; color: var(--accent); box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; z-index: 10; }
+    .team-nav:hover { transform: translateY(-50%) scale(1.1); box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+    .team-nav.prev { left: 1rem; }
+    .team-nav.next { right: 1rem; }
+    .team-dots { display: flex; gap: 0.5rem; justify-content: center; margin-top: 2rem; }
+    .team-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.3s ease; }
+    .team-dot.active { background: var(--accent); transform: scale(1.3); }
 
     /* News on Index (Latest 3) */
     .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
@@ -182,6 +130,16 @@
     .news-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--fg); }
     .news-link { display: inline-block; margin-top: 0.75rem; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
     .news-link:hover { text-decoration: underline; }
+
+    /* Contact Content */
+    .contact-content { max-width: 600px; margin: 0 auto; }
+    .contact-content h2 { color: var(--fg); margin-bottom: 1rem; }
+    .contact-content p { font-size: 1.05rem; margin-bottom: 1rem; color: var(--muted); }
+    .contact-content .social-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .contact-content .social-links a { font-size: 1.2rem; }
+    .contact-content .social-links a[href*="instagram"] { color: var(--instagram) !important; }
+    .contact-content a[href*="linkedin"] { color: #0077B5 !important; }
+    .contact-content a[href*="whatsapp"] { color: var(--whatsapp) !important; }
 
     /* Footer */
     footer { padding: 3rem 2rem 2.5rem; text-align: center; border-top: 1px solid var(--border); color: var(--muted); background: var(--bg); }
@@ -200,81 +158,9 @@
       .hero-overlay { padding: 2rem 1.5rem 1.5rem; }
       .hero-overlay .collage-title { font-size: 1.8rem; }
       .play-icon { font-size: 4rem; }
-     /* ✅ CLEAN TEAM CAROUSEL - ALL DEVICES */
-.team-wrapper {
-  max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
-  position: relative;
-}
-
-.team-carousel {
-  display: flex; 
-  overflow-x: auto; 
-  scroll-snap-type: x mandatory;
-  gap: 1.5rem; 
-  padding: 2rem 0;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  scroll-behavior: smooth;
-}
-
-.team-carousel::-webkit-scrollbar { display: none; }
-
-.team-card {
-  flex: 0 0 320px;
-  scroll-snap-align: center;
-  background: var(--bg-soft);
-  border-radius: 24px; 
-  padding: 2.5rem 2rem;
-  text-align: center; 
-  border: 1px solid var(--border);
-  min-width: 320px;
-}
-
-.team-avatar { 
-  width: 120px; height: 120px; 
-  border-radius: 50%; margin: 0 auto 1.5rem; 
-  overflow: hidden; border: 3px solid var(--border);
-}
-.team-avatar img { width: 100%; height: 100%; object-fit: cover; }
-
-.team-role { 
-  font-size: 0.85rem; color: var(--muted); 
-  text-transform: uppercase; letter-spacing: 0.15em; 
-  margin-bottom: 0.5rem; 
-}
-.team-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
-.team-bio { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; }
-
-.team-nav {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 50px; height: 50px; border-radius: 50%;
-  background: white; border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; font-size: 1.2rem; color: var(--accent);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  transition: all 0.3s ease; z-index: 10;
-}
-.team-nav:hover { transform: translateY(-50%) scale(1.1); box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
-.team-nav.prev { left: 1rem; }
-.team-nav.next { right: 1rem; }
-
-.team-dots {
-  display: flex; gap: 0.5rem; justify-content: center; margin-top: 2rem;
-}
-.team-dot {
-  width: 12px; height: 12px; border-radius: 50%;
-  background: var(--border); cursor: pointer;
-  transition: all 0.3s ease;
-}
-.team-dot.active { background: var(--accent); transform: scale(1.3); }
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .team-card { flex: 0 0 280px; min-width: 280px; padding: 2rem 1.5rem; }
-  .team-avatar { width: 100px; height: 100px; }
-}
-
-
+      .team-card { flex: 0 0 280px; min-width: 280px; padding: 2rem 1.5rem; }
+      .team-avatar { width: 100px; height: 100px; }
+    }
     @media (min-width: 769px) { .mobile-menu-toggle, .mobile-menu { display: none !important; } }
     html { scroll-behavior: smooth; }
   </style>
@@ -315,10 +201,10 @@
 
   <!-- Floating Action Buttons -->
   <div class="floating-buttons">
-    <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%0AI%20want%20to%20book%20your%20studio%2Fvideo%20production%20services.%0AWhat's%20next%3F" class="fab whatsapp" target="_blank" title="WhatsApp">
+    <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%0AI%20want%20to%20book%20your%20studio%2Fvideo%20production%20services.%0AWhat's%20next%3F" class="fab whatsapp" target="_blank" title="WhatsApp" rel="noopener noreferrer">
       <i class="fab fa-whatsapp"></i>
     </a>
-    <a href="https://instagram.com/alphafilmsofficial" class="fab instagram" target="_blank" title="Instagram">
+    <a href="https://instagram.com/alphafilmsofficial" class="fab instagram" target="_blank" title="Instagram" rel="noopener noreferrer">
       <i class="fab fa-instagram"></i>
     </a>
   </div>
@@ -383,8 +269,8 @@
     
     <!-- Hero Project -->
     <div class="portfolio-hero">
-      <a href="https://www.youtube.com/watch?v=AhzQTAfnsCs" target="_blank" class="hero-item">
-        <img src="images/broken.jpg" alt="Broken Reflections">
+      <a href="https://www.youtube.com/watch?v=AhzQTAfnsCs" target="_blank" class="hero-item" rel="noopener noreferrer">
+        <img src="images/broken.jpg" alt="Broken Reflections" loading="lazy">
         <div class="hero-overlay">
           <span class="collage-tag">Featured Short Film</span>
           <span class="collage-title">Broken Reflections</span>
@@ -405,18 +291,17 @@
   </section>
 
   <!-- Team - FIXED CAROUSEL -->
-<section id="team">
-  <h2 class="section-title">Our Team</h2>
-  <div class="team-wrapper">
-    <div class="team-carousel" id="team-carousel">
-      <!-- Cards populated by JS -->
+  <section id="team">
+    <h2 class="section-title">Our Team</h2>
+    <div class="team-wrapper">
+      <div class="team-carousel" id="team-carousel">
+        <!-- Cards populated by JS -->
+      </div>
+      <button class="team-nav prev" id="team-prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="team-nav next" id="team-next"><i class="fas fa-chevron-right"></i></button>
+      <div class="team-dots" id="team-dots"></div>
     </div>
-    <button class="team-nav prev" id="team-prev"><i class="fas fa-chevron-left"></i></button>
-    <button class="team-nav next" id="team-next"><i class="fas fa-chevron-right"></i></button>
-    <div class="team-dots" id="team-dots"></div>
-  </div>
-</section>
-
+  </section>
 
   <!-- News - AUTOMATED (Latest 3) -->
   <section id="news">
@@ -431,246 +316,71 @@
 
   <!-- Contact -->
   <footer id="contact">
-    <div style="max-width: 600px; margin: 0 auto;">
-      <h2 style="color:var(--fg);margin-bottom:1rem;">Ready to create?</h2>
-      <p style="font-size:1.05rem;margin-bottom:1rem;color:var(--muted);">
-      📍 Delhi, India | 📱 +91 85870 90302 | 📧 <a href="mailto:alphafilmsofficial@gmail.com" style="color:var(--fg);">alphafilmsofficial@gmail.com</a>
+    <div class="contact-content">
+      <h2>Ready to create?</h2>
+      <p>
+        📍 Delhi, India | 📱 +91 85870 90302 | 📧 
+        <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a>
       </p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="https://instagram.com/alphafilmsofficial" target="_blank" style="color:var(--instagram) !important;font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/company/alphafilms" target="_blank" style="color:#0077B5 !important;font-size:1.2rem;"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://wa.me/918587090302" target="_blank" style="color:var(--whatsapp) !important;font-size:1.2rem;"><i class="fab fa-whatsapp"></i></a>
+      <div class="social-links">
+        <a href="https://instagram.com/alphafilmsofficial" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/alphafilms" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/918587090302" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <p style="margin-top:2rem;opacity:0.7;color:var(--muted);">© 2026 Alpha Films. All rights reserved.</p>
+      <p style="margin-top: 2rem; opacity: 0.7;">© 2026 Alpha Films. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- COMPLETE AUTOMATION SCRIPTS -->
+  <!-- COMPLETE CLEAN JAVASCRIPT - NO DUPLICATES -->
   <script>
-    // 1. PROJECTS ARRAY (Latest 4 on homepage, all on portfolio.html)
+    // DATA ARRAYS - ADD NEW ITEMS HERE ONLY
     const allProjects = [
-      {
-        title: "Night Shift",
-        tag: "Short Film",
-        image: "images/nightshift.jpg",
-        url: "https://www.youtube.com/watch?v=kwVuPcAiNjY"
-      },
-      {
-        title: "Into the Sea",
-        tag: "Cinematic Short",
-        image: "images/intothesea.jpg",
-        url: "https://www.youtube.com/watch?v=vQYMIPsxp4c"
-      },
-      {
-        title: "Goan Classic 350",
-        tag: "Motorcycle Film",
-        image: "images/goan.jpg",
-        url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI"
-      },
-      {
-        title: "BND Motorsport Event",
-        tag: "Race Event",
-        image: "images/bnd.jpg",
-      },
+      { title: "Night Shift", tag: "Short Film", image: "images/nightshift.jpg", url: "https://www.youtube.com/watch?v=kwVuPcAiNjY" },
+      { title: "Into the Sea", tag: "Cinematic Short", image: "images/intothesea.jpg", url: "https://www.youtube.com/watch?v=vQYMIPsxp4c" },
+      { title: "Goan Classic 350", tag: "Motorcycle Film", image: "images/goan.jpg", url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI" },
+      { title: "BND Motorsport Event", tag: "Race Event", image: "images/bnd.jpg", url: "#" },
       // ADD NEW PROJECTS AT TOP ↑
     ];
 
-    // 2. NEWS ARRAY (Latest 3 on homepage, all on news.html)
     const allNews = [
-      {
-        id: 1,
-        title: "Alpha Films Studio Grand Opening",
-        category: "studio",
-        date: "2026-02-03",
-        excerpt: "Our new 8-hour professional shooting space is now LIVE in Delhi NCR. Fully equipped with AC, power backup, lighting rigs, and production support."
-      },
-      {
-        id: 2,
-        title: "Speaking at Digital Media Summit",
-        category: "events",
-        date: "2026-01-15",
-        excerpt: "Rohan Sengal sharing insights on cinematic storytelling and building production studio brands in India's competitive market."
-      },
-      {
-        id: 3,
-        title: "Major D2C Commercial Production",
-        category: "projects", 
-        date: "2025-12-20",
-        excerpt: "End-to-end TVC production completed in 10 days for emerging D2C brand. Delivered concept-to-master with motion graphics."
-      },
-      {
-        id: 4,
-        title: "High-Impact Reels Workshop",
-        category: "workshops",
-        date: "2025-11-10",
-        excerpt: "Live session for 200+ creators covering lighting, framing, editing, and Instagram Reels optimization strategies."
-      }
+      { id: 1, title: "Alpha Films Studio Grand Opening", category: "studio", date: "2026-02-03", excerpt: "Our new 8-hour professional shooting space is now LIVE in Delhi NCR. Fully equipped with AC, power backup, lighting rigs, and production support." },
+      { id: 2, title: "Speaking at Digital Media Summit", category: "events", date: "2026-01-15", excerpt: "Rohan Sengal sharing insights on cinematic storytelling and building production studio brands in India's competitive market." },
+      { id: 3, title: "Major D2C Commercial Production", category: "projects", date: "2025-12-20", excerpt: "End-to-end TVC production completed in 10 days for emerging D2C brand. Delivered concept-to-master with motion graphics." },
       // ADD NEW NEWS AT TOP ↑
     ];
 
-    // 3. TEAM ARRAY - ADD NEW MEMBERS HERE (EASIEST!)
     const teamMembers = [
-      {
-        name: "Deepanshu Sehgal",
-        role: "Founder & Creative Director",
-        bio: "Visionary filmmaker with 5+ years experience. First AD at 21, Best Student Short Film Producer award. Masters in Film Making - Specialization in Production from Whistling Woods International, Mumbai.",
-        image: "team_images/deep.png", // Add team member photo
-        linkedin: "https://www.linkedin.com/in/deepsehgal"
-      },
-      {
-        name: "TBA",
-        role: "Lead Cinematographer",
-        bio: "Master of cinematic lighting with 5+ years shooting commercials, films & corporate content across India.",
-        image: "images/priya.jpg"
-      },
-      {
-        name: "TBA",
-        role: "Senior Video Editor",
-        bio: "Expert in Premiere Pro, After Effects & DaVinci Resolve. Creates high-impact reels & cinematic edits.",
-        image: "images/amit.jpg"
-      },
-      {
-        name: "TBA",
-        role: "Production Manager",
-        bio: "Coordinates end-to-end shoots ensuring projects stay on time, budget & creative vision intact.",
-        image: "images/neha.jpg"
-      },
-      {
-        name: "TBA",
-        role: "Studio Technical Lead",
-        bio: "Manages studio operations, lighting rigs, camera gear & technical support for all productions.",
-        image: "images/vikram.jpg"
-      },
-      {
-        name: "TBA",
-        role: "Motion Graphics Artist",
-        bio: "Specialist in kinetic typography, logo animations & VFX for commercials and social content.",
-        image: "images/anjali.jpg"
-      }
-      // ADD NEW TEAM MEMBERS HERE ↑ Just copy the format!
+      { name: "Deepanshu Sehgal", role: "Founder & Creative Director", bio: "Visionary filmmaker with 5+ years experience. First AD at 21, Best Student Short Film Producer award. Masters in Film Making - Specialization in Production from Whistling Woods International, Mumbai.", image: "team_images/deep.png", linkedin: "https://www.linkedin.com/in/deepsehgal" },
+      { name: "TBA", role: "Lead Cinematographer", bio: "Master of cinematic lighting with 5+ years shooting commercials, films & corporate content across India.", image: "images/priya.jpg" },
+      { name: "TBA", role: "Senior Video Editor", bio: "Expert in Premiere Pro, After Effects & DaVinci Resolve. Creates high-impact reels & cinematic edits.", image: "images/amit.jpg" },
+      { name: "TBA", role: "Production Manager", bio: "Coordinates end-to-end shoots ensuring projects stay on time, budget & creative vision intact.", image: "images/neha.jpg" },
+      // ADD NEW TEAM MEMBERS HERE ↑
     ];
 
-    // Format date helper
+    // UTILITY FUNCTIONS
     function formatDate(dateStr) {
       const date = new Date(dateStr);
       return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' }).replace(' ', ' ');
     }
 
-// ✅ FIXED TEAM CAROUSEL
-let currentTeamIndex = 0;
-const teamCarousel = document.getElementById('team-carousel');
-const teamDots = document.getElementById('team-dots');
-const teamPrev = document.getElementById('team-prev');
-const teamNext = document.getElementById('team-next');
+    function goHome() { window.location.href = 'index.html'; }
 
-function renderTeam() {
-  if (!teamCarousel || !teamDots) return;
-  
-  teamCarousel.innerHTML = '';
-  teamDots.innerHTML = '';
-  
-  teamMembers.forEach((member, index) => {
-    // Team Card
-    const card = document.createElement('div');
-    card.className = 'team-card';
-    card.innerHTML = `
-      <div class="team-avatar">
-        <img src="${member.image}" alt="${member.name}" loading="lazy">
-      </div>
-      <div class="team-role">${member.role}</div>
-      <div class="team-name">${member.name}</div>
-      <div class="team-bio">${member.bio}</div>
-      ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" style="color: #0077B5; font-size: 1.1rem; margin-top: 1rem; display: inline-block;"><i class="fab fa-linkedin"></i></a>` : ''}
-    `;
-    teamCarousel.appendChild(card);
-    
-    // Dots
-    const dot = document.createElement('div');
-    dot.className = 'team-dot';
-    dot.onclick = () => goToTeamSlide(index);
-    teamDots.appendChild(dot);
-  });
-  
-  updateDots();
-  scrollToCurrent();
-}
+    function toggleMobileMenu(event) {
+      event.stopPropagation();
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
 
-function scrollToCurrent() {
-  if (teamCarousel) {
-    teamCarousel.scrollTo({
-      left: currentTeamIndex * 335, // gap + card width
-      behavior: 'smooth'
-    });
-  }
-}
-
-function updateDots() {
-  if (!teamDots) return;
-  Array.from(teamDots.children).forEach((dot, index) => {
-    dot.classList.toggle('active', index === currentTeamIndex);
-  });
-}
-
-function nextTeam() {
-  currentTeamIndex = (currentTeamIndex + 1) % teamMembers.length;
-  scrollToCurrent();
-  updateDots();
-}
-
-function prevTeam() {
-  currentTeamIndex = (currentTeamIndex - 1 + teamMembers.length) % teamMembers.length;
-  scrollToCurrent();
-  updateDots();
-}
-
-function goToTeamSlide(index) {
-  currentTeamIndex = index;
-  scrollToCurrent();
-  updateDots();
-}
-
-// Event Listeners
-function initTeamCarousel() {
-  if (teamNext) teamNext.onclick = nextTeam;
-  if (teamPrev) teamPrev.onclick = prevTeam;
-  
-  // Touch/swipe support
-  let startX = 0;
-  teamCarousel.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-  });
-  
-  teamCarousel.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50) nextTeam(); // Swipe left
-    if (endX - startX > 50) prevTeam(); // Swipe right
-  });
-  
-  // Auto-rotate (optional - comment out if not wanted)
-  // setInterval(nextTeam, 8000);
-}
-
-// ✅ CORRECTED MAIN INIT
-window.addEventListener('load', function() {
-  renderFeaturedWork();
-  renderLatestNews();
-  renderTeam();  // ← FIXED: Now works
-  initTeamCarousel();  // ← FIXED: Now works
-});
-
-
-    // Render Featured Work (Latest 4)
+    // FEATURED WORK - Latest 4
     function renderFeaturedWork() {
       const container = document.getElementById('featured-grid');
       if (!container) return;
-      
       container.innerHTML = '';
       const latest4 = allProjects.slice(0, 4);
-      
       latest4.forEach(project => {
         const item = document.createElement('a');
         item.href = project.url;
         item.target = '_blank';
+        item.rel = 'noopener noreferrer';
         item.className = 'work-item';
         item.innerHTML = `
           <div class="work-thumb">
@@ -686,14 +396,12 @@ window.addEventListener('load', function() {
       });
     }
 
-    // Render News (Latest 3)
+    // NEWS - Latest 3
     function renderLatestNews() {
       const container = document.getElementById('index-news-grid');
       if (!container) return;
-      
       container.innerHTML = '';
       const latest3 = allNews.slice(0, 3);
-      
       latest3.forEach(news => {
         const card = document.createElement('div');
         card.className = 'card';
@@ -701,28 +409,99 @@ window.addEventListener('load', function() {
           <div class="news-meta">${formatDate(news.date)}</div>
           <div class="news-title">${news.title}</div>
           <p>${news.excerpt.substring(0, 120)}...</p>
+          <a href="news.html#news-${news.id}" class="news-link">Read more →</a>
         `;
-        const link = document.createElement('a');
-        link.href = `news.html#news-${news.id}`;
-        link.className = 'news-link';
-        link.textContent = 'Read more →';
-        card.appendChild(link);
         container.appendChild(card);
       });
     }
 
-    // Navigation
-    function goHome() {
-      window.location.href = 'index.html';
+    // TEAM CAROUSEL
+    let currentTeamIndex = 0;
+    function renderTeam() {
+      const teamCarousel = document.getElementById('team-carousel');
+      const teamDots = document.getElementById('team-dots');
+      if (!teamCarousel || !teamDots) return;
+      
+      teamCarousel.innerHTML = '';
+      teamDots.innerHTML = '';
+      
+      teamMembers.forEach((member, index) => {
+        // Team Card
+        const card = document.createElement('div');
+        card.className = 'team-card';
+        card.innerHTML = `
+          <div class="team-avatar">
+            <img src="${member.image}" alt="${member.name}" loading="lazy">
+          </div>
+          <div class="team-role">${member.role}</div>
+          <div class="team-name">${member.name}</div>
+          <div class="team-bio">${member.bio}</div>
+          ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" rel="noopener noreferrer" style="color: #0077B5; font-size: 1.1rem; margin-top: 1rem; display: inline-block;"><i class="fab fa-linkedin"></i></a>` : ''}
+        `;
+        teamCarousel.appendChild(card);
+        
+        // Dots
+        const dot = document.createElement('div');
+        dot.className = 'team-dot';
+        dot.onclick = () => goToTeamSlide(index);
+        teamDots.appendChild(dot);
+      });
+      
+      updateTeamDots();
+      scrollToCurrent();
     }
 
-    function toggleMobileMenu(event) {
-      event.stopPropagation();
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
+    function scrollToCurrent() {
+      const teamCarousel = document.getElementById('team-carousel');
+      if (teamCarousel) {
+        teamCarousel.scrollTo({ left: currentTeamIndex * 335, behavior: 'smooth' });
+      }
     }
 
-    // Close menu on outside click
+    function updateTeamDots() {
+      const teamDots = document.getElementById('team-dots');
+      if (!teamDots) return;
+      Array.from(teamDots.children).forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentTeamIndex);
+      });
+    }
+
+    function nextTeam() {
+      currentTeamIndex = (currentTeamIndex + 1) % teamMembers.length;
+      scrollToCurrent();
+      updateTeamDots();
+    }
+
+    function prevTeam() {
+      currentTeamIndex = (currentTeamIndex - 1 + teamMembers.length) % teamMembers.length;
+      scrollToCurrent();
+      updateTeamDots();
+    }
+
+    function goToTeamSlide(index) {
+      currentTeamIndex = index;
+      scrollToCurrent();
+      updateTeamDots();
+    }
+
+    function initTeamCarousel() {
+      const teamNext = document.getElementById('team-next');
+      const teamPrev = document.getElementById('team-prev');
+      if (teamNext) teamNext.onclick = nextTeam;
+      if (teamPrev) teamPrev.onclick = prevTeam;
+      
+      // Touch/swipe support
+      const teamCarousel = document.getElementById('team-carousel');
+      let startX = 0;
+      teamCarousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+      teamCarousel.addEventListener('touchend', e => {
+        const endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) nextTeam();
+        if (endX - startX > 50) prevTeam();
+      });
+    }
+
+    // GLOBAL EVENT LISTENERS
     document.addEventListener('click', function(event) {
       const menu = document.getElementById('mobileMenu');
       const toggle = document.querySelector('.mobile-menu-toggle');
@@ -731,7 +510,6 @@ window.addEventListener('load', function() {
       }
     });
 
-    // Smooth scroll for nav links
     document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
       link.addEventListener('click', function(e) {
         if (this.getAttribute('href').startsWith('#')) {
@@ -742,24 +520,7 @@ window.addEventListener('load', function() {
       });
     });
 
-    // TEAM EVENT LISTENERS
-    function initTeamCarousel() {
-      const nextBtn = document.getElementById('team-next');
-      const prevBtn = document.getElementById('team-prev');
-      
-      if (nextBtn) nextBtn.onclick = nextTeam;
-      if (prevBtn) prevBtn.onclick = prevTeam;
-      
-      // Auto-rotate every 5 seconds
-      setInterval(nextTeam, 10000);
-    }
-
-    // Handle resize for responsive team display
-    window.addEventListener('resize', () => {
-      renderTeam();
-    });
-
-    // Initialize everything
+    // INITIALIZE EVERYTHING
     window.addEventListener('load', function() {
       renderFeaturedWork();
       renderLatestNews();
