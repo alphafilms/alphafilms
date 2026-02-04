@@ -106,138 +106,76 @@
     .more-work-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; }
     .more-work-btn:hover { background: var(--accent-soft); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); color: white; text-decoration: none; }
 
-/* Team Carousel - NEW PROFESSIONAL DESIGN */
-.team-container { 
-  position: relative; 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 0 5rem; /* FIXED: Space for arrows */
+/* ✅ NEW PROFESSIONAL TEAM CAROUSEL */
+.team-wrapper {
+  max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
+  position: relative;
 }
 
-.team-grid { 
-  display: flex; 
-  gap: 2rem; 
-  overflow: hidden; 
-  padding: 0 4rem; /* FIXED: Perfect 3-card fit */
-  scroll-behavior: smooth; 
+.team-carousel {
+  display: flex; overflow-x: auto; 
+  scroll-snap-type: x mandatory;
+  gap: 1.5rem; padding: 2rem 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
-.team-card { 
-  flex: 0 0 calc((100% - 4rem) / 3); /* FIXED: EXACTLY 3 cards */
-  background: var(--bg-soft); 
-  border-radius: 24px; 
-  padding: 2.5rem 2rem; 
-  text-align: center; 
-  border: 1px solid var(--border); 
-  transition: all 0.4s ease; 
-  position: relative; 
+.team-carousel::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+.team-card {
+  flex: 0 0 320px; /* FIXED width */
+  scroll-snap-align: center;
+  background: var(--bg-soft);
+  border-radius: 24px; padding: 2.5rem 2rem;
+  text-align: center; border: 1px solid var(--border);
+  transition: all 0.3s ease; opacity: 0.7;
 }
 
-.team-card:hover { 
-  transform: translateY(0px); 
-  box-shadow: 0 25px 50px rgba(0,0,0,0.12); 
-  border-color: var(--accent-soft); 
+.team-card.active {
+  opacity: 1; transform: scale(1.05);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  border-color: var(--accent-soft);
 }
 
 .team-avatar { 
-  width: 120px; 
-  height: 120px; 
-  border-radius: 50%; 
-  margin: 0 auto 1.5rem; 
-  overflow: hidden; 
-  border: 3px solid var(--accent-soft); 
-  transition: all 0.3s ease; 
+  width: 120px; height: 120px; border-radius: 50%;
+  margin: 0 auto 1.5rem; overflow: hidden;
+  border: 3px solid var(--border);
 }
+.team-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-.team-avatar img { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
+.team-role { font-size: 0.85rem; color: var(--muted); 
+  text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
+.team-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
+.team-bio { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; }
+
+.team-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 50px; height: 50px; border-radius: 50%;
+  background: white; border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1.2rem; color: var(--accent);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease; z-index: 10;
 }
+.team-nav:hover { transform: translateY(-50%) scale(1.1); 
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
 
-.team-card:hover .team-avatar { 
-  border-color: var(--accent); 
-  transform: scale(1.0); 
+.team-nav.prev { left: 1rem; }
+.team-nav.next { right: 1rem; }
+
+.team-dots {
+  display: flex; gap: 0.5rem; justify-content: center; margin-top: 2rem;
 }
-
-.team-role { 
-  font-size: 0.85rem; 
-  color: var(--muted); 
-  text-transform: uppercase; 
-  letter-spacing: 0.15em; 
-  margin-bottom: 0.5rem; 
-  font-weight: 500; 
+.team-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--border); cursor: pointer;
+  transition: all 0.3s ease;
 }
-
-.team-name { 
-  font-size: 1.4rem; 
-  font-weight: 700; 
-  margin-bottom: 1rem; 
-  color: var(--fg); 
-}
-
-.team-bio { 
-  font-size: 0.95rem; 
-  line-height: 1.6; 
-  color: var(--fg); 
-  opacity: 0.9; 
-}
-
-.team-nav { 
-  position: absolute; 
-  top: 50%; 
-  transform: translateY(-50%); 
-  width: 50px; 
-  height: 50px; 
-  border-radius: 50%; 
-  background: rgba(255,255,255,0.9); 
-  backdrop-filter: blur(12px); 
-  border: 1px solid var(--border); 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  cursor: pointer; 
-  transition: all 0.3s ease; 
-  font-size: 1.2rem; 
-  color: var(--accent); 
-  z-index: 10; 
-}
-
-.team-nav:hover { 
-  background: white; 
-  transform: translateY(-50%) scale(1.1); 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
-  color: var(--accent-soft); 
-}
-
-.team-nav.prev { 
-  left: 1rem; 
-}
-
-.team-nav.next { 
-  right: 1rem; 
-}
-
-.team-dots { 
-  display: flex; 
-  gap: 0.5rem; 
-  justify-content: center; 
-  margin-top: 2rem; 
-}
-
-.team-dot { 
-  width: 12px; 
-  height: 12px; 
-  border-radius: 50%; 
-  background: var(--border); 
-  cursor: pointer; 
-  transition: all 0.3s ease; 
-}
-
 .team-dot.active { 
-  background: var(--accent); 
-  transform: scale(1.3); 
+  background: var(--accent); transform: scale(1.3); 
 }
+
     /* News on Index (Latest 3) */
     .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
     .news-meta { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.5rem; }
@@ -423,23 +361,16 @@
   <!-- Team - NEW PROFESSIONAL CAROUSEL -->
   <section id="team">
     <h2 class="section-title">Our Team</h2>
-    <div class="team-container">
-      <div class="team-grid" id="team-grid">
-        <!-- Team cards will be populated by JavaScript -->
+    <div class="team-wrapper">
+      <div class="team-carousel" id="team-carousel">
+        <!-- Cards populated by JS -->
       </div>
-      
-      <!-- Navigation Arrows -->
-      <div class="team-nav prev" id="team-prev">
-        <i class="fas fa-chevron-left"></i>
-      </div>
-      <div class="team-nav next" id="team-next">
-        <i class="fas fa-chevron-right"></i>
-      </div>
-      
-      <!-- Dots Indicator -->
+      <div class="team-nav prev" id="team-prev"><i class="fas fa-chevron-left"></i></div>
+      <div class="team-nav next" id="team-next"><i class="fas fa-chevron-right"></i></div>
       <div class="team-dots" id="team-dots"></div>
     </div>
   </section>
+
 
   <!-- News - AUTOMATED (Latest 3) -->
   <section id="news">
@@ -579,68 +510,79 @@
       return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' }).replace(' ', ' ');
     }
 
-    // TEAM CAROUSEL FUNCTIONS
-    let currentTeamIndex = 0;
-    const teamVisibleCount = window.innerWidth > 768 ? 3 : 1;
+// ✅ NEW BULLETPROOF TEAM CAROUSEL
+let currentTeamIndex = 0;
 
-    function renderTeam() {
-      const container = document.getElementById('team-grid');
-      if (!container) return;
-      
-      container.innerHTML = '';
-      
-      // Show current set of team members
-      const start = currentTeamIndex;
-      const end = Math.min(start + teamVisibleCount, teamMembers.length);
-      
-      for (let i = start; i < end; i++) {
-        const member = teamMembers[i % teamMembers.length];
-        const card = document.createElement('div');
-        card.className = 'team-card';
-        card.innerHTML = `
-          <div class="team-avatar">
-            <img src="${member.image}" alt="${member.name}" loading="lazy">
-          </div>
-          <div class="team-role">${member.role}</div>
-          <div class="team-name">${member.name}</div>
-          <div class="team-bio">${member.bio}</div>
-          ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" class="team-linkedin" style="display:inline-block;margin-top:1rem;color:var(--accent);font-size:0.9rem;"><i class="fab fa-linkedin"></i> LinkedIn</a>` : ''}
-        `;
-        container.appendChild(card);
-      }
-      
-      updateTeamDots();
-    }
+function renderTeam() {
+  const container = document.getElementById('team-carousel');
+  const dotsContainer = document.getElementById('team-dots');
+  
+  container.innerHTML = '';
+  dotsContainer.innerHTML = '';
+  
+  teamMembers.forEach((member, index) => {
+    // Team Card
+    const card = document.createElement('div');
+    card.className = `team-card ${index === currentTeamIndex ? 'active' : ''}`;
+    card.innerHTML = `
+      <div class="team-avatar">
+        <img src="${member.image}" alt="${member.name}" loading="lazy">
+      </div>
+      <div class="team-role">${member.role}</div>
+      <div class="team-name">${member.name}</div>
+      <div class="team-bio">${member.bio}</div>
+      ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" style="display:inline-block;margin-top:1rem;color:var(--accent);font-size:0.9rem;"><i class="fab fa-linkedin"></i> LinkedIn</a>` : ''}
+    `;
+    container.appendChild(card);
+    
+    // Dots
+    const dot = document.createElement('div');
+    dot.className = `team-dot ${index === currentTeamIndex ? 'active' : ''}`;
+    dot.onclick = () => goToTeamSlide(index);
+    dotsContainer.appendChild(dot);
+  });
+  
+  // Scroll to active card
+  container.scrollTo({
+    left: currentTeamIndex * 340, // card width + gap
+    behavior: 'smooth'
+  });
+}
 
-    function updateTeamDots() {
-      const dotsContainer = document.getElementById('team-dots');
-      if (!dotsContainer) return;
-      
-      dotsContainer.innerHTML = '';
-      const totalSets = Math.ceil(teamMembers.length / teamVisibleCount);
-      
-      for (let i = 0; i < totalSets; i++) {
-        const dot = document.createElement('div');
-        dot.className = `team-dot ${i === currentTeamIndex ? 'active' : ''}`;
-        dot.onclick = () => goToTeamSlide(i);
-        dotsContainer.appendChild(dot);
-      }
-    }
+function nextTeam() {
+  currentTeamIndex = (currentTeamIndex + 1) % teamMembers.length;
+  renderTeam();
+}
 
-    function nextTeam() {
-      currentTeamIndex = (currentTeamIndex + 1) % Math.ceil(teamMembers.length / teamVisibleCount);
-      renderTeam();
-    }
+function prevTeam() {
+  currentTeamIndex = (currentTeamIndex - 1 + teamMembers.length) % teamMembers.length;
+  renderTeam();
+}
 
-    function prevTeam() {
-      currentTeamIndex = (currentTeamIndex - 1 + Math.ceil(teamMembers.length / teamVisibleCount)) % Math.ceil(teamMembers.length / teamVisibleCount);
-      renderTeam();
-    }
+function goToTeamSlide(index) {
+  currentTeamIndex = index;
+  renderTeam();
+}
 
-    function goToTeamSlide(index) {
-      currentTeamIndex = index;
-      renderTeam();
-    }
+// Event Listeners
+function initTeamCarousel() {
+  const nextBtn = document.getElementById('team-next');
+  const prevBtn = document.getElementById('team-prev');
+  
+  if (nextBtn) nextBtn.onclick = nextTeam;
+  if (prevBtn) prevBtn.onclick = prevTeam;
+  
+  // Auto-rotate
+  setInterval(nextTeam, 5000);
+}
+
+// Initialize
+window.addEventListener('load', () => {
+  renderFeaturedWork();
+  renderLatestNews();
+  renderTeam();
+  initTeamCarousel();
+});
 
     // Render Featured Work (Latest 4)
     function renderFeaturedWork() {
