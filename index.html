@@ -200,35 +200,59 @@
       .hero-overlay { padding: 2rem 1.5rem 1.5rem; }
       .hero-overlay .collage-title { font-size: 1.8rem; }
       .play-icon { font-size: 4rem; }
-      /* ✅ FIXED TEAM CAROUSEL MOBILE */
-      .team-container { padding: 0 3.5rem; } /* ← Extra space for arrows */
-      .team-grid { 
-        gap: 1.5rem; 
-        padding: 0 0.5rem; /* ← FIXED: Arrows fully visible */
-        justify-content: center; /* ← Centers single card */
-      }
-      .team-card { 
-        flex: 0 0 80vw; /* ← FIXED: Exactly 1 full-width card */
-        max-width: 320px; /* ← Prevents overflow */
-      }
-      .team-nav { 
-        width: 48px; 
-        height: 48px; 
-        font-size: 1.1rem; 
-      }
-      .team-nav:hover { 
-        background: white; 
-        transform: translateY(0%) scale(1.0); 
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
-        color: var(--accent-soft); 
-      }
-      .team-nav.prev { left: 0.5rem; }
-      .team-nav.next { right: 0.5rem; } /* Fixed positioning */
-      .team-container {
-        padding-right: 3.5rem; /* Extra breathing room for right arrow */
-      }
-    }
-    }
+     /* ✅ CLEAN MINIMAL TEAM CAROUSEL - NO POP/ANIMATIONS */
+.team-container {
+  position: relative; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
+}
+
+.team-grid {
+  display: flex; overflow-x: auto; 
+  scroll-snap-type: x mandatory; gap: 1.5rem; padding: 2rem 0;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+
+.team-grid::-webkit-scrollbar { display: none; }
+
+.team-card {
+  flex: 0 0 300px; /* Fixed width, no flex tricks */
+  scroll-snap-align: center;
+  background: var(--bg-soft); border-radius: 20px; 
+  padding: 2.5rem 2rem; text-align: center; 
+  border: 1px solid var(--border);
+  /* NO TRANSITIONS, NO HOVER, NO SCALE */
+}
+
+.team-avatar { 
+  width: 110px; height: 110px; border-radius: 50%;
+  margin: 0 auto 1.5rem; overflow: hidden; border: 2px solid var(--border);
+}
+.team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.team-role { 
+  font-size: 0.9rem; color: var(--muted); 
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;
+}
+.team-name { font-size: 1.35rem; font-weight: 600; margin-bottom: 1rem; }
+.team-bio { font-size: 0.95rem; line-height: 1.6; color: var(--fg); }
+
+.team-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px; border-radius: 50%; background: white;
+  border: 1px solid var(--border); color: var(--fg);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1rem; z-index: 10;
+}
+.team-nav.prev { left: 1rem; }
+.team-nav.next { right: 1rem; }
+
+.team-dots {
+  display: flex; gap: 0.5rem; justify-content: center; margin-top: 2rem;
+}
+.team-dot {
+  width: 10px; height: 10px; border-radius: 50%; 
+  background: var(--border); cursor: pointer;
+}
+
     @media (min-width: 769px) { .mobile-menu-toggle, .mobile-menu { display: none !important; } }
     html { scroll-behavior: smooth; }
   </style>
@@ -510,20 +534,19 @@
       return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' }).replace(' ', ' ');
     }
 
-// ✅ NEW BULLETPROOF TEAM CAROUSEL
+// ✅ SIMPLE TEAM CAROUSEL - NO HIGHLIGHTING
 let currentTeamIndex = 0;
 
 function renderTeam() {
-  const container = document.getElementById('team-carousel');
+  const container = document.getElementById('team-grid');
   const dotsContainer = document.getElementById('team-dots');
   
   container.innerHTML = '';
   dotsContainer.innerHTML = '';
   
   teamMembers.forEach((member, index) => {
-    // Team Card
     const card = document.createElement('div');
-    card.className = `team-card ${index === currentTeamIndex ? 'active' : ''}`;
+    card.className = 'team-card'; // NO 'active' class
     card.innerHTML = `
       <div class="team-avatar">
         <img src="${member.image}" alt="${member.name}" loading="lazy">
@@ -531,58 +554,50 @@ function renderTeam() {
       <div class="team-role">${member.role}</div>
       <div class="team-name">${member.name}</div>
       <div class="team-bio">${member.bio}</div>
-      ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" style="display:inline-block;margin-top:1rem;color:var(--accent);font-size:0.9rem;"><i class="fab fa-linkedin"></i> LinkedIn</a>` : ''}
+      ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" class="team-link"><i class="fab fa-linkedin"></i></a>` : ''}
     `;
     container.appendChild(card);
     
-    // Dots
     const dot = document.createElement('div');
-    dot.className = `team-dot ${index === currentTeamIndex ? 'active' : ''}`;
+    dot.className = 'team-dot';
     dot.onclick = () => goToTeamSlide(index);
     dotsContainer.appendChild(dot);
   });
   
-  // Scroll to active card
+  // Smooth scroll to position
   container.scrollTo({
-    left: currentTeamIndex * 340, // card width + gap
+    left: currentTeamIndex * 320,
     behavior: 'smooth'
   });
 }
 
 function nextTeam() {
   currentTeamIndex = (currentTeamIndex + 1) % teamMembers.length;
-  renderTeam();
+  document.getElementById('team-grid').scrollTo({
+    left: currentTeamIndex * 320, behavior: 'smooth'
+  });
 }
 
 function prevTeam() {
   currentTeamIndex = (currentTeamIndex - 1 + teamMembers.length) % teamMembers.length;
-  renderTeam();
+  document.getElementById('team-grid').scrollTo({
+    left: currentTeamIndex * 320, behavior: 'smooth'
+  });
 }
 
 function goToTeamSlide(index) {
   currentTeamIndex = index;
-  renderTeam();
+  document.getElementById('team-grid').scrollTo({
+    left: index * 320, behavior: 'smooth'
+  });
 }
 
-// Event Listeners
+// Init
 function initTeamCarousel() {
-  const nextBtn = document.getElementById('team-next');
-  const prevBtn = document.getElementById('team-prev');
-  
-  if (nextBtn) nextBtn.onclick = nextTeam;
-  if (prevBtn) prevBtn.onclick = prevTeam;
-  
-  // Auto-rotate
-  setInterval(nextTeam, 5000);
+  document.getElementById('team-next').onclick = nextTeam;
+  document.getElementById('team-prev').onclick = prevTeam;
+  // Optional: setInterval(nextTeam, 7000); // Auto-rotate off by default
 }
-
-// Initialize
-window.addEventListener('load', () => {
-  renderFeaturedWork();
-  renderLatestNews();
-  renderTeam();
-  initTeamCarousel();
-});
 
     // Render Featured Work (Latest 4)
     function renderFeaturedWork() {
