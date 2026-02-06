@@ -1,298 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4NXETF7WV7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-4NXETF7WV7');
-  </script>
-
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alpha Films — Film & Media Production Studio</title>
-  <meta name="description" content="Alpha Films is a film and media production studio crafting commercials, brand films, and cinematic stories." />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/logo.png">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Films Production</title>
 
   <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #111111;
-      --muted: #6b6b6b;
-      --border: #e6e6e6;
-      --accent: #000000;
-    }
-
+    /* ---------- RESET ---------- */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
+      background: #000;
+      color: #fff;
       overflow-x: hidden;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
-    /* NAV */
+    /* ---------- NAVBAR ---------- */
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
       z-index: 1000;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
     }
 
     .nav {
       max-width: 1200px;
       margin: auto;
-      padding: 1rem 2rem;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .logo {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
       display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    /* ---------- MOBILE MENU ---------- */
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
       cursor: pointer;
     }
 
-    .logo img {
-      height: 32px;
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: #000;
+      padding: 20px;
     }
 
-    .desktop-menu {
-      display: flex;
-      gap: 2rem;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
+    .mobile-menu a {
+      padding: 12px 0;
+      border-bottom: 1px solid #222;
       text-transform: uppercase;
     }
 
-    .desktop-menu a {
-      position: relative;
-      padding-bottom: 4px;
-    }
-
-    .desktop-menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 1px;
-      width: 0;
-      background: var(--fg);
-      transition: width 0.25s ease;
-    }
-
-    .desktop-menu a:hover::after {
-      width: 100%;
-    }
-
-    /* HERO */
+    /* ---------- HERO ---------- */
     .hero {
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 9rem 2rem 6rem;
-      position: relative;
       text-align: center;
+      padding: 0 20px;
+      background: linear-gradient(to bottom, #000, #111);
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("images/studio-bg.JPG") center/cover no-repeat;
-      filter: brightness(0.7) contrast(1.1);
-      z-index: -1;
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
     }
 
-    .hero-content {
-      max-width: 900px;
-      color: white;
-    }
-
-    .hero-logo img {
-      height: 90px;
-      margin-bottom: 3rem;
-    }
-
-    .tagline {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
-      font-weight: 600;
-      line-height: 1.15;
-      margin-bottom: 2rem;
-    }
-
-    .hero-subtitle {
+    .hero p {
       max-width: 600px;
-      margin: 0 auto 3rem;
-      font-size: 1.05rem;
-      opacity: 0.9;
-    }
-
-    .primary-cta {
-      display: inline-block;
-      padding: 1rem 2.6rem;
-      border: 1px solid white;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-    }
-
-    .primary-cta:hover {
-      background: white;
-      color: black;
-    }
-
-    /* SECTIONS */
-    section {
-      max-width: 1200px;
       margin: auto;
-      padding: 6rem 2rem;
+      opacity: 0.75;
+      font-size: 16px;
+      margin-bottom: 40px;
     }
 
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.3rem;
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    /* SERVICES */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 3rem;
-    }
-
-    .service {
-      border-top: 1px solid var(--border);
-      padding-top: 2rem;
-    }
-
-    .service h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .service p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    /* PORTFOLIO */
-    #portfolio {
-      max-width: 100%;
-      padding-left: 3rem;
-      padding-right: 3rem;
-    }
-
-    .portfolio-hero {
-      height: 70vh;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 3rem;
-      position: relative;
-    }
-
-    .portfolio-hero img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .portfolio-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: flex-end;
-      padding: 3rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-      color: white;
-    }
-
-    .portfolio-overlay h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-    }
-
-    /* TEAM */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 3rem;
-    }
-
-    .team-member {
-      text-align: center;
-    }
-
-    .team-member img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1.5rem;
-    }
-
-    .team-member h4 {
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .team-member span {
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
+    .btn {
+      padding: 14px 32px;
+      border: 1px solid #fff;
+      font-size: 14px;
       text-transform: uppercase;
-      color: var(--muted);
+      transition: 0.3s;
     }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
+    .btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* ---------- SCROLL CAROUSEL ---------- */
+    .work-section {
+      height: 200vh;
+      padding-top: 100px;
+    }
+
+    .sticky-carousel {
+      position: sticky;
+      top: 100px;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 40px;
+      padding-left: 10vw;
+      transition: transform 0.2s ease-out;
+    }
+
+    .work-card {
+      min-width: 300px;
+      height: 400px;
+      background: #111;
+      border: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .more-work {
       text-align: center;
-      padding: 4rem 2rem;
-      color: var(--muted);
+      margin-top: 80px;
     }
 
-    /* MOBILE */
+    /* ---------- WHATSAPP BUTTON ---------- */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: #fff;
+      padding: 14px 18px;
+      border-radius: 50px;
+      font-size: 14px;
+      z-index: 2000;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
-      .tagline {
-        font-size: 2.2rem;
+      .nav-links {
+        display: none;
       }
-      .hero-logo img {
-        height: 70px;
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .mobile-menu.active {
+        display: flex;
+      }
+
+      .sticky-carousel {
+        height: auto;
+        position: relative;
+        top: 0;
+      }
+
+      .carousel {
+        overflow-x: scroll;
+        padding: 20px;
+      }
+
+      .work-card {
+        min-width: 250px;
+        height: 300px;
       }
     }
   </style>
@@ -300,102 +216,79 @@
 
 <body>
 
-<header>
-  <nav class="nav">
-    <div class="logo" onclick="location.href='index.html'">
-      <img src="images/logo.png" alt="Alpha Films">
-      <span>ALPHA FILMS</span>
-    </div>
-    <div class="desktop-menu">
-      <a href="#services">Services</a>
-      <a href="#portfolio">Work</a>
-      <a href="#team">Team</a>
-      <a href="news.html">News</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-</header>
+  <!-- NAVBAR -->
+  <header>
+    <div class="nav">
+      <div class="logo">ALPHA FILMS</div>
 
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-logo">
-      <img src="images/logo.png" alt="Alpha Films">
-    </div>
-    <div class="tagline">
-      We don’t just shoot videos.<br>
-      We build visual authority.
-    </div>
-    <div class="hero-subtitle">
-      Film, commercial and branded storytelling crafted with precision and intent.
-    </div>
-    <a href="https://wa.me/918587090302" class="primary-cta">Start a Project</a>
-  </div>
-</section>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
 
-<section id="services">
-  <h2 class="section-title">What We Do</h2>
-  <div class="services-grid">
-    <div class="service">
-      <h3>Commercial & Brand Films</h3>
-      <p>High-impact films designed to position brands with clarity and confidence.</p>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </div>
-    <div class="service">
-      <h3>Studio & Production</h3>
-      <p>Fully equipped professional studio space with lighting, gear and crew.</p>
-    </div>
-    <div class="service">
-      <h3>Post Production</h3>
-      <p>Editing, color, sound and finishing that elevates visual storytelling.</p>
-    </div>
-    <div class="service">
-      <h3>Digital & Social Content</h3>
-      <p>Short-form, reels and platform-native content built for attention.</p>
-    </div>
-  </div>
-</section>
 
-<section id="portfolio">
-  <h2 class="section-title">Featured Work</h2>
-  <a href="https://www.youtube.com/watch?v=AhzQTAfnsCs" target="_blank">
-    <div class="portfolio-hero">
-      <img src="images/broken.jpg" alt="Broken Reflections">
-      <div class="portfolio-overlay">
-        <h3>Broken Reflections</h3>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Cinematic Stories<br />That Convert</h1>
+      <p>High-end commercial films, brand content and visual storytelling.</p>
+      <a href="#" class="btn">BOOK NOW</a>
+    </div>
+  </section>
+
+  <!-- SCROLL CAROUSEL -->
+  <section class="work-section">
+    <div class="sticky-carousel">
+      <div class="carousel" id="carousel">
+        <div class="work-card">Project One</div>
+        <div class="work-card">Project Two</div>
+        <div class="work-card">Project Three</div>
+        <div class="work-card">Project Four</div>
       </div>
     </div>
+
+    <div class="more-work">
+      <a href="portfolio.html" class="btn">More Work</a>
+    </div>
+  </section>
+
+  <!-- WHATSAPP -->
+  <a
+    href="https://wa.me/XXXXXXXXXX"
+    target="_blank"
+    class="whatsapp"
+  >
+    WhatsApp
   </a>
-</section>
 
-<section id="team">
-  <h2 class="section-title">The Team</h2>
-  <div class="team-grid">
-    <div class="team-member">
-      <img src="team_images/deep.png">
-      <h4>Deepanshu Sehgal</h4>
-      <span>Founder & Creative Director</span>
-    </div>
-    <div class="team-member">
-      <img src="team_images/daksh.jpg">
-      <h4>Daksh Mehta</h4>
-      <span>Content Director</span>
-    </div>
-    <div class="team-member">
-      <img src="team_images/shivani.jpg">
-      <h4>Shivani Damle</h4>
-      <span>Creative Lead</span>
-    </div>
-    <div class="team-member">
-      <img src="team_images/parth.JPG">
-      <h4>Parth Sehgal</h4>
-      <span>Operations</span>
-    </div>
-  </div>
-</section>
+  <script>
+    /* MOBILE MENU */
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("active");
+    }
 
-<footer id="contact">
-  <p>Delhi, India · +91 85870 90302 · alphafilmsofficial@gmail.com</p>
-  <p style="margin-top:1.5rem;">© 2026 Alpha Films</p>
-</footer>
+    /* SCROLL → HORIZONTAL CAROUSEL */
+    const carousel = document.getElementById("carousel");
+    window.addEventListener("scroll", () => {
+      const section = document.querySelector(".work-section");
+      const scrollTop = window.scrollY - section.offsetTop;
+      if (scrollTop > 0) {
+        carousel.style.transform = `translateX(${-scrollTop * 0.4}px)`;
+      }
+    });
+  </script>
 
 </body>
 </html>
