@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4NXETF7WV7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,605 +13,389 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alpha Films</title>
-  <meta name="description" content="Alpha Films is a one-stop film and video production company offering end-to-end production solutions." />
+  <title>Alpha Films — Film & Media Production Studio</title>
+  <meta name="description" content="Alpha Films is a film and media production studio crafting commercials, brand films, and cinematic stories." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo.png">
 
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Futura:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #ffffff; --bg-soft: #f8f8f8; --fg: #1a1a1a; --muted: #666666;
-      --accent: #000000; --accent-soft: #333333; --border: #e0e0e0;
-      --whatsapp: #25D366; --instagram: #E4405F;
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #6b6b6b;
+      --border: #e6e6e6;
+      --accent: #000000;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Futura', sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; overflow-x: hidden; }
-    a { color: inherit; text-decoration: none; }
-
-    /* Navigation */
-    header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
-    .nav { max-width: 1200px; margin: auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .logo { display: flex; align-items: center; gap: 0.75rem; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.12em; color: var(--fg); cursor: pointer; }
-    .logo img { height: 2.2rem; width: auto; }
-    .desktop-menu { display: flex; gap: 2rem; }
-    .nav-link { padding: 0.5rem 0; font-weight: 500; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg) !important; position: relative; }
-    .nav-link::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--accent); transition: width 0.2s ease; }
-    .nav-link:hover::after { width: 100%; }
-    .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: var(--fg); cursor: pointer; padding: 0.5rem; }
-    .mobile-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255,255,255,0.98); backdrop-filter: blur(18px); flex-direction: column; border-top: 1px solid var(--border); }
-    .mobile-menu.active { display: flex; }
-    .mobile-nav-link { padding: 1rem 2rem; border-bottom: 1px solid var(--border); font-size: 1rem; color: var(--fg) !important; letter-spacing: 0.08em; text-transform: uppercase; }
-
-    /* Floating Action Buttons */
-    .floating-buttons { position: fixed; bottom: 2rem; right: 2rem; display: flex; flex-direction: column; gap: 0.75rem; z-index: 2000; }
-    .fab { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: black !important; box-shadow: 0 8px 25px rgba(0,0,0,0.25); transition: all 0.25s ease; }
-    .fab:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
-    .fab.whatsapp { background: var(--whatsapp); }
-    .fab.instagram { background: var(--instagram); }
-
-    /* Hero */
-    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 9rem 2rem 6rem; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(248,248,248,0.05) 100%); }
-    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('images/studio-bg.JPG'); background-size: cover; background-position: center; background-repeat: no-repeat; filter: blur(4px) brightness(0.85) contrast(1.1); opacity: 0.7; z-index: -1; }
-    .hero-content { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 2rem; gap: 4rem; }
-    .hero-logo { flex: 0 0 200px; text-align: center; }
-    .hero-logo img { height: 180px; width: auto; }
-    .hero-text { flex: 1; text-align: center; max-width: 650px; }
-    .tagline { font-size: 2.4rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.06em; color: var(--fg); line-height: 1.1; }
-    .tagline br { display: block; }
-    .hero-subtitle { max-width: 820px; font-size: 1.05rem; line-height: 1.9; margin-bottom: 2rem; color: #1a1a1a !important; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
-    
-    /* NEW: Hero Book Now Button */
-    .hero-cta { text-align: center; margin-top: 1rem; }
-    .book-now-btn { 
-      display: inline-block; 
-      background: var(--accent); 
-      color: white; 
-      padding: 1rem 2.5rem; 
-      border-radius: 50px; 
-      font-size: 1.1rem; 
-      font-weight: 600; 
-      letter-spacing: 0.08em; 
-      text-transform: uppercase; 
-      text-decoration: none; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
-      transition: all 0.3s ease; 
-    }
-    .book-now-btn:hover { 
-      background: var(--accent-soft); 
-      transform: translateY(-3px); 
-      box-shadow: 0 15px 40px rgba(0,0,0,0.3); 
-      color: white; 
-      text-decoration: none; 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .action-belt { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: rgba(248,248,248,0.9); overflow: hidden; border-top: 1px solid var(--border); }
-    .action-marquee { display: flex; height: 100%; align-items: center; animation: scroll 18s linear infinite; }
-    .action-item { font-size: 1.2rem; font-weight: 600; color: var(--accent); padding: 0 3rem; white-space: nowrap; }
-    @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-
-    /* Sections */
-    section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; background: var(--bg); }
-    h2.section-title { font-size: 2.1rem; text-align: center; margin-bottom: 2.5rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); }
-
-    /* Services Grid - DESKTOP */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .card { background: var(--bg-soft); padding: 2rem; border-radius: 18px; border: 1px solid var(--border); transition: all 0.35s ease; color: var(--fg); }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 16px 35px rgba(0,0,0,0.08); border-color: var(--accent-soft); }
-
-    /* NEW: Services Mobile Carousel */
-    .services-carousel { 
-      display: none; 
-      overflow-x: auto; 
-      scroll-snap-type: x mandatory; 
-      gap: 1.5rem; 
-      padding: 1rem 0; 
-      scrollbar-width: none; 
-      -ms-overflow-style: none; 
-      scroll-behavior: smooth; 
-    }
-    .services-carousel::-webkit-scrollbar { display: none; }
-    .services-carousel-card { 
-      flex: 0 0 300px; 
-      scroll-snap-align: center; 
-      min-width: 300px; 
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* Services CTA Button */
-    .services-cta { text-align: center; margin-top: 3rem; }
-    
-    /* Featured Work - Hero + Grid */
-    .portfolio-hero { width: 100%; height: 70vh; min-height: 500px; margin-bottom: 3rem; border-radius: 24px; overflow: hidden; position: relative; box-shadow: 0 30px 90px rgba(0,0,0,0.4); }
-    .hero-item { width: 100%; height: 100%; display: block; position: relative; }
-    .hero-item img { width: 100%; height: 100%; object-fit: cover; transition: all 0.4s ease; }
-    .hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: white; padding: 3rem 2rem 2rem; }
-    .hero-overlay .collage-tag { font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.9; display: block; margin-bottom: 0.5rem; }
-    .hero-overlay .collage-title { font-size: 2.2rem; font-weight: 700; letter-spacing: 0.05em; }
-    .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 6rem; color: rgba(255,255,255,0.95); text-shadow: 0 4px 20px rgba(0,0,0,0.8); opacity: 0; transition: all 0.4s ease; }
-    .hero-item:hover img { transform: scale(1.05); filter: brightness(1.1); }
-    .hero-item:hover .play-icon { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    /* Portfolio Grid */
-    .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto 2rem; }
-    .work-item { display: block; text-decoration: none; color: inherit; }
-    .work-thumb { position: relative; overflow: hidden; border-radius: 18px; border: 1px solid var(--border); background: #000; aspect-ratio: 16 / 9; }
-    .work-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
-    .work-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.1rem 1.3rem; background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.05)); color: #ffffff; gap: 0.2rem; }
-    .work-tag { font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8; }
-    .work-title { font-size: 1rem; font-weight: 600; }
-    .work-cta { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0; transform: translateY(6px); transition: all 0.25s ease; }
-    .work-thumb:hover img { transform: scale(1.06); }
-    .work-thumb:hover .work-cta { opacity: 1; transform: translateY(0); }
+    /* NAV */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
 
-    /* CTA Buttons */
-    .work-cta-section, .news-cta-section { text-align: center; margin: 3rem 0 1rem; }
-    .more-work-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; }
-    .more-work-btn:hover { background: var(--accent-soft); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); color: white; text-decoration: none; }
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-    /* Team Carousel */
-    .team-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; position: relative; }
-    .team-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1.5rem; padding: 2rem 0; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth; }
-    .team-carousel::-webkit-scrollbar { display: none; }
-    .team-card { flex: 0 0 320px; scroll-snap-align: center; background: var(--bg-soft); border-radius: 24px; padding: 2.5rem 2rem; text-align: center; border: 1px solid var(--border); transition: all 0.3s ease; min-width: 320px; }
-    .team-avatar { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1.5rem; overflow: hidden; border: 3px solid var(--border); }
-    .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .team-role { font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
-    .team-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
-    .team-bio { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; }
-    .team-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; background: white; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; color: var(--accent); box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; z-index: 10; }
-    .team-nav:hover { transform: translateY(-50%) scale(1.1); box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
-    .team-nav.prev { left: 1rem; }
-    .team-nav.next { right: 1rem; }
-    .team-dots { display: flex; gap: 0.5rem; justify-content: center; margin-top: 2rem; }
-    .team-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.3s ease; }
-    .team-dot.active { background: var(--accent); transform: scale(1.3); }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+    }
 
-    /* News on Index (Latest 3) */
-    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .news-meta { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.5rem; }
-    .news-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--fg); }
-    .news-link { display: inline-block; margin-top: 0.75rem; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-    .news-link:hover { text-decoration: underline; }
+    .logo img {
+      height: 32px;
+    }
 
-    /* Contact Content */
-    .contact-content { max-width: 600px; margin: 0 auto; }
-    .contact-content h2 { color: var(--fg); margin-bottom: 1rem; }
-    .contact-content p { font-size: 1.05rem; margin-bottom: 1rem; color: var(--muted); }
-    .contact-content .social-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .contact-content .social-links a { font-size: 1.2rem; }
-    .contact-content .social-links a[href*="instagram"] { color: var(--instagram) !important; }
-    .contact-content a[href*="linkedin"] { color: #0077B5 !important; }
-    .contact-content a[href*="whatsapp"] { color: var(--whatsapp) !important; }
+    .desktop-menu {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
 
-    /* Footer */
-    footer { padding: 3rem 2rem 2.5rem; text-align: center; border-top: 1px solid var(--border); color: var(--muted); background: var(--bg); }
+    .desktop-menu a {
+      position: relative;
+      padding-bottom: 4px;
+    }
 
-    /* Mobile */
+    .desktop-menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      width: 0;
+      background: var(--fg);
+      transition: width 0.25s ease;
+    }
+
+    .desktop-menu a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9rem 2rem 6rem;
+      position: relative;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("images/studio-bg.JPG") center/cover no-repeat;
+      filter: brightness(0.7) contrast(1.1);
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      color: white;
+    }
+
+    .hero-logo img {
+      height: 90px;
+      margin-bottom: 3rem;
+    }
+
+    .tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 2rem;
+    }
+
+    .hero-subtitle {
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+    }
+
+    .primary-cta {
+      display: inline-block;
+      padding: 1rem 2.6rem;
+      border: 1px solid white;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .primary-cta:hover {
+      background: white;
+      color: black;
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 6rem 2rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 3rem;
+    }
+
+    .service {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+    }
+
+    .service h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* PORTFOLIO */
+    #portfolio {
+      max-width: 100%;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+
+    .portfolio-hero {
+      height: 70vh;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .portfolio-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 3rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      color: white;
+    }
+
+    .portfolio-overlay h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+    }
+
+    /* TEAM */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 3rem;
+    }
+
+    .team-member {
+      text-align: center;
+    }
+
+    .team-member img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+    }
+
+    .team-member h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .team-member span {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--muted);
+    }
+
+    /* MOBILE */
     @media (max-width: 768px) {
-      .desktop-menu { display: none; }
-      .mobile-menu-toggle { display: block; }
-      .nav { padding: 0.75rem 1rem; }
-      .hero { padding: 8rem 1.5rem 6rem; }
-      .hero-content { flex-direction: column; gap: 2rem; }
-      .hero-logo img { height: 120px; }
-      .tagline { font-size: 1.9rem; max-width: 18ch; margin-left: auto; margin-right: auto; }
-      .floating-buttons { bottom: 1.3rem; right: 1.3rem; }
-      
-      /* Services: Hide Grid, Show Carousel */
-      .grid { display: none; }
-      .services-carousel { display: block; }
-      
-      .portfolio-hero { height: 60vh; min-height: 400px; margin-bottom: 2rem; border-radius: 18px; }
-      .hero-overlay { padding: 2rem 1.5rem 1.5rem; }
-      .hero-overlay .collage-title { font-size: 1.8rem; }
-      .play-icon { font-size: 4rem; }
-      .team-card { flex: 0 0 280px; min-width: 280px; padding: 2rem 1.5rem; }
-      .team-avatar { width: 100px; height: 100px; }
+      .tagline {
+        font-size: 2.2rem;
+      }
+      .hero-logo img {
+        height: 70px;
+      }
     }
-    @media (min-width: 769px) { .mobile-menu-toggle, .mobile-menu { display: none !important; } }
-    html { scroll-behavior: smooth; }
   </style>
 </head>
+
 <body>
 
-  <!-- Navigation -->
-  <header>
-    <nav class="nav">
-      <div class="logo" onclick="goHome()">
-        <img src="images/logo.png" alt="Alpha Films Logo">
-        <span>ALPHA FILMS</span>
-      </div>
+<header>
+  <nav class="nav">
+    <div class="logo" onclick="location.href='index.html'">
+      <img src="images/logo.png" alt="Alpha Films">
+      <span>ALPHA FILMS</span>
+    </div>
+    <div class="desktop-menu">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Work</a>
+      <a href="#team">Team</a>
+      <a href="news.html">News</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
 
-      <div class="desktop-menu">
-        <a href="#hero" class="nav-link">Home</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#portfolio" class="nav-link">Featured Work</a>
-        <a href="#team" class="nav-link">Team</a>
-        <a href="news.html" class="nav-link">News</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-
-      <button class="mobile-menu-toggle" onclick="toggleMobileMenu(event)">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="#hero" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Home</a>
-        <a href="#services" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Services</a>
-        <a href="#portfolio" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Featured Work</a>
-        <a href="#team" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Team</a>
-        <a href="news.html" class="mobile-nav-link" onclick="toggleMobileMenu(event)">News & Updates</a>
-        <a href="#contact" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Floating Action Buttons -->
-  <div class="floating-buttons">
-    <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%0AI%20want%20to%20book%20your%20studio%2Fvideo%20production%20services.%0AWhat's%20next%3F" class="fab whatsapp" target="_blank" title="WhatsApp" rel="noopener noreferrer">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="https://instagram.com/alphafilmsofficial" class="fab instagram" target="_blank" title="Instagram" rel="noopener noreferrer">
-      <i class="fab fa-instagram"></i>
-    </a>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-logo">
+      <img src="images/logo.png" alt="Alpha Films">
+    </div>
+    <div class="tagline">
+      We don’t just shoot videos.<br>
+      We build visual authority.
+    </div>
+    <div class="hero-subtitle">
+      Film, commercial and branded storytelling crafted with precision and intent.
+    </div>
+    <a href="https://wa.me/918587090302" class="primary-cta">Start a Project</a>
   </div>
+</section>
 
-  <!-- Hero -->
-  <section id="hero" class="hero">
-    <div class="action-belt">
-      <div class="action-marquee">
-        <div class="action-item">*LIGHTS | CAMERA | ACTION*</div><div class="action-item">*LIGHTS | CAMERA | ACTION*</div>
-        <div class="action-item">*LIGHTS | CAMERA | ACTION*</div><div class="action-item">*LIGHTS | CAMERA | ACTION*</div>
-      </div>
+<section id="services">
+  <h2 class="section-title">What We Do</h2>
+  <div class="services-grid">
+    <div class="service">
+      <h3>Commercial & Brand Films</h3>
+      <p>High-impact films designed to position brands with clarity and confidence.</p>
     </div>
-    <div class="hero-content">
-      <div class="hero-logo">
-        <img src="images/logo.png" alt="Alpha Films Logo">
-      </div>
-      <div class="hero-text">
-        <div class="tagline">Frame by frame.<br>Feeling by feeling.</div>
-        <div class="hero-subtitle">
-          Alpha Films is a one-stop film and video production company offering end-to-end production solutions. 
-          From concept development and pre-production to filming, post-production, and final delivery, 
-          we create high-quality films, commercials, and digital content that stand out.
-        </div>
-        <!-- NEW: Hero Book Now Button -->
-        <div class="hero-cta">
-          <a href="#services" class="book-now-btn">Book Now</a>
-        </div>
-      </div>
+    <div class="service">
+      <h3>Studio & Production</h3>
+      <p>Fully equipped professional studio space with lighting, gear and crew.</p>
     </div>
-  </section>
+    <div class="service">
+      <h3>Post Production</h3>
+      <p>Editing, color, sound and finishing that elevates visual storytelling.</p>
+    </div>
+    <div class="service">
+      <h3>Digital & Social Content</h3>
+      <p>Short-form, reels and platform-native content built for attention.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- Services -->
-  <section id="services">
-    <h2 class="section-title">Our Services</h2>
-    
-    <!-- Desktop Grid -->
-    <div class="grid">
-      <div class="card">
-        <h3>🎬 Video Production</h3>
-        <p>End-to-end production from concept to final cinematic edit. Commercials, films, corporate videos.</p>
-      </div>
-      <div class="card">
-        <h3>📸 Studio Rental</h3>
-        <p>8-hour professional shooting space in Delhi with AC, power backup, and full equipment.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ Studio + Gear</h3>
-        <p>Complete package: studio, lights, cameras, audio, and production support.</p>
-      </div>
-      <div class="card">
-        <h3>✂️ Post Production</h3>
-        <p>High-impact editing for reels, ads, courses, and social media content.</p>
-      </div>
-      <div class="card">
-        <h3>📱 Social Content</h3>
-        <p>Instagram Reels, YouTube Shorts, TikTok videos optimized for maximum engagement.</p>
-      </div>
-      <div class="card">
-        <h3>🎓 Course Packages</h3>
-        <p>Bulk production for online courses, educational content, and brand series.</p>
-      </div>
-    </div>
-
-    <!-- Mobile Carousel -->
-    <div class="services-carousel">
-      <div class="services-carousel-card card">
-        <h3>🎬 Video Production</h3>
-        <p>End-to-end production from concept to final cinematic edit. Commercials, films, corporate videos.</p>
-      </div>
-      <div class="services-carousel-card card">
-        <h3>📸 Studio Rental</h3>
-        <p>8-hour professional shooting space in Delhi with AC, power backup, and full equipment.</p>
-      </div>
-      <div class="services-carousel-card card">
-        <h3>⚡ Studio + Gear</h3>
-        <p>Complete package: studio, lights, cameras, audio, and production support.</p>
-      </div>
-      <div class="services-carousel-card card">
-        <h3>✂️ Post Production</h3>
-        <p>High-impact editing for reels, ads, courses, and social media content.</p>
-      </div>
-      <div class="services-carousel-card card">
-        <h3>📱 Social Content</h3>
-        <p>Instagram Reels, YouTube Shorts, TikTok videos optimized for maximum engagement.</p>
-      </div>
-      <div class="services-carousel-card card">
-        <h3>🎓 Course Packages</h3>
-        <p>Bulk production for online courses, educational content, and brand series.</p>
-      </div>
-    </div>
-
-    <!-- NEW: Services Book Now Button -->
-    <div class="services-cta">
-      <a href="#" class="book-now-btn" target="_blank">Book Now</a>
-    </div>
-  </section>
-
-  <!-- Featured Work - AUTOMATED -->
-  <section id="portfolio">
-    <h2 class="section-title">Featured Work</h2>
-    
-    <!-- Hero Project -->
+<section id="portfolio">
+  <h2 class="section-title">Featured Work</h2>
+  <a href="https://www.youtube.com/watch?v=AhzQTAfnsCs" target="_blank">
     <div class="portfolio-hero">
-      <a href="https://www.youtube.com/watch?v=AhzQTAfnsCs" target="_blank" class="hero-item" rel="noopener noreferrer">
-        <img src="images/broken.jpg" alt="Broken Reflections" loading="lazy">
-        <div class="hero-overlay">
-          <span class="collage-tag">Featured Short Film</span>
-          <span class="collage-title">Broken Reflections</span>
-          <span class="play-icon">▶</span>
-        </div>
-      </a>
-    </div>
-
-    <!-- Latest 4 Projects -->
-    <div class="work-grid" id="featured-grid">
-      <!-- Automated - Latest 4 projects -->
-    </div>
-
-    <!-- More Work Button -->
-    <div class="work-cta-section">
-      <a href="portfolio.html" class="more-work-btn">More Featured Work →</a>
-    </div>
-  </section>
-
-  <!-- Team - FIXED CAROUSEL -->
-  <section id="team">
-    <h2 class="section-title">Our Team</h2>
-    <div class="team-wrapper">
-      <div class="team-carousel" id="team-carousel">
-        <!-- Cards populated by JS -->
+      <img src="images/broken.jpg" alt="Broken Reflections">
+      <div class="portfolio-overlay">
+        <h3>Broken Reflections</h3>
       </div>
-      <button class="team-nav prev" id="team-prev"><i class="fas fa-chevron-left"></i></button>
-      <button class="team-nav next" id="team-next"><i class="fas fa-chevron-right"></i></button>
-      <div class="team-dots" id="team-dots"></div>
     </div>
-  </section>
+  </a>
+</section>
 
-  <!-- News - AUTOMATED (Latest 3) -->
-  <section id="news">
-    <h2 class="section-title">News & Updates</h2>
-    <div class="news-grid" id="index-news-grid">
-      <!-- Latest 3 news items -->
+<section id="team">
+  <h2 class="section-title">The Team</h2>
+  <div class="team-grid">
+    <div class="team-member">
+      <img src="team_images/deep.png">
+      <h4>Deepanshu Sehgal</h4>
+      <span>Founder & Creative Director</span>
     </div>
-    <div class="news-cta-section">
-      <a href="news.html" class="more-work-btn">View All News →</a>
+    <div class="team-member">
+      <img src="team_images/daksh.jpg">
+      <h4>Daksh Mehta</h4>
+      <span>Content Director</span>
     </div>
-  </section>
-
-  <!-- Contact -->
-  <footer id="contact">
-    <div class="contact-content">
-      <h2>Ready to create?</h2>
-      <p>
-        📍 Delhi, India | 📱 +91 85870 90302 | 📧 
-        <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a>
-      </p>
-      <div class="social-links">
-        <a href="https://instagram.com/alphafilmsofficial" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/company/alphafilms" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://wa.me/918587090302" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
-      </div>
-      <p style="margin-top: 2rem; opacity: 0.7;">© 2026 Alpha Films. All rights reserved.</p>
+    <div class="team-member">
+      <img src="team_images/shivani.jpg">
+      <h4>Shivani Damle</h4>
+      <span>Creative Lead</span>
     </div>
-  </footer>
+    <div class="team-member">
+      <img src="team_images/parth.JPG">
+      <h4>Parth Sehgal</h4>
+      <span>Operations</span>
+    </div>
+  </div>
+</section>
 
-  <!-- COMPLETE CLEAN JAVASCRIPT - NO DUPLICATES -->
-  <script>
-    // DATA ARRAYS - ADD NEW ITEMS HERE ONLY
-    const allProjects = [
-      { title: "Night Shift", tag: "Short Film", image: "images/nightshift.jpg", url: "https://www.youtube.com/watch?v=kwVuPcAiNjY" },
-      { title: "Into the Sea", tag: "Cinematic Short", image: "images/intothesea.jpg", url: "https://www.youtube.com/watch?v=vQYMIPsxp4c" },
-      { title: "Goan Classic 350", tag: "Motorcycle Film", image: "images/goan.jpg", url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI" },
-      { title: "BND Motorsport Event", tag: "Race Event", image: "images/bnd.jpg", url: "#" },
-    ];
+<footer id="contact">
+  <p>Delhi, India · +91 85870 90302 · alphafilmsofficial@gmail.com</p>
+  <p style="margin-top:1.5rem;">© 2026 Alpha Films</p>
+</footer>
 
-    const allNews = [
-      { id: 1, title: "Alpha Films Studio Grand Opening", category: "studio", date: "2026-02-03", excerpt: "Our new 8-hour professional shooting space is now LIVE in Delhi NCR. Fully equipped with AC, power backup, lighting rigs, and production support." },
-      { id: 2, title: "Speaking at Digital Media Summit", category: "events", date: "2026-01-15", excerpt: "Rohan Sengal sharing insights on cinematic storytelling and building production studio brands in India's competitive market." },
-      { id: 3, title: "Major D2C Commercial Production", category: "projects", date: "2025-12-20", excerpt: "End-to-end TVC production completed in 10 days for emerging D2C brand. Delivered concept-to-master with motion graphics." },
-    ];
-
-    const teamMembers = [
-      { name: "Deepanshu Sehgal", role: "Founder & Creative Director", bio: "Visionary filmmaker with 5+ years experience. First AD at 21, Best Student Short Film Producer award. Masters in Film Making - Specialization in Production from Whistling Woods International, Mumbai.", image: "team_images/deep.png", linkedin: "https://www.linkedin.com/in/deepsehgal" },
-      { name: "Daksh Mehta", role: "Content Director", bio: "TBA", image: "team_images/daksh.jpg" },
-      { name: "Shivani Damle", role: "Creative Lead", bio: "TBA", image: "team_images/shivani.jpg" },
-      { name: "Parth Sehgal", role: "Operations & Human Resource", bio: "TBA", image: "team_images/parth.JPG" },
-    ];
-
-    // UTILITY FUNCTIONS
-    function formatDate(dateStr) {
-      const date = new Date(dateStr);
-      return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' }).replace(' ', ' ');
-    }
-
-    function goHome() { window.location.href = 'index.html'; }
-
-    function toggleMobileMenu(event) {
-      event.stopPropagation();
-      document.getElementById('mobileMenu').classList.toggle('active');
-    }
-
-    // FEATURED WORK - Latest 4
-    function renderFeaturedWork() {
-      const container = document.getElementById('featured-grid');
-      if (!container) return;
-      container.innerHTML = '';
-      const latest4 = allProjects.slice(0, 4);
-      latest4.forEach(project => {
-        const item = document.createElement('a');
-        item.href = project.url;
-        item.target = '_blank';
-        item.rel = 'noopener noreferrer';
-        item.className = 'work-item';
-        item.innerHTML = `
-          <div class="work-thumb">
-            <img src="${project.image}" alt="${project.title}" loading="lazy">
-            <div class="work-overlay">
-              <span class="work-tag">${project.tag}</span>
-              <span class="work-title">${project.title}</span>
-              <span class="work-cta">View ↗</span>
-            </div>
-          </div>
-        `;
-        container.appendChild(item);
-      });
-    }
-
-    // NEWS - Latest 3
-    function renderLatestNews() {
-      const container = document.getElementById('index-news-grid');
-      if (!container) return;
-      container.innerHTML = '';
-      const latest3 = allNews.slice(0, 3);
-      latest3.forEach(news => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <div class="news-meta">${formatDate(news.date)}</div>
-          <div class="news-title">${news.title}</div>
-          <p>${news.excerpt.substring(0, 120)}...</p>
-          <a href="news.html#news-${news.id}" class="news-link">Read more →</a>
-        `;
-        container.appendChild(card);
-      });
-    }
-
-    // TEAM CAROUSEL
-    let currentTeamIndex = 0;
-    function renderTeam() {
-      const teamCarousel = document.getElementById('team-carousel');
-      const teamDots = document.getElementById('team-dots');
-      if (!teamCarousel || !teamDots) return;
-      
-      teamCarousel.innerHTML = '';
-      teamDots.innerHTML = '';
-      
-      teamMembers.forEach((member, index) => {
-        const card = document.createElement('div');
-        card.className = 'team-card';
-        card.innerHTML = `
-          <div class="team-avatar">
-            <img src="${member.image}" alt="${member.name}" loading="lazy">
-          </div>
-          <div class="team-role">${member.role}</div>
-          <div class="team-name">${member.name}</div>
-          <div class="team-bio">${member.bio}</div>
-          ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" rel="noopener noreferrer" style="color: #0077B5; font-size: 1.1rem; margin-top: 1rem; display: inline-block;"><i class="fab fa-linkedin"></i></a>` : ''}
-        `;
-        teamCarousel.appendChild(card);
-        
-        const dot = document.createElement('div');
-        dot.className = 'team-dot';
-        dot.onclick = () => goToTeamSlide(index);
-        teamDots.appendChild(dot);
-      });
-      
-      updateTeamDots();
-      scrollToCurrent();
-    }
-
-    function scrollToCurrent() {
-      const teamCarousel = document.getElementById('team-carousel');
-      if (teamCarousel) {
-        teamCarousel.scrollTo({ left: currentTeamIndex * 335, behavior: 'smooth' });
-      }
-    }
-
-    function updateTeamDots() {
-      const teamDots = document.getElementById('team-dots');
-      if (!teamDots) return;
-      Array.from(teamDots.children).forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentTeamIndex);
-      });
-    }
-
-    function nextTeam() {
-      currentTeamIndex = (currentTeamIndex + 1) % teamMembers.length;
-      scrollToCurrent();
-      updateTeamDots();
-    }
-
-    function prevTeam() {
-      currentTeamIndex = (currentTeamIndex - 1 + teamMembers.length) % teamMembers.length;
-      scrollToCurrent();
-      updateTeamDots();
-    }
-
-    function goToTeamSlide(index) {
-      currentTeamIndex = index;
-      scrollToCurrent();
-      updateTeamDots();
-    }
-
-    function initTeamCarousel() {
-      const teamNext = document.getElementById('team-next');
-      const teamPrev = document.getElementById('team-prev');
-      if (teamNext) teamNext.onclick = nextTeam;
-      if (teamPrev) teamPrev.onclick = prevTeam;
-      
-      const teamCarousel = document.getElementById('team-carousel');
-      let startX = 0;
-      teamCarousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-      teamCarousel.addEventListener('touchend', e => {
-        const endX = e.changedTouches[0].clientX;
-        if (startX - endX > 50) nextTeam();
-        if (endX - startX > 50) prevTeam();
-      });
-    }
-
-    // GLOBAL EVENT LISTENERS
-    document.addEventListener('click', function(event) {
-      const menu = document.getElementById('mobileMenu');
-      const toggle = document.querySelector('.mobile-menu-toggle');
-      if (!toggle?.contains(event.target) && !menu?.contains(event.target)) {
-        menu.classList.remove('active');
-      }
-    });
-
-    document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
-      link.addEventListener('click', function(e) {
-        if (this.getAttribute('href').startsWith('#')) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-
-    // INITIALIZE EVERYTHING
-    window.addEventListener('load', function() {
-      renderFeaturedWork();
-      renderLatestNews();
-      renderTeam();
-      initTeamCarousel();
-    });
-  </script>
 </body>
 </html>
