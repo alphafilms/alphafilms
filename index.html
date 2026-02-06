@@ -24,34 +24,32 @@
 
   <style>
     :root {
-      --bg: #050509;
-      --bg-soft: #111119;
-      --fg: #f5f5f5;
-      --muted: #9b9bb3;
-      --accent: #f5c860;
-      --accent-soft: #f0b640;
-      --border: #252536;
+      --bg: #05060a;
+      --bg-soft: #101118;
+      --fg: #f5f5f7;
+      --muted: #9a9bb0;
+      --accent: #3f82ff;       /* cool blue accent */
+      --accent-soft: #315fcc;
+      --border: #252636;
       --whatsapp: #25D366;
       --instagram: #E4405F;
-      --danger: #ff4b6b;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Futura', sans-serif;
-      background: radial-gradient(circle at top, #181828 0, #050509 55%);
+      background: radial-gradient(circle at top, #171827 0, #05060a 55%);
       color: var(--fg);
       line-height: 1.6;
       overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
 
-    /* Subtle page grain */
     body::before {
       content: '';
-      pointer-events: none;
       position: fixed;
       inset: 0;
+      pointer-events: none;
       opacity: 0.18;
       mix-blend-mode: soft-light;
       background-image: url('images/noise.png');
@@ -65,14 +63,14 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      background: radial-gradient(circle at top left, rgba(245,200,96,0.12), transparent 55%) rgba(5,5,9,0.92);
-      backdrop-filter: blur(22px);
-      border-bottom: 1px solid rgba(120,120,160,0.35);
+      background: rgba(5,6,12,0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(70,72,100,0.6);
     }
     .nav {
       max-width: 1200px;
       margin: auto;
-      padding: 1rem 2rem;
+      padding: 0.9rem 1.6rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -81,21 +79,21 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
       letter-spacing: 0.16em;
       color: var(--fg);
       cursor: pointer;
       text-transform: uppercase;
     }
-    .logo img { height: 2.2rem; width: auto; }
-    .desktop-menu { display: flex; gap: 1.75rem; align-items: center; }
+    .logo img { height: 2.1rem; width: auto; }
+    .desktop-menu { display: flex; gap: 1.7rem; align-items: center; }
     .nav-link {
-      padding: 0.4rem 0;
+      padding: 0.2rem 0;
       font-weight: 500;
       font-size: 0.9rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       color: var(--muted) !important;
       position: relative;
       transition: color 0.2s ease, opacity 0.2s ease;
@@ -108,7 +106,7 @@
       bottom: -4px;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--danger));
+      background: var(--accent);
       transition: width 0.2s ease;
     }
     .nav-link:hover {
@@ -132,16 +130,16 @@
       top: 100%;
       left: 0;
       width: 100%;
-      background: rgba(5,5,9,0.98);
+      background: rgba(5,6,12,0.98);
       backdrop-filter: blur(18px);
       flex-direction: column;
-      border-top: 1px solid rgba(120,120,160,0.35);
+      border-top: 1px solid rgba(70,72,100,0.6);
     }
     .mobile-menu.active { display: flex; }
     .mobile-nav-link {
-      padding: 1rem 2rem;
-      border-bottom: 1px solid rgba(60,60,90,0.7);
-      font-size: 0.95rem;
+      padding: 1rem 1.6rem;
+      border-bottom: 1px solid rgba(45,47,70,0.8);
+      font-size: 0.9rem;
       color: var(--fg) !important;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -158,233 +156,161 @@
       z-index: 2000;
     }
     .fab {
-      width: 56px;
-      height: 56px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      color: #050509 !important;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.55);
+      font-size: 1.3rem;
+      color: #05060a !important;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
       transition: all 0.25s ease;
       border: 1px solid rgba(10,10,20,0.9);
     }
     .fab:hover {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 26px 65px rgba(0,0,0,0.75);
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.8);
     }
     .fab.whatsapp { background: var(--whatsapp); }
     .fab.instagram { background: var(--instagram); }
 
-    /* Hero */
+    /* Hero – minimal */
     .hero {
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 9rem 1.5rem 6rem;
+      padding: 7.5rem 1.6rem 5.5rem;
       position: relative;
-      overflow: hidden;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(245,200,96,0.16), transparent 60%),
-        radial-gradient(circle at 80% 10%, rgba(255,75,107,0.14), transparent 60%);
-      z-index: -2;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('images/studio-bg.JPG');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      filter: contrast(1.05) saturate(1.1) brightness(0.45);
-      opacity: 0.45;
-      mix-blend-mode: screen;
-      z-index: -3;
-    }
-
-    .hero-content {
-      display: grid;
-      grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
-      align-items: center;
-      justify-content: center;
+    .hero-inner {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1.5rem;
-      gap: 4rem;
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 3.5rem;
+      align-items: center;
     }
-    .hero-logo {
-      text-align: center;
-      position: relative;
+    .hero-main {
+      max-width: 540px;
     }
-    .hero-logo::before {
-      content: '';
-      position: absolute;
-      inset: -18%;
-      border-radius: 32px;
-      background: radial-gradient(circle at top, rgba(245,200,96,0.18), transparent 60%);
-      opacity: 0.9;
-      filter: blur(18px);
-      z-index: -1;
-    }
-    .hero-logo img {
-      height: 180px;
-      width: auto;
-      filter: drop-shadow(0 18px 45px rgba(0,0,0,0.65));
-    }
-    .hero-text {
-      text-align: left;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    .eyebrow {
-      font-size: 0.8rem;
-      letter-spacing: 0.32em;
+    .hero-tag {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      margin-bottom: 0.8rem;
     }
-    .eyebrow::before {
-      content: '';
-      width: 32px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-    .tagline {
-      font-size: clamp(2.4rem, 3.3vw, 3rem);
+    .hero-title {
+      font-size: clamp(2.5rem, 4vw, 3rem);
       font-weight: 600;
-      margin-bottom: 1.3rem;
-      letter-spacing: 0.06em;
-      color: #fdfdfd;
-      line-height: 1.05;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.2rem;
     }
-    .tagline span.highlight {
-      background: linear-gradient(120deg, var(--accent), var(--danger));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .tagline br { display: block; }
-
     .hero-subtitle {
-      max-width: 520px;
       font-size: 0.98rem;
-      line-height: 1.9;
-      margin-bottom: 1.9rem;
       color: var(--muted);
+      max-width: 480px;
     }
-
-    /* Hero stats strip */
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    .hero-meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-    .hero-meta-label {
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-size: 0.72rem;
-      opacity: 0.7;
-    }
-    .hero-meta-value {
-      font-size: 0.98rem;
-      color: #f7f7ff;
-    }
-
-    /* Hero CTA */
     .hero-cta {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+      margin-top: 2rem;
       align-items: center;
     }
-    .book-now-btn {
+    .hero-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.55rem;
-      background: radial-gradient(circle at top left, #fff7e0 0, #f5c860 35%, #f0b640 100%);
-      color: #1a1205;
-      padding: 0.95rem 2.6rem;
+      padding: 0.85rem 2.2rem;
       border-radius: 999px;
-      font-size: 0.95rem;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
       letter-spacing: 0.14em;
-      font-weight: 700;
       text-transform: uppercase;
-      text-decoration: none;
-      box-shadow: 0 20px 55px rgba(0,0,0,0.65);
+      border: none;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.7);
+      cursor: pointer;
       transition: all 0.25s ease;
-      border: 1px solid rgba(255,255,255,0.4);
     }
-    .book-now-btn i { font-size: 0.9rem; }
-    .book-now-btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 26px 70px rgba(0,0,0,0.9);
-      background: radial-gradient(circle at top left, #fffdf4 0, #ffd978 40%, #ffbf5d 100%);
+    .hero-button:hover {
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.9);
     }
-
-    .hero-secondary-link {
+    .hero-secondary {
       font-size: 0.85rem;
       color: var(--muted);
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
       cursor: pointer;
     }
-    .hero-secondary-link i {
+    .hero-secondary i {
       font-size: 0.8rem;
-      opacity: 0.7;
-    }
-    .hero-secondary-link span {
-      border-bottom: 1px dashed rgba(155,155,179,0.55);
     }
 
+    .hero-visual {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .hero-frame {
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 16 / 10;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(70,72,100,0.7);
+      background: radial-gradient(circle at top, rgba(63,130,255,0.3), transparent 55%) #05060a;
+      position: relative;
+    }
+    .hero-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+      mix-blend-mode: screen;
+    }
+    .hero-overlay-text {
+      position: absolute;
+      left: 1.4rem;
+      bottom: 1.3rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #f5f5f7;
+      opacity: 0.9;
+    }
+
+    /* Belt – only Lights Camera Action */
     .action-belt {
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 54px;
-      background: linear-gradient(90deg, rgba(10,10,18,0.98), rgba(10,10,20,0.98));
+      height: 48px;
+      background: rgba(5,6,12,0.98);
+      border-top: 1px solid rgba(70,72,100,0.6);
       overflow: hidden;
-      border-top: 1px solid rgba(60,60,90,0.7);
     }
     .action-marquee {
       display: flex;
       height: 100%;
       align-items: center;
-      animation: scroll 18s linear infinite;
-      font-size: 0.85rem;
-      letter-spacing: 0.28em;
+      animation: scroll 16s linear infinite;
+      font-size: 0.8rem;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: rgba(220,220,240,0.8);
-    }
-    .action-item {
-      padding: 0 2.5rem;
+      color: var(--fg);
       white-space: nowrap;
     }
-    .action-item span {
-      color: var(--accent);
+    .action-item {
+      padding: 0 3rem;
     }
     @keyframes scroll {
       0% { transform: translateX(100%); }
@@ -393,87 +319,52 @@
 
     /* Sections */
     section {
-      padding: 5rem 1.5rem;
+      padding: 4.8rem 1.6rem;
       max-width: 1200px;
       margin: 0 auto;
     }
     h2.section-title {
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       text-align: center;
       margin-bottom: 0.75rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #f9f9ff;
     }
     .section-kicker {
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: var(--muted);
       max-width: 520px;
-      margin: 0 auto 2.5rem;
+      margin: 0 auto 2.4rem;
     }
 
     /* Services */
-    section#services {
-      position: relative;
-    }
-    section#services::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(245,200,96,0.08), transparent 60%);
-      opacity: 0.8;
-      pointer-events: none;
-      z-index: -1;
-    }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.8rem;
     }
     .card {
-      background: radial-gradient(circle at top, rgba(255,255,255,0.06), rgba(16,16,26,0.95));
-      padding: 1.9rem 1.7rem;
-      border-radius: 22px;
-      border: 1px solid rgba(80,80,120,0.55);
-      transition: all 0.35s ease;
-      color: var(--fg);
-      position: relative;
-      overflow: hidden;
-    }
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at top right, rgba(245,200,96,0.16), transparent 50%);
-      opacity: 0;
-      transition: opacity 0.35s ease, transform 0.35s ease;
-      transform: translate3d(-10px,-10px,0);
-    }
-    .card:hover::before {
-      opacity: 1;
-      transform: translate3d(0,0,0);
+      background: var(--bg-soft);
+      padding: 1.9rem 1.6rem;
+      border-radius: 18px;
+      border: 1px solid rgba(60,62,90,0.9);
+      transition: all 0.3s ease;
     }
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 26px 65px rgba(0,0,0,0.75);
-      border-color: rgba(245,200,96,0.75);
+      transform: translateY(-4px);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.8);
+      border-color: rgba(63,130,255,0.7);
     }
     .card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.7rem;
-    }
-    .card h3 span.emoji {
-      margin-right: 0.4rem;
-      filter: drop-shadow(0 0 8px rgba(245,200,96,0.6));
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
     }
     .card p {
       font-size: 0.95rem;
       color: var(--muted);
     }
 
-    /* Services Mobile Carousel */
     .services-carousel {
       display: none;
       overflow-x: auto;
@@ -501,173 +392,130 @@
       margin-top: 2.5rem;
     }
 
-    /* Featured Work */
+    /* Featured Work – horizontal scroll strip */
     #portfolio {
-      margin-top: 1rem;
-    }
-    .portfolio-hero {
-      width: 100%;
-      height: clamp(360px, 60vh, 520px);
-      margin-bottom: 2.5rem;
-      border-radius: 28px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 40px 110px rgba(0,0,0,0.9);
-      isolation: isolate;
-    }
-    .hero-item {
-      width: 100%;
-      height: 100%;
-      display: block;
-      position: relative;
-    }
-    .hero-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: all 0.6s ease;
-      transform-origin: center;
-    }
-    .hero-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(180deg, transparent 0, rgba(2,2,5,0.4) 20%, rgba(2,2,5,0.96) 100%);
-      color: white;
-      padding: 2.6rem 2.4rem 2rem;
-    }
-    .hero-overlay .collage-tag {
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      opacity: 0.85;
-      display: block;
-      margin-bottom: 0.4rem;
-      color: var(--accent);
-    }
-    .hero-overlay .collage-title {
-      font-size: 1.7rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-    }
-    .hero-overlay .hero-caption {
-      margin-top: 0.4rem;
-      font-size: 0.9rem;
-      color: rgba(230,230,245,0.8);
-      max-width: 420px;
-    }
-    .play-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.92);
-      font-size: 4.4rem;
-      color: rgba(255,255,255,0.94);
-      text-shadow: 0 10px 35px rgba(0,0,0,0.8);
-      opacity: 0;
-      transition: all 0.4s ease;
-    }
-    .hero-item:hover img {
-      transform: scale(1.06);
-      filter: brightness(1.05) saturate(1.08);
-    }
-    .hero-item:hover .play-icon {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1.02);
+      padding-top: 4rem;
     }
 
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto 2rem;
-    }
-    .work-item { display: block; text-decoration: none; color: inherit; }
-    .work-thumb {
+    .featured-strip-wrapper {
       position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      border: 1px solid rgba(80,80,120,0.55);
-      background: #040409;
-      aspect-ratio: 16 / 9;
+      margin-top: 1rem;
     }
-    .work-thumb img {
+    .featured-strip {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      gap: 1.5rem;
+      padding: 0 0 0.5rem;
+      margin: 0 -1.6rem;            /* full-width feel */
+      padding-inline: 1.6rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .featured-strip::-webkit-scrollbar { display: none; }
+
+    .featured-item {
+      scroll-snap-align: center;
+      flex: 0 0 min(80vw, 360px);
+      max-width: 360px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(60,62,90,0.9);
+      background: #05060a;
+      position: relative;
+    }
+    .featured-item img {
       width: 100%;
-      height: 100%;
+      height: 210px;
       object-fit: cover;
       display: block;
-      transition: transform 0.5s ease;
     }
-    .work-overlay {
-      position: absolute;
-      inset: 0;
+    .featured-body {
+      padding: 1.1rem 1.3rem 1.2rem;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 1rem 1.2rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0.1));
-      color: #ffffff;
-      gap: 0.16rem;
+      gap: 0.3rem;
     }
-    .work-tag {
-      font-size: 0.74rem;
-      letter-spacing: 0.16em;
+    .featured-tag {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      opacity: 0.8;
       color: var(--accent);
+      opacity: 0.9;
     }
-    .work-title {
+    .featured-title {
       font-size: 1rem;
       font-weight: 600;
     }
-    .work-cta {
+    .featured-meta {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+    .featured-cta {
+      margin-top: 0.35rem;
       font-size: 0.8rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: all 0.25s ease;
-    }
-    .work-thumb:hover img { transform: scale(1.06); }
-    .work-thumb:hover .work-cta {
-      opacity: 1;
-      transform: translateY(0);
+      color: var(--fg);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
-    .work-cta-section,
-    .news-cta-section {
+    .featured-strip-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+    .featured-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid rgba(70,72,100,0.7);
+      background: rgba(8,9,16,0.9);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .featured-arrow:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .work-cta-section {
       text-align: center;
-      margin: 3rem 0 1rem;
+      margin-top: 2.6rem;
     }
     .more-work-btn {
       display: inline-block;
-      background: transparent;
-      color: var(--accent);
-      padding: 0.9rem 2.3rem;
+      padding: 0.85rem 2.3rem;
       border-radius: 999px;
+      border: 1px solid rgba(63,130,255,0.8);
       font-size: 0.9rem;
       font-weight: 600;
-      letter-spacing: 0.16em;
       text-transform: uppercase;
-      text-decoration: none;
-      border: 1px solid rgba(245,200,96,0.7);
-      box-shadow: 0 0 0 rgba(0,0,0,0);
-      transition: all 0.3s ease;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      background: transparent;
+      transition: all 0.25s ease;
     }
     .more-work-btn:hover {
-      background: rgba(245,200,96,0.08);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.7);
+      background: rgba(63,130,255,0.08);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.8);
       transform: translateY(-2px);
     }
 
     /* Team */
-    #team { margin-top: 1rem; }
     .team-wrapper {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 0.5rem;
+      padding: 0 0.2rem;
       position: relative;
     }
     .team-carousel {
@@ -684,18 +532,18 @@
     .team-card {
       flex: 0 0 320px;
       scroll-snap-align: center;
-      background: radial-gradient(circle at top, rgba(255,255,255,0.05), rgba(15,15,24,0.98));
-      border-radius: 22px;
-      padding: 2.1rem 1.9rem;
+      background: var(--bg-soft);
+      border-radius: 20px;
+      padding: 2.1rem 1.7rem;
       text-align: center;
-      border: 1px solid rgba(80,80,120,0.65);
+      border: 1px solid rgba(60,62,90,0.9);
       transition: all 0.3s ease;
-      min-width: 300px;
+      min-width: 280px;
     }
     .team-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 24px 70px rgba(0,0,0,0.8);
-      border-color: rgba(245,200,96,0.7);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.85);
+      border-color: rgba(63,130,255,0.7);
     }
     .team-avatar {
       width: 110px;
@@ -703,8 +551,7 @@
       border-radius: 50%;
       margin: 0 auto 1.3rem;
       overflow: hidden;
-      border: 3px solid rgba(245,200,96,0.6);
-      box-shadow: 0 14px 35px rgba(0,0,0,0.85);
+      border: 3px solid rgba(63,130,255,0.7);
     }
     .team-avatar img {
       width: 100%;
@@ -716,44 +563,43 @@
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.2em;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.4rem;
     }
     .team-name {
       font-size: 1.25rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.7rem;
     }
     .team-bio {
       font-size: 0.92rem;
       line-height: 1.7;
-      opacity: 0.9;
       color: var(--muted);
     }
     .team-nav {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: rgba(5,5,10,0.95);
-      border: 1px solid rgba(90,90,130,0.75);
+      background: rgba(8,9,16,0.95);
+      border: 1px solid rgba(60,62,90,0.9);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       color: var(--fg);
-      box-shadow: 0 16px 45px rgba(0,0,0,0.95);
       transition: all 0.3s ease;
       z-index: 10;
     }
     .team-nav:hover {
-      transform: translateY(-50%) scale(1.08);
-      box-shadow: 0 20px 60px rgba(0,0,0,1);
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
     }
-    .team-nav.prev { left: -0.8rem; }
-    .team-nav.next { right: -0.8rem; }
+    .team-nav.prev { left: -0.2rem; }
+    .team-nav.next { right: -0.2rem; }
     .team-dots {
       display: flex;
       gap: 0.5rem;
@@ -764,18 +610,17 @@
       width: 9px;
       height: 9px;
       border-radius: 50%;
-      background: rgba(80,80,120,0.9);
+      background: rgba(70,72,100,0.9);
       cursor: pointer;
       transition: all 0.25s ease;
     }
     .team-dot.active {
       background: var(--accent);
       transform: scale(1.35);
-      box-shadow: 0 0 16px rgba(245,200,96,0.85);
+      box-shadow: 0 0 14px rgba(63,130,255,0.9);
     }
 
     /* News */
-    #news { margin-top: 1rem; }
     .news-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -786,13 +631,12 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--muted);
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.4rem;
     }
     .news-title {
       font-size: 1.05rem;
       font-weight: 600;
       margin-bottom: 0.45rem;
-      color: #f7f7ff;
     }
     .news-grid .card p {
       font-size: 0.9rem;
@@ -803,19 +647,17 @@
       display: inline-flex;
       align-items: center;
       gap: 0.3rem;
-      margin-top: 0.1rem;
       font-size: 0.8rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent);
     }
-    .news-link i { font-size: 0.8rem; }
 
     /* Contact */
     footer {
-      padding: 3.2rem 1.5rem 2.4rem;
-      border-top: 1px solid rgba(60,60,90,0.7);
-      background: radial-gradient(circle at top, rgba(245,200,96,0.06), #050509);
+      padding: 3rem 1.6rem 2.4rem;
+      border-top: 1px solid rgba(60,62,90,0.9);
+      background: #05060a;
       color: var(--muted);
     }
     .contact-content {
@@ -824,36 +666,31 @@
       text-align: center;
     }
     .contact-content h2 {
-      color: #f9f9ff;
+      color: #f5f5f7;
       margin-bottom: 1rem;
       font-size: 1.5rem;
     }
     .contact-content p {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       margin-bottom: 1rem;
       color: var(--muted);
-    }
-    .contact-highlight {
-      color: var(--accent);
-      font-weight: 500;
     }
     .contact-content .social-links {
       display: flex;
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 0.5rem;
     }
     .contact-content .social-links a {
       font-size: 1.2rem;
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(20,20,30,0.9);
-      border: 1px solid rgba(80,80,120,0.8);
+      background: var(--bg-soft);
+      border: 1px solid rgba(60,62,90,0.9);
       transition: all 0.25s ease;
     }
     .contact-content .social-links a[href*="instagram"] { color: var(--instagram) !important; }
@@ -862,74 +699,41 @@
     .contact-content .social-links a:hover {
       transform: translateY(-2px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.85);
-      border-color: rgba(245,200,96,0.7);
+      border-color: var(--accent);
     }
 
     /* Mobile */
     @media (max-width: 900px) {
-      .hero-content {
+      .hero-inner {
         grid-template-columns: 1fr;
-        text-align: center;
         gap: 2.5rem;
       }
-      .hero-text {
-        text-align: center;
+      .hero-main {
+        max-width: none;
       }
-      .hero-meta {
+      .hero-visual {
         justify-content: center;
       }
-      .hero-cta {
-        justify-content: center;
+      .hero-frame {
+        max-width: 360px;
       }
-      .team-nav.prev { left: 0.3rem; }
-      .team-nav.next { right: 0.3rem; }
     }
 
     @media (max-width: 768px) {
       .desktop-menu { display: none; }
       .mobile-menu-toggle { display: block; }
-      .nav { padding: 0.75rem 1.1rem; }
-      .hero { padding: 8rem 1.2rem 5.5rem; }
-      .hero-logo img { height: 130px; }
-      .tagline {
-        font-size: 2.1rem;
-        max-width: 14ch;
-        margin-left: auto;
-        margin-right: auto;
+      .nav { padding-inline: 1.2rem; }
+      .hero {
+        padding: 7rem 1.2rem 5rem;
       }
-      .action-belt {
-        height: 48px;
+      .hero-title {
+        font-size: 2.3rem;
       }
-      .action-marquee {
-        font-size: 0.72rem;
-        letter-spacing: 0.22em;
-      }
-
-      /* Services: Hide Grid, Show Carousel */
-      .grid { display: none; }
       .services-carousel { display: block; }
-
-      .floating-buttons { bottom: 1.3rem; right: 1.1rem; }
-      .portfolio-hero {
-        height: clamp(260px, 50vh, 380px);
-        margin-bottom: 2rem;
-        border-radius: 20px;
-      }
-      .hero-overlay {
-        padding: 1.9rem 1.6rem 1.4rem;
-      }
-      .hero-overlay .collage-title { font-size: 1.4rem; }
-      .play-icon { font-size: 3.3rem; }
-
-      .team-card {
-        flex: 0 0 280px;
-        min-width: 260px;
-        padding: 2rem 1.6rem;
-      }
-      .team-avatar {
-        width: 96px;
-        height: 96px;
-      }
+      .grid { display: none; }
+      .floating-buttons { bottom: 1.3rem; right: 1.2rem; }
+      .team-nav.prev { left: 0.3rem; }
+      .team-nav.next { right: 0.3rem; }
     }
 
     @media (min-width: 769px) {
@@ -985,54 +789,38 @@
 
   <!-- Hero -->
   <section id="hero" class="hero">
-    <div class="action-belt">
-      <div class="action-marquee">
-        <div class="action-item"><span>●</span> LIGHTS · CAMERA · ACTION</div>
-        <div class="action-item"><span>●</span> BRANDS · CREATORS · STORIES</div>
-        <div class="action-item"><span>●</span> FILMS · REELS · CAMPAIGNS</div>
-        <div class="action-item"><span>●</span> END‑TO‑END PRODUCTION</div>
-      </div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-logo">
-        <img src="images/logo.png" alt="Alpha Films Logo">
-      </div>
-      <div class="hero-text">
-        <div class="eyebrow">STUDIO · PRODUCTION · POST</div>
-        <div class="tagline">
-          Frame by frame.<br>
-          <span class="highlight">Feeling by feeling.</span>
-        </div>
-        <div class="hero-subtitle">
-          Alpha Films is a one-stop film and video production company offering end-to-end production solutions. 
-          From concept and scripting to filming, editing, and final delivery, we craft cinematic content that sells, moves, and stays.
-        </div>
-
-        <div class="hero-meta">
-          <div class="hero-meta-item">
-            <div class="hero-meta-label">Based in</div>
-            <div class="hero-meta-value">Delhi · India</div>
-          </div>
-          <div class="hero-meta-item">
-            <div class="hero-meta-label">What we shoot</div>
-            <div class="hero-meta-value">Ads, Reels, Courses, Films</div>
-          </div>
-          <div class="hero-meta-item">
-            <div class="hero-meta-label">Studio</div>
-            <div class="hero-meta-value">In-house, fully equipped</div>
-          </div>
-        </div>
-
+    <div class="hero-inner">
+      <div class="hero-main">
+        <div class="hero-tag">ALPHA FILMS</div>
+        <h1 class="hero-title">We make images that move people to act.</h1>
+        <p class="hero-subtitle">
+          A film and video production house with an in-house studio. We design, shoot, and edit work that looks cinematic and feels sellable — for brands, creators, and stories.
+        </p>
         <div class="hero-cta">
-          <a href="#services" class="book-now-btn">
-            <span>Book Now</span>
+          <button class="hero-button" onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})">
+            Book a shoot
             <i class="fas fa-arrow-right"></i>
-          </a>
-          <div class="hero-secondary-link" onclick="document.querySelector('#portfolio').scrollIntoView({behavior:'smooth'})">
-            <span>Watch our work</span>
+          </button>
+          <div class="hero-secondary" onclick="document.querySelector('#portfolio').scrollIntoView({behavior:'smooth'})">
+            Watch featured work
             <i class="fas fa-play"></i>
           </div>
         </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-frame">
+          <img src="images/studio-bg.JPG" alt="Alpha Films Studio" loading="lazy">
+          <div class="hero-overlay-text">LIGHTS · CAMERA · ACTION</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-belt">
+      <div class="action-marquee">
+        <div class="action-item">LIGHTS | CAMERA | ACTION</div>
+        <div class="action-item">LIGHTS | CAMERA | ACTION</div>
+        <div class="action-item">LIGHTS | CAMERA | ACTION</div>
+        <div class="action-item">LIGHTS | CAMERA | ACTION</div>
       </div>
     </div>
   </section>
@@ -1041,34 +829,34 @@
   <section id="services">
     <h2 class="section-title">Our Services</h2>
     <p class="section-kicker">
-      Studio, crew, and post under one roof. Bring us a script, a product, or just a feeling — we turn it into a visual you can sell.
+      Studio, crew, and post in one place. Bring us a script, a product, or just a mood — we turn it into moving images.
     </p>
     
     <!-- Desktop Grid -->
     <div class="grid">
       <div class="card">
-        <h3><span class="emoji">🎬</span> Video Production</h3>
-        <p>End-to-end production from idea to final master. Commercials, brand films, corporate, narrative — all with a cinematic spine.</p>
+        <h3>🎬 Video Production</h3>
+        <p>End-to-end production from concept to final edit. Commercials, brand films, corporate videos, and shorts.</p>
       </div>
       <div class="card">
-        <h3><span class="emoji">📸</span> Studio Rental</h3>
-        <p>8-hour professional shooting space in Delhi with AC, power backup, backdrops, and on-ground support for smooth shoot days.</p>
+        <h3>📸 Studio Rental</h3>
+        <p>8‑hour professional shooting space in Delhi with AC, power backup, and controlled lighting.</p>
       </div>
       <div class="card">
-        <h3><span class="emoji">⚡</span> Studio + Gear</h3>
-        <p>Lights, cameras, audio, grip, and crew packaged with the studio so you walk in and start rolling.</p>
+        <h3>⚡ Studio + Gear</h3>
+        <p>Studio plus cameras, lenses, lights, audio, and production support — ready to roll when you walk in.</p>
       </div>
       <div class="card">
-        <h3><span class="emoji">✂️</span> Post Production</h3>
-        <p>Editing, sound, color, and graphics for reels, ads, courses, and long-form content tuned for today’s platforms.</p>
+        <h3>✂️ Post Production</h3>
+        <p>Editing, sound, color, and motion graphics for ads, reels, courses, and long‑form content.</p>
       </div>
       <div class="card">
-        <h3><span class="emoji">📱</span> Social Content</h3>
-        <p>Instagram Reels, YouTube Shorts, and vertical campaigns engineered for hooks, retention, and shareability.</p>
+        <h3>📱 Social Content</h3>
+        <p>Reels, Shorts, and vertical campaigns designed for thumb-stopping hooks and watch time.</p>
       </div>
       <div class="card">
-        <h3><span class="emoji">🎓</span> Course Packages</h3>
-        <p>Multi-episode course and education content — shot, edited, and delivered as a complete content library.</p>
+        <h3>🎓 Course Packages</h3>
+        <p>Multi-episode course production — shot, edited, and delivered as a complete content library.</p>
       </div>
     </div>
 
@@ -1076,99 +864,103 @@
     <div class="services-carousel">
       <div class="services-carousel-inner">
         <div class="services-carousel-card card">
-          <h3><span class="emoji">🎬</span> Video Production</h3>
+          <h3>🎬 Video Production</h3>
           <p>End-to-end production from concept to final cinematic edit. Commercials, films, corporate videos.</p>
         </div>
         <div class="services-carousel-card card">
-          <h3><span class="emoji">📸</span> Studio Rental</h3>
+          <h3>📸 Studio Rental</h3>
           <p>8-hour professional shooting space in Delhi with AC, power backup, and full equipment.</p>
         </div>
         <div class="services-carousel-card card">
-          <h3><span class="emoji">⚡</span> Studio + Gear</h3>
+          <h3>⚡ Studio + Gear</h3>
           <p>Complete package: studio, lights, cameras, audio, and production support.</p>
         </div>
         <div class="services-carousel-card card">
-          <h3><span class="emoji">✂️</span> Post Production</h3>
+          <h3>✂️ Post Production</h3>
           <p>High-impact editing for reels, ads, courses, and social media content.</p>
         </div>
         <div class="services-carousel-card card">
-          <h3><span class="emoji">📱</span> Social Content</h3>
+          <h3>📱 Social Content</h3>
           <p>Instagram Reels, YouTube Shorts, TikTok videos optimized for maximum engagement.</p>
         </div>
         <div class="services-carousel-card card">
-          <h3><span class="emoji">🎓</span> Course Packages</h3>
+          <h3>🎓 Course Packages</h3>
           <p>Bulk production for online courses, educational content, and brand series.</p>
         </div>
       </div>
     </div>
 
-    <!-- Services Book Now Button (Google Form link later) -->
     <div class="services-cta">
-      <a href="#" class="book-now-btn" target="_blank">
-        <span>Book a shoot</span>
-        <i class="fas fa-calendar-alt"></i>
-      </a>
+      <button class="hero-button" onclick="window.open('https://wa.me/918587090302','_blank')">
+        Talk to us on WhatsApp
+        <i class="fab fa-whatsapp"></i>
+      </button>
     </div>
   </section>
 
-  <!-- Featured Work - AUTOMATED -->
+  <!-- Featured Work – horizontal gallery -->
   <section id="portfolio">
     <h2 class="section-title">Featured Work</h2>
     <p class="section-kicker">
-      A quick reel of the kind of work we live for — short films, launch films, and scroll-stopping pieces for brands.
+      A quick look at the kind of stories and visuals we like to put into the world.
     </p>
-    
-    <!-- Hero Project -->
-    <div class="portfolio-hero">
-      <a href="https://www.youtube.com/watch?v=AhzQTAfnsCs" target="_blank" class="hero-item" rel="noopener noreferrer">
-        <img src="images/broken.jpg" alt="Broken Reflections" loading="lazy">
-        <div class="hero-overlay">
-          <span class="collage-tag">Featured Short Film</span>
-          <span class="collage-title">Broken Reflections</span>
-          <div class="hero-caption">A stylized, performance-led short that shows how we handle mood, pacing, and emotion on screen.</div>
-        </div>
-        <span class="play-icon">▶</span>
-      </a>
+
+    <div class="featured-strip-wrapper">
+      <div class="featured-strip" id="featured-strip">
+        <!-- Hero item as first card -->
+        <a class="featured-item" href="https://www.youtube.com/watch?v=AhzQTAfnsCs" target="_blank" rel="noopener noreferrer">
+          <img src="images/broken.jpg" alt="Broken Reflections" loading="lazy">
+          <div class="featured-body">
+            <div class="featured-tag">Short Film</div>
+            <div class="featured-title">Broken Reflections</div>
+            <div class="featured-meta">Performance-led short exploring mood, pacing, and emotion.</div>
+            <div class="featured-cta">
+              Watch film <i class="fas fa-arrow-up-right-from-square"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- The other 4 items are injected via JS using allProjects -->
+      </div>
+
+      <div class="featured-strip-nav">
+        <button class="featured-arrow" type="button" onclick="scrollFeatured(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="featured-arrow" type="button" onclick="scrollFeatured(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
     </div>
 
-    <!-- Latest 4 Projects -->
-    <div class="work-grid" id="featured-grid">
-      <!-- Automated - Latest 4 projects -->
-    </div>
-
-    <!-- More Work Button -->
     <div class="work-cta-section">
-      <a href="portfolio.html" class="more-work-btn">View full portfolio →</a>
+      <a href="portfolio.html" class="more-work-btn">More work →</a>
     </div>
   </section>
 
-  <!-- Team - FIXED CAROUSEL -->
+  <!-- Team -->
   <section id="team">
     <h2 class="section-title">Our Team</h2>
     <p class="section-kicker">
-      A small, focused crew that understands scripts, schedules, and set energy — not just cameras and lenses.
+      A compact crew that understands both creative and production — so your shoot days stay on time and on point.
     </p>
     <div class="team-wrapper">
-      <div class="team-carousel" id="team-carousel">
-        <!-- Cards populated by JS -->
-      </div>
+      <div class="team-carousel" id="team-carousel"></div>
       <button class="team-nav prev" id="team-prev"><i class="fas fa-chevron-left"></i></button>
       <button class="team-nav next" id="team-next"><i class="fas fa-chevron-right"></i></button>
       <div class="team-dots" id="team-dots"></div>
     </div>
   </section>
 
-  <!-- News - AUTOMATED (Latest 3) -->
+  <!-- News -->
   <section id="news">
     <h2 class="section-title">News & Updates</h2>
     <p class="section-kicker">
-      Workshops, shoot days, and festival news from the Alpha Films world — the studio beyond the screen.
+      Studio launches, talks, and production notes from the Alpha Films universe.
     </p>
-    <div class="news-grid" id="index-news-grid">
-      <!-- Latest 3 news items -->
-    </div>
-    <div class="news-cta-section">
-      <a href="news.html" class="more-work-btn">View all updates →</a>
+    <div class="news-grid" id="index-news-grid"></div>
+    <div class="work-cta-section">
+      <a href="news.html" class="more-work-btn">View all news →</a>
     </div>
   </section>
 
@@ -1177,11 +969,7 @@
     <div class="contact-content">
       <h2>Ready to create?</h2>
       <p>
-        Drop in for a recce, book the studio, or brief us on your next campaign.  
-        <span class="contact-highlight">We’ll bring the crew. You bring the idea.</span>
-      </p>
-      <p>
-        📍 Delhi, India · 📱 +91 85870 90302 · 📧 
+        Delhi, India · +91 85870 90302 · 
         <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a>
       </p>
       <div class="social-links">
@@ -1193,7 +981,7 @@
     </div>
   </footer>
 
-  <!-- COMPLETE CLEAN JAVASCRIPT - NO DUPLICATES -->
+  <!-- JavaScript -->
   <script>
     // DATA ARRAYS - ADD NEW ITEMS HERE ONLY
     const allProjects = [
@@ -1210,13 +998,13 @@
     ];
 
     const teamMembers = [
-      { name: "Deepanshu Sehgal", role: "Founder & Creative Director", bio: "Visionary filmmaker with 5+ years experience. First AD at 21, Best Student Short Film Producer award. Masters in Film Making (Production) from Whistling Woods International, Mumbai.", image: "team_images/deep.png", linkedin: "https://www.linkedin.com/in/deepsehgal" },
+      { name: "Deepanshu Sehgal", role: "Founder & Creative Director", bio: "Visionary filmmaker with 5+ years experience. First AD at 21, Best Student Short Film Producer award. Masters in Film Making - Production, Whistling Woods International.", image: "team_images/deep.png", linkedin: "https://www.linkedin.com/in/deepsehgal" },
       { name: "Daksh Mehta", role: "Content Director", bio: "TBA", image: "team_images/daksh.jpg" },
       { name: "Shivani Damle", role: "Creative Lead", bio: "TBA", image: "team_images/shivani.jpg" },
       { name: "Parth Sehgal", role: "Operations & Human Resource", bio: "TBA", image: "team_images/parth.JPG" },
     ];
 
-    // UTILITY FUNCTIONS
+    // UTILITY
     function formatDate(dateStr) {
       const date = new Date(dateStr);
       return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' }).replace(' ', ' ');
@@ -1226,33 +1014,45 @@
 
     function toggleMobileMenu(event) {
       event.stopPropagation();
-      document.getElementById('mobileMenu').classList.toggle('active');
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
     }
 
-    // FEATURED WORK - Latest 4
-    function renderFeaturedWork() {
-      const container = document.getElementById('featured-grid');
-      if (!container) return;
-      container.innerHTML = '';
-      const latest4 = allProjects.slice(0, 4);
-      latest4.forEach(project => {
+    // FEATURED WORK – inject remaining 4 items into horizontal strip
+    function renderFeaturedStrip() {
+      const strip = document.getElementById('featured-strip');
+      if (!strip) return;
+
+      const remaining = allProjects.slice(0, 4); // 4 items after hero
+      remaining.forEach(project => {
         const item = document.createElement('a');
         item.href = project.url;
         item.target = '_blank';
         item.rel = 'noopener noreferrer';
-        item.className = 'work-item';
+        item.className = 'featured-item';
         item.innerHTML = `
-          <div class="work-thumb">
-            <img src="${project.image}" alt="${project.title}" loading="lazy">
-            <div class="work-overlay">
-              <span class="work-tag">${project.tag}</span>
-              <span class="work-title">${project.title}</span>
-              <span class="work-cta">View ↗</span>
+          <img src="${project.image}" alt="${project.title}" loading="lazy">
+          <div class="featured-body">
+            <div class="featured-tag">${project.tag}</div>
+            <div class="featured-title">${project.title}</div>
+            <div class="featured-meta">Selected work from our recent shoots.</div>
+            <div class="featured-cta">
+              View project <i class="fas fa-arrow-up-right-from-square"></i>
             </div>
           </div>
         `;
-        container.appendChild(item);
+        strip.appendChild(item);
       });
+    }
+
+    // Simple snap scroll by card width
+    function scrollFeatured(direction) {
+      const strip = document.getElementById('featured-strip');
+      if (!strip) return;
+      const firstCard = strip.querySelector('.featured-item');
+      if (!firstCard) return;
+      const cardWidth = firstCard.getBoundingClientRect().width + 24; // width + gap
+      strip.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
     }
 
     // NEWS - Latest 3
@@ -1268,7 +1068,9 @@
           <div class="news-meta">${formatDate(news.date)}</div>
           <div class="news-title">${news.title}</div>
           <p>${news.excerpt.substring(0, 120)}...</p>
-          <a href="news.html#news-${news.id}" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
+          <a href="news.html#news-${news.id}" class="news-link">
+            Read more <i class="fas fa-arrow-right"></i>
+          </a>
         `;
         container.appendChild(card);
       });
@@ -1294,7 +1096,7 @@
           <div class="team-role">${member.role}</div>
           <div class="team-name">${member.name}</div>
           <div class="team-bio">${member.bio}</div>
-          ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" rel="noopener noreferrer" style="color: #0a66c2; font-size: 1.1rem; margin-top: 1rem; display: inline-block;"><i class="fab fa-linkedin"></i></a>` : ''}
+          ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" rel="noopener noreferrer" style="color:#0a66c2;font-size:1.1rem;margin-top:1rem;display:inline-block;"><i class="fab fa-linkedin"></i></a>` : ''}
         `;
         teamCarousel.appendChild(card);
         
@@ -1311,8 +1113,9 @@
     function scrollToCurrent() {
       const teamCarousel = document.getElementById('team-carousel');
       if (teamCarousel) {
-        const cardWidth = teamCarousel.querySelector('.team-card')?.offsetWidth || 320;
-        teamCarousel.scrollTo({ left: currentTeamIndex * (cardWidth + 24), behavior: 'smooth' });
+        const card = teamCarousel.querySelector('.team-card');
+        const width = card ? card.getBoundingClientRect().width + 24 : 320;
+        teamCarousel.scrollTo({ left: currentTeamIndex * width, behavior: 'smooth' });
       }
     }
 
@@ -1349,6 +1152,8 @@
       if (teamPrev) teamPrev.onclick = prevTeam;
       
       const teamCarousel = document.getElementById('team-carousel');
+      if (!teamCarousel) return;
+
       let startX = 0;
       teamCarousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
       teamCarousel.addEventListener('touchend', e => {
@@ -1362,7 +1167,8 @@
     document.addEventListener('click', function(event) {
       const menu = document.getElementById('mobileMenu');
       const toggle = document.querySelector('.mobile-menu-toggle');
-      if (menu && !toggle.contains(event.target) && !menu.contains(event.target)) {
+      if (!menu) return;
+      if (!toggle?.contains(event.target) && !menu.contains(event.target)) {
         menu.classList.remove('active');
       }
     });
@@ -1378,9 +1184,9 @@
       });
     });
 
-    // INITIALIZE EVERYTHING
+    // INITIALIZE
     window.addEventListener('load', function() {
-      renderFeaturedWork();
+      renderFeaturedStrip();
       renderLatestNews();
       renderTeam();
       initTeamCarousel();
