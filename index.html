@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4NXETF7WV7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4NXETF7WV7');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alpha Films</title>
-  <meta name="description" content="Alpha Films is a one-stop film and video production company offering end-to-end production solutions.">
+  <meta name="description" content="Alpha Films is a one-stop film and video production company offering end-to-end production solutions." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo.png">
@@ -15,86 +24,919 @@
 
   <style>
     :root {
-      --bg: #ffffff; --bg-soft: #f8f8f8; --fg: #1a1a1a; --muted: #666666;
-      --accent: #000000; --accent-soft: #333333; --border: #e0e0e0;
-      --whatsapp: #25D366; --instagram: #E4405F;
+      --bg: #050509;
+      --bg-soft: #111119;
+      --fg: #f5f5f5;
+      --muted: #9b9bb3;
+      --accent: #f5c860;
+      --accent-soft: #f0b640;
+      --border: #252536;
+      --whatsapp: #25D366;
+      --instagram: #E4405F;
+      --danger: #ff4b6b;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Futura', sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; overflow-x: hidden; }
-
+    body {
+      font-family: 'Futura', sans-serif;
+      background: radial-gradient(circle at top, #181828 0, #050509 55%);
+      color: var(--fg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
     a { color: inherit; text-decoration: none; }
 
-    /* Navigation */
-    header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
-    .nav { max-width: 1200px; margin: auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.4rem; font-weight: 700; cursor: pointer; }
-    .logo img { height: 2.2rem; width: auto; }
+    /* Subtle page grain */
+    body::before {
+      content: '';
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      opacity: 0.18;
+      mix-blend-mode: soft-light;
+      background-image: url('images/noise.png');
+      background-size: 200px 200px;
+      z-index: -2;
+    }
 
-    .desktop-menu { display: flex; gap: 2rem; }
-    .nav-link { font-weight: 500; font-size: 0.95rem; text-transform: uppercase; color: var(--fg); position: relative; }
-    .nav-link::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--accent); transition: width 0.2s ease; }
+    /* Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: radial-gradient(circle at top left, rgba(245,200,96,0.12), transparent 55%) rgba(5,5,9,0.92);
+      backdrop-filter: blur(22px);
+      border-bottom: 1px solid rgba(120,120,160,0.35);
+    }
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--fg);
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    .logo img { height: 2.2rem; width: auto; }
+    .desktop-menu { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-link {
+      padding: 0.4rem 0;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted) !important;
+      position: relative;
+      transition: color 0.2s ease, opacity 0.2s ease;
+      opacity: 0.9;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--danger));
+      transition: width 0.2s ease;
+    }
+    .nav-link:hover {
+      color: var(--fg) !important;
+      opacity: 1;
+    }
     .nav-link:hover::after { width: 100%; }
 
-    .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: var(--fg); cursor: pointer; }
-    .mobile-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255,255,255,0.98); flex-direction: column; border-top: 1px solid var(--border); }
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--fg);
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(5,5,9,0.98);
+      backdrop-filter: blur(18px);
+      flex-direction: column;
+      border-top: 1px solid rgba(120,120,160,0.35);
+    }
     .mobile-menu.active { display: flex; }
-    .mobile-nav-link { padding: 1rem 2rem; border-bottom: 1px solid var(--border); font-size: 1rem; color: var(--fg); text-transform: uppercase; }
+    .mobile-nav-link {
+      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(60,60,90,0.7);
+      font-size: 0.95rem;
+      color: var(--fg) !important;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
 
-    /* Floating Buttons */
-    .floating-buttons { position: fixed; bottom: 2rem; right: 2rem; display: flex; flex-direction: column; gap: 0.75rem; z-index: 2000; }
-    .fab { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 8px 25px rgba(0,0,0,0.25); transition: all 0.25s ease; color: white; }
+    /* Floating Action Buttons */
+    .floating-buttons {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      z-index: 2000;
+    }
+    .fab {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #050509 !important;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.55);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(10,10,20,0.9);
+    }
+    .fab:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 26px 65px rgba(0,0,0,0.75);
+    }
     .fab.whatsapp { background: var(--whatsapp); }
     .fab.instagram { background: var(--instagram); }
 
-    /* Hero Section */
-    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 9rem 2rem 6rem; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('images/studio-bg.JPG'); background-size: cover; background-position: center; filter: blur(4px) brightness(0.85); opacity: 0.7; z-index: -1; }
-    .hero-logo img { height: 180px; width: auto; margin-bottom: 1.5rem; }
-    .tagline { font-size: 2.4rem; font-weight: 600; margin-bottom: 1rem; }
-    .hero-subtitle { max-width: 800px; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem; }
-    .book-now-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: 600; text-transform: uppercase; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; }
-    .book-now-btn:hover { background: var(--accent-soft); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 9rem 1.5rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(245,200,96,0.16), transparent 60%),
+        radial-gradient(circle at 80% 10%, rgba(255,75,107,0.14), transparent 60%);
+      z-index: -2;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('images/studio-bg.JPG');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: contrast(1.05) saturate(1.1) brightness(0.45);
+      opacity: 0.45;
+      mix-blend-mode: screen;
+      z-index: -3;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+      align-items: center;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      gap: 4rem;
+    }
+    .hero-logo {
+      text-align: center;
+      position: relative;
+    }
+    .hero-logo::before {
+      content: '';
+      position: absolute;
+      inset: -18%;
+      border-radius: 32px;
+      background: radial-gradient(circle at top, rgba(245,200,96,0.18), transparent 60%);
+      opacity: 0.9;
+      filter: blur(18px);
+      z-index: -1;
+    }
+    .hero-logo img {
+      height: 180px;
+      width: auto;
+      filter: drop-shadow(0 18px 45px rgba(0,0,0,0.65));
+    }
+    .hero-text {
+      text-align: left;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+    .tagline {
+      font-size: clamp(2.4rem, 3.3vw, 3rem);
+      font-weight: 600;
+      margin-bottom: 1.3rem;
+      letter-spacing: 0.06em;
+      color: #fdfdfd;
+      line-height: 1.05;
+    }
+    .tagline span.highlight {
+      background: linear-gradient(120deg, var(--accent), var(--danger));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .tagline br { display: block; }
+
+    .hero-subtitle {
+      max-width: 520px;
+      font-size: 0.98rem;
+      line-height: 1.9;
+      margin-bottom: 1.9rem;
+      color: var(--muted);
+    }
+
+    /* Hero stats strip */
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .hero-meta-label {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      opacity: 0.7;
+    }
+    .hero-meta-value {
+      font-size: 0.98rem;
+      color: #f7f7ff;
+    }
+
+    /* Hero CTA */
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .book-now-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      background: radial-gradient(circle at top left, #fff7e0 0, #f5c860 35%, #f0b640 100%);
+      color: #1a1205;
+      padding: 0.95rem 2.6rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 20px 55px rgba(0,0,0,0.65);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .book-now-btn i { font-size: 0.9rem; }
+    .book-now-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.9);
+      background: radial-gradient(circle at top left, #fffdf4 0, #ffd978 40%, #ffbf5d 100%);
+    }
+
+    .hero-secondary-link {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+    }
+    .hero-secondary-link i {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+    .hero-secondary-link span {
+      border-bottom: 1px dashed rgba(155,155,179,0.55);
+    }
+
+    .action-belt {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 54px;
+      background: linear-gradient(90deg, rgba(10,10,18,0.98), rgba(10,10,20,0.98));
+      overflow: hidden;
+      border-top: 1px solid rgba(60,60,90,0.7);
+    }
+    .action-marquee {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      animation: scroll 18s linear infinite;
+      font-size: 0.85rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(220,220,240,0.8);
+    }
+    .action-item {
+      padding: 0 2.5rem;
+      white-space: nowrap;
+    }
+    .action-item span {
+      color: var(--accent);
+    }
+    @keyframes scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
 
     /* Sections */
-    section { padding: 5rem 2rem; max-width: 1200px; margin: auto; }
-    h2.section-title { font-size: 2.1rem; text-align: center; margin-bottom: 2.5rem; text-transform: uppercase; }
+    section {
+      padding: 5rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2.section-title {
+      font-size: 1.9rem;
+      text-align: center;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #f9f9ff;
+    }
+    .section-kicker {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
 
-    /* Featured Work Carousel */
-    .work-carousel { display: flex; overflow-x: auto; gap: 1.5rem; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth; }
-    .work-carousel::-webkit-scrollbar { display: none; }
-    .work-item { flex: 0 0 300px; scroll-snap-align: center; border-radius: 18px; overflow: hidden; position: relative; }
-    .work-item img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s ease; }
-    .work-item:hover img { transform: scale(1.05); }
-    .work-overlay { position: absolute; bottom: 0; width: 100%; padding: 1rem; background: linear-gradient(to top, rgba(0,0,0,0.75), transparent); color: white; }
-    .work-overlay span { display: block; }
+    /* Services */
+    section#services {
+      position: relative;
+    }
+    section#services::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(245,200,96,0.08), transparent 60%);
+      opacity: 0.8;
+      pointer-events: none;
+      z-index: -1;
+    }
 
-    /* Team Carousel */
-    .team-wrapper { position: relative; overflow: hidden; max-width: 1200px; margin: 0 auto; }
-    .team-carousel { display: flex; overflow-x: auto; gap: 1.5rem; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth; padding: 2rem 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+    .card {
+      background: radial-gradient(circle at top, rgba(255,255,255,0.06), rgba(16,16,26,0.95));
+      padding: 1.9rem 1.7rem;
+      border-radius: 22px;
+      border: 1px solid rgba(80,80,120,0.55);
+      transition: all 0.35s ease;
+      color: var(--fg);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top right, rgba(245,200,96,0.16), transparent 50%);
+      opacity: 0;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      transform: translate3d(-10px,-10px,0);
+    }
+    .card:hover::before {
+      opacity: 1;
+      transform: translate3d(0,0,0);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 65px rgba(0,0,0,0.75);
+      border-color: rgba(245,200,96,0.75);
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+    }
+    .card h3 span.emoji {
+      margin-right: 0.4rem;
+      filter: drop-shadow(0 0 8px rgba(245,200,96,0.6));
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* Services Mobile Carousel */
+    .services-carousel {
+      display: none;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1.3rem;
+      padding: 0.3rem 0 0.5rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-behavior: smooth;
+    }
+    .services-carousel::-webkit-scrollbar { display: none; }
+    .services-carousel-inner {
+      display: flex;
+      gap: 1.3rem;
+      padding-bottom: 0.4rem;
+    }
+    .services-carousel-card {
+      flex: 0 0 85%;
+      scroll-snap-align: center;
+      min-width: 260px;
+    }
+
+    .services-cta {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    /* Featured Work */
+    #portfolio {
+      margin-top: 1rem;
+    }
+    .portfolio-hero {
+      width: 100%;
+      height: clamp(360px, 60vh, 520px);
+      margin-bottom: 2.5rem;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 40px 110px rgba(0,0,0,0.9);
+      isolation: isolate;
+    }
+    .hero-item {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: relative;
+    }
+    .hero-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.6s ease;
+      transform-origin: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, transparent 0, rgba(2,2,5,0.4) 20%, rgba(2,2,5,0.96) 100%);
+      color: white;
+      padding: 2.6rem 2.4rem 2rem;
+    }
+    .hero-overlay .collage-tag {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--accent);
+    }
+    .hero-overlay .collage-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+    .hero-overlay .hero-caption {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: rgba(230,230,245,0.8);
+      max-width: 420px;
+    }
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.92);
+      font-size: 4.4rem;
+      color: rgba(255,255,255,0.94);
+      text-shadow: 0 10px 35px rgba(0,0,0,0.8);
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+    .hero-item:hover img {
+      transform: scale(1.06);
+      filter: brightness(1.05) saturate(1.08);
+    }
+    .hero-item:hover .play-icon {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.02);
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+    }
+    .work-item { display: block; text-decoration: none; color: inherit; }
+    .work-thumb {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1px solid rgba(80,80,120,0.55);
+      background: #040409;
+      aspect-ratio: 16 / 9;
+    }
+    .work-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .work-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem 1.2rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0.1));
+      color: #ffffff;
+      gap: 0.16rem;
+    }
+    .work-tag {
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      color: var(--accent);
+    }
+    .work-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .work-cta {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all 0.25s ease;
+    }
+    .work-thumb:hover img { transform: scale(1.06); }
+    .work-thumb:hover .work-cta {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .work-cta-section,
+    .news-cta-section {
+      text-align: center;
+      margin: 3rem 0 1rem;
+    }
+    .more-work-btn {
+      display: inline-block;
+      background: transparent;
+      color: var(--accent);
+      padding: 0.9rem 2.3rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(245,200,96,0.7);
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+      transition: all 0.3s ease;
+    }
+    .more-work-btn:hover {
+      background: rgba(245,200,96,0.08);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.7);
+      transform: translateY(-2px);
+    }
+
+    /* Team */
+    #team { margin-top: 1rem; }
+    .team-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 0.5rem;
+      position: relative;
+    }
+    .team-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1.5rem;
+      padding: 2rem 0.5rem 1rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-behavior: smooth;
+    }
     .team-carousel::-webkit-scrollbar { display: none; }
-    .team-card { flex: 0 0 300px; scroll-snap-align: center; background: var(--bg-soft); padding: 2rem; border-radius: 18px; text-align: center; border: 1px solid var(--border); }
-    .team-avatar { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem; }
-    .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .team-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .team-role { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; }
-    .team-bio { font-size: 0.9rem; opacity: 0.9; }
+    .team-card {
+      flex: 0 0 320px;
+      scroll-snap-align: center;
+      background: radial-gradient(circle at top, rgba(255,255,255,0.05), rgba(15,15,24,0.98));
+      border-radius: 22px;
+      padding: 2.1rem 1.9rem;
+      text-align: center;
+      border: 1px solid rgba(80,80,120,0.65);
+      transition: all 0.3s ease;
+      min-width: 300px;
+    }
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.8);
+      border-color: rgba(245,200,96,0.7);
+    }
+    .team-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      margin: 0 auto 1.3rem;
+      overflow: hidden;
+      border: 3px solid rgba(245,200,96,0.6);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.85);
+    }
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .team-role {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.45rem;
+    }
+    .team-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .team-bio {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      opacity: 0.9;
+      color: var(--muted);
+    }
+    .team-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(5,5,10,0.95);
+      border: 1px solid rgba(90,90,130,0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.05rem;
+      color: var(--fg);
+      box-shadow: 0 16px 45px rgba(0,0,0,0.95);
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    .team-nav:hover {
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,1);
+    }
+    .team-nav.prev { left: -0.8rem; }
+    .team-nav.next { right: -0.8rem; }
+    .team-dots {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.4rem;
+    }
+    .team-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(80,80,120,0.9);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .team-dot.active {
+      background: var(--accent);
+      transform: scale(1.35);
+      box-shadow: 0 0 16px rgba(245,200,96,0.85);
+    }
 
-    .team-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: white; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; color: var(--accent); }
-    .team-nav.prev { left: 1rem; }
-    .team-nav.next { right: 1rem; }
+    /* News */
+    #news { margin-top: 1rem; }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+    }
+    .news-meta {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.45rem;
+    }
+    .news-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: #f7f7ff;
+    }
+    .news-grid .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+    .news-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.1rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .news-link i { font-size: 0.8rem; }
 
-    /* Footer */
-    footer { padding: 3rem 2rem; text-align: center; border-top: 1px solid var(--border); color: var(--muted); }
+    /* Contact */
+    footer {
+      padding: 3.2rem 1.5rem 2.4rem;
+      border-top: 1px solid rgba(60,60,90,0.7);
+      background: radial-gradient(circle at top, rgba(245,200,96,0.06), #050509);
+      color: var(--muted);
+    }
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-content h2 {
+      color: #f9f9ff;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .contact-content p {
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+    .contact-highlight {
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .contact-content .social-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .contact-content .social-links a {
+      font-size: 1.2rem;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(20,20,30,0.9);
+      border: 1px solid rgba(80,80,120,0.8);
+      transition: all 0.25s ease;
+    }
+    .contact-content .social-links a[href*="instagram"] { color: var(--instagram) !important; }
+    .contact-content a[href*="linkedin"] { color: #0a66c2 !important; }
+    .contact-content a[href*="whatsapp"] { color: var(--whatsapp) !important; }
+    .contact-content .social-links a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.85);
+      border-color: rgba(245,200,96,0.7);
+    }
 
     /* Mobile */
-    @media(max-width:768px) {
+    @media (max-width: 900px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+      }
+      .hero-text {
+        text-align: center;
+      }
+      .hero-meta {
+        justify-content: center;
+      }
+      .hero-cta {
+        justify-content: center;
+      }
+      .team-nav.prev { left: 0.3rem; }
+      .team-nav.next { right: 0.3rem; }
+    }
+
+    @media (max-width: 768px) {
       .desktop-menu { display: none; }
       .mobile-menu-toggle { display: block; }
-      .hero-logo img { height: 120px; }
-      .work-item { flex: 0 0 250px; }
-      .team-card { flex: 0 0 250px; }
+      .nav { padding: 0.75rem 1.1rem; }
+      .hero { padding: 8rem 1.2rem 5.5rem; }
+      .hero-logo img { height: 130px; }
+      .tagline {
+        font-size: 2.1rem;
+        max-width: 14ch;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .action-belt {
+        height: 48px;
+      }
+      .action-marquee {
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+      }
+
+      /* Services: Hide Grid, Show Carousel */
+      .grid { display: none; }
+      .services-carousel { display: block; }
+
+      .floating-buttons { bottom: 1.3rem; right: 1.1rem; }
+      .portfolio-hero {
+        height: clamp(260px, 50vh, 380px);
+        margin-bottom: 2rem;
+        border-radius: 20px;
+      }
+      .hero-overlay {
+        padding: 1.9rem 1.6rem 1.4rem;
+      }
+      .hero-overlay .collage-title { font-size: 1.4rem; }
+      .play-icon { font-size: 3.3rem; }
+
+      .team-card {
+        flex: 0 0 280px;
+        min-width: 260px;
+        padding: 2rem 1.6rem;
+      }
+      .team-avatar {
+        width: 96px;
+        height: 96px;
+      }
     }
+
+    @media (min-width: 769px) {
+      .mobile-menu-toggle, .mobile-menu { display: none !important; }
+    }
+
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
@@ -106,137 +948,443 @@
         <img src="images/logo.png" alt="Alpha Films Logo">
         <span>ALPHA FILMS</span>
       </div>
+
       <div class="desktop-menu">
         <a href="#hero" class="nav-link">Home</a>
         <a href="#services" class="nav-link">Services</a>
         <a href="#portfolio" class="nav-link">Featured Work</a>
         <a href="#team" class="nav-link">Team</a>
+        <a href="news.html" class="nav-link">News</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
-      <button class="mobile-menu-toggle" onclick="toggleMobileMenu(event)"><i class="fas fa-bars"></i></button>
+
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu(event)">
+        <i class="fas fa-bars"></i>
+      </button>
+
       <div class="mobile-menu" id="mobileMenu">
         <a href="#hero" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Home</a>
         <a href="#services" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Services</a>
         <a href="#portfolio" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Featured Work</a>
         <a href="#team" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Team</a>
+        <a href="news.html" class="mobile-nav-link" onclick="toggleMobileMenu(event)">News & Updates</a>
         <a href="#contact" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Contact</a>
       </div>
     </nav>
   </header>
 
-  <!-- Floating Buttons -->
+  <!-- Floating Action Buttons -->
   <div class="floating-buttons">
-    <a href="https://wa.me/918587090302" target="_blank" class="fab whatsapp"><img src="images/logo.png" alt="WA Logo" style="width:24px;height:24px;"></a>
-    <a href="https://instagram.com/alphafilmsofficial" target="_blank" class="fab instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%0AI%20want%20to%20book%20your%20studio%2Fvideo%20production%20services.%0AWhat's%20next%3F" class="fab whatsapp" target="_blank" title="WhatsApp" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://instagram.com/alphafilmsofficial" class="fab instagram" target="_blank" title="Instagram" rel="noopener noreferrer">
+      <i class="fab fa-instagram"></i>
+    </a>
   </div>
 
   <!-- Hero -->
   <section id="hero" class="hero">
-    <div class="hero-logo">
-      <img src="images/logo.png" alt="Alpha Films Logo">
+    <div class="action-belt">
+      <div class="action-marquee">
+        <div class="action-item"><span>●</span> LIGHTS · CAMERA · ACTION</div>
+        <div class="action-item"><span>●</span> BRANDS · CREATORS · STORIES</div>
+        <div class="action-item"><span>●</span> FILMS · REELS · CAMPAIGNS</div>
+        <div class="action-item"><span>●</span> END‑TO‑END PRODUCTION</div>
+      </div>
     </div>
-    <div class="tagline">Frame by frame. Feeling by feeling.</div>
-    <div class="hero-subtitle">
-      Alpha Films is a one-stop film and video production company offering end-to-end production solutions.
-      From concept development to filming, post-production, and delivery.
+    <div class="hero-content">
+      <div class="hero-logo">
+        <img src="images/logo.png" alt="Alpha Films Logo">
+      </div>
+      <div class="hero-text">
+        <div class="eyebrow">STUDIO · PRODUCTION · POST</div>
+        <div class="tagline">
+          Frame by frame.<br>
+          <span class="highlight">Feeling by feeling.</span>
+        </div>
+        <div class="hero-subtitle">
+          Alpha Films is a one-stop film and video production company offering end-to-end production solutions. 
+          From concept and scripting to filming, editing, and final delivery, we craft cinematic content that sells, moves, and stays.
+        </div>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Based in</div>
+            <div class="hero-meta-value">Delhi · India</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">What we shoot</div>
+            <div class="hero-meta-value">Ads, Reels, Courses, Films</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Studio</div>
+            <div class="hero-meta-value">In-house, fully equipped</div>
+          </div>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#services" class="book-now-btn">
+            <span>Book Now</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <div class="hero-secondary-link" onclick="document.querySelector('#portfolio').scrollIntoView({behavior:'smooth'})">
+            <span>Watch our work</span>
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+      </div>
     </div>
-    <a href="#contact" class="book-now-btn">Book Now</a>
   </section>
 
   <!-- Services -->
   <section id="services">
     <h2 class="section-title">Our Services</h2>
+    <p class="section-kicker">
+      Studio, crew, and post under one roof. Bring us a script, a product, or just a feeling — we turn it into a visual you can sell.
+    </p>
+    
+    <!-- Desktop Grid -->
     <div class="grid">
-      <div class="card"><h3>🎬 Video Production</h3><p>End-to-end production from concept to final cinematic edit.</p></div>
-      <div class="card"><h3>📸 Studio Rental</h3><p>8-hour professional shooting space in Delhi with AC and equipment.</p></div>
-      <div class="card"><h3>⚡ Studio + Gear</h3><p>Complete package: studio, lights, cameras, audio, and support.</p></div>
-      <div class="card"><h3>✂️ Post Production</h3><p>High-impact editing for reels, ads, courses, and social media content.</p></div>
-      <div class="card"><h3>📱 Social Content</h3><p>Instagram Reels, YouTube Shorts, TikTok videos optimized for engagement.</p></div>
-      <div class="card"><h3>🎓 Course Packages</h3><p>Bulk production for online courses, educational content, and brand series.</p></div>
+      <div class="card">
+        <h3><span class="emoji">🎬</span> Video Production</h3>
+        <p>End-to-end production from idea to final master. Commercials, brand films, corporate, narrative — all with a cinematic spine.</p>
+      </div>
+      <div class="card">
+        <h3><span class="emoji">📸</span> Studio Rental</h3>
+        <p>8-hour professional shooting space in Delhi with AC, power backup, backdrops, and on-ground support for smooth shoot days.</p>
+      </div>
+      <div class="card">
+        <h3><span class="emoji">⚡</span> Studio + Gear</h3>
+        <p>Lights, cameras, audio, grip, and crew packaged with the studio so you walk in and start rolling.</p>
+      </div>
+      <div class="card">
+        <h3><span class="emoji">✂️</span> Post Production</h3>
+        <p>Editing, sound, color, and graphics for reels, ads, courses, and long-form content tuned for today’s platforms.</p>
+      </div>
+      <div class="card">
+        <h3><span class="emoji">📱</span> Social Content</h3>
+        <p>Instagram Reels, YouTube Shorts, and vertical campaigns engineered for hooks, retention, and shareability.</p>
+      </div>
+      <div class="card">
+        <h3><span class="emoji">🎓</span> Course Packages</h3>
+        <p>Multi-episode course and education content — shot, edited, and delivered as a complete content library.</p>
+      </div>
+    </div>
+
+    <!-- Mobile Carousel -->
+    <div class="services-carousel">
+      <div class="services-carousel-inner">
+        <div class="services-carousel-card card">
+          <h3><span class="emoji">🎬</span> Video Production</h3>
+          <p>End-to-end production from concept to final cinematic edit. Commercials, films, corporate videos.</p>
+        </div>
+        <div class="services-carousel-card card">
+          <h3><span class="emoji">📸</span> Studio Rental</h3>
+          <p>8-hour professional shooting space in Delhi with AC, power backup, and full equipment.</p>
+        </div>
+        <div class="services-carousel-card card">
+          <h3><span class="emoji">⚡</span> Studio + Gear</h3>
+          <p>Complete package: studio, lights, cameras, audio, and production support.</p>
+        </div>
+        <div class="services-carousel-card card">
+          <h3><span class="emoji">✂️</span> Post Production</h3>
+          <p>High-impact editing for reels, ads, courses, and social media content.</p>
+        </div>
+        <div class="services-carousel-card card">
+          <h3><span class="emoji">📱</span> Social Content</h3>
+          <p>Instagram Reels, YouTube Shorts, TikTok videos optimized for maximum engagement.</p>
+        </div>
+        <div class="services-carousel-card card">
+          <h3><span class="emoji">🎓</span> Course Packages</h3>
+          <p>Bulk production for online courses, educational content, and brand series.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Book Now Button (Google Form link later) -->
+    <div class="services-cta">
+      <a href="#" class="book-now-btn" target="_blank">
+        <span>Book a shoot</span>
+        <i class="fas fa-calendar-alt"></i>
+      </a>
     </div>
   </section>
 
-  <!-- Featured Work -->
+  <!-- Featured Work - AUTOMATED -->
   <section id="portfolio">
     <h2 class="section-title">Featured Work</h2>
-    <div class="work-carousel" id="work-carousel"></div>
-    <div style="text-align:center;margin-top:2rem;">
-      <a href="portfolio.html" class="book-now-btn">More Work →</a>
+    <p class="section-kicker">
+      A quick reel of the kind of work we live for — short films, launch films, and scroll-stopping pieces for brands.
+    </p>
+    
+    <!-- Hero Project -->
+    <div class="portfolio-hero">
+      <a href="https://www.youtube.com/watch?v=AhzQTAfnsCs" target="_blank" class="hero-item" rel="noopener noreferrer">
+        <img src="images/broken.jpg" alt="Broken Reflections" loading="lazy">
+        <div class="hero-overlay">
+          <span class="collage-tag">Featured Short Film</span>
+          <span class="collage-title">Broken Reflections</span>
+          <div class="hero-caption">A stylized, performance-led short that shows how we handle mood, pacing, and emotion on screen.</div>
+        </div>
+        <span class="play-icon">▶</span>
+      </a>
+    </div>
+
+    <!-- Latest 4 Projects -->
+    <div class="work-grid" id="featured-grid">
+      <!-- Automated - Latest 4 projects -->
+    </div>
+
+    <!-- More Work Button -->
+    <div class="work-cta-section">
+      <a href="portfolio.html" class="more-work-btn">View full portfolio →</a>
     </div>
   </section>
 
-  <!-- Team -->
+  <!-- Team - FIXED CAROUSEL -->
   <section id="team">
     <h2 class="section-title">Our Team</h2>
+    <p class="section-kicker">
+      A small, focused crew that understands scripts, schedules, and set energy — not just cameras and lenses.
+    </p>
     <div class="team-wrapper">
-      <div class="team-carousel" id="team-carousel"></div>
-      <button class="team-nav prev" onclick="prevTeam()"><i class="fas fa-chevron-left"></i></button>
-      <button class="team-nav next" onclick="nextTeam()"><i class="fas fa-chevron-right"></i></button>
+      <div class="team-carousel" id="team-carousel">
+        <!-- Cards populated by JS -->
+      </div>
+      <button class="team-nav prev" id="team-prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="team-nav next" id="team-next"><i class="fas fa-chevron-right"></i></button>
+      <div class="team-dots" id="team-dots"></div>
+    </div>
+  </section>
+
+  <!-- News - AUTOMATED (Latest 3) -->
+  <section id="news">
+    <h2 class="section-title">News & Updates</h2>
+    <p class="section-kicker">
+      Workshops, shoot days, and festival news from the Alpha Films world — the studio beyond the screen.
+    </p>
+    <div class="news-grid" id="index-news-grid">
+      <!-- Latest 3 news items -->
+    </div>
+    <div class="news-cta-section">
+      <a href="news.html" class="more-work-btn">View all updates →</a>
     </div>
   </section>
 
   <!-- Contact -->
   <footer id="contact">
-    <div style="max-width:600px;margin:auto;text-align:center;">
+    <div class="contact-content">
       <h2>Ready to create?</h2>
-      <p>📍 Delhi, India | 📱 +91 85870 90302 | 📧 <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a></p>
-      <div style="margin-top:1rem;">
-        <a href="https://instagram.com/alphafilmsofficial" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/company/alphafilms" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <p>
+        Drop in for a recce, book the studio, or brief us on your next campaign.  
+        <span class="contact-highlight">We’ll bring the crew. You bring the idea.</span>
+      </p>
+      <p>
+        📍 Delhi, India · 📱 +91 85870 90302 · 📧 
+        <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a>
+      </p>
+      <div class="social-links">
+        <a href="https://instagram.com/alphafilmsofficial" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/alphafilms" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/918587090302" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <p style="margin-top:2rem;opacity:0.7;">© 2026 Alpha Films. All rights reserved.</p>
+      <p style="margin-top: 2rem; opacity: 0.7;">© 2026 Alpha Films. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- COMPLETE CLEAN JAVASCRIPT - NO DUPLICATES -->
   <script>
-    // Projects array with YouTube links
-    const projects = [
-      {title:"Night Shift",img:"images/nightshift.jpg", url:"https://www.youtube.com/watch?v=kwVuPcAiNjY"},
-      {title:"Into the Sea",img:"images/intothesea.jpg", url:"https://www.youtube.com/watch?v=vQYMIPsxp4c"},
-      {title:"Goan Classic 350",img:"images/goan.jpg", url:"https://www.youtube.com/watch?v=VB-Ql4tNCZI"},
-      {title:"BND Motorsport",img:"images/bnd.jpg", url:"#"}
+    // DATA ARRAYS - ADD NEW ITEMS HERE ONLY
+    const allProjects = [
+      { title: "Night Shift", tag: "Short Film", image: "images/nightshift.jpg", url: "https://www.youtube.com/watch?v=kwVuPcAiNjY" },
+      { title: "Into the Sea", tag: "Cinematic Short", image: "images/intothesea.jpg", url: "https://www.youtube.com/watch?v=vQYMIPsxp4c" },
+      { title: "Goan Classic 350", tag: "Motorcycle Film", image: "images/goan.jpg", url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI" },
+      { title: "BND Motorsport Event", tag: "Race Event", image: "images/bnd.jpg", url: "#" },
+    ];
+
+    const allNews = [
+      { id: 1, title: "Alpha Films Studio Grand Opening", category: "studio", date: "2026-02-03", excerpt: "Our new 8-hour professional shooting space is now LIVE in Delhi NCR. Fully equipped with AC, power backup, lighting rigs, and production support." },
+      { id: 2, title: "Speaking at Digital Media Summit", category: "events", date: "2026-01-15", excerpt: "Rohan Sengal sharing insights on cinematic storytelling and building production studio brands in India's competitive market." },
+      { id: 3, title: "Major D2C Commercial Production", category: "projects", date: "2025-12-20", excerpt: "End-to-end TVC production completed in 10 days for emerging D2C brand. Delivered concept-to-master with motion graphics." },
     ];
 
     const teamMembers = [
-      {name:"Deepanshu Sehgal", role:"Founder & Creative Director", bio:"Visionary filmmaker with 5+ years experience.", image:"team_images/deep.png"},
-      {name:"Daksh Mehta", role:"Content Director", bio:"TBA", image:"team_images/daksh.jpg"},
-      {name:"Shivani Damle", role:"Creative Lead", bio:"TBA", image:"team_images/shivani.jpg"},
-      {name:"Parth Sehgal", role:"Operations & Human Resource", bio:"TBA", image:"team_images/parth.JPG"}
+      { name: "Deepanshu Sehgal", role: "Founder & Creative Director", bio: "Visionary filmmaker with 5+ years experience. First AD at 21, Best Student Short Film Producer award. Masters in Film Making (Production) from Whistling Woods International, Mumbai.", image: "team_images/deep.png", linkedin: "https://www.linkedin.com/in/deepsehgal" },
+      { name: "Daksh Mehta", role: "Content Director", bio: "TBA", image: "team_images/daksh.jpg" },
+      { name: "Shivani Damle", role: "Creative Lead", bio: "TBA", image: "team_images/shivani.jpg" },
+      { name: "Parth Sehgal", role: "Operations & Human Resource", bio: "TBA", image: "team_images/parth.JPG" },
     ];
 
-    function goHome(){ window.location.href="index.html"; }
-    function toggleMobileMenu(e){ e.stopPropagation(); document.getElementById('mobileMenu').classList.toggle('active'); }
-    document.addEventListener('click', function(event){
+    // UTILITY FUNCTIONS
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' }).replace(' ', ' ');
+    }
+
+    function goHome() { window.location.href = 'index.html'; }
+
+    function toggleMobileMenu(event) {
+      event.stopPropagation();
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+
+    // FEATURED WORK - Latest 4
+    function renderFeaturedWork() {
+      const container = document.getElementById('featured-grid');
+      if (!container) return;
+      container.innerHTML = '';
+      const latest4 = allProjects.slice(0, 4);
+      latest4.forEach(project => {
+        const item = document.createElement('a');
+        item.href = project.url;
+        item.target = '_blank';
+        item.rel = 'noopener noreferrer';
+        item.className = 'work-item';
+        item.innerHTML = `
+          <div class="work-thumb">
+            <img src="${project.image}" alt="${project.title}" loading="lazy">
+            <div class="work-overlay">
+              <span class="work-tag">${project.tag}</span>
+              <span class="work-title">${project.title}</span>
+              <span class="work-cta">View ↗</span>
+            </div>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    // NEWS - Latest 3
+    function renderLatestNews() {
+      const container = document.getElementById('index-news-grid');
+      if (!container) return;
+      container.innerHTML = '';
+      const latest3 = allNews.slice(0, 3);
+      latest3.forEach(news => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="news-meta">${formatDate(news.date)}</div>
+          <div class="news-title">${news.title}</div>
+          <p>${news.excerpt.substring(0, 120)}...</p>
+          <a href="news.html#news-${news.id}" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // TEAM CAROUSEL
+    let currentTeamIndex = 0;
+    function renderTeam() {
+      const teamCarousel = document.getElementById('team-carousel');
+      const teamDots = document.getElementById('team-dots');
+      if (!teamCarousel || !teamDots) return;
+      
+      teamCarousel.innerHTML = '';
+      teamDots.innerHTML = '';
+      
+      teamMembers.forEach((member, index) => {
+        const card = document.createElement('div');
+        card.className = 'team-card';
+        card.innerHTML = `
+          <div class="team-avatar">
+            <img src="${member.image}" alt="${member.name}" loading="lazy">
+          </div>
+          <div class="team-role">${member.role}</div>
+          <div class="team-name">${member.name}</div>
+          <div class="team-bio">${member.bio}</div>
+          ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" rel="noopener noreferrer" style="color: #0a66c2; font-size: 1.1rem; margin-top: 1rem; display: inline-block;"><i class="fab fa-linkedin"></i></a>` : ''}
+        `;
+        teamCarousel.appendChild(card);
+        
+        const dot = document.createElement('div');
+        dot.className = 'team-dot';
+        dot.onclick = () => goToTeamSlide(index);
+        teamDots.appendChild(dot);
+      });
+      
+      updateTeamDots();
+      scrollToCurrent();
+    }
+
+    function scrollToCurrent() {
+      const teamCarousel = document.getElementById('team-carousel');
+      if (teamCarousel) {
+        const cardWidth = teamCarousel.querySelector('.team-card')?.offsetWidth || 320;
+        teamCarousel.scrollTo({ left: currentTeamIndex * (cardWidth + 24), behavior: 'smooth' });
+      }
+    }
+
+    function updateTeamDots() {
+      const teamDots = document.getElementById('team-dots');
+      if (!teamDots) return;
+      Array.from(teamDots.children).forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentTeamIndex);
+      });
+    }
+
+    function nextTeam() {
+      currentTeamIndex = (currentTeamIndex + 1) % teamMembers.length;
+      scrollToCurrent();
+      updateTeamDots();
+    }
+
+    function prevTeam() {
+      currentTeamIndex = (currentTeamIndex - 1 + teamMembers.length) % teamMembers.length;
+      scrollToCurrent();
+      updateTeamDots();
+    }
+
+    function goToTeamSlide(index) {
+      currentTeamIndex = index;
+      scrollToCurrent();
+      updateTeamDots();
+    }
+
+    function initTeamCarousel() {
+      const teamNext = document.getElementById('team-next');
+      const teamPrev = document.getElementById('team-prev');
+      if (teamNext) teamNext.onclick = nextTeam;
+      if (teamPrev) teamPrev.onclick = prevTeam;
+      
+      const teamCarousel = document.getElementById('team-carousel');
+      let startX = 0;
+      teamCarousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+      teamCarousel.addEventListener('touchend', e => {
+        const endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) nextTeam();
+        if (endX - startX > 50) prevTeam();
+      });
+    }
+
+    // GLOBAL EVENT LISTENERS
+    document.addEventListener('click', function(event) {
       const menu = document.getElementById('mobileMenu');
       const toggle = document.querySelector('.mobile-menu-toggle');
-      if(!toggle?.contains(event.target) && !menu?.contains(event.target)){ menu.classList.remove('active'); }
+      if (menu && !toggle.contains(event.target) && !menu.contains(event.target)) {
+        menu.classList.remove('active');
+      }
     });
 
-    // Render Featured Work
-    const workContainer = document.getElementById('work-carousel');
-    projects.forEach(p=>{
-      const div = document.createElement('a');
-      div.href = p.url; div.target="_blank"; div.className="work-item";
-      div.innerHTML = `<img src="${p.img}" alt="${p.title}"><div class="work-overlay"><span>${p.title}</span></div>`;
-      workContainer.appendChild(div);
+    document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
     });
 
-    // Render Team
-    const teamContainer = document.getElementById('team-carousel');
-    teamMembers.forEach(m=>{
-      const div = document.createElement('div');
-      div.className="team-card";
-      div.innerHTML=`<div class="team-avatar"><img src="${m.image}" alt="${m.name}"></div>
-        <div class="team-name">${m.name}</div><div class="team-role">${m.role}</div><div class="team-bio">${m.bio}</div>`;
-      teamContainer.appendChild(div);
+    // INITIALIZE EVERYTHING
+    window.addEventListener('load', function() {
+      renderFeaturedWork();
+      renderLatestNews();
+      renderTeam();
+      initTeamCarousel();
     });
-
-    let currentTeamIndex = 0;
-    function scrollTeam(){
-      teamContainer.scrollTo({left: currentTeamIndex*320, behavior:"smooth"});
-    }
-    function prevTeam(){ currentTeamIndex = Math.max(0, currentTeamIndex-1); scrollTeam(); }
-    function nextTeam(){ currentTeamIndex = Math.min(teamMembers.length-1, currentTeamIndex+1); scrollTeam(); }
   </script>
 </body>
 </html>
