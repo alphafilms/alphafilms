@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Analytics -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4NXETF7WV7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -10,507 +10,279 @@
     gtag('config', 'G-4NXETF7WV7');
   </script>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alpha Films</title>
-  <meta name="description" content="Alpha Films - Cinematic film & video production studio in Delhi">
-  
+  <meta name="description" content="Alpha Films is a one-stop film and video production company offering end-to-end production solutions." />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Futura:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f8f4f0;           /* Rich cream LVMH-style */
-      --bg-soft: #fdfaf7;      /* Softer cream */
-      --fg: #1a1a1a;           /* Deep black */
-      --muted: #666666;        /* Subtle gray */
-      --accent: #c4161e;       /* Cinematic red */
-      --accent-soft: #e63946;  /* Lighter red */
-      --gold: #d4a574;         /* Minimal luxury gold */
-      --border: #e5ded4;       /* Cream border */
-      --shadow: rgba(34,34,34,0.08);
-      --whatsapp: #25D366;
-      --instagram: #E4405F;
+      --bg: #ffffff; --bg-soft: #f8f8f8; --fg: #1a1a1a; --muted: #666666;
+      --accent: #000000; --accent-soft: #333333; --border: #e0e0e0;
+      --whatsapp: #25D366; --instagram: #E4405F;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+    body { font-family: 'Futura', sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
 
     /* Navigation */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(248,244,240,0.98);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--fg);
-    }
-    .logo img { 
-      height: 2.4rem; 
-      width: auto;
-      filter: none; /* No yellow glow */
-    }
-    .desktop-menu { display: flex; gap: 2.5rem; }
-    .nav-link {
-      font-weight: 500;
-      font-size: 0.92rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--fg) !important;
-      text-decoration: none !important;
-      padding: 0.5rem 0;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
+    header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+    .nav { max-width: 1200px; margin: auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 0.75rem; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.12em; color: var(--fg); cursor: pointer; }
+    .logo img { height: 2.2rem; width: auto; }
+    .desktop-menu { display: flex; gap: 2rem; }
+    .nav-link { padding: 0.5rem 0; font-weight: 500; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg) !important; position: relative; }
+    .nav-link::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--accent); transition: width 0.2s ease; }
     .nav-link:hover::after { width: 100%; }
-    .nav-link:hover { color: var(--accent) !important; }
-
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--fg);
-      cursor: pointer;
-    }
-    .mobile-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: rgba(248,244,240,0.98);
-      flex-direction: column;
-      border-top: 1px solid var(--border);
-    }
+    .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: var(--fg); cursor: pointer; padding: 0.5rem; }
+    .mobile-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255,255,255,0.98); backdrop-filter: blur(18px); flex-direction: column; border-top: 1px solid var(--border); }
     .mobile-menu.active { display: flex; }
-    .mobile-nav-link {
-      padding: 1rem 2rem;
-      color: var(--fg) !important;
-      text-decoration: none !important;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
+    .mobile-nav-link { padding: 1rem 2rem; border-bottom: 1px solid var(--border); font-size: 1rem; color: var(--fg) !important; letter-spacing: 0.08em; text-transform: uppercase; }
 
-    /* Floating buttons */
-    .floating-buttons {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      z-index: 2000;
-    }
-    .fab {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      color: white;
-      box-shadow: 0 12px 32px var(--shadow);
-      transition: all 0.3s ease;
-    }
-    .fab:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 20px 40px var(--shadow);
-    }
+    /* Floating Action Buttons */
+    .floating-buttons { position: fixed; bottom: 2rem; right: 2rem; display: flex; flex-direction: column; gap: 0.75rem; z-index: 2000; }
+    .fab { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: black !important; box-shadow: 0 8px 25px rgba(0,0,0,0.25); transition: all 0.25s ease; }
+    .fab:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
     .fab.whatsapp { background: var(--whatsapp); }
     .fab.instagram { background: var(--instagram); }
 
     /* Hero */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 9rem 2rem 8rem;
-      position: relative;
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 9rem 2rem 6rem; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(248,248,248,0.05) 100%); }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('images/studio-bg.JPG'); background-size: cover; background-position: center; background-repeat: no-repeat; filter: blur(4px) brightness(0.85) contrast(1.1); opacity: 0.7; z-index: -1; }
+    .hero-content { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 2rem; gap: 4rem; }
+    .hero-logo { flex: 0 0 200px; text-align: center; }
+    .hero-logo img { height: 180px; width: auto; }
+    .hero-text { flex: 1; text-align: center; max-width: 650px; }
+    .tagline { font-size: 2.4rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.06em; color: var(--fg); line-height: 1.1; }
+    .tagline br { display: block; }
+    .hero-subtitle { max-width: 820px; font-size: 1.05rem; line-height: 1.9; margin-bottom: 2rem; color: #1a1a1a !important; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+    
+    /* NEW: Hero Book Now Button */
+    .hero-cta { text-align: center; margin-top: 1rem; }
+    .book-now-btn { 
+      display: inline-block; 
+      background: var(--accent); 
+      color: white; 
+      padding: 1rem 2.5rem; 
+      border-radius: 50px; 
+      font-size: 1.1rem; 
+      font-weight: 600; 
+      letter-spacing: 0.08em; 
+      text-transform: uppercase; 
+      text-decoration: none; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+      transition: all 0.3s ease; 
     }
-    .hero-content {
-      max-width: 900px;
-      padding: 0 2rem;
+    .book-now-btn:hover { 
+      background: var(--accent-soft); 
+      transform: translateY(-3px); 
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3); 
+      color: white; 
+      text-decoration: none; 
     }
-    .tagline {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      font-weight: 600;
-      margin-bottom: 2rem;
-      letter-spacing: 0.04em;
-      color: var(--fg);
-      line-height: 1.1;
-    }
-    .hero-subtitle {
-      font-size: 1.15rem;
-      max-width: 750px;
-      margin: 0 auto 4rem;
-      color: var(--muted);
-      line-height: 1.9;
-    }
-    .action-belt {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background: rgba(248,244,240,0.9);
-      border-top: 1px solid var(--border);
-      overflow: hidden;
-    }
-    .action-marquee {
-      display: flex;
-      height: 100%;
-      align-items: center;
-      animation: scroll 20s linear infinite;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--fg);
-      white-space: nowrap;
-    }
-    .action-item { padding: 0 4rem; }
-    @keyframes scroll {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
+
+    .action-belt { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: rgba(248,248,248,0.9); overflow: hidden; border-top: 1px solid var(--border); }
+    .action-marquee { display: flex; height: 100%; align-items: center; animation: scroll 18s linear infinite; }
+    .action-item { font-size: 1.2rem; font-weight: 600; color: var(--accent); padding: 0 3rem; white-space: nowrap; }
+    @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
     /* Sections */
-    section {
-      padding: 6rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
+    section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; background: var(--bg); }
+    h2.section-title { font-size: 2.1rem; text-align: center; margin-bottom: 2.5rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); }
+
+    /* Services Grid - DESKTOP */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .card { background: var(--bg-soft); padding: 2rem; border-radius: 18px; border: 1px solid var(--border); transition: all 0.35s ease; color: var(--fg); }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 16px 35px rgba(0,0,0,0.08); border-color: var(--accent-soft); }
+
+    /* NEW: Services Mobile Carousel */
+    .services-carousel { 
+      display: none; 
+      overflow-x: auto; 
+      scroll-snap-type: x mandatory; 
+      gap: 1.5rem; 
+      padding: 1rem 0; 
+      scrollbar-width: none; 
+      -ms-overflow-style: none; 
+      scroll-behavior: smooth; 
     }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      text-align: center;
-      margin-bottom: 1rem;
-      letter-spacing: 0.06em;
-      color: var(--fg);
-    }
-    .section-kicker {
-      text-align: center;
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto 4rem;
+    .services-carousel::-webkit-scrollbar { display: none; }
+    .services-carousel-card { 
+      flex: 0 0 300px; 
+      scroll-snap-align: center; 
+      min-width: 300px; 
     }
 
-    /* Grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
-    }
-    .card {
-      background: var(--bg-soft);
-      padding: 2.5rem 2rem;
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      transition: all 0.4s ease;
-      height: 100%;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 50px var(--shadow);
-      border-color: rgba(196,22,30,0.2);
-    }
-    .card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      color: var(--fg);
-    }
-    .card p {
-      color: var(--muted);
-      font-size: 1rem;
-    }
+    /* Services CTA Button */
+    .services-cta { text-align: center; margin-top: 3rem; }
+    
+    /* Featured Work - Hero + Grid */
+    .portfolio-hero { width: 100%; height: 70vh; min-height: 500px; margin-bottom: 3rem; border-radius: 24px; overflow: hidden; position: relative; box-shadow: 0 30px 90px rgba(0,0,0,0.4); }
+    .hero-item { width: 100%; height: 100%; display: block; position: relative; }
+    .hero-item img { width: 100%; height: 100%; object-fit: cover; transition: all 0.4s ease; }
+    .hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: white; padding: 3rem 2rem 2rem; }
+    .hero-overlay .collage-tag { font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.9; display: block; margin-bottom: 0.5rem; }
+    .hero-overlay .collage-title { font-size: 2.2rem; font-weight: 700; letter-spacing: 0.05em; }
+    .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 6rem; color: rgba(255,255,255,0.95); text-shadow: 0 4px 20px rgba(0,0,0,0.8); opacity: 0; transition: all 0.4s ease; }
+    .hero-item:hover img { transform: scale(1.05); filter: brightness(1.1); }
+    .hero-item:hover .play-icon { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
 
-    /* Featured Work */
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-    .featured-item {
-      position: relative;
-      aspect-ratio: 16/9;
-      border-radius: 20px;
-      overflow: hidden;
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      transition: all 0.4s ease;
-    }
-    .featured-item:hover {
-      transform: scale(1.02);
-      box-shadow: 0 30px 60px var(--shadow);
-    }
-    .featured-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(248,244,240,0.95));
-      padding: 2rem 1.5rem 2.5rem;
-    }
-    .featured-tag {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    .featured-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
+    /* Portfolio Grid */
+    .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto 2rem; }
+    .work-item { display: block; text-decoration: none; color: inherit; }
+    .work-thumb { position: relative; overflow: hidden; border-radius: 18px; border: 1px solid var(--border); background: #000; aspect-ratio: 16 / 9; }
+    .work-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .work-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.1rem 1.3rem; background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.05)); color: #ffffff; gap: 0.2rem; }
+    .work-tag { font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8; }
+    .work-title { font-size: 1rem; font-weight: 600; }
+    .work-cta { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0; transform: translateY(6px); transition: all 0.25s ease; }
+    .work-thumb:hover img { transform: scale(1.06); }
+    .work-thumb:hover .work-cta { opacity: 1; transform: translateY(0); }
 
-    /* Team */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2.5rem;
-    }
-    .team-member {
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      background: var(--bg-soft);
-      transition: all 0.4s ease;
-    }
-    .team-member:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 45px var(--shadow);
-    }
-    .team-avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: rgba(196,22,30,0.1);
-      margin: 0 auto 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-    }
-    .team-role {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-    .team-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
+    /* CTA Buttons */
+    .work-cta-section, .news-cta-section { text-align: center; margin: 3rem 0 1rem; }
+    .more-work-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; }
+    .more-work-btn:hover { background: var(--accent-soft); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); color: white; text-decoration: none; }
 
-    /* News */
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-    .news-meta {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-    .news-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    .news-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
+    /* Team Carousel */
+    .team-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; position: relative; }
+    .team-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1.5rem; padding: 2rem 0; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth; }
+    .team-carousel::-webkit-scrollbar { display: none; }
+    .team-card { flex: 0 0 320px; scroll-snap-align: center; background: var(--bg-soft); border-radius: 24px; padding: 2.5rem 2rem; text-align: center; border: 1px solid var(--border); transition: all 0.3s ease; min-width: 320px; }
+    .team-avatar { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1.5rem; overflow: hidden; border: 3px solid var(--border); }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .team-role { font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
+    .team-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
+    .team-bio { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; }
+    .team-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; background: white; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; color: var(--accent); box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; z-index: 10; }
+    .team-nav:hover { transform: translateY(-50%) scale(1.1); box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+    .team-nav.prev { left: 1rem; }
+    .team-nav.next { right: 1rem; }
+    .team-dots { display: flex; gap: 0.5rem; justify-content: center; margin-top: 2rem; }
+    .team-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.3s ease; }
+    .team-dot.active { background: var(--accent); transform: scale(1.3); }
 
-    /* CTA */
-    .cta {
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1rem 2.5rem;
-      background: var(--accent);
-      color: white;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      box-shadow: 0 15px 35px rgba(196,22,30,0.3);
-      transition: all 0.3s ease;
-    }
-    .cta-button:hover {
-      background: var(--accent-soft);
-      transform: translateY(-3px);
-      box-shadow: 0 25px 50px rgba(196,22,30,0.4);
-    }
+    /* News on Index (Latest 3) */
+    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .news-meta { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.5rem; }
+    .news-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--fg); }
+    .news-link { display: inline-block; margin-top: 0.75rem; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .news-link:hover { text-decoration: underline; }
+
+    /* Contact Content */
+    .contact-content { max-width: 600px; margin: 0 auto; }
+    .contact-content h2 { color: var(--fg); margin-bottom: 1rem; }
+    .contact-content p { font-size: 1.05rem; margin-bottom: 1rem; color: var(--muted); }
+    .contact-content .social-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .contact-content .social-links a { font-size: 1.2rem; }
+    .contact-content .social-links a[href*="instagram"] { color: var(--instagram) !important; }
+    .contact-content a[href*="linkedin"] { color: #0077B5 !important; }
+    .contact-content a[href*="whatsapp"] { color: var(--whatsapp) !important; }
 
     /* Footer */
-    footer {
-      padding: 4rem 2rem 3rem;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      background: var(--bg-soft);
-    }
-    .footer-content {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .footer-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: var(--fg);
-    }
-    .footer-info {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      color: var(--muted);
-    }
+    footer { padding: 3rem 2rem 2.5rem; text-align: center; border-top: 1px solid var(--border); color: var(--muted); background: var(--bg); }
 
     /* Mobile */
     @media (max-width: 768px) {
       .desktop-menu { display: none; }
       .mobile-menu-toggle { display: block; }
-      .nav { padding: 1rem; }
-      .hero { padding: 8rem 1.5rem 8rem; }
-      .tagline { font-size: 2.2rem !important; } /* Force 2-line break */
-      .floating-buttons { bottom: 1.5rem; right: 1.5rem; }
-      .fab { width: 52px; height: 52px; font-size: 1.3rem; }
-      section { padding: 4rem 1.5rem; }
+      .nav { padding: 0.75rem 1rem; }
+      .hero { padding: 8rem 1.5rem 6rem; }
+      .hero-content { flex-direction: column; gap: 2rem; }
+      .hero-logo img { height: 120px; }
+      .tagline { font-size: 1.9rem; max-width: 18ch; margin-left: auto; margin-right: auto; }
+      .floating-buttons { bottom: 1.3rem; right: 1.3rem; }
+      
+      /* Services: Hide Grid, Show Carousel */
+      .grid { display: none; }
+      .services-carousel { display: block; }
+      
+      .portfolio-hero { height: 60vh; min-height: 400px; margin-bottom: 2rem; border-radius: 18px; }
+      .hero-overlay { padding: 2rem 1.5rem 1.5rem; }
+      .hero-overlay .collage-title { font-size: 1.8rem; }
+      .play-icon { font-size: 4rem; }
+      .team-card { flex: 0 0 280px; min-width: 280px; padding: 2rem 1.5rem; }
+      .team-avatar { width: 100px; height: 100px; }
     }
+    @media (min-width: 769px) { .mobile-menu-toggle, .mobile-menu { display: none !important; } }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
+
   <!-- Navigation -->
   <header>
     <nav class="nav">
-      <div class="logo">
-        <img src="images/logo.png" alt="Alpha Films">
+      <div class="logo" onclick="goHome()">
+        <img src="images/logo.png" alt="Alpha Films Logo">
         <span>ALPHA FILMS</span>
       </div>
-      
+
       <div class="desktop-menu">
         <a href="#hero" class="nav-link">Home</a>
         <a href="#services" class="nav-link">Services</a>
         <a href="#portfolio" class="nav-link">Featured Work</a>
         <a href="#team" class="nav-link">Team</a>
-        <a href="#news" class="nav-link">News</a>
+        <a href="news.html" class="nav-link">News</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
 
-      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu(event)">
         <i class="fas fa-bars"></i>
       </button>
-      
+
       <div class="mobile-menu" id="mobileMenu">
-        <a href="#hero" class="mobile-nav-link" onclick="toggleMobileMenu()">Home</a>
-        <a href="#services" class="mobile-nav-link" onclick="toggleMobileMenu()">Services</a>
-        <a href="#portfolio" class="mobile-nav-link" onclick="toggleMobileMenu()">Featured Work</a>
-        <a href="#team" class="mobile-nav-link" onclick="toggleMobileMenu()">Team</a>
-        <a href="#news" class="mobile-nav-link" onclick="toggleMobileMenu()">News</a>
-        <a href="#contact" class="mobile-nav-link" onclick="toggleMobileMenu()">Contact</a>
+        <a href="#hero" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Home</a>
+        <a href="#services" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Services</a>
+        <a href="#portfolio" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Featured Work</a>
+        <a href="#team" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Team</a>
+        <a href="news.html" class="mobile-nav-link" onclick="toggleMobileMenu(event)">News & Updates</a>
+        <a href="#contact" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Contact</a>
       </div>
     </nav>
   </header>
 
-  <!-- Floating Buttons -->
+  <!-- Floating Action Buttons -->
   <div class="floating-buttons">
-    <a href="https://wa.me/918587090302?text=Hi Alpha Films,%0AI'm interested in your studio/production services.%0AWhat's next?" 
-       class="fab whatsapp" target="_blank">
+    <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%0AI%20want%20to%20book%20your%20studio%2Fvideo%20production%20services.%0AWhat's%20next%3F" class="fab whatsapp" target="_blank" title="WhatsApp" rel="noopener noreferrer">
       <i class="fab fa-whatsapp"></i>
     </a>
-    <a href="https://instagram.com/alphafilmsofficial" class="fab instagram" target="_blank">
+    <a href="https://instagram.com/alphafilmsofficial" class="fab instagram" target="_blank" title="Instagram" rel="noopener noreferrer">
       <i class="fab fa-instagram"></i>
     </a>
   </div>
 
   <!-- Hero -->
   <section id="hero" class="hero">
-    <div class="hero-content">
-      <h1 class="tagline">Frame by frame. Feeling by feeling.</h1>
-      <p class="hero-subtitle">
-        Alpha Films is a one-stop film and video production company offering end-to-end production solutions. 
-        From concept development and pre-production to filming, post-production, and final delivery, 
-        we create high-quality films, commercials, and digital content that stand out. Our experienced 
-        team combines creativity, technical excellence, and storytelling to elevate your brand's visual narrative.
-      </p>
-    </div>
     <div class="action-belt">
       <div class="action-marquee">
-        <div class="action-item">LIGHTS CAMERA ACTION</div>
-        <div class="action-item">LIGHTS CAMERA ACTION</div>
-        <div class="action-item">LIGHTS CAMERA ACTION</div>
-        <div class="action-item">LIGHTS CAMERA ACTION</div>
-        <div class="action-item">LIGHTS CAMERA ACTION</div>
+        <div class="action-item">*LIGHTS | CAMERA | ACTION*</div><div class="action-item">*LIGHTS | CAMERA | ACTION*</div>
+        <div class="action-item">*LIGHTS | CAMERA | ACTION*</div><div class="action-item">*LIGHTS | CAMERA | ACTION*</div>
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-logo">
+        <img src="images/logo.png" alt="Alpha Films Logo">
+      </div>
+      <div class="hero-text">
+        <div class="tagline">Frame by frame.<br>Feeling by feeling.</div>
+        <div class="hero-subtitle">
+          Alpha Films is a one-stop film and video production company offering end-to-end production solutions. 
+          From concept development and pre-production to filming, post-production, and final delivery, 
+          we create high-quality films, commercials, and digital content that stand out.
+        </div>
+        <!-- NEW: Hero Book Now Button -->
+        <div class="hero-cta">
+          <a href="#services" class="book-now-btn">Book Now</a>
+        </div>
       </div>
     </div>
   </section>
@@ -518,164 +290,326 @@
   <!-- Services -->
   <section id="services">
     <h2 class="section-title">Our Services</h2>
-    <p class="section-kicker">Studio, crew, and post in one place. End-to-end cinematic production.</p>
+    
+    <!-- Desktop Grid -->
     <div class="grid">
       <div class="card">
         <h3>🎬 Video Production</h3>
-        <p>End-to-end production from concept to final cinematic edit. Commercials, brand films, corporate videos.</p>
+        <p>End-to-end production from concept to final cinematic edit. Commercials, films, corporate videos.</p>
       </div>
       <div class="card">
         <h3>📸 Studio Rental</h3>
-        <p>8-hour professional shooting space in Delhi with AC, power backup, and controlled lighting.</p>
+        <p>8-hour professional shooting space in Delhi with AC, power backup, and full equipment.</p>
       </div>
       <div class="card">
         <h3>⚡ Studio + Gear</h3>
-        <p>Complete package: studio, cameras, lenses, lights, audio, and production support.</p>
+        <p>Complete package: studio, lights, cameras, audio, and production support.</p>
       </div>
       <div class="card">
         <h3>✂️ Post Production</h3>
-        <p>Editing, sound design, color grading, and motion graphics for all formats.</p>
+        <p>High-impact editing for reels, ads, courses, and social media content.</p>
       </div>
       <div class="card">
         <h3>📱 Social Content</h3>
-        <p>Reels, Shorts, and vertical campaigns optimized for maximum engagement.</p>
+        <p>Instagram Reels, YouTube Shorts, TikTok videos optimized for maximum engagement.</p>
       </div>
       <div class="card">
         <h3>🎓 Course Packages</h3>
-        <p>Multi-episode course production — shot, edited, delivered as complete content library.</p>
+        <p>Bulk production for online courses, educational content, and brand series.</p>
       </div>
     </div>
-    <div class="cta">
-      <a href="https://wa.me/918587090302" class="cta-button" target="_blank">
-        Book a shoot <i class="fas fa-arrow-right"></i>
-      </a>
+
+    <!-- Mobile Carousel -->
+    <div class="services-carousel">
+      <div class="services-carousel-card card">
+        <h3>🎬 Video Production</h3>
+        <p>End-to-end production from concept to final cinematic edit. Commercials, films, corporate videos.</p>
+      </div>
+      <div class="services-carousel-card card">
+        <h3>📸 Studio Rental</h3>
+        <p>8-hour professional shooting space in Delhi with AC, power backup, and full equipment.</p>
+      </div>
+      <div class="services-carousel-card card">
+        <h3>⚡ Studio + Gear</h3>
+        <p>Complete package: studio, lights, cameras, audio, and production support.</p>
+      </div>
+      <div class="services-carousel-card card">
+        <h3>✂️ Post Production</h3>
+        <p>High-impact editing for reels, ads, courses, and social media content.</p>
+      </div>
+      <div class="services-carousel-card card">
+        <h3>📱 Social Content</h3>
+        <p>Instagram Reels, YouTube Shorts, TikTok videos optimized for maximum engagement.</p>
+      </div>
+      <div class="services-carousel-card card">
+        <h3>🎓 Course Packages</h3>
+        <p>Bulk production for online courses, educational content, and brand series.</p>
+      </div>
+    </div>
+
+    <!-- NEW: Services Book Now Button -->
+    <div class="services-cta">
+      <a href="#" class="book-now-btn" target="_blank">Book Now</a>
     </div>
   </section>
 
-  <!-- Featured Work -->
+  <!-- Featured Work - AUTOMATED -->
   <section id="portfolio">
     <h2 class="section-title">Featured Work</h2>
-    <p class="section-kicker">Recent projects showcasing our cinematic approach.</p>
-    <div class="featured-grid">
-      <a href="https://www.youtube.com/watch?v=AhzQTAfnsCs" class="featured-item" target="_blank">
-        <div class="featured-content">
-          <div class="featured-tag">Short Film</div>
-          <div class="featured-title">Broken Reflections</div>
-        </div>
-      </a>
-      <a href="https://www.youtube.com/watch?v=kwVuPcAiNjY" class="featured-item" target="_blank">
-        <div class="featured-content">
-          <div class="featured-tag">Brand Film</div>
-          <div class="featured-title">Night Shift</div>
-        </div>
-      </a>
-      <a href="https://www.youtube.com/watch?v=vQYMIPsxp4c" class="featured-item" target="_blank">
-        <div class="featured-content">
-          <div class="featured-tag">Motorcycle Film</div>
-          <div class="featured-title">Goan Classic 350</div>
+    
+    <!-- Hero Project -->
+    <div class="portfolio-hero">
+      <a href="https://www.youtube.com/watch?v=AhzQTAfnsCs" target="_blank" class="hero-item" rel="noopener noreferrer">
+        <img src="images/broken.jpg" alt="Broken Reflections" loading="lazy">
+        <div class="hero-overlay">
+          <span class="collage-tag">Featured Short Film</span>
+          <span class="collage-title">Broken Reflections</span>
+          <span class="play-icon">▶</span>
         </div>
       </a>
     </div>
-    <div class="cta" style="text-align: center;">
-      <a href="portfolio.html" class="cta-button">View all work</a>
+
+    <!-- Latest 4 Projects -->
+    <div class="work-grid" id="featured-grid">
+      <!-- Automated - Latest 4 projects -->
+    </div>
+
+    <!-- More Work Button -->
+    <div class="work-cta-section">
+      <a href="portfolio.html" class="more-work-btn">More Featured Work →</a>
     </div>
   </section>
 
-  <!-- Team -->
+  <!-- Team - FIXED CAROUSEL -->
   <section id="team">
     <h2 class="section-title">Our Team</h2>
-    <p class="section-kicker">Compact crew delivering cinematic excellence.</p>
-    <div class="team-grid">
-      <div class="team-member">
-        <div class="team-avatar"><i class="fas fa-video"></i></div>
-        <div class="team-role">Creative Director</div>
-        <div class="team-name">Deepanshu Sehgal</div>
+    <div class="team-wrapper">
+      <div class="team-carousel" id="team-carousel">
+        <!-- Cards populated by JS -->
       </div>
-      <div class="team-member">
-        <div class="team-avatar"><i class="fas fa-camera"></i></div>
-        <div class="team-role">Cinematographer</div>
-        <div class="team-name">Daksh Mehta</div>
-      </div>
-      <div class="team-member">
-        <div class="team-avatar"><i class="fas fa-cut"></i></div>
-        <div class="team-role">Lead Editor</div>
-        <div class="team-name">Shivani Damle</div>
-      </div>
-      <div class="team-member">
-        <div class="team-avatar"><i class="fas fa-headset"></i></div>
-        <div class="team-role">Producer</div>
-        <div class="team-name">Parth Sehgal</div>
-      </div>
+      <button class="team-nav prev" id="team-prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="team-nav next" id="team-next"><i class="fas fa-chevron-right"></i></button>
+      <div class="team-dots" id="team-dots"></div>
     </div>
   </section>
 
-  <!-- News -->
+  <!-- News - AUTOMATED (Latest 3) -->
   <section id="news">
     <h2 class="section-title">News & Updates</h2>
-    <p class="section-kicker">Seminars, shoots, and industry insights.</p>
-    <div class="news-grid">
-      <div class="card">
-        <div class="news-meta">Feb 2026 • Delhi</div>
-        <div class="news-title">Digital Media Summit</div>
-        <p>Speaking on cinematic storytelling and production studio trends in India.</p>
-        <a href="news.html#news-1" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="card">
-        <div class="news-meta">Jan 2026 • Studio</div>
-        <div class="news-title">Studio Grand Opening</div>
-        <p>8-hour professional shooting space now LIVE in Delhi NCR.</p>
-        <a href="news.html#news-2" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="card">
-        <div class="news-meta">Dec 2025 • Production</div>
-        <div class="news-title">D2C Brand Campaign</div>
-        <p>Complete TVC production delivered in 10 days from concept to master.</p>
-        <a href="news.html#news-3" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
-      </div>
+    <div class="news-grid" id="index-news-grid">
+      <!-- Latest 3 news items -->
     </div>
-    <div class="cta" style="text-align: center;">
-      <a href="news.html" class="cta-button">View all news</a>
+    <div class="news-cta-section">
+      <a href="news.html" class="more-work-btn">View All News →</a>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Contact -->
   <footer id="contact">
-    <div class="footer-content">
-      <h2 class="footer-title">Ready to create?</h2>
-      <p class="footer-info">
-        Delhi, India • +91 85870 90302 • 
-        <a href="mailto:alphafilmsofficial@gmail.com" style="color: var(--fg); text-decoration: none;">alphafilmsofficial@gmail.com</a>
+    <div class="contact-content">
+      <h2>Ready to create?</h2>
+      <p>
+        📍 Delhi, India | 📱 +91 85870 90302 | 📧 
+        <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a>
       </p>
-      <p style="opacity: 0.7; margin-top: 2rem;">© 2026 Alpha Films. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://instagram.com/alphafilmsofficial" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/alphafilms" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/918587090302" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p style="margin-top: 2rem; opacity: 0.7;">© 2026 Alpha Films. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- COMPLETE CLEAN JAVASCRIPT - NO DUPLICATES -->
   <script>
-    function toggleMobileMenu() {
+    // DATA ARRAYS - ADD NEW ITEMS HERE ONLY
+    const allProjects = [
+      { title: "Night Shift", tag: "Short Film", image: "images/nightshift.jpg", url: "https://www.youtube.com/watch?v=kwVuPcAiNjY" },
+      { title: "Into the Sea", tag: "Cinematic Short", image: "images/intothesea.jpg", url: "https://www.youtube.com/watch?v=vQYMIPsxp4c" },
+      { title: "Goan Classic 350", tag: "Motorcycle Film", image: "images/goan.jpg", url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI" },
+      { title: "BND Motorsport Event", tag: "Race Event", image: "images/bnd.jpg", url: "#" },
+    ];
+
+    const allNews = [
+      { id: 1, title: "Alpha Films Studio Grand Opening", category: "studio", date: "2026-02-03", excerpt: "Our new 8-hour professional shooting space is now LIVE in Delhi NCR. Fully equipped with AC, power backup, lighting rigs, and production support." },
+      { id: 2, title: "Speaking at Digital Media Summit", category: "events", date: "2026-01-15", excerpt: "Rohan Sengal sharing insights on cinematic storytelling and building production studio brands in India's competitive market." },
+      { id: 3, title: "Major D2C Commercial Production", category: "projects", date: "2025-12-20", excerpt: "End-to-end TVC production completed in 10 days for emerging D2C brand. Delivered concept-to-master with motion graphics." },
+    ];
+
+    const teamMembers = [
+      { name: "Deepanshu Sehgal", role: "Founder & Creative Director", bio: "Visionary filmmaker with 5+ years experience. First AD at 21, Best Student Short Film Producer award. Masters in Film Making - Specialization in Production from Whistling Woods International, Mumbai.", image: "team_images/deep.png", linkedin: "https://www.linkedin.com/in/deepsehgal" },
+      { name: "Daksh Mehta", role: "Content Director", bio: "TBA", image: "team_images/daksh.jpg" },
+      { name: "Shivani Damle", role: "Creative Lead", bio: "TBA", image: "team_images/shivani.jpg" },
+      { name: "Parth Sehgal", role: "Operations & Human Resource", bio: "TBA", image: "team_images/parth.JPG" },
+    ];
+
+    // UTILITY FUNCTIONS
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' }).replace(' ', ' ');
+    }
+
+    function goHome() { window.location.href = 'index.html'; }
+
+    function toggleMobileMenu(event) {
+      event.stopPropagation();
       document.getElementById('mobileMenu').classList.toggle('active');
     }
 
-    document.addEventListener('click', function(e) {
+    // FEATURED WORK - Latest 4
+    function renderFeaturedWork() {
+      const container = document.getElementById('featured-grid');
+      if (!container) return;
+      container.innerHTML = '';
+      const latest4 = allProjects.slice(0, 4);
+      latest4.forEach(project => {
+        const item = document.createElement('a');
+        item.href = project.url;
+        item.target = '_blank';
+        item.rel = 'noopener noreferrer';
+        item.className = 'work-item';
+        item.innerHTML = `
+          <div class="work-thumb">
+            <img src="${project.image}" alt="${project.title}" loading="lazy">
+            <div class="work-overlay">
+              <span class="work-tag">${project.tag}</span>
+              <span class="work-title">${project.title}</span>
+              <span class="work-cta">View ↗</span>
+            </div>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    // NEWS - Latest 3
+    function renderLatestNews() {
+      const container = document.getElementById('index-news-grid');
+      if (!container) return;
+      container.innerHTML = '';
+      const latest3 = allNews.slice(0, 3);
+      latest3.forEach(news => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="news-meta">${formatDate(news.date)}</div>
+          <div class="news-title">${news.title}</div>
+          <p>${news.excerpt.substring(0, 120)}...</p>
+          <a href="news.html#news-${news.id}" class="news-link">Read more →</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // TEAM CAROUSEL
+    let currentTeamIndex = 0;
+    function renderTeam() {
+      const teamCarousel = document.getElementById('team-carousel');
+      const teamDots = document.getElementById('team-dots');
+      if (!teamCarousel || !teamDots) return;
+      
+      teamCarousel.innerHTML = '';
+      teamDots.innerHTML = '';
+      
+      teamMembers.forEach((member, index) => {
+        const card = document.createElement('div');
+        card.className = 'team-card';
+        card.innerHTML = `
+          <div class="team-avatar">
+            <img src="${member.image}" alt="${member.name}" loading="lazy">
+          </div>
+          <div class="team-role">${member.role}</div>
+          <div class="team-name">${member.name}</div>
+          <div class="team-bio">${member.bio}</div>
+          ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" rel="noopener noreferrer" style="color: #0077B5; font-size: 1.1rem; margin-top: 1rem; display: inline-block;"><i class="fab fa-linkedin"></i></a>` : ''}
+        `;
+        teamCarousel.appendChild(card);
+        
+        const dot = document.createElement('div');
+        dot.className = 'team-dot';
+        dot.onclick = () => goToTeamSlide(index);
+        teamDots.appendChild(dot);
+      });
+      
+      updateTeamDots();
+      scrollToCurrent();
+    }
+
+    function scrollToCurrent() {
+      const teamCarousel = document.getElementById('team-carousel');
+      if (teamCarousel) {
+        teamCarousel.scrollTo({ left: currentTeamIndex * 335, behavior: 'smooth' });
+      }
+    }
+
+    function updateTeamDots() {
+      const teamDots = document.getElementById('team-dots');
+      if (!teamDots) return;
+      Array.from(teamDots.children).forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentTeamIndex);
+      });
+    }
+
+    function nextTeam() {
+      currentTeamIndex = (currentTeamIndex + 1) % teamMembers.length;
+      scrollToCurrent();
+      updateTeamDots();
+    }
+
+    function prevTeam() {
+      currentTeamIndex = (currentTeamIndex - 1 + teamMembers.length) % teamMembers.length;
+      scrollToCurrent();
+      updateTeamDots();
+    }
+
+    function goToTeamSlide(index) {
+      currentTeamIndex = index;
+      scrollToCurrent();
+      updateTeamDots();
+    }
+
+    function initTeamCarousel() {
+      const teamNext = document.getElementById('team-next');
+      const teamPrev = document.getElementById('team-prev');
+      if (teamNext) teamNext.onclick = nextTeam;
+      if (teamPrev) teamPrev.onclick = prevTeam;
+      
+      const teamCarousel = document.getElementById('team-carousel');
+      let startX = 0;
+      teamCarousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+      teamCarousel.addEventListener('touchend', e => {
+        const endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) nextTeam();
+        if (endX - startX > 50) prevTeam();
+      });
+    }
+
+    // GLOBAL EVENT LISTENERS
+    document.addEventListener('click', function(event) {
       const menu = document.getElementById('mobileMenu');
       const toggle = document.querySelector('.mobile-menu-toggle');
-      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      if (!toggle?.contains(event.target) && !menu?.contains(event.target)) {
         menu.classList.remove('active');
       }
     });
 
-    // Smooth scroll for nav links
     document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
       link.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href.startsWith('#')) {
+        if (this.getAttribute('href').startsWith('#')) {
           e.preventDefault();
-          const target = document.querySelector(href);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-            if (window.innerWidth <= 768) toggleMobileMenu();
-          }
+          const targetId = this.getAttribute('href');
+          document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
         }
       });
+    });
+
+    // INITIALIZE EVERYTHING
+    window.addEventListener('load', function() {
+      renderFeaturedWork();
+      renderLatestNews();
+      renderTeam();
+      initTeamCarousel();
     });
   </script>
 </body>
