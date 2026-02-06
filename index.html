@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4NXETF7WV7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -10,51 +10,39 @@
     gtag('config', 'G-4NXETF7WV7');
   </script>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alpha Films</title>
-  <meta name="description" content="Alpha Films is a one-stop film and video production company offering end-to-end production solutions." />
-
-  <!-- Favicon -->
+  <meta name="description" content="Alpha Films - Cinematic film & video production studio in Delhi">
+  
   <link rel="icon" type="image/png" href="images/logo.png">
-
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Futura:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #05060a;
-      --bg-soft: #101118;
-      --fg: #f5f5f7;
-      --muted: #9a9bb0;
-      --accent: #3f82ff;       /* cool blue accent */
-      --accent-soft: #315fcc;
-      --border: #252636;
+      --bg: #f8f4f0;           /* Rich cream LVMH-style */
+      --bg-soft: #fdfaf7;      /* Softer cream */
+      --fg: #1a1a1a;           /* Deep black */
+      --muted: #666666;        /* Subtle gray */
+      --accent: #c4161e;       /* Cinematic red */
+      --accent-soft: #e63946;  /* Lighter red */
+      --gold: #d4a574;         /* Minimal luxury gold */
+      --border: #e5ded4;       /* Cream border */
+      --shadow: rgba(34,34,34,0.08);
       --whatsapp: #25D366;
       --instagram: #E4405F;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
     body {
-      font-family: 'Futura', sans-serif;
-      background: radial-gradient(circle at top, #171827 0, #05060a 55%);
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
       color: var(--fg);
-      line-height: 1.6;
+      line-height: 1.7;
       overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.18;
-      mix-blend-mode: soft-light;
-      background-image: url('images/noise.png');
-      background-size: 200px 200px;
-      z-index: -2;
     }
 
     /* Navigation */
@@ -63,14 +51,14 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(5,6,12,0.92);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(70,72,100,0.6);
+      background: rgba(248,244,240,0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
     }
     .nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 0.9rem 1.6rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -79,41 +67,40 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
       color: var(--fg);
-      cursor: pointer;
-      text-transform: uppercase;
     }
-    .logo img { height: 2.1rem; width: auto; }
-    .desktop-menu { display: flex; gap: 1.7rem; align-items: center; }
+    .logo img { 
+      height: 2.4rem; 
+      width: auto;
+      filter: none; /* No yellow glow */
+    }
+    .desktop-menu { display: flex; gap: 2.5rem; }
     .nav-link {
-      padding: 0.2rem 0;
       font-weight: 500;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted) !important;
+      letter-spacing: 0.08em;
+      color: var(--fg) !important;
+      text-decoration: none !important;
+      padding: 0.5rem 0;
       position: relative;
-      transition: color 0.2s ease, opacity 0.2s ease;
-      opacity: 0.9;
+      transition: color 0.3s ease;
     }
     .nav-link::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       bottom: -4px;
       width: 0;
       height: 2px;
       background: var(--accent);
-      transition: width 0.2s ease;
-    }
-    .nav-link:hover {
-      color: var(--fg) !important;
-      opacity: 1;
+      transition: width 0.3s ease;
     }
     .nav-link:hover::after { width: 100%; }
+    .nav-link:hover { color: var(--accent) !important; }
 
     .mobile-menu-toggle {
       display: none;
@@ -122,7 +109,6 @@
       font-size: 1.5rem;
       color: var(--fg);
       cursor: pointer;
-      padding: 0.5rem;
     }
     .mobile-menu {
       display: none;
@@ -130,22 +116,21 @@
       top: 100%;
       left: 0;
       width: 100%;
-      background: rgba(5,6,12,0.98);
-      backdrop-filter: blur(18px);
+      background: rgba(248,244,240,0.98);
       flex-direction: column;
-      border-top: 1px solid rgba(70,72,100,0.6);
+      border-top: 1px solid var(--border);
     }
     .mobile-menu.active { display: flex; }
     .mobile-nav-link {
-      padding: 1rem 1.6rem;
-      border-bottom: 1px solid rgba(45,47,70,0.8);
-      font-size: 0.9rem;
+      padding: 1rem 2rem;
       color: var(--fg) !important;
-      letter-spacing: 0.14em;
+      text-decoration: none !important;
+      font-weight: 500;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    /* Floating Action Buttons */
+    /* Floating buttons */
     .floating-buttons {
       position: fixed;
       bottom: 2rem;
@@ -156,162 +141,78 @@
       z-index: 2000;
     }
     .fab {
-      width: 52px;
-      height: 52px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
-      color: #05060a !important;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
-      transition: all 0.25s ease;
-      border: 1px solid rgba(10,10,20,0.9);
+      font-size: 1.4rem;
+      color: white;
+      box-shadow: 0 12px 32px var(--shadow);
+      transition: all 0.3s ease;
     }
     .fab:hover {
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.8);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 20px 40px var(--shadow);
     }
     .fab.whatsapp { background: var(--whatsapp); }
     .fab.instagram { background: var(--instagram); }
 
-    /* Hero – minimal */
+    /* Hero */
     .hero {
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      padding: 7.5rem 1.6rem 5.5rem;
+      text-align: center;
+      padding: 9rem 2rem 8rem;
       position: relative;
     }
-    .hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 3.5rem;
-      align-items: center;
+    .hero-content {
+      max-width: 900px;
+      padding: 0 2rem;
     }
-    .hero-main {
-      max-width: 540px;
-    }
-    .hero-tag {
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.8rem;
-    }
-    .hero-title {
-      font-size: clamp(2.5rem, 4vw, 3rem);
+    .tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
       font-weight: 600;
+      margin-bottom: 2rem;
       letter-spacing: 0.04em;
-      margin-bottom: 1.2rem;
+      color: var(--fg);
+      line-height: 1.1;
     }
     .hero-subtitle {
-      font-size: 0.98rem;
+      font-size: 1.15rem;
+      max-width: 750px;
+      margin: 0 auto 4rem;
       color: var(--muted);
-      max-width: 480px;
+      line-height: 1.9;
     }
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-      align-items: center;
-    }
-    .hero-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      padding: 0.85rem 2.2rem;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #ffffff;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      border: none;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.7);
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-    .hero-button:hover {
-      background: var(--accent-soft);
-      transform: translateY(-2px);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.9);
-    }
-    .hero-secondary {
-      font-size: 0.85rem;
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      cursor: pointer;
-    }
-    .hero-secondary i {
-      font-size: 0.8rem;
-    }
-
-    .hero-visual {
-      display: flex;
-      justify-content: flex-end;
-    }
-    .hero-frame {
-      width: 100%;
-      max-width: 420px;
-      aspect-ratio: 16 / 10;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid rgba(70,72,100,0.7);
-      background: radial-gradient(circle at top, rgba(63,130,255,0.3), transparent 55%) #05060a;
-      position: relative;
-    }
-    .hero-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.9;
-      mix-blend-mode: screen;
-    }
-    .hero-overlay-text {
-      position: absolute;
-      left: 1.4rem;
-      bottom: 1.3rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #f5f5f7;
-      opacity: 0.9;
-    }
-
-    /* Belt – only Lights Camera Action */
     .action-belt {
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 48px;
-      background: rgba(5,6,12,0.98);
-      border-top: 1px solid rgba(70,72,100,0.6);
+      height: 80px;
+      background: rgba(248,244,240,0.9);
+      border-top: 1px solid var(--border);
       overflow: hidden;
     }
     .action-marquee {
       display: flex;
       height: 100%;
       align-items: center;
-      animation: scroll 16s linear infinite;
-      font-size: 0.8rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
+      animation: scroll 20s linear infinite;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       color: var(--fg);
       white-space: nowrap;
     }
-    .action-item {
-      padding: 0 3rem;
-    }
+    .action-item { padding: 0 4rem; }
     @keyframes scroll {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
@@ -319,508 +220,297 @@
 
     /* Sections */
     section {
-      padding: 4.8rem 1.6rem;
-      max-width: 1200px;
+      padding: 6rem 2rem;
+      max-width: 1400px;
       margin: 0 auto;
     }
-    h2.section-title {
-      font-size: 1.8rem;
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
       text-align: center;
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      margin-bottom: 1rem;
+      letter-spacing: 0.06em;
+      color: var(--fg);
     }
     .section-kicker {
       text-align: center;
-      font-size: 0.92rem;
+      font-size: 1.1rem;
       color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto 2.4rem;
+      max-width: 600px;
+      margin: 0 auto 4rem;
     }
 
-    /* Services */
+    /* Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
     }
     .card {
       background: var(--bg-soft);
-      padding: 1.9rem 1.6rem;
-      border-radius: 18px;
-      border: 1px solid rgba(60,62,90,0.9);
-      transition: all 0.3s ease;
+      padding: 2.5rem 2rem;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      transition: all 0.4s ease;
+      height: 100%;
     }
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 22px 60px rgba(0,0,0,0.8);
-      border-color: rgba(63,130,255,0.7);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px var(--shadow);
+      border-color: rgba(196,22,30,0.2);
     }
     .card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.6rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--fg);
     }
     .card p {
-      font-size: 0.95rem;
       color: var(--muted);
+      font-size: 1rem;
     }
 
-    .services-carousel {
-      display: none;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 1.3rem;
-      padding: 0.3rem 0 0.5rem;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      scroll-behavior: smooth;
+    /* Featured Work */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
-    .services-carousel::-webkit-scrollbar { display: none; }
-    .services-carousel-inner {
-      display: flex;
-      gap: 1.3rem;
-      padding-bottom: 0.4rem;
-    }
-    .services-carousel-card {
-      flex: 0 0 85%;
-      scroll-snap-align: center;
-      min-width: 260px;
-    }
-
-    .services-cta {
-      text-align: center;
-      margin-top: 2.5rem;
-    }
-
-    /* Featured Work – horizontal scroll strip */
-    #portfolio {
-      padding-top: 4rem;
-    }
-
-    .featured-strip-wrapper {
-      position: relative;
-      margin-top: 1rem;
-    }
-    .featured-strip {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      gap: 1.5rem;
-      padding: 0 0 0.5rem;
-      margin: 0 -1.6rem;            /* full-width feel */
-      padding-inline: 1.6rem;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    .featured-strip::-webkit-scrollbar { display: none; }
-
     .featured-item {
-      scroll-snap-align: center;
-      flex: 0 0 min(80vw, 360px);
-      max-width: 360px;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid rgba(60,62,90,0.9);
-      background: #05060a;
       position: relative;
+      aspect-ratio: 16/9;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      transition: all 0.4s ease;
     }
-    .featured-item img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
-      display: block;
+    .featured-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 30px 60px var(--shadow);
     }
-    .featured-body {
-      padding: 1.1rem 1.3rem 1.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
+    .featured-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(248,244,240,0.95));
+      padding: 2rem 1.5rem 2.5rem;
     }
     .featured-tag {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
+      font-size: 0.85rem;
       text-transform: uppercase;
+      letter-spacing: 0.15em;
       color: var(--accent);
-      opacity: 0.9;
+      margin-bottom: 0.5rem;
     }
     .featured-title {
-      font-size: 1rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
       font-weight: 600;
-    }
-    .featured-meta {
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-    .featured-cta {
-      margin-top: 0.35rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--fg);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .featured-strip-nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.2rem;
-    }
-    .featured-arrow {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 1px solid rgba(70,72,100,0.7);
-      background: rgba(8,9,16,0.9);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .featured-arrow:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #ffffff;
-    }
-
-    .work-cta-section {
-      text-align: center;
-      margin-top: 2.6rem;
-    }
-    .more-work-btn {
-      display: inline-block;
-      padding: 0.85rem 2.3rem;
-      border-radius: 999px;
-      border: 1px solid rgba(63,130,255,0.8);
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent);
-      background: transparent;
-      transition: all 0.25s ease;
-    }
-    .more-work-btn:hover {
-      background: rgba(63,130,255,0.08);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.8);
-      transform: translateY(-2px);
+      margin-bottom: 0.25rem;
     }
 
     /* Team */
-    .team-wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 0.2rem;
-      position: relative;
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.5rem;
     }
-    .team-carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 1.5rem;
-      padding: 2rem 0.5rem 1rem;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      scroll-behavior: smooth;
-    }
-    .team-carousel::-webkit-scrollbar { display: none; }
-    .team-card {
-      flex: 0 0 320px;
-      scroll-snap-align: center;
-      background: var(--bg-soft);
-      border-radius: 20px;
-      padding: 2.1rem 1.7rem;
+    .team-member {
       text-align: center;
-      border: 1px solid rgba(60,62,90,0.9);
-      transition: all 0.3s ease;
-      min-width: 280px;
+      padding: 2.5rem 1.5rem;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      transition: all 0.4s ease;
     }
-    .team-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 22px 60px rgba(0,0,0,0.85);
-      border-color: rgba(63,130,255,0.7);
+    .team-member:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px var(--shadow);
     }
     .team-avatar {
-      width: 110px;
-      height: 110px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      margin: 0 auto 1.3rem;
-      overflow: hidden;
-      border: 3px solid rgba(63,130,255,0.7);
-    }
-    .team-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .team-role {
-      font-size: 0.78rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      margin-bottom: 0.4rem;
-    }
-    .team-name {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.7rem;
-    }
-    .team-bio {
-      font-size: 0.92rem;
-      line-height: 1.7;
-      color: var(--muted);
-    }
-    .team-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(8,9,16,0.95);
-      border: 1px solid rgba(60,62,90,0.9);
+      background: rgba(196,22,30,0.1);
+      margin: 0 auto 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      font-size: 0.95rem;
-      color: var(--fg);
-      transition: all 0.3s ease;
-      z-index: 10;
+      font-size: 2.5rem;
     }
-    .team-nav:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #ffffff;
+    .team-role {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
     }
-    .team-nav.prev { left: -0.2rem; }
-    .team-nav.next { right: -0.2rem; }
-    .team-dots {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-      margin-top: 1.4rem;
-    }
-    .team-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: rgba(70,72,100,0.9);
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-    .team-dot.active {
-      background: var(--accent);
-      transform: scale(1.35);
-      box-shadow: 0 0 14px rgba(63,130,255,0.9);
+    .team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
     }
 
     /* News */
     .news-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.6rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
     .news-meta {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.12em;
       color: var(--muted);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.75rem;
     }
     .news-title {
-      font-size: 1.05rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
       font-weight: 600;
-      margin-bottom: 0.45rem;
-    }
-    .news-grid .card p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 0.7rem;
+      margin-bottom: 1rem;
     }
     .news-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
       color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
-    /* Contact */
-    footer {
-      padding: 3rem 1.6rem 2.4rem;
-      border-top: 1px solid rgba(60,62,90,0.9);
-      background: #05060a;
-      color: var(--muted);
-    }
-    .contact-content {
-      max-width: 600px;
-      margin: 0 auto;
+    /* CTA */
+    .cta {
       text-align: center;
+      padding: 4rem 2rem;
     }
-    .contact-content h2 {
-      color: #f5f5f7;
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-    .contact-content p {
-      font-size: 0.96rem;
-      margin-bottom: 1rem;
-      color: var(--muted);
-    }
-    .contact-content .social-links {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .contact-content .social-links a {
-      font-size: 1.2rem;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+    .cta-button {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      background: var(--bg-soft);
-      border: 1px solid rgba(60,62,90,0.9);
-      transition: all 0.25s ease;
+      gap: 0.75rem;
+      padding: 1rem 2.5rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      box-shadow: 0 15px 35px rgba(196,22,30,0.3);
+      transition: all 0.3s ease;
     }
-    .contact-content .social-links a[href*="instagram"] { color: var(--instagram) !important; }
-    .contact-content a[href*="linkedin"] { color: #0a66c2 !important; }
-    .contact-content a[href*="whatsapp"] { color: var(--whatsapp) !important; }
-    .contact-content .social-links a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.85);
-      border-color: var(--accent);
+    .cta-button:hover {
+      background: var(--accent-soft);
+      transform: translateY(-3px);
+      box-shadow: 0 25px 50px rgba(196,22,30,0.4);
+    }
+
+    /* Footer */
+    footer {
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: var(--bg-soft);
+    }
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .footer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--fg);
+    }
+    .footer-info {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: var(--muted);
     }
 
     /* Mobile */
-    @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-      .hero-main {
-        max-width: none;
-      }
-      .hero-visual {
-        justify-content: center;
-      }
-      .hero-frame {
-        max-width: 360px;
-      }
-    }
-
     @media (max-width: 768px) {
       .desktop-menu { display: none; }
       .mobile-menu-toggle { display: block; }
-      .nav { padding-inline: 1.2rem; }
-      .hero {
-        padding: 7rem 1.2rem 5rem;
-      }
-      .hero-title {
-        font-size: 2.3rem;
-      }
-      .services-carousel { display: block; }
-      .grid { display: none; }
-      .floating-buttons { bottom: 1.3rem; right: 1.2rem; }
-      .team-nav.prev { left: 0.3rem; }
-      .team-nav.next { right: 0.3rem; }
+      .nav { padding: 1rem; }
+      .hero { padding: 8rem 1.5rem 8rem; }
+      .tagline { font-size: 2.2rem !important; } /* Force 2-line break */
+      .floating-buttons { bottom: 1.5rem; right: 1.5rem; }
+      .fab { width: 52px; height: 52px; font-size: 1.3rem; }
+      section { padding: 4rem 1.5rem; }
     }
-
-    @media (min-width: 769px) {
-      .mobile-menu-toggle, .mobile-menu { display: none !important; }
-    }
-
-    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
-
   <!-- Navigation -->
   <header>
     <nav class="nav">
-      <div class="logo" onclick="goHome()">
-        <img src="images/logo.png" alt="Alpha Films Logo">
+      <div class="logo">
+        <img src="images/logo.png" alt="Alpha Films">
         <span>ALPHA FILMS</span>
       </div>
-
+      
       <div class="desktop-menu">
         <a href="#hero" class="nav-link">Home</a>
         <a href="#services" class="nav-link">Services</a>
         <a href="#portfolio" class="nav-link">Featured Work</a>
         <a href="#team" class="nav-link">Team</a>
-        <a href="news.html" class="nav-link">News</a>
+        <a href="#news" class="nav-link">News</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
 
-      <button class="mobile-menu-toggle" onclick="toggleMobileMenu(event)">
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
         <i class="fas fa-bars"></i>
       </button>
-
+      
       <div class="mobile-menu" id="mobileMenu">
-        <a href="#hero" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Home</a>
-        <a href="#services" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Services</a>
-        <a href="#portfolio" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Featured Work</a>
-        <a href="#team" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Team</a>
-        <a href="news.html" class="mobile-nav-link" onclick="toggleMobileMenu(event)">News & Updates</a>
-        <a href="#contact" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Contact</a>
+        <a href="#hero" class="mobile-nav-link" onclick="toggleMobileMenu()">Home</a>
+        <a href="#services" class="mobile-nav-link" onclick="toggleMobileMenu()">Services</a>
+        <a href="#portfolio" class="mobile-nav-link" onclick="toggleMobileMenu()">Featured Work</a>
+        <a href="#team" class="mobile-nav-link" onclick="toggleMobileMenu()">Team</a>
+        <a href="#news" class="mobile-nav-link" onclick="toggleMobileMenu()">News</a>
+        <a href="#contact" class="mobile-nav-link" onclick="toggleMobileMenu()">Contact</a>
       </div>
     </nav>
   </header>
 
-  <!-- Floating Action Buttons -->
+  <!-- Floating Buttons -->
   <div class="floating-buttons">
-    <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%0AI%20want%20to%20book%20your%20studio%2Fvideo%20production%20services.%0AWhat's%20next%3F" class="fab whatsapp" target="_blank" title="WhatsApp" rel="noopener noreferrer">
+    <a href="https://wa.me/918587090302?text=Hi Alpha Films,%0AI'm interested in your studio/production services.%0AWhat's next?" 
+       class="fab whatsapp" target="_blank">
       <i class="fab fa-whatsapp"></i>
     </a>
-    <a href="https://instagram.com/alphafilmsofficial" class="fab instagram" target="_blank" title="Instagram" rel="noopener noreferrer">
+    <a href="https://instagram.com/alphafilmsofficial" class="fab instagram" target="_blank">
       <i class="fab fa-instagram"></i>
     </a>
   </div>
 
   <!-- Hero -->
   <section id="hero" class="hero">
-    <div class="hero-inner">
-      <div class="hero-main">
-        <div class="hero-tag">ALPHA FILMS</div>
-        <h1 class="hero-title">We make images that move people to act.</h1>
-        <p class="hero-subtitle">
-          A film and video production house with an in-house studio. We design, shoot, and edit work that looks cinematic and feels sellable — for brands, creators, and stories.
-        </p>
-        <div class="hero-cta">
-          <button class="hero-button" onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})">
-            Book a shoot
-            <i class="fas fa-arrow-right"></i>
-          </button>
-          <div class="hero-secondary" onclick="document.querySelector('#portfolio').scrollIntoView({behavior:'smooth'})">
-            Watch featured work
-            <i class="fas fa-play"></i>
-          </div>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-frame">
-          <img src="images/studio-bg.JPG" alt="Alpha Films Studio" loading="lazy">
-          <div class="hero-overlay-text">LIGHTS · CAMERA · ACTION</div>
-        </div>
-      </div>
+    <div class="hero-content">
+      <h1 class="tagline">Frame by frame. Feeling by feeling.</h1>
+      <p class="hero-subtitle">
+        Alpha Films is a one-stop film and video production company offering end-to-end production solutions. 
+        From concept development and pre-production to filming, post-production, and final delivery, 
+        we create high-quality films, commercials, and digital content that stand out. Our experienced 
+        team combines creativity, technical excellence, and storytelling to elevate your brand's visual narrative.
+      </p>
     </div>
-
     <div class="action-belt">
       <div class="action-marquee">
-        <div class="action-item">LIGHTS | CAMERA | ACTION</div>
-        <div class="action-item">LIGHTS | CAMERA | ACTION</div>
-        <div class="action-item">LIGHTS | CAMERA | ACTION</div>
-        <div class="action-item">LIGHTS | CAMERA | ACTION</div>
+        <div class="action-item">LIGHTS CAMERA ACTION</div>
+        <div class="action-item">LIGHTS CAMERA ACTION</div>
+        <div class="action-item">LIGHTS CAMERA ACTION</div>
+        <div class="action-item">LIGHTS CAMERA ACTION</div>
+        <div class="action-item">LIGHTS CAMERA ACTION</div>
       </div>
     </div>
   </section>
@@ -828,368 +518,164 @@
   <!-- Services -->
   <section id="services">
     <h2 class="section-title">Our Services</h2>
-    <p class="section-kicker">
-      Studio, crew, and post in one place. Bring us a script, a product, or just a mood — we turn it into moving images.
-    </p>
-    
-    <!-- Desktop Grid -->
+    <p class="section-kicker">Studio, crew, and post in one place. End-to-end cinematic production.</p>
     <div class="grid">
       <div class="card">
         <h3>🎬 Video Production</h3>
-        <p>End-to-end production from concept to final edit. Commercials, brand films, corporate videos, and shorts.</p>
+        <p>End-to-end production from concept to final cinematic edit. Commercials, brand films, corporate videos.</p>
       </div>
       <div class="card">
         <h3>📸 Studio Rental</h3>
-        <p>8‑hour professional shooting space in Delhi with AC, power backup, and controlled lighting.</p>
+        <p>8-hour professional shooting space in Delhi with AC, power backup, and controlled lighting.</p>
       </div>
       <div class="card">
         <h3>⚡ Studio + Gear</h3>
-        <p>Studio plus cameras, lenses, lights, audio, and production support — ready to roll when you walk in.</p>
+        <p>Complete package: studio, cameras, lenses, lights, audio, and production support.</p>
       </div>
       <div class="card">
         <h3>✂️ Post Production</h3>
-        <p>Editing, sound, color, and motion graphics for ads, reels, courses, and long‑form content.</p>
+        <p>Editing, sound design, color grading, and motion graphics for all formats.</p>
       </div>
       <div class="card">
         <h3>📱 Social Content</h3>
-        <p>Reels, Shorts, and vertical campaigns designed for thumb-stopping hooks and watch time.</p>
+        <p>Reels, Shorts, and vertical campaigns optimized for maximum engagement.</p>
       </div>
       <div class="card">
         <h3>🎓 Course Packages</h3>
-        <p>Multi-episode course production — shot, edited, and delivered as a complete content library.</p>
+        <p>Multi-episode course production — shot, edited, delivered as complete content library.</p>
       </div>
     </div>
-
-    <!-- Mobile Carousel -->
-    <div class="services-carousel">
-      <div class="services-carousel-inner">
-        <div class="services-carousel-card card">
-          <h3>🎬 Video Production</h3>
-          <p>End-to-end production from concept to final cinematic edit. Commercials, films, corporate videos.</p>
-        </div>
-        <div class="services-carousel-card card">
-          <h3>📸 Studio Rental</h3>
-          <p>8-hour professional shooting space in Delhi with AC, power backup, and full equipment.</p>
-        </div>
-        <div class="services-carousel-card card">
-          <h3>⚡ Studio + Gear</h3>
-          <p>Complete package: studio, lights, cameras, audio, and production support.</p>
-        </div>
-        <div class="services-carousel-card card">
-          <h3>✂️ Post Production</h3>
-          <p>High-impact editing for reels, ads, courses, and social media content.</p>
-        </div>
-        <div class="services-carousel-card card">
-          <h3>📱 Social Content</h3>
-          <p>Instagram Reels, YouTube Shorts, TikTok videos optimized for maximum engagement.</p>
-        </div>
-        <div class="services-carousel-card card">
-          <h3>🎓 Course Packages</h3>
-          <p>Bulk production for online courses, educational content, and brand series.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="services-cta">
-      <button class="hero-button" onclick="window.open('https://wa.me/918587090302','_blank')">
-        Talk to us on WhatsApp
-        <i class="fab fa-whatsapp"></i>
-      </button>
+    <div class="cta">
+      <a href="https://wa.me/918587090302" class="cta-button" target="_blank">
+        Book a shoot <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
   </section>
 
-  <!-- Featured Work – horizontal gallery -->
+  <!-- Featured Work -->
   <section id="portfolio">
     <h2 class="section-title">Featured Work</h2>
-    <p class="section-kicker">
-      A quick look at the kind of stories and visuals we like to put into the world.
-    </p>
-
-    <div class="featured-strip-wrapper">
-      <div class="featured-strip" id="featured-strip">
-        <!-- Hero item as first card -->
-        <a class="featured-item" href="https://www.youtube.com/watch?v=AhzQTAfnsCs" target="_blank" rel="noopener noreferrer">
-          <img src="images/broken.jpg" alt="Broken Reflections" loading="lazy">
-          <div class="featured-body">
-            <div class="featured-tag">Short Film</div>
-            <div class="featured-title">Broken Reflections</div>
-            <div class="featured-meta">Performance-led short exploring mood, pacing, and emotion.</div>
-            <div class="featured-cta">
-              Watch film <i class="fas fa-arrow-up-right-from-square"></i>
-            </div>
-          </div>
-        </a>
-
-        <!-- The other 4 items are injected via JS using allProjects -->
-      </div>
-
-      <div class="featured-strip-nav">
-        <button class="featured-arrow" type="button" onclick="scrollFeatured(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="featured-arrow" type="button" onclick="scrollFeatured(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
+    <p class="section-kicker">Recent projects showcasing our cinematic approach.</p>
+    <div class="featured-grid">
+      <a href="https://www.youtube.com/watch?v=AhzQTAfnsCs" class="featured-item" target="_blank">
+        <div class="featured-content">
+          <div class="featured-tag">Short Film</div>
+          <div class="featured-title">Broken Reflections</div>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=kwVuPcAiNjY" class="featured-item" target="_blank">
+        <div class="featured-content">
+          <div class="featured-tag">Brand Film</div>
+          <div class="featured-title">Night Shift</div>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=vQYMIPsxp4c" class="featured-item" target="_blank">
+        <div class="featured-content">
+          <div class="featured-tag">Motorcycle Film</div>
+          <div class="featured-title">Goan Classic 350</div>
+        </div>
+      </a>
     </div>
-
-    <div class="work-cta-section">
-      <a href="portfolio.html" class="more-work-btn">More work →</a>
+    <div class="cta" style="text-align: center;">
+      <a href="portfolio.html" class="cta-button">View all work</a>
     </div>
   </section>
 
   <!-- Team -->
   <section id="team">
     <h2 class="section-title">Our Team</h2>
-    <p class="section-kicker">
-      A compact crew that understands both creative and production — so your shoot days stay on time and on point.
-    </p>
-    <div class="team-wrapper">
-      <div class="team-carousel" id="team-carousel"></div>
-      <button class="team-nav prev" id="team-prev"><i class="fas fa-chevron-left"></i></button>
-      <button class="team-nav next" id="team-next"><i class="fas fa-chevron-right"></i></button>
-      <div class="team-dots" id="team-dots"></div>
+    <p class="section-kicker">Compact crew delivering cinematic excellence.</p>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="team-avatar"><i class="fas fa-video"></i></div>
+        <div class="team-role">Creative Director</div>
+        <div class="team-name">Deepanshu Sehgal</div>
+      </div>
+      <div class="team-member">
+        <div class="team-avatar"><i class="fas fa-camera"></i></div>
+        <div class="team-role">Cinematographer</div>
+        <div class="team-name">Daksh Mehta</div>
+      </div>
+      <div class="team-member">
+        <div class="team-avatar"><i class="fas fa-cut"></i></div>
+        <div class="team-role">Lead Editor</div>
+        <div class="team-name">Shivani Damle</div>
+      </div>
+      <div class="team-member">
+        <div class="team-avatar"><i class="fas fa-headset"></i></div>
+        <div class="team-role">Producer</div>
+        <div class="team-name">Parth Sehgal</div>
+      </div>
     </div>
   </section>
 
   <!-- News -->
   <section id="news">
     <h2 class="section-title">News & Updates</h2>
-    <p class="section-kicker">
-      Studio launches, talks, and production notes from the Alpha Films universe.
-    </p>
-    <div class="news-grid" id="index-news-grid"></div>
-    <div class="work-cta-section">
-      <a href="news.html" class="more-work-btn">View all news →</a>
+    <p class="section-kicker">Seminars, shoots, and industry insights.</p>
+    <div class="news-grid">
+      <div class="card">
+        <div class="news-meta">Feb 2026 • Delhi</div>
+        <div class="news-title">Digital Media Summit</div>
+        <p>Speaking on cinematic storytelling and production studio trends in India.</p>
+        <a href="news.html#news-1" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="card">
+        <div class="news-meta">Jan 2026 • Studio</div>
+        <div class="news-title">Studio Grand Opening</div>
+        <p>8-hour professional shooting space now LIVE in Delhi NCR.</p>
+        <a href="news.html#news-2" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="card">
+        <div class="news-meta">Dec 2025 • Production</div>
+        <div class="news-title">D2C Brand Campaign</div>
+        <p>Complete TVC production delivered in 10 days from concept to master.</p>
+        <a href="news.html#news-3" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="cta" style="text-align: center;">
+      <a href="news.html" class="cta-button">View all news</a>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Footer -->
   <footer id="contact">
-    <div class="contact-content">
-      <h2>Ready to create?</h2>
-      <p>
-        Delhi, India · +91 85870 90302 · 
-        <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a>
+    <div class="footer-content">
+      <h2 class="footer-title">Ready to create?</h2>
+      <p class="footer-info">
+        Delhi, India • +91 85870 90302 • 
+        <a href="mailto:alphafilmsofficial@gmail.com" style="color: var(--fg); text-decoration: none;">alphafilmsofficial@gmail.com</a>
       </p>
-      <div class="social-links">
-        <a href="https://instagram.com/alphafilmsofficial" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/company/alphafilms" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://wa.me/918587090302" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
-      </div>
-      <p style="margin-top: 2rem; opacity: 0.7;">© 2026 Alpha Films. All rights reserved.</p>
+      <p style="opacity: 0.7; margin-top: 2rem;">© 2026 Alpha Films. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    // DATA ARRAYS - ADD NEW ITEMS HERE ONLY
-    const allProjects = [
-      { title: "Night Shift", tag: "Short Film", image: "images/nightshift.jpg", url: "https://www.youtube.com/watch?v=kwVuPcAiNjY" },
-      { title: "Into the Sea", tag: "Cinematic Short", image: "images/intothesea.jpg", url: "https://www.youtube.com/watch?v=vQYMIPsxp4c" },
-      { title: "Goan Classic 350", tag: "Motorcycle Film", image: "images/goan.jpg", url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI" },
-      { title: "BND Motorsport Event", tag: "Race Event", image: "images/bnd.jpg", url: "#" },
-    ];
-
-    const allNews = [
-      { id: 1, title: "Alpha Films Studio Grand Opening", category: "studio", date: "2026-02-03", excerpt: "Our new 8-hour professional shooting space is now LIVE in Delhi NCR. Fully equipped with AC, power backup, lighting rigs, and production support." },
-      { id: 2, title: "Speaking at Digital Media Summit", category: "events", date: "2026-01-15", excerpt: "Rohan Sengal sharing insights on cinematic storytelling and building production studio brands in India's competitive market." },
-      { id: 3, title: "Major D2C Commercial Production", category: "projects", date: "2025-12-20", excerpt: "End-to-end TVC production completed in 10 days for emerging D2C brand. Delivered concept-to-master with motion graphics." },
-    ];
-
-    const teamMembers = [
-      { name: "Deepanshu Sehgal", role: "Founder & Creative Director", bio: "Visionary filmmaker with 5+ years experience. First AD at 21, Best Student Short Film Producer award. Masters in Film Making - Production, Whistling Woods International.", image: "team_images/deep.png", linkedin: "https://www.linkedin.com/in/deepsehgal" },
-      { name: "Daksh Mehta", role: "Content Director", bio: "TBA", image: "team_images/daksh.jpg" },
-      { name: "Shivani Damle", role: "Creative Lead", bio: "TBA", image: "team_images/shivani.jpg" },
-      { name: "Parth Sehgal", role: "Operations & Human Resource", bio: "TBA", image: "team_images/parth.JPG" },
-    ];
-
-    // UTILITY
-    function formatDate(dateStr) {
-      const date = new Date(dateStr);
-      return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' }).replace(' ', ' ');
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
     }
 
-    function goHome() { window.location.href = 'index.html'; }
-
-    function toggleMobileMenu(event) {
-      event.stopPropagation();
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
-    }
-
-    // FEATURED WORK – inject remaining 4 items into horizontal strip
-    function renderFeaturedStrip() {
-      const strip = document.getElementById('featured-strip');
-      if (!strip) return;
-
-      const remaining = allProjects.slice(0, 4); // 4 items after hero
-      remaining.forEach(project => {
-        const item = document.createElement('a');
-        item.href = project.url;
-        item.target = '_blank';
-        item.rel = 'noopener noreferrer';
-        item.className = 'featured-item';
-        item.innerHTML = `
-          <img src="${project.image}" alt="${project.title}" loading="lazy">
-          <div class="featured-body">
-            <div class="featured-tag">${project.tag}</div>
-            <div class="featured-title">${project.title}</div>
-            <div class="featured-meta">Selected work from our recent shoots.</div>
-            <div class="featured-cta">
-              View project <i class="fas fa-arrow-up-right-from-square"></i>
-            </div>
-          </div>
-        `;
-        strip.appendChild(item);
-      });
-    }
-
-    // Simple snap scroll by card width
-    function scrollFeatured(direction) {
-      const strip = document.getElementById('featured-strip');
-      if (!strip) return;
-      const firstCard = strip.querySelector('.featured-item');
-      if (!firstCard) return;
-      const cardWidth = firstCard.getBoundingClientRect().width + 24; // width + gap
-      strip.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
-    }
-
-    // NEWS - Latest 3
-    function renderLatestNews() {
-      const container = document.getElementById('index-news-grid');
-      if (!container) return;
-      container.innerHTML = '';
-      const latest3 = allNews.slice(0, 3);
-      latest3.forEach(news => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <div class="news-meta">${formatDate(news.date)}</div>
-          <div class="news-title">${news.title}</div>
-          <p>${news.excerpt.substring(0, 120)}...</p>
-          <a href="news.html#news-${news.id}" class="news-link">
-            Read more <i class="fas fa-arrow-right"></i>
-          </a>
-        `;
-        container.appendChild(card);
-      });
-    }
-
-    // TEAM CAROUSEL
-    let currentTeamIndex = 0;
-    function renderTeam() {
-      const teamCarousel = document.getElementById('team-carousel');
-      const teamDots = document.getElementById('team-dots');
-      if (!teamCarousel || !teamDots) return;
-      
-      teamCarousel.innerHTML = '';
-      teamDots.innerHTML = '';
-      
-      teamMembers.forEach((member, index) => {
-        const card = document.createElement('div');
-        card.className = 'team-card';
-        card.innerHTML = `
-          <div class="team-avatar">
-            <img src="${member.image}" alt="${member.name}" loading="lazy">
-          </div>
-          <div class="team-role">${member.role}</div>
-          <div class="team-name">${member.name}</div>
-          <div class="team-bio">${member.bio}</div>
-          ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" rel="noopener noreferrer" style="color:#0a66c2;font-size:1.1rem;margin-top:1rem;display:inline-block;"><i class="fab fa-linkedin"></i></a>` : ''}
-        `;
-        teamCarousel.appendChild(card);
-        
-        const dot = document.createElement('div');
-        dot.className = 'team-dot';
-        dot.onclick = () => goToTeamSlide(index);
-        teamDots.appendChild(dot);
-      });
-      
-      updateTeamDots();
-      scrollToCurrent();
-    }
-
-    function scrollToCurrent() {
-      const teamCarousel = document.getElementById('team-carousel');
-      if (teamCarousel) {
-        const card = teamCarousel.querySelector('.team-card');
-        const width = card ? card.getBoundingClientRect().width + 24 : 320;
-        teamCarousel.scrollTo({ left: currentTeamIndex * width, behavior: 'smooth' });
-      }
-    }
-
-    function updateTeamDots() {
-      const teamDots = document.getElementById('team-dots');
-      if (!teamDots) return;
-      Array.from(teamDots.children).forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentTeamIndex);
-      });
-    }
-
-    function nextTeam() {
-      currentTeamIndex = (currentTeamIndex + 1) % teamMembers.length;
-      scrollToCurrent();
-      updateTeamDots();
-    }
-
-    function prevTeam() {
-      currentTeamIndex = (currentTeamIndex - 1 + teamMembers.length) % teamMembers.length;
-      scrollToCurrent();
-      updateTeamDots();
-    }
-
-    function goToTeamSlide(index) {
-      currentTeamIndex = index;
-      scrollToCurrent();
-      updateTeamDots();
-    }
-
-    function initTeamCarousel() {
-      const teamNext = document.getElementById('team-next');
-      const teamPrev = document.getElementById('team-prev');
-      if (teamNext) teamNext.onclick = nextTeam;
-      if (teamPrev) teamPrev.onclick = prevTeam;
-      
-      const teamCarousel = document.getElementById('team-carousel');
-      if (!teamCarousel) return;
-
-      let startX = 0;
-      teamCarousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-      teamCarousel.addEventListener('touchend', e => {
-        const endX = e.changedTouches[0].clientX;
-        if (startX - endX > 50) nextTeam();
-        if (endX - startX > 50) prevTeam();
-      });
-    }
-
-    // GLOBAL EVENT LISTENERS
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function(e) {
       const menu = document.getElementById('mobileMenu');
       const toggle = document.querySelector('.mobile-menu-toggle');
-      if (!menu) return;
-      if (!toggle?.contains(event.target) && !menu.contains(event.target)) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
         menu.classList.remove('active');
       }
     });
 
+    // Smooth scroll for nav links
     document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
       link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
-        if (href && href.startsWith('#')) {
+        if (href.startsWith('#')) {
           e.preventDefault();
           const target = document.querySelector(href);
-          if (target) target.scrollIntoView({ behavior: 'smooth' });
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+            if (window.innerWidth <= 768) toggleMobileMenu();
+          }
         }
       });
-    });
-
-    // INITIALIZE
-    window.addEventListener('load', function() {
-      renderFeaturedStrip();
-      renderLatestNews();
-      renderTeam();
-      initTeamCarousel();
     });
   </script>
 </body>
