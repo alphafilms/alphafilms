@@ -1,8 +1,8 @@
-// ALL EDITABLE CONTENT GOES HERE
-// Non-technical users only need to edit this file
+// ========== ALPHA FILMS DATA ==========
+// Edit this file to update website content
 
 const AppData = {
-  // Company Info
+  // Company Information
   company: {
     name: "Alpha Films",
     tagline: "Frame by frame. Feeling by feeling.",
@@ -11,13 +11,13 @@ const AppData = {
       phone: "+91 85870 90302",
       email: "alphafilmsofficial@gmail.com",
       address: "Delhi, India",
-      whatsapp: "https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%0AI%20want%20to%20book%20your%20studio%2Fvideo%20production%20services.%0AWhat's%20next%3F",
+      whatsapp: "https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20your%20studio%2Fvideo%20production%20services.%20What's%20next%3F",
       instagram: "https://instagram.com/alphafilmsofficial",
       linkedin: "https://www.linkedin.com/company/alphafilms"
     }
   },
 
-  // Services (Add/Remove services here)
+  // Services
   services: [
     {
       icon: "🎬",
@@ -51,7 +51,7 @@ const AppData = {
     }
   ],
 
-  // Featured Projects (Add new projects here)
+  // Featured Projects
   projects: [
     {
       title: "Night Shift",
@@ -80,23 +80,15 @@ const AppData = {
       image: "images/broken.jpg",
       url: "https://www.youtube.com/watch?v=AhzQTAfnsCs",
       description: "A poignant exploration of identity and self-perception in modern society."
-    },
-    {
-      title: "BND Motorsport Event",
-      tag: "Race Event",
-      image: "images/bnd.jpg",
-      url: "#",
-      description: "High-octane coverage of India's premier motorsport racing event."
-    }    
-    // Add more projects here...
+    }
   ],
 
-  // Team Members (Add/Edit team here)
+  // Team Members
   team: [
     {
       name: "Deepanshu Sehgal",
       role: "Founder & Creative Director",
-      bio: "Visionary filmmaker with 5+ years experience. First AD at 21, Best Student Short Film Producer award.",
+      bio: "Visionary filmmaker with 5+ years experience. First AD at 21, Best Student Short Film Producer award. Masters in Film Making - Specialization in Production from Whistling Woods International, Mumbai.",
       image: "team_images/deep.png",
       linkedin: "https://www.linkedin.com/in/deepsehgal"
     },
@@ -118,34 +110,39 @@ const AppData = {
       bio: "Ensures smooth operations and team coordination. Manages client relationships and project timelines with precision and care.",
       image: "team_images/parth.JPG"
     }
-],
-    // Add more team members here...
   ],
 
-  // News & Updates (Add new posts here)
+  // News & Updates
   news: [
     {
       id: 1,
       title: "Alpha Films Studio Grand Opening",
       category: "studio",
       date: "2026-02-03",
-      excerpt: "Our new 8-hour professional shooting space is now LIVE in Delhi NCR."
+      excerpt: "Our new 8-hour professional shooting space is now LIVE in Delhi NCR. Fully equipped with AC, power backup, lighting rigs, and production support."
     },
-    // Add more news here...
+    {
+      id: 2,
+      title: "Speaking at Digital Media Summit",
+      category: "events",
+      date: "2026-01-15",
+      excerpt: "Sharing insights on cinematic storytelling and building production studio brands in India's competitive market."
+    },
+    {
+      id: 3,
+      title: "Major D2C Commercial Production",
+      category: "projects",
+      date: "2025-12-20",
+      excerpt: "End-to-end TVC production completed in 10 days for emerging D2C brand. Delivered concept-to-master with motion graphics."
+    }
   ],
 
-  // Action Belt Text (Edit scrolling text)
+  // Action Belt Text
   actionBelt: [
     "*LIGHTS | CAMERA | ACTION*",
-    "*LIGHTS | CAMERA | ACTION*",
-    "*LIGHTS | CAMERA | ACTION*",
-    "*LIGHTS | CAMERA | ACTION*",
-    "*LIGHTS | CAMERA | ACTION*",
-    "*LIGHTS | CAMERA | ACTION*"
+    "*PREMIUM QUALITY | CINEMATIC RESULTS*",
+    "*CREATIVE STORYTELLING | PROFESSIONAL EXECUTION*"
   ]
 };
 
-// Export for use in other files
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = AppData;
-}
+console.log("Alpha Films Data Loaded Successfully");
