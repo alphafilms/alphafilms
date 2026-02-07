@@ -94,24 +94,39 @@
     </div>
   </section>
 
-  <!-- Featured Work -->
-  <section id="featured-work" class="section">
-    <div class="container">
-      <h2 class="section-title">Featured Work</h2>
-      
-      <div class="featured-work-container" id="featured-work-desktop">
-        <!-- Desktop horizontal scroll -->
+<!-- Featured Work -->
+<section id="featured-work" class="section">
+  <div class="container">
+    <h2 class="section-title">Featured Work</h2>
+  </div>
+  
+  <!-- Horizontal Scroll Container -->
+  <div class="horizontal-scroll-container">
+    <div class="horizontal-scroll-wrapper">
+      <!-- Desktop horizontal scroll items -->
+      <div class="horizontal-scroll-track" id="horizontal-scroll-track">
+        <!-- Projects will be loaded here by JavaScript -->
       </div>
       
-      <div class="featured-work-mobile" id="featured-work-mobile">
-        <!-- Mobile grid -->
-      </div>
-      
-      <div class="text-center" style="margin-top: 3rem;">
-        <a href="#" class="btn-secondary">View All Projects</a>
+      <!-- Scroll Hint -->
+      <div class="scroll-hint">
+        <span>Scroll horizontally</span>
+        <i class="fas fa-arrow-right"></i>
       </div>
     </div>
-  </section>
+  </div>
+  
+  <!-- Mobile Grid (hidden on desktop) -->
+  <div class="container">
+    <div class="featured-work-mobile" id="featured-work-mobile">
+      <!-- Mobile projects will be loaded here -->
+    </div>
+    
+    <div class="text-center" style="margin-top: 3rem;">
+      <a href="#" class="btn-secondary">View All Projects</a>
+    </div>
+  </div>
+</section>
 
 <!-- Services -->
 <section id="services" class="section">
