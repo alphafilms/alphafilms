@@ -1035,18 +1035,48 @@ footer {
     transform: translateX(5px);
   }
 }
-
-/* Hide horizontal scroll on mobile */
 @media (max-width: 768px) {
   .horizontal-scroll-container {
-    display: none;
+    height: 80vh;
+    min-height: 600px;
   }
   
+  .horizontal-scroll-item {
+    flex: 0 0 85vw; /* 85% of viewport width on mobile */
+    height: 60vh;
+    min-height: 400px;
+  }
+  
+  .scroll-title {
+    font-size: 1.8rem;
+  }
+  
+  .scroll-description {
+    font-size: 1rem;
+  }
+  
+  .scroll-hint {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Keep mobile grid as backup */
   .featured-work-mobile {
-    display: grid;
+    display: none; /* Hide grid when horizontal scroll is active */
   }
 }
-
+/* Better touch scrolling on mobile */
+@media (max-width: 768px) {
+  .horizontal-scroll-track {
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding-left: 1rem; /* Add some padding on mobile */
+  }
+  
+  .horizontal-scroll-item {
+    touch-action: pan-y; /* Allow vertical scroll on items */
+  }
+}
 @media (min-width: 769px) {
   .featured-work-mobile {
     display: none;
