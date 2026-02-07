@@ -348,16 +348,16 @@ header {
   border-radius: 2px;
 }
 
-/* ===== SERVICES SECTION - 2x3 GRID ===== */
-.services-grid {
-  display: grid;
+/* ===== SERVICES SECTION - 2x3 GRID FIX ===== */
+#services-grid {
+  display: grid !important;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
   grid-template-rows: repeat(2, auto);   /* 2 rows */
   gap: 2.5rem;
   margin: 3rem 0;
 }
 
-.service-card {
+#services-grid .service-card {
   background: var(--color-bg-soft);
   border: 1px solid var(--color-border);
   border-radius: 16px;
@@ -365,9 +365,10 @@ header {
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
-.service-card::before {
+#services-grid .service-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -380,11 +381,11 @@ header {
   transition: transform 0.4s ease;
 }
 
-.service-card:hover::before {
+#services-grid .service-card:hover::before {
   transform: scaleX(1);
 }
 
-.service-card:hover {
+#services-grid .service-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   border-color: var(--color-accent);
@@ -396,14 +397,14 @@ header {
   display: block;
 }
 
-.service-card h3 {
+#services-grid .service-card h3 {
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: var(--color-text);
 }
 
-.service-card p {
+#services-grid .service-card p {
   color: var(--color-text-muted);
   line-height: 1.7;
   font-size: 1rem;
@@ -411,20 +412,20 @@ header {
 
 /* Make the grid responsive */
 @media (max-width: 1200px) {
-  .services-grid {
+  #services-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
     grid-template-rows: repeat(3, auto);   /* 3 rows */
   }
 }
 
 @media (max-width: 768px) {
-  .services-grid {
+  #services-grid {
     grid-template-columns: 1fr; /* 1 column on mobile */
     grid-template-rows: repeat(6, auto); /* 6 rows */
     gap: 1.5rem;
   }
   
-  .service-card {
+  #services-grid .service-card {
     padding: 2rem 1.5rem;
   }
 }
