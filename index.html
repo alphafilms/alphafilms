@@ -24,8 +24,8 @@
 
   <style>
     :root {
-      --bg: #ffffff; --bg-soft: #f8f8f8; --fg: #1a1a1a; --muted: #666666;
-      --accent: #000000; --accent-soft: #333333; --border: #e0e0e0;
+      --bg: #0a0a0a; --bg-soft: #111111; --fg: #ffffff; --muted: #888888;
+      --accent: #e50914; --accent-soft: #ff4757; --border: #222222;
       --whatsapp: #25D366; --instagram: #E4405F;
     }
 
@@ -34,8 +34,8 @@
     a { color: inherit; text-decoration: none; }
 
     /* Navigation */
-    header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
-    .nav { max-width: 1200px; margin: auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(10,10,10,0.95); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+    .nav { max-width: 1400px; margin: auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 0.75rem; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.12em; color: var(--fg); cursor: pointer; }
     .logo img { height: 2.2rem; width: auto; }
     .desktop-menu { display: flex; gap: 2rem; }
@@ -43,65 +43,91 @@
     .nav-link::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--accent); transition: width 0.2s ease; }
     .nav-link:hover::after { width: 100%; }
     .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: var(--fg); cursor: pointer; padding: 0.5rem; }
-    .mobile-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255,255,255,0.98); backdrop-filter: blur(18px); flex-direction: column; border-top: 1px solid var(--border); }
+    .mobile-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(10,10,10,0.98); backdrop-filter: blur(18px); flex-direction: column; border-top: 1px solid var(--border); }
     .mobile-menu.active { display: flex; }
     .mobile-nav-link { padding: 1rem 2rem; border-bottom: 1px solid var(--border); font-size: 1rem; color: var(--fg) !important; letter-spacing: 0.08em; text-transform: uppercase; }
 
     /* Floating Action Buttons */
     .floating-buttons { position: fixed; bottom: 2rem; right: 2rem; display: flex; flex-direction: column; gap: 0.75rem; z-index: 2000; }
-    .fab { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: black !important; box-shadow: 0 8px 25px rgba(0,0,0,0.25); transition: all 0.25s ease; }
-    .fab:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+    .fab { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: white !important; box-shadow: 0 8px 25px rgba(0,0,0,0.6); transition: all 0.25s ease; }
+    .fab:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 12px 32px rgba(0,0,0,0.8); }
     .fab.whatsapp { background: var(--whatsapp); }
     .fab.instagram { background: var(--instagram); }
 
     /* Hero */
-    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 9rem 2rem 6rem; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(248,248,248,0.05) 100%); }
-    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('images/studio-bg.JPG'); background-size: cover; background-position: center; background-repeat: no-repeat; filter: blur(4px) brightness(0.85) contrast(1.1); opacity: 0.7; z-index: -1; }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 9rem 2rem 6rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('images/studio-bg.JPG'); background-size: cover; background-position: center; background-repeat: no-repeat; filter: brightness(0.4) contrast(1.2); z-index: -1; }
     .hero-content { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 2rem; gap: 4rem; }
     .hero-logo { flex: 0 0 200px; text-align: center; }
-    .hero-logo img { height: 180px; width: auto; }
+    .hero-logo img { height: 180px; width: auto; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); }
     .hero-text { flex: 1; text-align: center; max-width: 650px; }
-    .tagline { font-size: 2.4rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.06em; color: var(--fg); line-height: 1.1; }
+    .tagline { font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: 0.06em; color: var(--fg); line-height: 1.1; text-shadow: 0 5px 15px rgba(0,0,0,0.7); }
     .tagline br { display: block; }
-    .hero-subtitle { max-width: 820px; font-size: 1.05rem; line-height: 1.9; margin-bottom: 2rem; color: #1a1a1a !important; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+    .hero-subtitle { max-width: 820px; font-size: 1.2rem; line-height: 1.9; margin-bottom: 2rem; color: #ffffff !important; text-shadow: 0 2px 4px rgba(0,0,0,0.5); opacity: 0.9; }
     
-    /* NEW: Hero Book Now Button */
-    .hero-cta { text-align: center; margin-top: 1rem; }
+    /* Hero Book Now Button */
+    .hero-cta { text-align: center; margin-top: 2rem; }
     .book-now-btn { 
       display: inline-block; 
-      background: var(--accent); 
+      background: linear-gradient(135deg, var(--accent), var(--accent-soft)); 
       color: white; 
-      padding: 1rem 2.5rem; 
+      padding: 1.2rem 3rem; 
       border-radius: 50px; 
-      font-size: 1.1rem; 
+      font-size: 1.2rem; 
       font-weight: 600; 
       letter-spacing: 0.08em; 
       text-transform: uppercase; 
       text-decoration: none; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+      box-shadow: 0 15px 35px rgba(229, 9, 20, 0.3); 
       transition: all 0.3s ease; 
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .book-now-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
+    }
+    .book-now-btn:hover::before {
+      left: 100%;
     }
     .book-now-btn:hover { 
-      background: var(--accent-soft); 
-      transform: translateY(-3px); 
-      box-shadow: 0 15px 40px rgba(0,0,0,0.3); 
+      transform: translateY(-3px) scale(1.05); 
+      box-shadow: 0 20px 40px rgba(229, 9, 20, 0.5); 
       color: white; 
       text-decoration: none; 
     }
 
-    .action-belt { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: rgba(248,248,248,0.9); overflow: hidden; border-top: 1px solid var(--border); }
+    .action-belt { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: rgba(17,17,17,0.9); overflow: hidden; border-top: 1px solid var(--border); }
     .action-marquee { display: flex; height: 100%; align-items: center; animation: scroll 18s linear infinite; }
     .action-item { font-size: 1.2rem; font-weight: 600; color: var(--accent); padding: 0 3rem; white-space: nowrap; }
     @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
     /* Sections */
-    section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; background: var(--bg); }
-    h2.section-title { font-size: 2.1rem; text-align: center; margin-bottom: 2.5rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); }
+    section { padding: 5rem 2rem; max-width: 1400px; margin: 0 auto; background: var(--bg); }
+    h2.section-title { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); position: relative; }
+    h2.section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+    }
 
     /* Services Grid - DESKTOP */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .card { background: var(--bg-soft); padding: 2rem; border-radius: 18px; border: 1px solid var(--border); transition: all 0.35s ease; color: var(--fg); }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 16px 35px rgba(0,0,0,0.08); border-color: var(--accent-soft); }
+    .card { background: var(--bg-soft); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); transition: all 0.35s ease; color: var(--fg); }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); border-color: var(--accent); }
 
     /* NEW: Services Mobile Carousel */
     .services-carousel { 
@@ -124,46 +150,192 @@
     /* Services CTA Button */
     .services-cta { text-align: center; margin-top: 3rem; }
     
-    /* Featured Work - Hero + Grid */
-    .portfolio-hero { width: 100%; height: 70vh; min-height: 500px; margin-bottom: 3rem; border-radius: 24px; overflow: hidden; position: relative; box-shadow: 0 30px 90px rgba(0,0,0,0.4); }
-    .hero-item { width: 100%; height: 100%; display: block; position: relative; }
-    .hero-item img { width: 100%; height: 100%; object-fit: cover; transition: all 0.4s ease; }
-    .hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: white; padding: 3rem 2rem 2rem; }
-    .hero-overlay .collage-tag { font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.9; display: block; margin-bottom: 0.5rem; }
-    .hero-overlay .collage-title { font-size: 2.2rem; font-weight: 700; letter-spacing: 0.05em; }
-    .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 6rem; color: rgba(255,255,255,0.95); text-shadow: 0 4px 20px rgba(0,0,0,0.8); opacity: 0; transition: all 0.4s ease; }
-    .hero-item:hover img { transform: scale(1.05); filter: brightness(1.1); }
-    .hero-item:hover .play-icon { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
-
-    /* Portfolio Grid */
-    .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto 2rem; }
-    .work-item { display: block; text-decoration: none; color: inherit; }
-    .work-thumb { position: relative; overflow: hidden; border-radius: 18px; border: 1px solid var(--border); background: #000; aspect-ratio: 16 / 9; }
-    .work-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
-    .work-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.1rem 1.3rem; background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.05)); color: #ffffff; gap: 0.2rem; }
-    .work-tag { font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8; }
-    .work-title { font-size: 1rem; font-weight: 600; }
-    .work-cta { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0; transform: translateY(6px); transition: all 0.25s ease; }
-    .work-thumb:hover img { transform: scale(1.06); }
-    .work-thumb:hover .work-cta { opacity: 1; transform: translateY(0); }
-
-    /* CTA Buttons */
-    .work-cta-section, .news-cta-section { text-align: center; margin: 3rem 0 1rem; }
-    .more-work-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; }
-    .more-work-btn:hover { background: var(--accent-soft); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); color: white; text-decoration: none; }
-
+    /* FEATURED WORK - HORIZONTAL SCROLL SECTION */
+    .featured-work-section {
+      position: relative;
+      padding: 6rem 0;
+      overflow: hidden;
+    }
+    
+    .featured-work-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 800px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .featured-work-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .featured-work-title {
+      position: absolute;
+      top: 50%;
+      left: 2rem;
+      transform: translateY(-50%);
+      z-index: 10;
+      color: white;
+      font-size: 4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      max-width: 400px;
+      line-height: 1.2;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    }
+    
+    .featured-work-horizontal {
+      display: flex;
+      height: 80%;
+      align-items: center;
+      will-change: transform;
+      padding-left: 30%;
+    }
+    
+    .featured-work-item {
+      flex: 0 0 auto;
+      width: 600px;
+      height: 80%;
+      margin-right: 4rem;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+      transition: transform 0.5s ease;
+      background: #000;
+    }
+    
+    .featured-work-item:hover {
+      transform: scale(1.02);
+    }
+    
+    .featured-work-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    
+    .featured-work-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .featured-work-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      color: white;
+      padding: 3rem 2rem 2rem;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    
+    .featured-work-item:hover .featured-work-overlay {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .featured-work-tag {
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    
+    .featured-work-item-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    
+    .featured-work-item-desc {
+      font-size: 1rem;
+      opacity: 0.9;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    
+    .featured-work-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    
+    .featured-work-cta:hover {
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3);
+    }
+    
+    .featured-work-scroll-hint {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .featured-work-scroll-hint i {
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+      40% {transform: translateY(-10px);}
+      60% {transform: translateY(-5px);}
+    }
+    
+    /* Mobile version for featured work */
+    .featured-work-mobile {
+      display: none;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 0 2rem;
+    }
+    
     /* Team Carousel */
     .team-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; position: relative; }
     .team-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1.5rem; padding: 2rem 0; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth; }
     .team-carousel::-webkit-scrollbar { display: none; }
-    .team-card { flex: 0 0 320px; scroll-snap-align: center; background: var(--bg-soft); border-radius: 24px; padding: 2.5rem 2rem; text-align: center; border: 1px solid var(--border); transition: all 0.3s ease; min-width: 320px; }
+    .team-card { flex: 0 0 320px; scroll-snap-align: center; background: var(--bg-soft); border-radius: 20px; padding: 2.5rem 2rem; text-align: center; border: 1px solid var(--border); transition: all 0.3s ease; min-width: 320px; }
     .team-avatar { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1.5rem; overflow: hidden; border: 3px solid var(--border); }
     .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
     .team-role { font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
     .team-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
     .team-bio { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; }
-    .team-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; background: white; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; color: var(--accent); box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; z-index: 10; }
-    .team-nav:hover { transform: translateY(-50%) scale(1.1); box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+    .team-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; background: var(--bg-soft); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; color: var(--fg); box-shadow: 0 8px 25px rgba(0,0,0,0.3); transition: all 0.3s ease; z-index: 10; }
+    .team-nav:hover { transform: translateY(-50%) scale(1.1); box-shadow: 0 15px 35px rgba(0,0,0,0.5); background: var(--accent); color: white; }
     .team-nav.prev { left: 1rem; }
     .team-nav.next { right: 1rem; }
     .team-dots { display: flex; gap: 0.5rem; justify-content: center; margin-top: 2rem; }
@@ -178,41 +350,82 @@
     .news-link:hover { text-decoration: underline; }
 
     /* Contact Content */
-    .contact-content { max-width: 600px; margin: 0 auto; }
-    .contact-content h2 { color: var(--fg); margin-bottom: 1rem; }
-    .contact-content p { font-size: 1.05rem; margin-bottom: 1rem; color: var(--muted); }
-    .contact-content .social-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .contact-content .social-links a { font-size: 1.2rem; }
+    .contact-content { max-width: 600px; margin: 0 auto; text-align: center; }
+    .contact-content h2 { color: var(--fg); margin-bottom: 1rem; font-size: 2.5rem; }
+    .contact-content p { font-size: 1.1rem; margin-bottom: 2rem; color: var(--muted); }
+    .contact-content .social-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .contact-content .social-links a { font-size: 1.5rem; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg-soft); transition: all 0.3s ease; }
+    .contact-content .social-links a:hover { transform: translateY(-5px); background: var(--accent); }
     .contact-content .social-links a[href*="instagram"] { color: var(--instagram) !important; }
+    .contact-content .social-links a[href*="instagram"]:hover { color: white !important; }
     .contact-content a[href*="linkedin"] { color: #0077B5 !important; }
+    .contact-content a[href*="linkedin"]:hover { color: white !important; }
     .contact-content a[href*="whatsapp"] { color: var(--whatsapp) !important; }
+    .contact-content a[href*="whatsapp"]:hover { color: white !important; }
 
     /* Footer */
-    footer { padding: 3rem 2rem 2.5rem; text-align: center; border-top: 1px solid var(--border); color: var(--muted); background: var(--bg); }
+    footer { padding: 5rem 2rem 2.5rem; text-align: center; border-top: 1px solid var(--border); color: var(--muted); background: var(--bg-soft); }
 
     /* Mobile */
+    @media (max-width: 1024px) {
+      .featured-work-title {
+        font-size: 3rem;
+        left: 1rem;
+      }
+      
+      .featured-work-item {
+        width: 500px;
+      }
+    }
+    
     @media (max-width: 768px) {
       .desktop-menu { display: none; }
       .mobile-menu-toggle { display: block; }
       .nav { padding: 0.75rem 1rem; }
+      
       .hero { padding: 8rem 1.5rem 6rem; }
       .hero-content { flex-direction: column; gap: 2rem; }
       .hero-logo img { height: 120px; }
-      .tagline { font-size: 1.9rem; max-width: 18ch; margin-left: auto; margin-right: auto; }
+      .tagline { font-size: 2.5rem; }
+      
+      .featured-work-section {
+        padding: 4rem 0;
+      }
+      
+      .featured-work-container,
+      .featured-work-sticky {
+        display: none;
+      }
+      
+      .featured-work-mobile {
+        display: grid;
+      }
+      
+      .featured-work-title {
+        position: static;
+        transform: none;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        max-width: 100%;
+        padding: 0 1rem;
+      }
+      
       .floating-buttons { bottom: 1.3rem; right: 1.3rem; }
       
       /* Services: Hide Grid, Show Carousel */
       .grid { display: none; }
       .services-carousel { display: block; }
       
-      .portfolio-hero { height: 60vh; min-height: 400px; margin-bottom: 2rem; border-radius: 18px; }
-      .hero-overlay { padding: 2rem 1.5rem 1.5rem; }
-      .hero-overlay .collage-title { font-size: 1.8rem; }
-      .play-icon { font-size: 4rem; }
       .team-card { flex: 0 0 280px; min-width: 280px; padding: 2rem 1.5rem; }
       .team-avatar { width: 100px; height: 100px; }
     }
-    @media (min-width: 769px) { .mobile-menu-toggle, .mobile-menu { display: none !important; } }
+    
+    @media (min-width: 769px) { 
+      .mobile-menu-toggle, .mobile-menu { display: none !important; } 
+      .featured-work-mobile { display: none !important; }
+    }
+    
     html { scroll-behavior: smooth; }
   </style>
 </head>
@@ -229,7 +442,7 @@
       <div class="desktop-menu">
         <a href="#hero" class="nav-link">Home</a>
         <a href="#services" class="nav-link">Services</a>
-        <a href="#portfolio" class="nav-link">Featured Work</a>
+        <a href="#featured-work" class="nav-link">Featured Work</a>
         <a href="#team" class="nav-link">Team</a>
         <a href="news.html" class="nav-link">News</a>
         <a href="#contact" class="nav-link">Contact</a>
@@ -242,7 +455,7 @@
       <div class="mobile-menu" id="mobileMenu">
         <a href="#hero" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Home</a>
         <a href="#services" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Services</a>
-        <a href="#portfolio" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Featured Work</a>
+        <a href="#featured-work" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Featured Work</a>
         <a href="#team" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Team</a>
         <a href="news.html" class="mobile-nav-link" onclick="toggleMobileMenu(event)">News & Updates</a>
         <a href="#contact" class="mobile-nav-link" onclick="toggleMobileMenu(event)">Contact</a>
@@ -279,7 +492,7 @@
           From concept development and pre-production to filming, post-production, and final delivery, 
           we create high-quality films, commercials, and digital content that stand out.
         </div>
-        <!-- NEW: Hero Book Now Button -->
+        <!-- Hero Book Now Button -->
         <div class="hero-cta">
           <a href="#services" class="book-now-btn">Book Now</a>
         </div>
@@ -347,36 +560,30 @@
       </div>
     </div>
 
-    <!-- NEW: Services Book Now Button -->
+    <!-- Services Book Now Button -->
     <div class="services-cta">
       <a href="#" class="book-now-btn" target="_blank">Book Now</a>
     </div>
   </section>
 
-  <!-- Featured Work - AUTOMATED -->
-  <section id="portfolio">
-    <h2 class="section-title">Featured Work</h2>
-    
-    <!-- Hero Project -->
-    <div class="portfolio-hero">
-      <a href="https://www.youtube.com/watch?v=AhzQTAfnsCs" target="_blank" class="hero-item" rel="noopener noreferrer">
-        <img src="images/broken.jpg" alt="Broken Reflections" loading="lazy">
-        <div class="hero-overlay">
-          <span class="collage-tag">Featured Short Film</span>
-          <span class="collage-title">Broken Reflections</span>
-          <span class="play-icon">▶</span>
+  <!-- Featured Work - HORIZONTAL SCROLL SECTION -->
+  <section id="featured-work" class="featured-work-section">
+    <div class="featured-work-container">
+      <div class="featured-work-sticky">
+        <h2 class="featured-work-title">Featured<br>Work</h2>
+        <div class="featured-work-horizontal" id="horizontal-scroll">
+          <!-- Horizontal scroll items will be added here by JavaScript -->
         </div>
-      </a>
+        <div class="featured-work-scroll-hint">
+          <span>Scroll horizontally</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
     </div>
-
-    <!-- Latest 4 Projects -->
-    <div class="work-grid" id="featured-grid">
-      <!-- Automated - Latest 4 projects -->
-    </div>
-
-    <!-- More Work Button -->
-    <div class="work-cta-section">
-      <a href="portfolio.html" class="more-work-btn">More Featured Work →</a>
+    
+    <!-- Mobile Grid for Featured Work -->
+    <div class="featured-work-mobile">
+      <!-- Mobile items will be added here by JavaScript -->
     </div>
   </section>
 
@@ -421,14 +628,52 @@
     </div>
   </footer>
 
-  <!-- COMPLETE CLEAN JAVASCRIPT - NO DUPLICATES -->
+  <!-- COMPLETE JAVASCRIPT -->
   <script>
     // DATA ARRAYS - ADD NEW ITEMS HERE ONLY
     const allProjects = [
-      { title: "Night Shift", tag: "Short Film", image: "images/nightshift.jpg", url: "https://www.youtube.com/watch?v=kwVuPcAiNjY" },
-      { title: "Into the Sea", tag: "Cinematic Short", image: "images/intothesea.jpg", url: "https://www.youtube.com/watch?v=vQYMIPsxp4c" },
-      { title: "Goan Classic 350", tag: "Motorcycle Film", image: "images/goan.jpg", url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI" },
-      { title: "BND Motorsport Event", tag: "Race Event", image: "images/bnd.jpg", url: "#" },
+      { 
+        title: "Night Shift", 
+        tag: "Short Film", 
+        image: "images/nightshift.jpg", 
+        url: "https://www.youtube.com/watch?v=kwVuPcAiNjY",
+        description: "A gripping cinematic thriller exploring the dark corners of night shift work."
+      },
+      { 
+        title: "Into the Sea", 
+        tag: "Cinematic Short", 
+        image: "images/intothesea.jpg", 
+        url: "https://www.youtube.com/watch?v=vQYMIPsxp4c",
+        description: "An emotional journey of self-discovery set against breathtaking ocean vistas."
+      },
+      { 
+        title: "Goan Classic 350", 
+        tag: "Motorcycle Film", 
+        image: "images/goan.jpg", 
+        url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI",
+        description: "A visual love letter to the iconic Royal Enfield Classic 350 on Goan roads."
+      },
+      { 
+        title: "Broken Reflections", 
+        tag: "Drama", 
+        image: "images/broken.jpg", 
+        url: "https://www.youtube.com/watch?v=AhzQTAfnsCs",
+        description: "A poignant exploration of identity and self-perception in modern society."
+      },
+      { 
+        title: "BND Motorsport Event", 
+        tag: "Race Event", 
+        image: "images/bnd.jpg", 
+        url: "#",
+        description: "High-octane coverage of India's premier motorsport racing event."
+      },
+      { 
+        title: "Urban Echoes", 
+        tag: "Experimental", 
+        image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+        url: "#",
+        description: "An experimental film capturing the rhythm and soul of city life."
+      }
     ];
 
     const allNews = [
@@ -457,29 +702,117 @@
       document.getElementById('mobileMenu').classList.toggle('active');
     }
 
-    // FEATURED WORK - Latest 4
-    function renderFeaturedWork() {
-      const container = document.getElementById('featured-grid');
-      if (!container) return;
-      container.innerHTML = '';
-      const latest4 = allProjects.slice(0, 4);
-      latest4.forEach(project => {
-        const item = document.createElement('a');
-        item.href = project.url;
-        item.target = '_blank';
-        item.rel = 'noopener noreferrer';
-        item.className = 'work-item';
-        item.innerHTML = `
-          <div class="work-thumb">
+    // HORIZONTAL SCROLL FEATURED WORK
+    function renderHorizontalFeaturedWork() {
+      const container = document.getElementById('horizontal-scroll');
+      const mobileContainer = document.querySelector('.featured-work-mobile');
+      
+      if (!container && !mobileContainer) return;
+      
+      // Clear containers
+      if (container) container.innerHTML = '';
+      if (mobileContainer) mobileContainer.innerHTML = '';
+      
+      // Add all projects
+      allProjects.forEach(project => {
+        // Desktop horizontal scroll version
+        if (container) {
+          const item = document.createElement('div');
+          item.className = 'featured-work-item';
+          item.innerHTML = `
             <img src="${project.image}" alt="${project.title}" loading="lazy">
-            <div class="work-overlay">
-              <span class="work-tag">${project.tag}</span>
-              <span class="work-title">${project.title}</span>
-              <span class="work-cta">View ↗</span>
+            <div class="featured-work-overlay">
+              <span class="featured-work-tag">${project.tag}</span>
+              <span class="featured-work-item-title">${project.title}</span>
+              <p class="featured-work-item-desc">${project.description}</p>
+              <a href="${project.url}" target="_blank" class="featured-work-cta" rel="noopener noreferrer">Watch Now</a>
             </div>
-          </div>
-        `;
-        container.appendChild(item);
+          `;
+          container.appendChild(item);
+        }
+        
+        // Mobile grid version
+        if (mobileContainer) {
+          const mobileItem = document.createElement('a');
+          mobileItem.href = project.url;
+          mobileItem.target = '_blank';
+          mobileItem.rel = 'noopener noreferrer';
+          mobileItem.className = 'work-item';
+          mobileItem.innerHTML = `
+            <div class="work-thumb">
+              <img src="${project.image}" alt="${project.title}" loading="lazy">
+              <div class="work-overlay">
+                <span class="work-tag">${project.tag}</span>
+                <span class="work-title">${project.title}</span>
+                <span class="work-cta">View ↗</span>
+              </div>
+            </div>
+          `;
+          mobileContainer.appendChild(mobileItem);
+        }
+      });
+    }
+
+    // HORIZONTAL SCROLL ANIMATION
+    function initHorizontalScroll() {
+      const horizontalContainer = document.getElementById('horizontal-scroll');
+      const stickyContainer = document.querySelector('.featured-work-sticky');
+      
+      if (!horizontalContainer || !stickyContainer) return;
+      
+      // Calculate total width of all items
+      const items = horizontalContainer.children;
+      let totalWidth = 0;
+      for (let i = 0; i < items.length; i++) {
+        totalWidth += items[i].offsetWidth + 64; // 64px is margin-right
+      }
+      
+      // Set container width to fit all items
+      horizontalContainer.style.width = `${totalWidth}px`;
+      
+      // Scroll animation
+      let scrollProgress = 0;
+      let isScrolling = false;
+      
+      function updateHorizontalScroll() {
+        if (!horizontalContainer || !stickyContainer) return;
+        
+        const section = document.getElementById('featured-work');
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Calculate scroll progress through the section
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          const sectionScrollTop = rect.top;
+          const sectionHeight = rect.height;
+          
+          // Calculate progress from 0 to 1
+          scrollProgress = Math.max(0, Math.min(1, -sectionScrollTop / (sectionHeight - windowHeight)));
+          
+          // Calculate horizontal translation
+          const maxScroll = horizontalContainer.scrollWidth - window.innerWidth;
+          const translateX = -scrollProgress * maxScroll;
+          
+          horizontalContainer.style.transform = `translateX(${translateX}px)`;
+          isScrolling = true;
+        } else {
+          isScrolling = false;
+        }
+        
+        requestAnimationFrame(updateHorizontalScroll);
+      }
+      
+      // Start animation
+      requestAnimationFrame(updateHorizontalScroll);
+      
+      // Handle window resize
+      window.addEventListener('resize', function() {
+        // Recalculate total width on resize
+        let newTotalWidth = 0;
+        for (let i = 0; i < items.length; i++) {
+          newTotalWidth += items[i].offsetWidth + 64;
+        }
+        horizontalContainer.style.width = `${newTotalWidth}px`;
       });
     }
 
@@ -606,10 +939,18 @@
 
     // INITIALIZE EVERYTHING
     window.addEventListener('load', function() {
-      renderFeaturedWork();
+      renderHorizontalFeaturedWork();
       renderLatestNews();
       renderTeam();
       initTeamCarousel();
+      
+      // Initialize horizontal scroll after a short delay to ensure DOM is fully rendered
+      setTimeout(initHorizontalScroll, 500);
+    });
+    
+    // Reinitialize horizontal scroll on resize
+    window.addEventListener('resize', function() {
+      setTimeout(initHorizontalScroll, 100);
     });
   </script>
 </body>
