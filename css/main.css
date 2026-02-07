@@ -1,0 +1,49 @@
+/* Hero Section Styles */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/studio-bg.JPG');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.4) contrast(1.2);
+  z-index: -1;
+}
+
+/* Featured Work Horizontal Scroll */
+.featured-work-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 800px;
+}
+
+.featured-work-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.featured-work-horizontal {
+  display: flex;
+  height: 80%;
+  align-items: center;
+  will-change: transform;
+  padding-left: 30%;
+}
+
+/* Add other page-specific styles here */
