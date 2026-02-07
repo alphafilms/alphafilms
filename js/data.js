@@ -140,8 +140,12 @@ const AppData = {
   // Action Belt Text
   actionBelt: [
     "*LIGHTS | CAMERA | ACTION*",
-    "*PREMIUM QUALITY | CINEMATIC RESULTS*",
-    "*CREATIVE STORYTELLING | PROFESSIONAL EXECUTION*"
+    "*LIGHTS | CAMERA | ACTION*",
+    "*LIGHTS | CAMERA | ACTION*",
+    "*LIGHTS | CAMERA | ACTION*",
+    "*LIGHTS | CAMERA | ACTION*",
+    "*LIGHTS | CAMERA | ACTION*",
+    "*LIGHTS | CAMERA | ACTION*"
   ]
 };
 
