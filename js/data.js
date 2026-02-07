@@ -67,6 +67,27 @@ const AppData = {
       url: "https://www.youtube.com/watch?v=vQYMIPsxp4c",
       description: "An emotional journey of self-discovery set against breathtaking ocean vistas."
     },
+    {
+      title: "Goan Classic 350",
+      tag: "Motorcycle Film",
+      image: "images/goan.jpg",
+      url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI",
+      description: "A visual love letter to the iconic Royal Enfield Classic 350 on Goan roads."
+    },
+    {
+      title: "Broken Reflections",
+      tag: "Drama",
+      image: "images/broken.jpg",
+      url: "https://www.youtube.com/watch?v=AhzQTAfnsCs",
+      description: "A poignant exploration of identity and self-perception in modern society."
+    },
+    {
+      title: "BND Motorsport Event",
+      tag: "Race Event",
+      image: "images/bnd.jpg",
+      url: "#",
+      description: "High-octane coverage of India's premier motorsport racing event."
+    }    
     // Add more projects here...
   ],
 
@@ -79,6 +100,25 @@ const AppData = {
       image: "team_images/deep.png",
       linkedin: "https://www.linkedin.com/in/deepsehgal"
     },
+    {
+      name: "Daksh Mehta",
+      role: "Content Director",
+      bio: "Expert in content strategy and digital marketing with a focus on cinematic storytelling. Specializes in creating engaging video content for social media platforms.",
+      image: "team_images/daksh.jpg"
+    },
+    {
+      name: "Shivani Damle",
+      role: "Creative Lead",
+      bio: "Creative visionary with expertise in visual storytelling and art direction. Brings unique perspectives to every project with a focus on emotional impact.",
+      image: "team_images/shivani.jpg"
+    },
+    {
+      name: "Parth Sehgal",
+      role: "Operations & Human Resource",
+      bio: "Ensures smooth operations and team coordination. Manages client relationships and project timelines with precision and care.",
+      image: "team_images/parth.JPG"
+    }
+],
     // Add more team members here...
   ],
 
@@ -97,8 +137,11 @@ const AppData = {
   // Action Belt Text (Edit scrolling text)
   actionBelt: [
     "*LIGHTS | CAMERA | ACTION*",
-    "*PREMIUM QUALITY | CINEMATIC RESULTS*",
-    "*CREATIVE STORYTELLING | PROFESSIONAL EXECUTION*"
+    "*LIGHTS | CAMERA | ACTION*",
+    "*LIGHTS | CAMERA | ACTION*",
+    "*LIGHTS | CAMERA | ACTION*",
+    "*LIGHTS | CAMERA | ACTION*",
+    "*LIGHTS | CAMERA | ACTION*"
   ]
 };
 
