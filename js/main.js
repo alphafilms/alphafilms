@@ -74,40 +74,170 @@ function loadServices() {
 }
 // ===== FEATURED WORK =====
 function loadFeaturedWork() {
-  const desktopContainer = document.getElementById('featured-work-desktop');
-  const mobileContainer = document.getElementById('featured-work-mobile');
+  // Check if we're on desktop or mobile
+  const isDesktop = window.innerWidth > 768;
   
-  if (!AppData.projects || AppData.projects.length === 0) {
-    console.warn('No projects found in AppData');
-    return;
+  // Load desktop horizontal scroll
+  if (isDesktop) {
+    loadHorizontalScroll();
   }
   
-  // Load mobile version (simpler)
-  if (mobileContainer) {
-    mobileContainer.innerHTML = '';
-    
-    AppData.projects.forEach(project => {
-      const projectItem = document.createElement('a');
-      projectItem.href = project.url;
-      projectItem.target = '_blank';
-      projectItem.rel = 'noopener noreferrer';
-      projectItem.className = 'work-item';
-      projectItem.innerHTML = `
-        <div class="work-thumb">
-          <img src="${project.image}" alt="${project.title}" loading="lazy">
-          <div class="work-overlay">
-            <span class="work-tag">${project.tag}</span>
-            <span class="work-title">${project.title}</span>
-            <span class="work-cta">View ↗</span>
-          </div>
-        </div>
-      `;
-      mobileContainer.appendChild(projectItem);
-    });
-  }
-  
-  console.log(`Loaded ${AppData.projects.length} featured projects`);
+  // Always load mobile grid as fallback
+  loadMobileGrid();
 }
+
+function loadHorizontalScroll() {
+  const track = document.getElementById('horizontal-scroll-track');
+  if (!track || !AppData.projects || AppData.projects.length === 0) return;
+  
+  track.innerHTML = '';
+  
+  // Duplicate projects for seamless scrolling
+  const projects = [...AppData.projects, ...AppData.projects];
+  
+  projects.forEach((project, index) => {
+    const item = document.createElement('div');
+    item.className = 'horizontal-scroll-item';
+    item.innerHTML = `
+      <img src="${project.image}" alt="${project.title}" loading="lazy">
+      <div class="horizontal-scroll-overlay">
+        <span class="scroll-tag">${project.tag}</span>
+        <h3 class="scroll-title">${project.title}</h3>
+        <p class="scroll-description">${project.description}</p>
+        <a href="${project.url}" target="_blank" class="scroll-cta" rel="noopener noreferrer">
+          Watch Now <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    `;
+    
+    // Add click event to the entire item
+    item.addEventListener('click', (e) => {
+      if (!e.target.closest('a')) {
+        window.open(project.url, '_blank');
+      }
+    });
+    
+    track.appendChild(item);
+  });
+  
+  // Initialize horizontal scroll animation
+  initHorizontalScroll();
+  console.log('Horizontal scroll loaded with', AppData.projects.length, 'projects');
+}
+
+function loadMobileGrid() {
+  const mobileContainer = document.getElementById('featured-work-mobile');
+  if (!mobileContainer || !AppData.projects) return;
+  
+  mobileContainer.innerHTML = '';
+  
+  AppData.projects.forEach(project => {
+    const projectItem = document.createElement('a');
+    projectItem.href = project.url;
+    projectItem.target = '_blank';
+    projectItem.rel = 'noopener noreferrer';
+    projectItem.className = 'work-item';
+    projectItem.innerHTML = `
+      <div class="work-thumb">
+        <img src="${project.image}" alt="${project.title}" loading="lazy">
+        <div class="work-overlay">
+          <span class="work-tag">${project.tag}</span>
+          <span class="work-title">${project.title}</span>
+          <span class="work-cta">View ↗</span>
+        </div>
+      </div>
+    `;
+    mobileContainer.appendChild(projectItem);
+  });
+}
+
+// Horizontal scroll animation
+function initHorizontalScroll() {
+  const track = document.getElementById('horizontal-scroll-track');
+  const container = document.querySelector('.horizontal-scroll-container');
+  
+  if (!track || !container) return;
+  
+  // Calculate total width
+  const items = track.children;
+  const itemWidth = 600; // Match CSS width
+  const gap = 64; // 4rem = 64px
+  const totalWidth = items.length * (itemWidth + gap);
+  track.style.width = `${totalWidth}px`;
+  
+  let scrollProgress = 0;
+  let ticking = false;
+  
+  function updateHorizontalScroll() {
+    const section = document.getElementById('featured-work');
+    if (!section) return;
+    
+    const rect = section.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    // Calculate progress through the section (0 to 1)
+    if (rect.top < windowHeight && rect.bottom > 0) {
+      const sectionHeight = rect.height;
+      const sectionTop = rect.top;
+      
+      // Progress from when section enters viewport to when it leaves
+      scrollProgress = Math.max(0, Math.min(1, 
+        (windowHeight - sectionTop) / (sectionHeight + windowHeight)
+      ));
+      
+      // Calculate horizontal translation
+      const maxScroll = totalWidth - window.innerWidth;
+      const translateX = -scrollProgress * maxScroll * 0.7; // 0.7 for smoother effect
+      
+      track.style.transform = `translateX(${translateX}px)`;
+    }
+    
+    ticking = false;
+  }
+  
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(updateHorizontalScroll);
+      ticking = true;
+    }
+  }
+  
+  // Add scroll listener
+  window.addEventListener('scroll', onScroll);
+  
+  // Initial calculation
+  updateHorizontalScroll();
+  
+  // Handle resize
+  window.addEventListener('resize', function() {
+    // Recalculate on resize
+    const newTotalWidth = items.length * (itemWidth + gap);
+    track.style.width = `${newTotalWidth}px`;
+    updateHorizontalScroll();
+  });
+}
+
+// Update the DOMContentLoaded initialization
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Alpha Films Website Loading...');
+  
+  // Initialize mobile menu
+  initMobileMenu();
+  
+  // Load all content
+  loadServices();
+  loadFeaturedWork(); // This now handles both desktop and mobile
+  loadTeam();
+  loadNews();
+  
+  // Initialize team carousel
+  initTeamCarousel();
+  
+  // Initialize smooth scroll
+  initSmoothScroll();
+  
+  console.log('Alpha Films Website Loaded Successfully!');
+});
 
 // ===== TEAM =====
 function loadTeam() {
