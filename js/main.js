@@ -1,70 +1,97 @@
 // Main application initialization
 document.addEventListener('DOMContentLoaded', () => {
-  // Render all components
+  console.log('DOM loaded, initializing Alpha Films...');
+  
+  // First, make sure data is loaded
+  if (typeof AppData === 'undefined') {
+    console.error('AppData is not defined! Check data.js is loaded first.');
+    return;
+  }
+  
+  if (typeof Components === 'undefined') {
+    console.error('Components is not defined! Check components.js is loaded.');
+    return;
+  }
+  
+  if (typeof Utils === 'undefined') {
+    console.error('Utils is not defined! Check utils.js is loaded.');
+    return;
+  }
+  
+  // First render components (if using data-component system)
   renderComponents();
   
-  // Initialize features
-  initHorizontalScroll();
+  // Then initialize features
+  initFeaturedWork();
   initTeamCarousel();
   initMobileMenu();
   initSmoothScroll();
   
   // Add event listeners
-  window.addEventListener('resize', Utils.debounce(handleResize, 250));
+  window.addEventListener('resize', handleResize);
   
-  // Initialize featured work (NEW - ensures it loads)
-  initFeaturedWork();
+  console.log('Alpha Films initialized successfully!');
 });
 
 function renderComponents() {
-  // Get all data-component elements and render them
+  // Only render if using data-component system
   const components = document.querySelectorAll('[data-component]');
+  if (components.length === 0) {
+    console.log('No data-component elements found, skipping component rendering.');
+    return;
+  }
+  
+  console.log(`Found ${components.length} components to render`);
   
   components.forEach(component => {
     const componentName = component.getAttribute('data-component');
+    const renderFunctionName = `render${componentName.charAt(0).toUpperCase() + componentName.slice(1)}`;
     
-    if (Components[`render${componentName.charAt(0).toUpperCase() + componentName.slice(1)}`]) {
-      component.innerHTML = Components[`render${componentName.charAt(0).toUpperCase() + componentName.slice(1)}`]();
+    if (typeof Components[renderFunctionName] === 'function') {
+      console.log(`Rendering component: ${componentName}`);
+      component.innerHTML = Components[renderFunctionName]();
+    } else {
+      console.warn(`No render function found for component: ${componentName}`);
     }
   });
 }
 
-// NEW FUNCTION: Initialize Featured Work
+// Initialize Featured Work
 function initFeaturedWork() {
+  console.log('Initializing featured work...');
+  
+  // Check if data exists
+  if (!AppData.projects || AppData.projects.length === 0) {
+    console.warn('No projects found in AppData');
+    return;
+  }
+  
+  // Try desktop horizontal scroll first
   const horizontalContainer = document.getElementById('horizontal-scroll');
   const mobileContainer = document.querySelector('.featured-work-mobile');
   
-  if (!horizontalContainer && !mobileContainer) {
-    console.error('Featured work containers not found');
-    return;
+  if (horizontalContainer && !isMobile()) {
+    console.log('Rendering desktop horizontal scroll');
+    renderHorizontalProjects(horizontalContainer, AppData.projects);
+    initHorizontalScrollAnimation();
+  } 
+  // Fallback to mobile grid
+  else if (mobileContainer) {
+    console.log('Rendering mobile grid');
+    renderMobileProjects(mobileContainer, AppData.projects);
+  } else {
+    console.error('No featured work containers found');
+    // Create emergency fallback
+    createEmergencyFeaturedWork();
   }
   
-  // Load projects from data.js
-  const projects = AppData.projects || [];
-  
-  if (projects.length === 0) {
-    console.error('No projects found in AppData');
-    return;
-  }
-  
-  // Render desktop horizontal scroll
-  if (horizontalContainer && !Utils.isMobile()) {
-    renderHorizontalProjects(horizontalContainer, projects);
-  }
-  
-  // Render mobile grid
-  if (mobileContainer) {
-    renderMobileProjects(mobileContainer, projects);
-  }
-  
-  console.log(`Loaded ${projects.length} featured projects`);
+  console.log(`Featured work loaded: ${AppData.projects.length} projects`);
 }
 
-// NEW FUNCTION: Render horizontal projects
 function renderHorizontalProjects(container, projects) {
   container.innerHTML = '';
   
-  projects.forEach(project => {
+  projects.forEach((project, index) => {
     const projectItem = document.createElement('div');
     projectItem.className = 'featured-work-item';
     projectItem.innerHTML = `
@@ -79,21 +106,17 @@ function renderHorizontalProjects(container, projects) {
       </div>
     `;
     
-    // Add click event to the entire item
+    // Add click event
     projectItem.addEventListener('click', (e) => {
-      if (!e.target.closest('a')) { // Only if not clicking the link directly
+      if (!e.target.closest('a')) {
         window.open(project.url, '_blank');
       }
     });
     
     container.appendChild(projectItem);
   });
-  
-  // After rendering, initialize horizontal scroll
-  initHorizontalScrollAnimation();
 }
 
-// NEW FUNCTION: Render mobile projects
 function renderMobileProjects(container, projects) {
   container.innerHTML = '';
   
@@ -117,118 +140,91 @@ function renderMobileProjects(container, projects) {
   });
 }
 
-// UPDATED FUNCTION: Horizontal Scroll Animation
-function initHorizontalScroll() {
-  const horizontalContainer = document.getElementById('horizontal-scroll');
-  if (!horizontalContainer || Utils.isMobile()) return;
-  
-  // Implementation will be called after projects are rendered
-}
-
 function initHorizontalScrollAnimation() {
   const horizontalContainer = document.getElementById('horizontal-scroll');
-  const stickyContainer = document.querySelector('.featured-work-sticky');
+  if (!horizontalContainer || isMobile()) return;
   
-  if (!horizontalContainer || !stickyContainer || Utils.isMobile()) return;
-  
-  // Calculate total width of all items
-  const items = horizontalContainer.children;
-  let totalWidth = 0;
-  for (let i = 0; i < items.length; i++) {
-    totalWidth += items[i].offsetWidth + 64; // 64px is gap (4rem)
-  }
-  
-  // Set container width to fit all items
-  horizontalContainer.style.width = `${totalWidth}px`;
-  
-  // Scroll animation
-  let scrollProgress = 0;
-  let lastScrollY = window.scrollY;
-  let ticking = false;
-  
-  function updateHorizontalScroll() {
-    if (!horizontalContainer || !stickyContainer) return;
+  // Wait for images to load
+  setTimeout(() => {
+    const items = horizontalContainer.children;
+    if (items.length === 0) return;
     
-    const section = document.getElementById('featured-work');
-    if (!section) return;
-    
-    const rect = section.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    
-    // Calculate scroll progress through the section
-    if (rect.top < windowHeight && rect.bottom > 0) {
-      const sectionScrollTop = rect.top;
-      const sectionHeight = rect.height;
-      
-      // Calculate progress from 0 to 1
-      scrollProgress = Math.max(0, Math.min(1, -sectionScrollTop / (sectionHeight - windowHeight)));
-      
-      // Calculate horizontal translation
-      const maxScroll = horizontalContainer.scrollWidth - window.innerWidth;
-      const translateX = -scrollProgress * maxScroll;
-      
-      horizontalContainer.style.transform = `translateX(${translateX}px)`;
-    }
-    
-    ticking = false;
-  }
-  
-  function onScroll() {
-    lastScrollY = window.scrollY;
-    
-    if (!ticking) {
-      requestAnimationFrame(updateHorizontalScroll);
-      ticking = true;
-    }
-  }
-  
-  // Add scroll listener
-  window.addEventListener('scroll', onScroll);
-  
-  // Initial calculation
-  updateHorizontalScroll();
-  
-  // Handle window resize
-  window.addEventListener('resize', () => {
-    // Recalculate total width on resize
-    let newTotalWidth = 0;
+    let totalWidth = 0;
     for (let i = 0; i < items.length; i++) {
-      newTotalWidth += items[i].offsetWidth + 64;
+      totalWidth += items[i].offsetWidth + 64;
     }
-    horizontalContainer.style.width = `${newTotalWidth}px`;
     
+    horizontalContainer.style.width = `${totalWidth}px`;
+    
+    let ticking = false;
+    
+    function updateHorizontalScroll() {
+      const section = document.getElementById('featured-work');
+      if (!section) return;
+      
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        const progress = Math.max(0, Math.min(1, 
+          -rect.top / (rect.height - windowHeight)
+        ));
+        
+        const maxScroll = horizontalContainer.scrollWidth - window.innerWidth;
+        const translateX = -progress * maxScroll;
+        
+        horizontalContainer.style.transform = `translateX(${translateX}px)`;
+      }
+      
+      ticking = false;
+    }
+    
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateHorizontalScroll);
+        ticking = true;
+      }
+    }
+    
+    window.addEventListener('scroll', onScroll);
     updateHorizontalScroll();
-  });
+    
+    // Handle resize
+    window.addEventListener('resize', () => {
+      let newTotalWidth = 0;
+      for (let i = 0; i < items.length; i++) {
+        newTotalWidth += items[i].offsetWidth + 64;
+      }
+      horizontalContainer.style.width = `${newTotalWidth}px`;
+      updateHorizontalScroll();
+    });
+  }, 100);
 }
 
-// UPDATED FUNCTION: Team Carousel
+// Initialize Team Carousel
 function initTeamCarousel() {
+  console.log('Initializing team carousel...');
+  
   const teamCarousel = document.getElementById('team-carousel');
-  const teamPrev = document.getElementById('team-prev');
-  const teamNext = document.getElementById('team-next');
-  
   if (!teamCarousel) {
-    console.error('Team carousel container not found');
+    console.warn('Team carousel container not found');
     return;
   }
   
-  // Load team members from data.js
-  const teamMembers = AppData.team || [];
-  
-  if (teamMembers.length === 0) {
-    console.error('No team members found in AppData');
+  if (!AppData.team || AppData.team.length === 0) {
+    console.warn('No team members found in AppData');
     return;
   }
   
-  // Clear and render team members
   teamCarousel.innerHTML = '';
   
-  teamMembers.forEach(member => {
+  AppData.team.forEach(member => {
     const teamCard = document.createElement('div');
     teamCard.className = 'team-card';
     teamCard.innerHTML = `
       <div class="team-avatar">
-        <img src="${member.image}" alt="${member.name}" loading="lazy">
+        <img src="${member.image}" alt="${member.name}" loading="lazy" 
+             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNzAiIGN5PSI3MCIgcj0iNzAiIGZpbGw9IiMyMjIiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiIgZm9udC1mYW1pbHk9IkZ1dHVyYSIgZm9udC1zaXplPSI0MCI+JEk8L3RleHQ+PC9zdmc+'">
       </div>
       <h3 class="team-name">${member.name}</h3>
       <p class="team-role">${member.role}</p>
@@ -242,19 +238,21 @@ function initTeamCarousel() {
     teamCarousel.appendChild(teamCard);
   });
   
-  console.log(`Loaded ${teamMembers.length} team members`);
+  console.log(`Team carousel loaded: ${AppData.team.length} members`);
   
-  // Initialize carousel navigation if buttons exist
+  // Initialize carousel navigation
+  const teamPrev = document.getElementById('team-prev');
+  const teamNext = document.getElementById('team-next');
+  
   if (teamPrev && teamNext) {
     let currentIndex = 0;
-    const cardWidth = 350; // Match your CSS team-card width + gap
-    const totalCards = teamMembers.length;
+    const cardWidth = 350;
     
     teamNext.addEventListener('click', () => {
-      if (currentIndex < totalCards - 1) {
+      if (currentIndex < AppData.team.length - 1) {
         currentIndex++;
         teamCarousel.scrollTo({
-          left: currentIndex * (cardWidth + 32), // 32px is gap (2rem)
+          left: currentIndex * (cardWidth + 32),
           behavior: 'smooth'
         });
       }
@@ -267,27 +265,6 @@ function initTeamCarousel() {
           left: currentIndex * (cardWidth + 32),
           behavior: 'smooth'
         });
-      }
-    });
-    
-    // Touch/swipe support
-    let startX = 0;
-    teamCarousel.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-    });
-    
-    teamCarousel.addEventListener('touchend', (e) => {
-      const endX = e.changedTouches[0].clientX;
-      const diff = startX - endX;
-      
-      if (Math.abs(diff) > 50) { // Minimum swipe distance
-        if (diff > 0 && currentIndex < totalCards - 1) {
-          // Swipe left - next
-          teamNext.click();
-        } else if (diff < 0 && currentIndex > 0) {
-          // Swipe right - previous
-          teamPrev.click();
-        }
       }
     });
   }
@@ -312,7 +289,7 @@ function initMobileMenu() {
   });
   
   // Close menu when clicking a link
-  mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => {
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('active');
     });
@@ -320,18 +297,16 @@ function initMobileMenu() {
 }
 
 function initSmoothScroll() {
-  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
-      
-      if (href === '#') return;
+      if (href === '#' || href === '#!') return;
       
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         window.scrollTo({
-          top: target.offsetTop - 80, // Adjust for fixed header
+          top: target.offsetTop - 80,
           behavior: 'smooth'
         });
       }
@@ -340,24 +315,70 @@ function initSmoothScroll() {
 }
 
 function handleResize() {
-  // Handle resize events
-  if (Utils.isMobile()) {
-    // Adjust for mobile
-    const horizontalContainer = document.getElementById('horizontal-scroll');
-    if (horizontalContainer) {
-      horizontalContainer.style.transform = 'none';
+  // Simple debounce
+  clearTimeout(window.resizeTimer);
+  window.resizeTimer = setTimeout(() => {
+    if (isMobile()) {
+      // Reset horizontal scroll on mobile
+      const horizontalContainer = document.getElementById('horizontal-scroll');
+      if (horizontalContainer) {
+        horizontalContainer.style.transform = 'none';
+        horizontalContainer.style.width = 'auto';
+      }
+    } else {
+      // Reinitialize horizontal scroll on desktop
+      const horizontalContainer = document.getElementById('horizontal-scroll');
+      if (horizontalContainer && horizontalContainer.children.length > 0) {
+        initHorizontalScrollAnimation();
+      }
     }
-  } else {
-    // Adjust for desktop - reinitialize horizontal scroll
-    setTimeout(initHorizontalScrollAnimation, 100);
-  }
+  }, 250);
 }
 
-// Export for use in other files if needed
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = {
-    initFeaturedWork,
-    initTeamCarousel,
-    initHorizontalScrollAnimation
-  };
+// Helper function
+function isMobile() {
+  return window.innerWidth <= 768;
 }
+
+// Emergency fallback function
+function createEmergencyFeaturedWork() {
+  console.log('Creating emergency featured work fallback');
+  
+  const featuredWorkSection = document.getElementById('featured-work');
+  if (!featuredWorkSection) return;
+  
+  // Create a simple grid
+  const emergencyGrid = document.createElement('div');
+  emergencyGrid.className = 'featured-work-mobile grid grid-2';
+  emergencyGrid.innerHTML = `
+    <a href="https://www.youtube.com/watch?v=kwVuPcAiNjY" target="_blank" class="work-item">
+      <div class="work-thumb">
+        <img src="images/nightshift.jpg" alt="Night Shift" onerror="this.style.backgroundColor='#222'">
+        <div class="work-overlay">
+          <span class="work-tag">Short Film</span>
+          <span class="work-title">Night Shift</span>
+        </div>
+      </div>
+    </a>
+    <a href="https://www.youtube.com/watch?v=vQYMIPsxp4c" target="_blank" class="work-item">
+      <div class="work-thumb">
+        <img src="images/intothesea.jpg" alt="Into the Sea" onerror="this.style.backgroundColor='#222'">
+        <div class="work-overlay">
+          <span class="work-tag">Cinematic Short</span>
+          <span class="work-title">Into the Sea</span>
+        </div>
+      </div>
+    </a>
+  `;
+  
+  featuredWorkSection.appendChild(emergencyGrid);
+}
+
+// Make functions available globally for debugging
+window.AlphaFilms = {
+  initFeaturedWork,
+  initTeamCarousel,
+  initHorizontalScrollAnimation,
+  initMobileMenu,
+  isMobile
+};
