@@ -50,26 +50,28 @@ function initMobileMenu() {
   });
 }
 
-// ===== SERVICES =====
 function loadServices() {
   const servicesGrid = document.getElementById('services-grid');
   if (!servicesGrid || !AppData.services) return;
   
   servicesGrid.innerHTML = '';
   
-  AppData.services.forEach(service => {
+  // Make sure we have exactly 6 services for the 2×3 grid
+  const services = AppData.services.slice(0, 6); // Take first 6 services
+  
+  services.forEach(service => {
     const serviceCard = document.createElement('div');
-    serviceCard.className = 'card';
+    serviceCard.className = 'service-card';
     serviceCard.innerHTML = `
-      <h3>${service.icon} ${service.title}</h3>
+      <div class="service-icon">${service.icon}</div>
+      <h3>${service.title}</h3>
       <p>${service.description}</p>
     `;
     servicesGrid.appendChild(serviceCard);
   });
   
-  console.log(`Loaded ${AppData.services.length} services`);
+  console.log(`Loaded ${services.length} services in 2×3 grid`);
 }
-
 // ===== FEATURED WORK =====
 function loadFeaturedWork() {
   const desktopContainer = document.getElementById('featured-work-desktop');
