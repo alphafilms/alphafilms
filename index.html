@@ -369,58 +369,29 @@
       </a>
     </div>
 
-<!-- ✅ CORRECT ORDER - Replace your entire Featured Work + Team sections -->
-
-<!-- Featured Work - HORIZONTAL SCROLL (5 projects) -->
-<section id="portfolio">
-  <div style="padding: 6rem 2rem; max-width: 1400px; margin: 0 auto;">
-    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; text-align: center; margin-bottom: 1rem; letter-spacing: 0.06em; color: var(--fg);">Featured Work</h2>
-    <p style="text-align: center; font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto 4rem;">Scroll horizontally through our latest 5 projects</p>
-
-    <!-- EDITABLE PROJECTS ARRAY -->
-    <script>
-      const projects = [
-        { title: "Broken Reflections", subtitle: "Performance-led short", category: "SHORT FILM", image: "images/broken.jpg", video: "https://youtube.com/embed/AhzQTAfnsCs" },
-        { title: "Night Shift", subtitle: "Atmospheric Delhi film", category: "BRAND FILM", image: "images/nightshift.jpg" },
-        { title: "Goan Classic 350", subtitle: "Royal Enfield campaign", category: "MOTORCYCLE", image: "images/goan.jpg" },
-        { title: "BND Motorsport", subtitle: "High-speed event coverage", category: "MOTORSPORT", image: "images/bnd.jpg" },
-        { title: "D2C Launch", subtitle: "10-day TVC production", category: "TVC", image: "images/d2c.jpg" }
-        // ADD NEW HERE 👇
-      ];
-    </script>
-
-    <div class="horizontal-scroll-container" style="overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; padding:1rem 0; margin:0 -2rem; padding:0 2rem;">
-      <div class="horizontal-scroll-track" id="project-track" style="display:flex; gap:1.5rem; min-width:max-content;"></div>
+    <!-- Latest 4 Projects -->
+    <div class="work-grid" id="featured-grid">
+      <!-- Automated - Latest 4 projects -->
     </div>
 
     <!-- More Work Button -->
-    <div style="text-align:center; margin-top:3rem;">
-      <a href="portfolio.html" style="display:inline-flex; align-items:center; gap:0.75rem; padding:1rem 2.5rem; background:var(--accent); color:white; border-radius:50px; font-weight:600; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.1em; text-decoration:none; box-shadow:0 15px 35px rgba(196,22,30,0.3);">More Work → <i class="fas fa-arrow-right"></i></a>
+    <div class="work-cta-section">
+      <a href="portfolio.html" class="more-work-btn">More Featured Work →</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Team Section (AFTER Portfolio) -->
-<section id="team" style="padding:6rem 2rem; max-width:1400px; margin:0 auto;">
-  <h2 style="font-family:'Playfair Display',serif; font-size:2.8rem; text-align:center; margin-bottom:1rem; letter-spacing:0.06em; color:var(--fg);">Our Team</h2>
-  <p style="text-align:center; font-size:1.1rem; color:var(--muted); max-width:600px; margin:0 auto 4rem;">Compact crew delivering cinematic excellence</p>
-  
-  <div class="team-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2.5rem;">
-    <div class="team-member" style="text-align:center; padding:2.5rem 1.5rem; border-radius:24px; border:1px solid var(--border); background:var(--bg-soft);">
-      <div style="width:120px;height:120px;border-radius:50%;background:rgba(196,22,30,0.1);margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;font-size:2.5rem;"><i class="fas fa-video"></i></div>
-      <div style="font-size:0.85rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.75rem;">Creative Director</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;margin-bottom:1rem;">Deepanshu Sehgal</div>
+  <!-- Team - FIXED CAROUSEL -->
+  <section id="team">
+    <h2 class="section-title">Our Team</h2>
+    <div class="team-wrapper">
+      <div class="team-carousel" id="team-carousel">
+        <!-- Cards populated by JS -->
+      </div>
+      <button class="team-nav prev" id="team-prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="team-nav next" id="team-next"><i class="fas fa-chevron-right"></i></button>
+      <div class="team-dots" id="team-dots"></div>
     </div>
-    <!-- Add more team members here -->
-  </div>
-</section>
-
-<!-- Scrollbar Hide + Render Script (ADD AT BOTTOM before </body>) -->
-<style>
-.horizontal-scroll-container::-webkit-scrollbar{display:none;}
-.horizontal-item:hover{transform:scale(1.02)!important;box-shadow:0 25px 50px rgba(34,34,34,0.15)!important;}
-</style>
-
+  </section>
 
   <!-- News - AUTOMATED (Latest 3) -->
   <section id="news">
@@ -449,33 +420,7 @@
       <p style="margin-top: 2rem; opacity: 0.7;">© 2026 Alpha Films. All rights reserved.</p>
     </div>
   </footer>
-<script>
-// RENDER HORIZONTAL PROJECTS
-function renderProjects(){
-  const track=document.getElementById('project-track');
-  if(!track)return;
-  track.innerHTML='';
-  projects.forEach(project=>{
-    const item=document.createElement('a');
-    item.href=project.video||'portfolio.html';
-    item.target=project.video?'_blank':'_self';
-    item.style.cssText='scroll-snap-align:start;flex:0 0 380px;max-width:380px;border-radius:20px;overflow:hidden;background:var(--bg-soft);border:1px solid var(--border);box-shadow:0 15px 35px var(--shadow);text-decoration:none;display:block;transition:all 0.4s ease;';
-    const mediaHTML=project.video?`<iframe src="${project.video}" frameborder="0" allowfullscreen style="width:100%;height:210px;"></iframe>`:`<img src="${project.image}" alt="${project.title}" style="width:100%;height:210px;object-fit:cover;" loading="lazy">`;
-    item.innerHTML=`
-      <div style="position:relative;overflow:hidden;">
-        ${mediaHTML}
-        <div style="position:absolute;inset:0;background:linear-gradient(transparent 70%,rgba(248,244,240,0.95));"></div>
-      </div>
-      <div style="padding:1.8rem 1.5rem;">
-        <div style="font-size:0.8rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.6rem;">${project.category}</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;margin-bottom:0.4rem;color:var(--fg);">${project.title}</div>
-        <div style="font-size:0.95rem;color:var(--muted);">${project.subtitle}</div>
-      </div>`;
-    track.appendChild(item);
-  });
-}
-window.addEventListener('load',renderProjects);
-</script>
+
   <!-- COMPLETE CLEAN JAVASCRIPT - NO DUPLICATES -->
   <script>
     // DATA ARRAYS - ADD NEW ITEMS HERE ONLY
