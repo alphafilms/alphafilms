@@ -1,25 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alpha Films | Cinematic Production Studio</title>
-  <meta name="description" content="Alpha Films is a one-stop film and video production company offering end-to-end production solutions." />
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/logo.png">
-  
-  <!-- Your CSS Files (in correct order) -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/main.css">
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Futura:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  
-  <!-- Google Analytics -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4NXETF7WV7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -27,36 +9,200 @@
     gtag('js', new Date());
     gtag('config', 'G-4NXETF7WV7');
   </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alpha Films</title>
+  <meta name="description" content="Alpha Films is a one-stop film and video production company offering end-to-end production solutions." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Futura:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- Navigation -->
-  <header data-component="navigation"></header>
-  
-  <!-- Floating Action Buttons -->
-  <div data-component="floating-buttons"></div>
-  
-  <!-- Hero Section -->
-  <section id="hero" data-component="hero"></section>
-  
-  <!-- Services Section -->
-  <section id="services" data-component="services"></section>
-  
-  <!-- Featured Work Section -->
-  <section id="featured-work" data-component="featured-work"></section>
-  
-  <!-- Team Section -->
-  <section id="team" data-component="team"></section>
-  
-  <!-- News Section -->
-  <section id="news" data-component="news"></section>
-  
-  <!-- Contact Section -->
-  <footer id="contact" data-component="contact"></footer>
-  
-  <!-- JavaScript Files -->
+  <header>
+    <nav class="nav">
+      <div class="logo" onclick="window.location.href='index.html'">
+        <img src="images/logo.png" alt="Alpha Films Logo">
+        <span>ALPHA FILMS</span>
+      </div>
+
+      <div class="desktop-menu">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#featured-work" class="nav-link">Featured Work</a>
+        <a href="#team" class="nav-link">Team</a>
+        <a href="#news" class="nav-link">News</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero" class="mobile-nav-link">Home</a>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#featured-work" class="mobile-nav-link">Featured Work</a>
+        <a href="#team" class="mobile-nav-link">Team</a>
+        <a href="#news" class="mobile-nav-link">News</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20your%20studio%2Fvideo%20production%20services.%20What's%20next%3F" 
+     class="whatsapp-book-now" 
+     target="_blank" 
+     title="Book Now on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Floating Social Buttons -->
+  <div class="floating-buttons">
+    <a href="https://instagram.com/alphafilmsofficial" class="fab instagram" target="_blank" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.linkedin.com/company/alphafilms" class="fab linkedin" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <div class="action-belt">
+      <div class="action-marquee">
+        <div class="action-item">*LIGHTS | CAMERA | ACTION*</div>
+        <div class="action-item">*PREMIUM QUALITY | CINEMATIC RESULTS*</div>
+        <div class="action-item">*CREATIVE STORYTELLING | PROFESSIONAL EXECUTION*</div>
+      </div>
+    </div>
+    
+    <div class="hero-content">
+      <div class="hero-logo">
+        <img src="images/logo.png" alt="Alpha Films Logo">
+      </div>
+      <div class="hero-text">
+        <h1 class="tagline">Frame by frame.<br>Feeling by feeling.</h1>
+        <p class="hero-subtitle">
+          Alpha Films is a one-stop film and video production company offering end-to-end production solutions. 
+          From concept development and pre-production to filming, post-production, and final delivery, 
+          we create high-quality films, commercials, and digital content that stand out.
+        </p>
+        <div class="hero-cta">
+          <a href="#services" class="book-now-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      
+      <div class="grid" id="services-grid">
+        <!-- Services will be loaded by JavaScript -->
+      </div>
+
+      <div class="services-cta">
+        <a href="#contact" class="book-now-btn">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Work -->
+  <section id="featured-work" class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Work</h2>
+      
+      <div class="featured-work-container" id="featured-work-desktop">
+        <!-- Desktop horizontal scroll -->
+      </div>
+      
+      <div class="featured-work-mobile" id="featured-work-mobile">
+        <!-- Mobile grid -->
+      </div>
+      
+      <div class="text-center" style="margin-top: 3rem;">
+        <a href="#" class="btn-secondary">View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="section">
+    <div class="container">
+      <h2 class="section-title">Our Team</h2>
+      
+      <div class="team-wrapper">
+        <div class="team-carousel" id="team-carousel">
+          <!-- Team members will be loaded by JavaScript -->
+        </div>
+        
+        <button class="team-nav prev" id="team-prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="team-nav next" id="team-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section id="news" class="section">
+    <div class="container">
+      <h2 class="section-title">News & Updates</h2>
+      
+      <div class="news-grid" id="news-grid">
+        <!-- News will be loaded by JavaScript -->
+      </div>
+      
+      <div class="text-center" style="margin-top: 3rem;">
+        <a href="#" class="btn-secondary">View All News</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <footer id="contact" class="section">
+    <div class="container">
+      <div class="contact-content">
+        <h2>Ready to create?</h2>
+        <p>
+          📍 Delhi, India<br>
+          📱 +91 85870 90302<br>
+          📧 <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a>
+        </p>
+        
+        <div class="social-links">
+          <a href="https://instagram.com/alphafilmsofficial" target="_blank" class="social-btn instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/alphafilms" target="_blank" class="social-btn linkedin">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://wa.me/918587090302" target="_blank" class="social-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        
+        <p style="margin-top: 2rem; opacity: 0.7;">© 2026 Alpha Films. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
   <script src="js/data.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/components.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
