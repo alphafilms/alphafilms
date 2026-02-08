@@ -9,6 +9,7 @@
   --color-text-muted: #999999;
   --color-accent: #ffffff;
   --color-border: #333333;
+  --color-red: #ff0000; /* Added red color */
   
   /* Social Colors */
   --color-whatsapp: #25D366;
@@ -163,7 +164,7 @@ header {
   padding: 0.5rem;
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO SECTION - UPDATED ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -196,24 +197,46 @@ header {
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  transform: translateY(-15%); /* Moves content above center */
 }
 
-.hero-logo {
-  margin-bottom: var(--space-lg);
+/* ALPHA FILMS Title */
+.alpha-films-title {
+  line-height: 1;
+  margin-bottom: var(--space-xl);
+  text-align: center;
 }
 
-.hero-logo img {
-  height: 120px;
-  width: auto;
-  filter: brightness(1.2) contrast(1.1);
+.alpha-red {
+  color: var(--color-red);
+  font-size: var(--text-6xl);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  display: block;
+  line-height: 0.9;
+  text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.8);
+  margin-bottom: -0.1em;
+}
+
+.films-white {
+  color: var(--color-text);
+  font-size: var(--text-5xl);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: block;
+  line-height: 0.9;
+  text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.8);
 }
 
 .tagline {
-  font-size: var(--text-5xl);
+  font-size: var(--text-xl);
   font-weight: 300;
   margin-bottom: var(--space-md);
   letter-spacing: 0.02em;
-  line-height: 1.1;
+  line-height: 1.4;
+  opacity: 0.9;
 }
 
 .hero-subtitle {
@@ -779,12 +802,27 @@ footer {
     padding: 0 var(--space-sm);
   }
   
-  .tagline {
+  /* Responsive Hero Typography */
+  .alpha-red {
+    font-size: var(--text-5xl);
+    letter-spacing: 0.12em;
+  }
+  
+  .films-white {
     font-size: var(--text-4xl);
+    letter-spacing: 0.1em;
+  }
+  
+  .tagline {
+    font-size: var(--text-lg);
   }
   
   .hero-subtitle {
     font-size: var(--text-base);
+  }
+  
+  .hero-content {
+    transform: translateY(-10%);
   }
   
   #services-grid {
@@ -812,8 +850,23 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .tagline {
+  /* Responsive Hero Typography */
+  .alpha-red {
+    font-size: var(--text-4xl);
+    letter-spacing: 0.1em;
+  }
+  
+  .films-white {
     font-size: var(--text-3xl);
+    letter-spacing: 0.08em;
+  }
+  
+  .tagline {
+    font-size: var(--text-base);
+  }
+  
+  .hero-content {
+    transform: translateY(-5%);
   }
   
   #services-grid {
@@ -848,12 +901,23 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .tagline {
-    font-size: var(--text-2xl);
+  /* Responsive Hero Typography */
+  .alpha-red {
+    font-size: var(--text-3xl);
+    letter-spacing: 0.08em;
   }
   
-  .hero-logo img {
-    height: 80px;
+  .films-white {
+    font-size: var(--text-2xl);
+    letter-spacing: 0.06em;
+  }
+  
+  .tagline {
+    font-size: var(--text-sm);
+  }
+  
+  .hero-content {
+    transform: translateY(-5%);
   }
   
   .container {
