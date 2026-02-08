@@ -62,14 +62,14 @@ const AppData = {
     },
     {
       title: "Into the Sea",
-      tag: "Cinematic Short",
+      tag: "Short Film",
       image: "images/intothesea.jpg",
       url: "https://www.youtube.com/watch?v=vQYMIPsxp4c",
       description: "An emotional journey of self-discovery set against breathtaking ocean vistas."
     },
     {
       title: "Goan Classic 350",
-      tag: "Motorcycle Film",
+      tag: "Youtube Video",
       image: "images/goan.jpg",
       url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI",
       description: "A visual love letter to the iconic Royal Enfield Classic 350 on Goan roads."
@@ -80,6 +80,20 @@ const AppData = {
       image: "images/broken.jpg",
       url: "https://www.youtube.com/watch?v=AhzQTAfnsCs",
       description: "A poignant exploration of identity and self-perception in modern society."
+    },
+    {
+      title: "BND Motorsport Event - Delhi",
+      tag: "Speed",
+      image: "images/bnd.jpg",
+      url: "https://www.instagram.com/alphafilmsofficial/p/DRO-CBfE5no/?hl=en",
+      description: "Have a look at our shots from the day on our instagram."
+    },
+    {
+      title: "Sui Dhaga",
+      tag: "Apparel Brand",
+      image: "images/sui.jpg",
+      url: "https://www.instagram.com/reel/DMpYLNNzIs7/",
+      description: "Managing brands social media, website, product photoshoots and content creation."
     }
   ],
 
