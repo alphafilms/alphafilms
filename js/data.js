@@ -72,7 +72,7 @@ const AppData = {
     {
       title: "Goan Classic 350",
       tag: "Youtube Video",
-      category: "Social Media", // Add this
+      category: "social", // Add this
       image: "images/goan.jpg",
       url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI",
       description: "A visual love letter to the iconic Royal Enfield Classic 350 on Goan roads."
