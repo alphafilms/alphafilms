@@ -101,8 +101,8 @@ const AppData = {
     {
       name: "Shivani Damle",
       role: "Creative Lead",
-      bio: "Creative visionary with expertise in visual storytelling and art direction. Brings unique perspectives to every project with a focus on emotional impact.",
-      image: "team_images/shivani.jpg"
+      bio: "With 3+ years in content strategy, Shivani turns ideas into engaging brand experiences across radio advertising and experiential branding platforms. An MBA in Media & Entertainment, she brings sharp storytelling and strategic thinking to every campaign.",
+      image: "team_images/shivani.jpeg"
     },
     {
       name: "Parth Sehgal",
