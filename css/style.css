@@ -84,85 +84,40 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: #ffffff; /* Pure white background */
-  backdrop-filter: blur(10px);
+  background: transparent; /* Make background transparent */
   padding: 1.5rem 0;
   transition: all 0.3s ease;
-  border-bottom: none;
 }
 
 .nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* Align to right side */
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-md);
 }
 
+/* Hide the logo completely */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.logo img {
-  height: 2rem;
-  width: auto;
-}
-
-.logo span {
-  font-size: 1.25rem;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #000000;
-}
-
-.desktop-menu {
-  display: flex;
-  gap: 3rem;
-}
-
-.nav-link {
-  font-size: 0.9rem;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #000000;
-  opacity: 0.7;
-  transition: all 0.3s ease;
-  position: relative;
-  padding: 0.5rem 0;
-}
-
-.nav-link:hover {
-  opacity: 1;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: #000000;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.mobile-menu-toggle {
   display: none;
+}
+
+/* Hide desktop menu */
+.desktop-menu {
+  display: none;
+}
+
+/* Show mobile menu toggle always */
+.mobile-menu-toggle {
+  display: block;
   background: none;
   border: none;
-  color: #000000;
+  color: #ffffff; /* White color for visibility */
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
+  z-index: 1001;
 }
 
 /* ===== HERO SECTION - UPDATED ===== */
@@ -243,21 +198,16 @@ header {
   z-index: 2;
 }
 
-/* Top Left - BOTH LINES RED */
+/* Move top text down to avoid overlap with transparent header */
 .frame-top-left {
-  top: 2rem;
+  top: 4rem; /* CHANGED FROM 2rem to 4rem */
   left: 2rem;
 }
 
-/* Bottom Left - BOTH LINES WHITE */
+/* Bottom text stays same */
 .frame-bottom-left {
   bottom: 2rem;
   left: 2rem;
-}
-
-/* Remove right side containers */
-.frame-top-right, .frame-bottom-right {
-  display: none;
 }
 
 .frame-text {
@@ -950,7 +900,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: var(--color-bg-dark);
+  background: #000000; /* Black background for mobile menu */
   z-index: 9999;
   flex-direction: column;
   justify-content: center;
