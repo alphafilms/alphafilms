@@ -49,7 +49,7 @@ html {
 }
 
 body {
-  font-family: 'Futura', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--color-bg-dark);
   color: var(--color-text);
   line-height: 1.6;
@@ -84,10 +84,11 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.9);
+  background: #000000; /* Pure black background */
   backdrop-filter: blur(10px);
   padding: 1.5rem 0;
   transition: all 0.3s ease;
+  border-bottom: none;
 }
 
 .nav {
@@ -188,70 +189,87 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0.3);
   z-index: -1;
 }
 
 .hero-content {
-  max-width: 800px;
-  margin: 0 auto;
   position: relative;
   z-index: 1;
   transform: translateY(-15%); /* Moves content above center */
+  text-align: center;
 }
 
 /* ALPHA FILMS Title */
 .alpha-films-title {
-  line-height: 1;
-  margin-bottom: var(--space-xl);
+  line-height: 0.85;
+  margin-bottom: 0;
   text-align: center;
 }
 
 .alpha-red {
   color: var(--color-red);
-  font-size: var(--text-6xl);
-  font-weight: 900;
+  font-size: 230px; /* 230px font size */
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.02em;
   display: block;
-  line-height: 0.9;
-  text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.8);
-  margin-bottom: -0.1em;
+  font-family: 'Inter', sans-serif;
+  text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);
 }
 
 .films-white {
   color: var(--color-text);
-  font-size: var(--text-5xl);
+  font-size: 230px; /* 230px font size */
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  display: block;
-  line-height: 0.9;
-  text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.8);
-}
-
-.tagline {
-  font-size: var(--text-xl);
-  font-weight: 300;
-  margin-bottom: var(--space-md);
   letter-spacing: 0.02em;
-  line-height: 1.4;
-  opacity: 0.9;
+  display: block;
+  font-family: 'Inter', sans-serif;
+  text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);
+  margin-top: -60px; /* Adjust overlap/spacing */
 }
 
-.hero-subtitle {
-  font-size: var(--text-lg);
-  font-weight: 300;
-  line-height: 1.7;
-  margin-bottom: var(--space-xl);
-  opacity: 0.8;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+/* Frame by frame / Feeling by feeling text */
+.frame-text-container {
+  position: absolute;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.frame-top-left {
+  top: 2rem;
+}
+
+.frame-bottom-left {
+  bottom: 2rem;
+}
+
+.frame-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.frame-text-red {
+  color: var(--color-red);
+}
+
+.frame-text-white {
+  color: var(--color-text);
+}
+
+/* Remove old tagline and subtitle */
+.tagline, .hero-subtitle {
+  display: none;
 }
 
 .hero-cta {
-  margin-top: var(--space-lg);
+  margin-top: 3rem;
 }
 
 /* ===== BUTTONS - MINIMALIST STYLE ===== */
@@ -312,38 +330,8 @@ header {
   color: var(--color-bg-dark);
 }
 
-/* ===== ACTION BELT - SIMPLIFIED ===== */
-.action-belt {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  background: rgba(0, 0, 0, 0.8);
-  overflow: hidden;
-}
-
-.action-marquee {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  animation: scroll 20s linear infinite;
-}
-
-.action-item {
-  font-size: 0.9rem;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  color: var(--color-text);
-  padding: 0 2rem;
-  white-space: nowrap;
-  opacity: 0.7;
-}
-
-@keyframes scroll {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
+/* ===== ACTION BELT - REMOVED ===== */
+/* Action belt has been completely removed */
 
 /* ===== SECTION TITLES - MINIMALIST ===== */
 .section-title {
@@ -785,6 +773,15 @@ footer {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1200px) {
+  .alpha-red, .films-white {
+    font-size: 180px;
+  }
+  .films-white {
+    margin-top: -45px;
+  }
+}
+
 @media (max-width: 991px) {
   .desktop-menu {
     display: none;
@@ -803,26 +800,33 @@ footer {
   }
   
   /* Responsive Hero Typography */
-  .alpha-red {
-    font-size: var(--text-5xl);
-    letter-spacing: 0.12em;
+  .alpha-red, .films-white {
+    font-size: 140px;
   }
   
   .films-white {
-    font-size: var(--text-4xl);
-    letter-spacing: 0.1em;
-  }
-  
-  .tagline {
-    font-size: var(--text-lg);
-  }
-  
-  .hero-subtitle {
-    font-size: var(--text-base);
+    margin-top: -35px;
   }
   
   .hero-content {
     transform: translateY(-10%);
+  }
+  
+  /* Frame text responsive */
+  .frame-text {
+    font-size: 16px;
+  }
+  
+  .frame-text-container {
+    left: 1rem;
+  }
+  
+  .frame-top-left {
+    top: 1rem;
+  }
+  
+  .frame-bottom-left {
+    bottom: 1rem;
   }
   
   #services-grid {
@@ -851,22 +855,21 @@ footer {
 
 @media (max-width: 768px) {
   /* Responsive Hero Typography */
-  .alpha-red {
-    font-size: var(--text-4xl);
-    letter-spacing: 0.1em;
+  .alpha-red, .films-white {
+    font-size: 100px;
   }
   
   .films-white {
-    font-size: var(--text-3xl);
-    letter-spacing: 0.08em;
-  }
-  
-  .tagline {
-    font-size: var(--text-base);
+    margin-top: -25px;
   }
   
   .hero-content {
     transform: translateY(-5%);
+  }
+  
+  /* Frame text for mobile */
+  .frame-text {
+    font-size: 14px;
   }
   
   #services-grid {
@@ -902,22 +905,21 @@ footer {
 
 @media (max-width: 480px) {
   /* Responsive Hero Typography */
-  .alpha-red {
-    font-size: var(--text-3xl);
-    letter-spacing: 0.08em;
+  .alpha-red, .films-white {
+    font-size: 70px;
   }
   
   .films-white {
-    font-size: var(--text-2xl);
-    letter-spacing: 0.06em;
-  }
-  
-  .tagline {
-    font-size: var(--text-sm);
+    margin-top: -15px;
   }
   
   .hero-content {
     transform: translateY(-5%);
+  }
+  
+  /* Frame text for small mobile */
+  .frame-text {
+    font-size: 12px;
   }
   
   .container {
