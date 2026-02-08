@@ -345,7 +345,7 @@ header {
   display: flex;
   gap: 2rem;
   padding: 1rem 0;
-  animation: scrollBelt 40s linear infinite;
+  animation: scrollBelt 250s linear infinite; /*change for slower work belt*/
   width: max-content;
 }
 
