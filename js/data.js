@@ -101,7 +101,7 @@ const AppData = {
       name: "Shivani Damle",
       role: "Creative Lead",
       bio: "Creative visionary with expertise in visual storytelling and art direction. Brings unique perspectives to every project with a focus on emotional impact.",
-      image: "team_images/shivani.jpg"
+      image: "team_images/shivani.jpeg"
     },
     {
       name: "Parth Sehgal",
