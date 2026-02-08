@@ -1035,16 +1035,23 @@ footer {
     transform: translateX(5px);
   }
 }
+
+/* Mobile styles for horizontal scroll */
 @media (max-width: 768px) {
   .horizontal-scroll-container {
-    height: 80vh;
-    min-height: 600px;
+    height: 70vh;
+    min-height: 500px;
+  }
+  
+  .horizontal-scroll-track {
+    gap: 2rem;
+    padding-left: 1rem;
   }
   
   .horizontal-scroll-item {
     flex: 0 0 85vw; /* 85% of viewport width on mobile */
-    height: 60vh;
-    min-height: 400px;
+    height: 50vh;
+    min-height: 350px;
   }
   
   .scroll-title {
@@ -1053,6 +1060,12 @@ footer {
   
   .scroll-description {
     font-size: 1rem;
+    display: none; /* Hide description on mobile for cleaner look */
+  }
+  
+  .scroll-cta {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
   }
   
   .scroll-hint {
@@ -1061,24 +1074,35 @@ footer {
     font-size: 0.8rem;
   }
   
-  /* Keep mobile grid as backup */
+  /* Show horizontal scroll on mobile */
+  .horizontal-scroll-container {
+    display: block !important;
+  }
+  
+  /* Hide mobile grid when horizontal scroll is active */
   .featured-work-mobile {
-    display: none; /* Hide grid when horizontal scroll is active */
+    display: none;
   }
 }
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  .featured-work-mobile {
+    display: none;
+  }
+  
+  .horizontal-scroll-container {
+    display: block !important;
+  }
+}
+
 /* Better touch scrolling on mobile */
 @media (max-width: 768px) {
   .horizontal-scroll-track {
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    padding-left: 1rem; /* Add some padding on mobile */
   }
   
   .horizontal-scroll-item {
     touch-action: pan-y; /* Allow vertical scroll on items */
-  }
-}
-@media (min-width: 769px) {
-  .featured-work-mobile {
-    display: none;
   }
 }
