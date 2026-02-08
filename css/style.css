@@ -233,41 +233,31 @@ header {
   margin-top: -0.3em; /* Reduced overlap */
 }
 
-/* Frame by frame / Feeling by feeling text - BOTH SIDES */
+/* Frame by frame / Feeling by feeling text - LEFT SIDE ONLY */
 .frame-text-container {
   position: absolute;
+  left: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   z-index: 2;
 }
 
-/* Top Left */
+/* Top Left - BOTH LINES RED */
 .frame-top-left {
   top: 2rem;
   left: 2rem;
 }
 
-/* Bottom Left */
+/* Bottom Left - BOTH LINES WHITE */
 .frame-bottom-left {
   bottom: 2rem;
   left: 2rem;
 }
 
-/* Top Right */
-.frame-top-right {
-  top: 2rem;
-  right: 2rem;
-  text-align: right;
-  align-items: flex-end;
-}
-
-/* Bottom Right */
-.frame-bottom-right {
-  bottom: 2rem;
-  right: 2rem;
-  text-align: right;
-  align-items: flex-end;
+/* Remove right side containers */
+.frame-top-right, .frame-bottom-right {
+  display: none;
 }
 
 .frame-text {
