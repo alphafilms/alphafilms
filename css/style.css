@@ -161,31 +161,31 @@ header {
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: -30px; /* Adjust this value: negative = closer, positive = further */
 }
 
 .alpha-red {
   color: var(--color-red);
-  font-size: 230px; /* 230px font size */
+  font-size: 230px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   display: block;
   font-family: 'Inter', sans-serif;
   text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);
-  margin-bottom: -0.1em;
+  /* Remove: margin-bottom: -0.1em; */
 }
 
 .films-white {
   color: var(--color-text);
-  font-size: 230px; /* 230px font size */
+  font-size: 230px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   display: block;
   font-family: 'Inter', sans-serif;
   text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);
-  margin-top: -0.3em; /* Reduced overlap */
+  /* Remove: margin-top: -0.3em; */
 }
 
 /* Frame by frame / Feeling by feeling text - LEFT SIDE ONLY */
@@ -198,9 +198,9 @@ header {
   z-index: 2;
 }
 
-/* Move top text down to avoid overlap with transparent header */
+/* Top text */
 .frame-top-left {
-  top: 4rem; /* CHANGED FROM 2rem to 4rem */
+  top: 2rem; 
   left: 2rem;
 }
 
