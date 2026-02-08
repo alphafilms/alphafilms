@@ -931,3 +931,21 @@ footer {
     touch-action: pan-y;
   }
 }
+
+
+/* TEMPORARY DEBUG - Remove after belt is visible */
+#cinema-belt {
+  border: 2px solid red;
+  min-height: 400px;
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.project-card {
+  border: 1px solid blue;
+  background: white;
+}
+
+.featured-work-container {
+  border: 2px solid green;
+  min-height: 100px;
+}
