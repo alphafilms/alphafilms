@@ -3,18 +3,18 @@
 /* ===== BASE VARIABLES ===== */
 :root {
   /* Modern Minimalist Color Palette */
-  --color-bg-dark: #f5f5f5; /* CHANGED FROM #000000 to #f5f5f5 (off-white) */
-  --color-bg-soft: #111111; /* CHANGED FROM #111111 to #ffffff (pure white) */
-  --color-text: #000000; /* CHANGED FROM #ffffff to #000000 (black text) */
-  --color-text-muted: #999999; /* CHANGED FROM #999999 to #666666 */
-  --color-accent: #000000; /* CHANGED FROM #ffffff to #000000 */
-  --color-border: #dddddd; /* CHANGED FROM #333333 to #dddddd (light gray) */
-  --color-red: #ff0000;
-  --color-off-white: #f5f5f5; ADD THIS - off-white color */
+  --color-bg-dark: #f5f5f5;         /* Off-white background */
+  --color-bg-soft: #ffffff;         /* White for softer backgrounds */
+  --color-text: #000000;            /* Black text */
+  --color-text-muted: #666666;      /* Dark gray for muted text */
+  --color-accent: #000000;          /* Black for accents */
+  --color-border: #dddddd;          /* Light gray borders */
+  --color-red: #ff0000;             /* Red for highlights */
+  --color-off-white: #f5f5f5;       /* Off-white */
   
   /* Social Colors */
   --color-whatsapp: #25D366;
-  --color-instagram: #ffffff;
+  --color-instagram: #E4405F;
   --color-linkedin: #0077B5;
   
   /* Spacing */
@@ -51,8 +51,8 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--color-bg-dark); /* This will now be off-white #f5f5f5 */
-  color: var(--color-text); /* This will now be black #000000 */
+  background-color: var(--color-bg-dark);
+  color: var(--color-text);
   line-height: 1.6;
   overflow-x: hidden;
   font-weight: 300;
@@ -76,6 +76,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   letter-spacing: 0.02em;
   line-height: 1.2;
+  color: var(--color-text);
 }
 
 /* ===== NAVIGATION ===== */
@@ -85,14 +86,14 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: transparent; /* Make background transparent */
+  background: transparent;
   padding: 1.5rem 0;
   transition: all 0.3s ease;
 }
 
 .nav {
   display: flex;
-  justify-content: flex-end; /* Align to right side */
+  justify-content: flex-end;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
@@ -114,14 +115,14 @@ header {
   display: block;
   background: none;
   border: none;
-  color: #ffffff; /* White color for visibility */
+  color: var(--color-text);
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
   z-index: 1001;
 }
 
-/* ===== HERO SECTION - UPDATED ===== */
+/* ===== HERO SECTION ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -145,25 +146,24 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* REMOVE OR ADJUST: filter: brightness(0.3); */
   z-index: -1;
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  transform: translateY(-15%); /* Moves content above center */
+  transform: translateY(-15%);
   text-align: center;
 }
 
-/* ALPHA FILMS Title - FIXED OVERLAP */
+/* ALPHA FILMS Title */
 .alpha-films-title {
   line-height: 0.9;
   margin-bottom: 0;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: -30px; /* Adjust this value: negative = closer, positive = further */
+  gap: -30px;
 }
 
 .alpha-red {
@@ -174,24 +174,20 @@ header {
   letter-spacing: 0.02em;
   display: block;
   font-family: 'Inter', sans-serif;
-  /* REMOVED: text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8); */
-  /* ADDED: White outline */
-  -webkit-text-stroke: 2px #ffffff; /* White outline */
-  text-stroke: 2px #ffffff; /* White outline */
-  paint-order: stroke fill; /* Makes outline appear behind the text */
+  -webkit-text-stroke: 2px #ffffff;
+  text-stroke: 2px #ffffff;
+  paint-order: stroke fill;
 }
 
 .films-white {
-  color: var(--color-off-white); /* CHANGED FROM var(--color-text) to off-white */
+  color: var(--color-off-white);
   font-size: 230px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   display: block;
   font-family: 'Inter', sans-serif;
-  /* REMOVED: text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8); */
 }
-
 
 /* Frame by frame / Feeling by feeling text - LEFT SIDE ONLY */
 .frame-text-container {
@@ -203,13 +199,13 @@ header {
   z-index: 2;
 }
 
-/* Top text */
+/* Top Left - BOTH LINES RED */
 .frame-top-left {
-  top: 2rem; 
+  top: 2rem;
   left: 2rem;
 }
 
-/* Bottom text stays same */
+/* Bottom Left - BOTH LINES WHITE */
 .frame-bottom-left {
   bottom: 2rem;
   left: 2rem;
@@ -229,7 +225,7 @@ header {
 }
 
 .frame-text-white {
-  color: var(--color-bg-dark);
+  color: var(--color-off-white);
 }
 
 /* Remove old tagline and subtitle */
@@ -237,17 +233,13 @@ header {
   display: none;
 }
 
-.hero-cta {
-  margin-top: 3rem;
-}
-
-/* ===== BUTTONS - MINIMALIST STYLE ===== */
+/* ===== BUTTONS ===== */
 .book-now-btn {
   display: inline-block;
   background: transparent;
   color: var(--color-text);
   padding: 1rem 2.5rem;
-  border: 1px solid var(--color-text);
+  border: 1px solid var(--color-border);
   border-radius: 0;
   font-size: 0.9rem;
   font-weight: 300;
@@ -284,7 +276,7 @@ header {
   background: transparent;
   color: var(--color-text);
   padding: 1rem 2.5rem;
-  border: 1px solid var(--color-text);
+  border: 1px solid var(--color-border);
   border-radius: 0;
   font-size: 0.9rem;
   font-weight: 300;
@@ -297,12 +289,10 @@ header {
 .btn-secondary:hover {
   background: var(--color-text);
   color: var(--color-bg-dark);
+  border-color: var(--color-text);
 }
 
-/* ===== ACTION BELT - REMOVED ===== */
-/* Action belt has been completely removed */
-
-/* ===== SECTION TITLES - MINIMALIST ===== */
+/* ===== SECTION TITLES ===== */
 .section-title {
   font-size: var(--text-3xl);
   font-weight: 300;
@@ -312,7 +302,7 @@ header {
   text-align: center;
   position: relative;
   padding-bottom: var(--space-sm);
-  color: #000000; /* ADD THIS - black color */
+  color: var(--color-text);
 }
 
 .section-title::after {
@@ -323,10 +313,10 @@ header {
   transform: translateX(-50%);
   width: 60px;
   height: 1px;
-  background: #000000; /* CHANGED FROM var(--color-text) to #000000 */
+  background: var(--color-text);
 }
 
-/* ===== SERVICES SECTION - CLEAN GRID ===== */
+/* ===== SERVICES SECTION ===== */
 #services-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr);
@@ -359,12 +349,12 @@ header {
   font-weight: 300;
   margin-bottom: 1rem;
   letter-spacing: 0.05em;
-  color: #000000; /* ADD THIS - black color */
+  color: var(--color-text);
 }
 
 .service-card p {
   font-size: 0.95rem;
-  color: #666666; /* CHANGED FROM var(--color-text-muted) to #666666 */
+  color: var(--color-text-muted);
   line-height: 1.6;
 }
 
@@ -442,14 +432,14 @@ header {
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   opacity: 0.8;
-  color: #000000; /* ADD THIS - black color */
+  color: #ffffff;
 }
 
 .scroll-title {
   font-size: 1.5rem;
   font-weight: 300;
   margin-bottom: 0.5rem;
-  color: #000000; /* ADD THIS - black color */
+  color: #ffffff;
 }
 
 .scroll-description {
@@ -457,7 +447,7 @@ header {
   opacity: 0.8;
   margin-bottom: 1rem;
   line-height: 1.5;
-  color: #000000; /* ADD THIS - black color */
+  color: #ffffff;
 }
 
 .scroll-cta {
@@ -468,11 +458,12 @@ header {
   font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #000000; /* CHANGED FROM var(--color-text) to #000000 */
+  color: #ffffff;
   text-decoration: none;
   opacity: 0.8;
   transition: all 0.3s ease;
 }
+
 .scroll-cta:hover {
   opacity: 1;
   gap: 1rem;
@@ -504,7 +495,7 @@ header {
   60% { transform: translateX(2px); }
 }
 
-/* ===== TEAM SECTION - CLEAN CARDS ===== */
+/* ===== TEAM SECTION ===== */
 .team-wrapper {
   position: relative;
   max-width: 1200px;
@@ -552,7 +543,7 @@ header {
   font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #666666; /* CHANGED FROM var(--color-text-muted) to #666666 */
+  color: var(--color-text-muted);
   margin-bottom: 0.5rem;
 }
 
@@ -560,12 +551,12 @@ header {
   font-size: 1.25rem;
   font-weight: 300;
   margin-bottom: 1rem;
-  color: #000000; /* ADD THIS - black color */
+  color: var(--color-text);
 }
 
 .team-bio {
   font-size: 0.95rem;
-  color: #666666; /* CHANGED FROM var(--color-text-muted) to #666666 */
+  color: var(--color-text-muted);
   line-height: 1.6;
 }
 
@@ -634,7 +625,7 @@ header {
   font-weight: 300;
   margin-bottom: 1rem;
   line-height: 1.4;
-  color: #000000; /* ADD THIS - black color */
+  color: var(--color-text);
 }
 
 .news-link {
@@ -645,7 +636,7 @@ header {
   font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #000000; /* CHANGED FROM var(--color-text) to #000000 */
+  color: var(--color-text);
   text-decoration: none;
   opacity: 0.8;
   transition: all 0.3s ease;
@@ -675,6 +666,7 @@ footer {
   margin-bottom: var(--space-lg);
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: var(--color-text);
 }
 
 .contact-content p {
@@ -747,25 +739,49 @@ footer {
   background: #128C7E;
 }
 
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--color-bg-soft);
+  z-index: 9999;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+.mobile-nav-link {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  margin: 1rem 0;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+  opacity: 1;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1200px) {
   .alpha-red, .films-white {
     font-size: 180px;
   }
-  .films-white {
-    margin-top: -0.2em;
-  }
 }
 
 @media (max-width: 991px) {
-  .desktop-menu {
-    display: none;
-  }
-  
-  .mobile-menu-toggle {
-    display: block;
-  }
-  
   .nav {
     padding: 0 var(--space-sm);
   }
@@ -774,34 +790,27 @@ footer {
     padding: 0 var(--space-sm);
   }
   
-  /* Responsive Hero Typography */
   .alpha-red, .films-white {
     font-size: 140px;
-  }
-  
-  .films-white {
-    margin-top: -0.15em;
   }
   
   .hero-content {
     transform: translateY(-10%);
   }
   
-  /* Frame text responsive */
   .frame-text {
     font-size: 16px;
   }
   
   .frame-text-container {
     left: 1rem;
-    right: 1rem;
   }
   
-  .frame-top-left, .frame-top-right {
+  .frame-top-left {
     top: 1rem;
   }
   
-  .frame-bottom-left, .frame-bottom-right {
+  .frame-bottom-left {
     bottom: 1rem;
   }
   
@@ -830,20 +839,14 @@ footer {
 }
 
 @media (max-width: 768px) {
-  /* Responsive Hero Typography */
   .alpha-red, .films-white {
     font-size: 100px;
-  }
-  
-  .films-white {
-    margin-top: -0.1em;
   }
   
   .hero-content {
     transform: translateY(-5%);
   }
   
-  /* Frame text for mobile */
   .frame-text {
     font-size: 14px;
   }
@@ -864,21 +867,11 @@ footer {
     padding-left: 1rem;
   }
   
-.scroll-hint {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #000000; /* CHANGED FROM var(--color-text) to #000000 */
-  font-size: 0.8rem;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.5;
-  z-index: 10;
-}
+  .scroll-hint {
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.7rem;
+  }
   
   .whatsapp-book-now {
     bottom: 1rem;
@@ -890,20 +883,14 @@ footer {
 }
 
 @media (max-width: 480px) {
-  /* Responsive Hero Typography */
   .alpha-red, .films-white {
     font-size: 70px;
-  }
-  
-  .films-white {
-    margin-top: -0.05em;
   }
   
   .hero-content {
     transform: translateY(-5%);
   }
   
-  /* Frame text for small mobile */
   .frame-text {
     font-size: 12px;
   }
@@ -911,41 +898,6 @@ footer {
   .container {
     padding: 0 var(--space-sm);
   }
-}
-
-/* ===== MOBILE MENU ===== */
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #000000; /* CHANGED FROM #000000 to #ffffff (white) */
-  z-index: 9999;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.mobile-menu.active {
-  display: flex;
-}
-
-.mobile-nav-link {
-  font-size: 1.5rem;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #000000; /* CHANGED FROM var(--color-text) to #000000 */
-  text-decoration: none;
-  margin: 1rem 0;
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
-
-.mobile-nav-link:hover {
-  opacity: 1;
 }
 
 /* ===== HORIZONTAL SCROLL MOBILE FIXES ===== */
