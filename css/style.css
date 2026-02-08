@@ -149,6 +149,7 @@ header {
   z-index: -1;
   animation: zoomIn 20s ease-in-out infinite alternate;
 }
+
 /* Zooming effect animation */
 @keyframes zoomIn {
   0% {
@@ -159,12 +160,6 @@ header {
   }
 }
 
-.hero-content {
-  position: relative;
-  z-index: 1;
-  transform: translateY(-15%);
-  text-align: center;
-}
 .hero-content {
   position: relative;
   z-index: 1;
@@ -332,60 +327,18 @@ header {
   background: var(--color-text);
 }
 
-/* ===== SERVICES SECTION ===== */
-#services-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 3rem 0;
-}
-
-.service-card {
-  background: transparent;
-  border: 1px solid var(--color-border);
-  padding: 2.5rem 2rem;
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-.service-card:hover {
-  border-color: var(--color-text);
-  transform: translateY(-5px);
-}
-
-.service-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.9;
-  display: block;
-}
-
-.service-card h3 {
-  font-size: 1.25rem;
-  font-weight: 300;
-  margin-bottom: 1rem;
-  letter-spacing: 0.05em;
-  color: var(--color-text);
-}
-
-.service-card p {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  line-height: 1.6;
-}
-
-.services-cta {
-  text-align: center;
-  margin-top: var(--space-xl);
-}
-
 /* ===== FEATURED WORK - CINEMA BELT ===== */
+#featured-work {
+  padding: var(--space-xl) 0;
+}
+
 .featured-work-container {
   width: 100%;
   overflow: hidden;
   position: relative;
   padding: var(--space-lg) 0;
   background: transparent;
+  margin-bottom: var(--space-xl);
 }
 
 .cinema-belt {
@@ -393,6 +346,7 @@ header {
   gap: 2rem;
   padding: 1rem 0;
   animation: scrollBelt 40s linear infinite;
+  width: max-content;
 }
 
 .cinema-belt:hover {
@@ -407,6 +361,7 @@ header {
   border: 1px solid var(--color-border);
   transition: all 0.3s ease;
   cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .project-card:hover {
@@ -487,29 +442,58 @@ header {
   }
 }
 
-/* Responsive adjustments for cinema belt */
-@media (max-width: 768px) {
-  .project-card {
-    flex: 0 0 250px;
-  }
-  
-  .project-image {
-    height: 150px;
-  }
+/* Center the View All Projects button */
+.view-all-container {
+  text-align: center;
+  margin-top: var(--space-xl);
+  width: 100%;
 }
 
-@media (max-width: 480px) {
-  .project-card {
-    flex: 0 0 200px;
-  }
-  
-  .project-image {
-    height: 120px;
-  }
-  
-  .project-info {
-    padding: 1rem;
-  }
+/* ===== SERVICES SECTION ===== */
+#services-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.service-card {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  padding: 2.5rem 2rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.service-card:hover {
+  border-color: var(--color-text);
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+  display: block;
+}
+
+.service-card h3 {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.services-cta {
+  text-align: center;
+  margin-top: var(--space-xl);
 }
 
 /* ===== TEAM SECTION ===== */
@@ -831,27 +815,21 @@ footer {
     bottom: 1rem;
   }
   
+  /* Cinema Belt Responsive */
+  .project-card {
+    flex: 0 0 250px;
+  }
+  
+  .project-image {
+    height: 150px;
+  }
+  
   #services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   
   .news-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .horizontal-scroll-container {
-    height: 70vh;
-    min-height: 500px;
-  }
-  
-  .horizontal-scroll-item {
-    flex: 0 0 85vw;
-    height: 50vh;
-    min-height: 350px;
-  }
-  
-  .featured-work-mobile {
-    display: none;
   }
 }
 
@@ -868,6 +846,19 @@ footer {
     font-size: 14px;
   }
   
+  /* Cinema Belt Responsive */
+  .project-card {
+    flex: 0 0 200px;
+  }
+  
+  .project-image {
+    height: 120px;
+  }
+  
+  .project-info {
+    padding: 1rem;
+  }
+  
   #services-grid {
     grid-template-columns: 1fr;
   }
@@ -878,16 +869,6 @@ footer {
   
   .team-nav {
     display: none;
-  }
-  
-  .horizontal-scroll-track {
-    padding-left: 1rem;
-  }
-  
-  .scroll-hint {
-    bottom: 1rem;
-    right: 1rem;
-    font-size: 0.7rem;
   }
   
   .whatsapp-book-now {
@@ -915,37 +896,25 @@ footer {
   .container {
     padding: 0 var(--space-sm);
   }
-}
-
-/* ===== HORIZONTAL SCROLL MOBILE FIXES ===== */
-@media (max-width: 768px) {
-  .horizontal-scroll-container {
-    display: block !important;
+  
+  /* Cinema Belt Responsive */
+  .project-card {
+    flex: 0 0 180px;
   }
   
-  .featured-work-mobile {
-    display: none;
+  .project-image {
+    height: 100px;
   }
   
-  .horizontal-scroll-item {
-    touch-action: pan-y;
+  .project-info {
+    padding: 0.75rem;
   }
-}
-
-
-/* TEMPORARY DEBUG - Remove after belt is visible */
-#cinema-belt {
-  border: 2px solid red;
-  min-height: 400px;
-  background: rgba(255, 0, 0, 0.1);
-}
-
-.project-card {
-  border: 1px solid blue;
-  background: white;
-}
-
-.featured-work-container {
-  border: 2px solid green;
-  min-height: 100px;
+  
+  .project-title {
+    font-size: 1rem;
+  }
+  
+  .project-description {
+    font-size: 0.8rem;
+  }
 }
