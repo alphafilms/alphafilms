@@ -136,17 +136,6 @@ const AppData = {
       excerpt: "End-to-end TVC production completed in 10 days for emerging D2C brand. Delivered concept-to-master with motion graphics."
     }
   ],
-
-  // Action Belt Text
-  actionBelt: [
-    "*LIGHTS | CAMERA | ACTION*",
-    "*LIGHTS | CAMERA | ACTION*",
-    "*LIGHTS | CAMERA | ACTION*",
-    "*LIGHTS | CAMERA | ACTION*",
-    "*LIGHTS | CAMERA | ACTION*",
-    "*LIGHTS | CAMERA | ACTION*",
-    "*LIGHTS | CAMERA | ACTION*"
-  ]
 };
 
 console.log("Alpha Films Data Loaded Successfully");
