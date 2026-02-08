@@ -312,6 +312,7 @@ header {
   text-align: center;
   position: relative;
   padding-bottom: var(--space-sm);
+  color: #000000; /* ADD THIS - black color */
 }
 
 .section-title::after {
@@ -322,7 +323,7 @@ header {
   transform: translateX(-50%);
   width: 60px;
   height: 1px;
-  background: var(--color-text);
+  background: #000000; /* CHANGED FROM var(--color-text) to #000000 */
 }
 
 /* ===== SERVICES SECTION - CLEAN GRID ===== */
@@ -358,11 +359,12 @@ header {
   font-weight: 300;
   margin-bottom: 1rem;
   letter-spacing: 0.05em;
+  color: #000000; /* ADD THIS - black color */
 }
 
 .service-card p {
   font-size: 0.95rem;
-  color: var(--color-text-muted);
+  color: #666666; /* CHANGED FROM var(--color-text-muted) to #666666 */
   line-height: 1.6;
 }
 
@@ -440,12 +442,14 @@ header {
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   opacity: 0.8;
+  color: #000000; /* ADD THIS - black color */
 }
 
 .scroll-title {
   font-size: 1.5rem;
   font-weight: 300;
   margin-bottom: 0.5rem;
+  color: #000000; /* ADD THIS - black color */
 }
 
 .scroll-description {
@@ -453,6 +457,7 @@ header {
   opacity: 0.8;
   margin-bottom: 1rem;
   line-height: 1.5;
+  color: #000000; /* ADD THIS - black color */
 }
 
 .scroll-cta {
@@ -463,12 +468,11 @@ header {
   font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text);
+  color: #000000; /* CHANGED FROM var(--color-text) to #000000 */
   text-decoration: none;
   opacity: 0.8;
   transition: all 0.3s ease;
 }
-
 .scroll-cta:hover {
   opacity: 1;
   gap: 1rem;
@@ -548,7 +552,7 @@ header {
   font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: #666666; /* CHANGED FROM var(--color-text-muted) to #666666 */
   margin-bottom: 0.5rem;
 }
 
@@ -556,11 +560,12 @@ header {
   font-size: 1.25rem;
   font-weight: 300;
   margin-bottom: 1rem;
+  color: #000000; /* ADD THIS - black color */
 }
 
 .team-bio {
   font-size: 0.95rem;
-  color: var(--color-text-muted);
+  color: #666666; /* CHANGED FROM var(--color-text-muted) to #666666 */
   line-height: 1.6;
 }
 
@@ -629,6 +634,7 @@ header {
   font-weight: 300;
   margin-bottom: 1rem;
   line-height: 1.4;
+  color: #000000; /* ADD THIS - black color */
 }
 
 .news-link {
@@ -639,7 +645,7 @@ header {
   font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text);
+  color: #000000; /* CHANGED FROM var(--color-text) to #000000 */
   text-decoration: none;
   opacity: 0.8;
   transition: all 0.3s ease;
@@ -858,11 +864,21 @@ footer {
     padding-left: 1rem;
   }
   
-  .scroll-hint {
-    bottom: 1rem;
-    right: 1rem;
-    font-size: 0.7rem;
-  }
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #000000; /* CHANGED FROM var(--color-text) to #000000 */
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  z-index: 10;
+}
   
   .whatsapp-book-now {
     bottom: 1rem;
@@ -921,7 +937,7 @@ footer {
   font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text);
+  color: #000000; /* CHANGED FROM var(--color-text) to #000000 */
   text-decoration: none;
   margin: 1rem 0;
   opacity: 0.7;
