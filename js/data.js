@@ -5,7 +5,6 @@ const AppData = {
   // Company Information
   company: {
     name: "Alpha Films",
-    tagline: "Frame by frame. Feeling by feeling.",
     description: "Alpha Films is a one-stop film and video production company offering end-to-end production solutions.",
     contact: {
       phone: "+91 85870 90302",
