@@ -19,9 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize smooth scroll
   initSmoothScroll();
   
-  // Initialize touch scroll for mobile
-  initTouchScroll();
-  
   console.log('Alpha Films Website Loaded Successfully!');
 });
 
@@ -77,16 +74,25 @@ function loadServices() {
   console.log(`Loaded ${services.length} services in 2×3 grid`);
 }
 
-// ===== FEATURED WORK =====
-// ===== CINEMA BELT =====
+// ===== FEATURED WORK - CINEMA BELT =====
+function loadFeaturedWork() {
+  loadCinemaBelt();
+}
+
 function loadCinemaBelt() {
   const cinemaBelt = document.getElementById('cinema-belt');
-  if (!cinemaBelt || !AppData.projects || AppData.projects.length === 0) return;
+  if (!cinemaBelt || !AppData.projects || AppData.projects.length === 0) {
+    console.log('No cinema belt or projects found');
+    return;
+  }
+  
+  console.log('Loading cinema belt with', AppData.projects.length, 'projects');
   
   cinemaBelt.innerHTML = '';
   
-  // Create two sets of projects for seamless looping
-  const projects = [...AppData.projects, ...AppData.projects];
+  // Create multiple sets of projects for seamless looping
+  // We need enough to fill the screen and create continuous effect
+  const projects = [...AppData.projects, ...AppData.projects, ...AppData.projects, ...AppData.projects];
   
   projects.forEach((project, index) => {
     const projectCard = document.createElement('div');
@@ -115,12 +121,7 @@ function loadCinemaBelt() {
     cinemaBelt.appendChild(projectCard);
   });
   
-  console.log('Cinema belt loaded with', AppData.projects.length, 'projects');
-}
-
-// Update the loadFeaturedWork function:
-function loadFeaturedWork() {
-  loadCinemaBelt();
+  console.log('Cinema belt loaded with', projects.length, 'project cards');
 }
 
 // ===== TEAM =====
@@ -264,9 +265,9 @@ let resizeTimeout;
 window.addEventListener('resize', function() {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(function() {
-    // Reinitialize featured work when screen size changes
-    if (document.getElementById('horizontal-scroll-track')) {
-      loadHorizontalScroll();
+    // Reinitialize cinema belt when screen size changes
+    if (document.getElementById('cinema-belt')) {
+      loadCinemaBelt();
     }
   }, 250);
 });
@@ -275,7 +276,7 @@ window.addEventListener('resize', function() {
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('img').forEach(img => {
     img.addEventListener('error', function() {
-      this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiMxMTEiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiIgZm9udC1mYW1pbHk9IkZ1dHVyYSIgZm9udC1zaXplPSIyMCI+SW1hZ2UgTm90IEF2YWlsYWJsZTwvdGV4dD48L3N2Zz4=';
+      this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiMxMTEiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiIgZm9udC1mYW1pbHk9IkludGVyIiBmb250LXNpemU9IjIwIj5JbWFnZSBOb3QgQXZhaWxhYmxlPC90ZXh0Pjwvc3ZnPg==';
       this.alt = 'Image not available';
     });
   });
