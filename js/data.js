@@ -100,12 +100,13 @@ const AppData = {
     {
       name: "Shivani Damle",
       role: "Creative Lead",
-      bio: "Creative visionary with expertise in visual storytelling and art direction. Brings unique perspectives to every project with a focus on emotional impact.",
+      bio: "With 3+ years in content strategy, Shivani turns ideas into engaging brand experiences across radio advertising and experiential branding platforms. An MBA in Media & Entertainment, she brings sharp storytelling and strategic thinking to every campaign.
+",
       image: "team_images/shivani.jpeg"
     },
     {
       name: "Parth Sehgal",
-      role: "Operations & Human Resource",
+      role: "Operations Manager",
       bio: "Ensures smooth operations and team coordination. Manages client relationships and project timelines with precision and care.",
       image: "team_images/parth.JPG"
     }
