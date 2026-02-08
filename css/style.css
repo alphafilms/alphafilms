@@ -84,7 +84,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: #000000; /* Pure black background */
+  background: #ffffff; /* Pure white background */
   backdrop-filter: blur(10px);
   padding: 1.5rem 0;
   transition: all 0.3s ease;
@@ -116,7 +116,7 @@ header {
   font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text);
+  color: #000000;
 }
 
 .desktop-menu {
@@ -129,7 +129,7 @@ header {
   font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-text);
+  color: #000000;
   opacity: 0.7;
   transition: all 0.3s ease;
   position: relative;
@@ -147,7 +147,7 @@ header {
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--color-text);
+  background: #000000;
   transition: width 0.3s ease;
 }
 
@@ -159,7 +159,7 @@ header {
   display: none;
   background: none;
   border: none;
-  color: var(--color-text);
+  color: #000000;
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
