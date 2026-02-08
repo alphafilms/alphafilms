@@ -56,6 +56,7 @@ const AppData = {
     {
       title: "Night Shift",
       tag: "Short Film",
+      category: "films", // Add this
       image: "images/nightshift.jpg",
       url: "https://www.youtube.com/watch?v=kwVuPcAiNjY",
       description: "A gripping cinematic thriller exploring the dark corners of night shift work."
@@ -63,6 +64,7 @@ const AppData = {
     {
       title: "Into the Sea",
       tag: "Short Film",
+      category: "films", // Add this
       image: "images/intothesea.jpg",
       url: "https://www.youtube.com/watch?v=vQYMIPsxp4c",
       description: "An emotional journey of self-discovery set against breathtaking ocean vistas."
@@ -70,20 +72,23 @@ const AppData = {
     {
       title: "Goan Classic 350",
       tag: "Youtube Video",
+      category: "Social Media", // Add this
       image: "images/goan.jpg",
       url: "https://www.youtube.com/watch?v=VB-Ql4tNCZI",
       description: "A visual love letter to the iconic Royal Enfield Classic 350 on Goan roads."
     },
     {
       title: "Broken Reflections",
-      tag: "Drama",
+      tag: "Short Film",
+      category: "films", // Add this
       image: "images/broken.jpg",
       url: "https://www.youtube.com/watch?v=AhzQTAfnsCs",
       description: "A poignant exploration of identity and self-perception in modern society."
     },
     {
       title: "BND Motorsport Event - Delhi",
-      tag: "Speed",
+      tag: "Events",
+      category: "events", // Add this
       image: "images/bnd.jpg",
       url: "https://www.instagram.com/alphafilmsofficial/p/DRO-CBfE5no/?hl=en",
       description: "Have a look at our shots from the day on our instagram."
@@ -91,6 +96,7 @@ const AppData = {
     {
       title: "Sui Dhaga",
       tag: "Apparel Brand",
+      category: "brands", // Add this
       image: "images/sui.jpg",
       url: "https://www.instagram.com/reel/DMpYLNNzIs7/",
       description: "Managing brands social media, website, product photoshoots and content creation."
