@@ -100,6 +100,14 @@ const AppData = {
       image: "images/sui.jpg",
       url: "https://www.instagram.com/reel/DMpYLNNzIs7/",
       description: "Managing brands social media, website, product photoshoots and content creation."
+    },
+    {
+      title: "Autodaily_Satyam",
+      tag: "Social Media",
+      category: "social", // Add this
+      image: "images/autosatyam.jpg",
+      url: "https://www.instagram.com/reel/DNCpNDvyPkn/",
+      description: "Creating and editing reels and long form video for youtube and instagram."
     }
   ],
 
