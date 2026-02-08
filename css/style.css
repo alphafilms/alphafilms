@@ -229,7 +229,7 @@ header {
 }
 
 .frame-text-white {
-  color: var(--color-text);
+  color: var(--color-bg-dark);
 }
 
 /* Remove old tagline and subtitle */
