@@ -5,6 +5,7 @@ const AppData = {
   // Company Information
   company: {
     name: "Alpha Films",
+    tagline: "Frame by frame. Feeling by feeling.",
     description: "Alpha Films is a one-stop film and video production company offering end-to-end production solutions.",
     contact: {
       phone: "+91 85870 90302",
@@ -50,7 +51,7 @@ const AppData = {
     }
   ],
 
-  // Featured Projects
+  // Featured Projects - MAKE SURE THIS ARRAY EXISTS AND HAS DATA
   projects: [
     {
       title: "Night Shift",
@@ -100,9 +101,8 @@ const AppData = {
     {
       name: "Shivani Damle",
       role: "Creative Lead",
-      bio: "With 3+ years in content strategy, Shivani turns ideas into engaging brand experiences across radio advertising and experiential branding platforms. An MBA in Media & Entertainment, she brings sharp storytelling and strategic thinking to every campaign.
-",
-      image: "team_images/shivani.jpeg"
+      bio: "Creative visionary with expertise in visual storytelling and art direction. Brings unique perspectives to every project with a focus on emotional impact.",
+      image: "team_images/shivani.jpg"
     },
     {
       name: "Parth Sehgal",
@@ -138,4 +138,4 @@ const AppData = {
   ],
 };
 
-console.log("Alpha Films Data Loaded Successfully");
+console.log("Alpha Films Data Loaded Successfully - Projects:", AppData.projects.length);
