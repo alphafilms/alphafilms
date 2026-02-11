@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   loadFeaturedWork();
   loadTeam();
   loadNews();
-  
+  loadTrackRecord(); // ← ADDED THIS LINE
   // Initialize team carousel
   initTeamCarousel();
   
@@ -239,6 +239,77 @@ function loadNews() {
   
   console.log(`Loaded ${latestNews.length} news items`);
 }
+
+// ===== TRACK RECORD STATS - INTERACTIVE SECTION =====
+function loadTrackRecord() {
+  const trackRecordSection = document.getElementById('track-record');
+  if (!trackRecordSection || !AppData.stats) {
+    console.log('Track record section or data not found');
+    return;
+  }
+  
+  const stats = AppData.stats;
+  
+  // Build stats HTML dynamically
+  let statsHTML = '';
+  stats.numbers.forEach(stat => {
+    statsHTML += `
+      <div class="stat-item" style="flex: 1 1 200px;">
+        <div class="stat-icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">${stat.icon}</div>
+        <div class="stat-value" style="font-size: 4rem; font-weight: 700; color: var(--color-red); line-height: 1; margin-bottom: 0.5rem;">
+          ${stat.value}<span style="font-size: 1.5rem; vertical-align: super;">${stat.suffix}</span>
+        </div>
+        <div class="stat-label" style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text);">
+          ${stat.label}
+        </div>
+      </div>
+    `;
+  });
+  
+  // Add established year if enabled
+  let establishedHTML = '';
+  if (stats.showEstablished) {
+    const yearsActive = new Date().getFullYear() - parseInt(stats.established);
+    establishedHTML = `
+      <div style="text-align: center; margin-top: 2rem;">
+        <span style="display: inline-block; background: transparent; padding: 0.75rem 1.5rem; border: 1px dashed var(--color-red); color: var(--color-red); border-radius: 40px; font-weight: 500; letter-spacing: 0.05em;">
+          ⭐ Since ${stats.established} • ${yearsActive}+ Years of Storytelling
+        </span>
+      </div>
+    `;
+  }
+  
+  // Full HTML for the section
+  trackRecordSection.innerHTML = `
+    <div class="container">
+      <h2 class="section-title">By The Numbers</h2>
+      
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+        <p style="font-size: 1.25rem; color: var(--color-text-muted); font-weight: 300; letter-spacing: 0.02em;">
+          ${stats.headline}
+        </p>
+      </div>
+      
+      <!-- Stats Grid -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; text-align: center; margin-bottom: 2rem;">
+        ${statsHTML}
+      </div>
+      
+      <!-- Clients Badge -->
+      <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+        <span style="display: inline-block; background: var(--color-red); color: white; padding: 0.75rem 2rem; border-radius: 40px; font-weight: 500; letter-spacing: 0.05em; box-shadow: 0 4px 12px rgba(255,0,0,0.2);">
+          ⚡ ${stats.clients.count}${stats.clients.suffix} ${stats.clients.label} & Counting
+        </span>
+      </div>
+      
+      ${establishedHTML}
+      
+    </div>
+  `;
+  
+  console.log('Track record stats loaded successfully');
+}
+
 
 // ===== SMOOTH SCROLL =====
 function initSmoothScroll() {
