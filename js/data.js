@@ -16,6 +16,46 @@ const AppData = {
       linkedin: "https://www.linkedin.com/company/alphafilms"
     }
   },
+  
+  // ===== TRACK RECORD STATS =====
+  // Edit these numbers anytime - they'll update everywhere automatically
+  stats: {
+    headline: "Our track record reflects our dedication to excellence and delivering value to our clients.",
+    
+    // Main stats - change these values as you grow
+    numbers: [
+      {
+        value: "20",
+        suffix: "+",
+        label: "Successful Projects",
+        icon: "🎬"
+      },
+      {
+        value: "200K",
+        suffix: "+",
+        label: "Content Views",
+        icon: "👁️"
+      },
+      {
+        value: "100K",
+        suffix: "+",
+        label: "Social Engagement",
+        icon: "❤️"
+      }
+    ],
+    
+    // Client count - appears as a badge
+    clients: {
+      count: "23",
+      label: "Happy Clients",
+      suffix: "+"
+    },
+    
+    // Optional: Add year started for longevity stat
+    established: "2017",
+    showEstablished: true // Set to false to hide
+  },
+
 
   // Services
   services: [
