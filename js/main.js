@@ -323,7 +323,7 @@ function setupScrollAnimation() {
   observer.observe(document.getElementById('track-record'));
 }
 
-// Count-up animation
+// Count-up animation - FIXED VERSION WITH "K" DISPLAY
 function startCountUp() {
   const statElements = document.querySelectorAll('[id^="stat-"]');
   
@@ -331,13 +331,16 @@ function startCountUp() {
     const targetValue = el.getAttribute('data-target');
     const suffix = el.getAttribute('data-suffix') || '';
     
-    // Parse the target value (handle K suffix)
+    // Store the original display value (with K if present)
+    const originalDisplayValue = targetValue;
+    
+    // Parse the target value for animation
     let targetNumber;
-    let displaySuffix = '';
+    let hasK = false;
     
     if (targetValue.includes('K')) {
       targetNumber = parseFloat(targetValue.replace('K', '')) * 1000;
-      displaySuffix = 'K';
+      hasK = true;
     } else {
       targetNumber = parseFloat(targetValue);
     }
@@ -356,25 +359,22 @@ function startCountUp() {
       current += increment;
       
       if (step >= steps) {
-        // Final value with proper formatting
-        if (targetValue.includes('K')) {
-          el.textContent = targetValue.replace('K', '');
-        } else {
-          el.textContent = targetNumber;
-        }
+        // Final value - show exactly what's in data.js (with K)
+        el.textContent = originalDisplayValue;
         clearInterval(timer);
       } else {
-        // Intermediate value
-        if (targetValue.includes('K')) {
+        // Intermediate value - format based on whether original had K
+        if (hasK) {
+          // For numbers with K, show like "150" while counting up to "200K"
           el.textContent = Math.floor(current / 1000);
         } else {
+          // For regular numbers, show the count
           el.textContent = Math.floor(current);
         }
       }
     }, duration / steps);
   });
 }
-
 // Make sure to call loadTrackRecord() in DOMContentLoaded
 
 // ===== SMOOTH SCROLL =====
