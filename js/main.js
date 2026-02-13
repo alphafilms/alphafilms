@@ -240,80 +240,142 @@ function loadNews() {
   console.log(`Loaded ${latestNews.length} news items`);
 }
 
-// ===== TRACK RECORD STATS - REDESIGNED SECTION =====
+// ===== TRACK RECORD - ANIMATED SECTION WITH COUNT-UP =====
 function loadTrackRecord() {
-  const trackRecordSection = document.getElementById('track-record');
-  if (!trackRecordSection || !AppData.stats) {
-    console.log('Track record section or data not found');
+  const trackLeft = document.getElementById('track-left');
+  const trackRight = document.getElementById('track-right');
+  const rightContent = document.getElementById('right-content');
+  const trackLogo = document.getElementById('track-logo');
+  const trackHashtag = document.getElementById('track-hashtag');
+  
+  if (!trackLeft || !trackRight || !rightContent || !AppData.stats) {
+    console.log('Track record elements or data not found');
     return;
   }
   
   const stats = AppData.stats;
   
-  // Build the numbers list with dots and lines
-  let numbersListHTML = '';
+  // Update logo and hashtag from data.js
+  if (trackLogo && stats.logo) {
+    trackLogo.src = stats.logo;
+  }
+  
+  if (trackHashtag && stats.hashtag) {
+    trackHashtag.textContent = stats.hashtag;
+  }
+  
+  // Build the right side content
+  let numbersHTML = `
+    <div class="right-headline">${stats.rightHeadline}</div>
+    <div class="by-the-numbers">${stats.byTheNumbers}</div>
+  `;
+  
   stats.numbers.forEach((stat, index) => {
-    numbersListHTML += `
-      <div style="margin-bottom: 1.5rem;">
-        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
-          <span style="color: var(--color-red); font-size: 1.5rem;">●</span>
-          <span style="font-size: 1.25rem; font-weight: 500; letter-spacing: 0.02em;">
-            ${stat.value}${stat.suffix} ${stat.label}
+    // Store the target values as data attributes for the count-up animation
+    numbersHTML += `
+      <div class="stat-item" data-index="${index}">
+        <div class="stat-line">
+          <span class="stat-dot">●</span>
+          <span class="stat-text">
+            <span class="stat-number" id="stat-${index}" data-target="${stat.value}" data-suffix="${stat.suffix}">0</span>
+            ${stat.suffix} ${stat.label}
           </span>
         </div>
-        ${index < stats.numbers.length - 1 ? '<hr style="border: none; border-top: 1px solid var(--color-border); margin: 1rem 0;">' : ''}
+        ${index < stats.numbers.length - 1 ? '<hr class="stat-divider">' : ''}
       </div>
     `;
   });
   
-  // Full HTML for the redesigned section
-  trackRecordSection.innerHTML = `
-    <div class="container">
-      <!-- Three-column layout -->
-      <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 2rem; align-items: center;">
-        
-        <!-- LEFT COLUMN: OUR PERFORMANCE (BIG) -->
-        <div style="text-align: left;">
-          <div style="font-size: 4rem; font-weight: 700; line-height: 0.9; color: var(--color-red); text-transform: uppercase; letter-spacing: -0.02em;">
-            ${stats.leftTitle}
-          </div>
-          <div style="font-size: 4rem; font-weight: 700; line-height: 0.9; color: var(--color-text); text-transform: uppercase; letter-spacing: -0.02em; margin-top: 0.25rem;">
-            ${stats.leftSubtitle}
-          </div>
-          <div style="margin-top: 1rem; font-size: 1rem; color: var(--color-text-muted); font-style: italic;">
-            #beingALPHA
-          </div>
-        </div>
-        
-        <!-- MIDDLE COLUMN: Numbers with dots and lines -->
-        <div style="text-align: left; padding: 2rem; background: var(--color-bg-soft); border-radius: 16px; border: 1px solid var(--color-border);">
-          
-          <!-- Headline -->
-          <div style="margin-bottom: 2rem; font-size: 1rem; line-height: 1.6; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.02em;">
-            ${stats.rightHeadline}
-          </div>
-          
-          <!-- BY THE NUMBERS -->
-          <div style="margin-bottom: 2rem; font-size: 1.25rem; font-weight: 600; color: var(--color-red); letter-spacing: 0.05em;">
-            ${stats.byTheNumbers}
-          </div>
-          
-          <!-- Numbers list with dots and lines -->
-          ${numbersListHTML}
-          
-        </div>
-        
-        <!-- RIGHT COLUMN: Logo -->
-        <div style="text-align: right;">
-          <img src="${stats.logo}" alt="Alpha Films Logo" style="max-width: 120px; height: auto; filter: brightness(0.8);">
-        </div>
-        
-      </div>
-    </div>
-  `;
+  rightContent.innerHTML = numbersHTML;
   
-  console.log('Redesigned track record section loaded successfully');
+  console.log('Track record section ready for scroll animation');
+  
+  // Set up scroll observer
+  setupScrollAnimation();
 }
+
+// Scroll animation observer
+function setupScrollAnimation() {
+  const trackLeft = document.getElementById('track-left');
+  const trackRight = document.getElementById('track-right');
+  
+  if (!trackLeft || !trackRight) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Add visible class to trigger animations
+        trackLeft.classList.add('visible');
+        trackRight.classList.add('visible');
+        
+        // Start count-up animation
+        startCountUp();
+        
+        // Stop observing after animation starts
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.3, // Trigger when 30% of section is visible
+    rootMargin: "0px"
+  });
+  
+  observer.observe(document.getElementById('track-record'));
+}
+
+// Count-up animation
+function startCountUp() {
+  const statElements = document.querySelectorAll('[id^="stat-"]');
+  
+  statElements.forEach(el => {
+    const targetValue = el.getAttribute('data-target');
+    const suffix = el.getAttribute('data-suffix') || '';
+    
+    // Parse the target value (handle K suffix)
+    let targetNumber;
+    let displaySuffix = '';
+    
+    if (targetValue.includes('K')) {
+      targetNumber = parseFloat(targetValue.replace('K', '')) * 1000;
+      displaySuffix = 'K';
+    } else {
+      targetNumber = parseFloat(targetValue);
+    }
+    
+    if (isNaN(targetNumber)) return;
+    
+    // Animation duration and steps
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const increment = targetNumber / steps;
+    let current = 0;
+    let step = 0;
+    
+    const timer = setInterval(() => {
+      step++;
+      current += increment;
+      
+      if (step >= steps) {
+        // Final value with proper formatting
+        if (targetValue.includes('K')) {
+          el.textContent = targetValue.replace('K', '');
+        } else {
+          el.textContent = targetNumber;
+        }
+        clearInterval(timer);
+      } else {
+        // Intermediate value
+        if (targetValue.includes('K')) {
+          el.textContent = Math.floor(current / 1000);
+        } else {
+          el.textContent = Math.floor(current);
+        }
+      }
+    }, duration / steps);
+  });
+}
+
+// Make sure to call loadTrackRecord() in DOMContentLoaded
 
 // ===== SMOOTH SCROLL =====
 function initSmoothScroll() {
