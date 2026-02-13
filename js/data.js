@@ -17,45 +17,40 @@ const AppData = {
     }
   },
   
-  // ===== TRACK RECORD STATS =====
-  // Edit these numbers anytime - they'll update everywhere automatically
-  stats: {
-    headline: "Our track record reflects our dedication to excellence and delivering value to our clients.",
-    
-    // Main stats - change these values as you grow
-    numbers: [
-      {
-        value: "20",
-        suffix: "+",
-        label: "Successful Projects",
-        icon: "🎬"
-      },
-      {
-        value: "200K",
-        suffix: "+",
-        label: "Content Views",
-        icon: "👁️"
-      },
-      {
-        value: "100K",
-        suffix: "+",
-        label: "Social Engagement",
-        icon: "❤️"
-      }
-    ],
-    
-    // Client count - appears as a badge
-    clients: {
-      count: "23",
-      label: "Happy Clients",
-      suffix: "+"
+// ===== TRACK RECORD STATS - NEW LOOK =====
+stats: {
+  // Left side - Big text
+  leftTitle: "OUR",
+  leftSubtitle: "PERFORMANCE",
+  
+  // Right side - Headline
+  rightHeadline: "OUR TRACK RECORD REFLECTS OUR DEDICATION TO EXCELLENCE AND DELIVERING VALUE TO OUR CLIENTS.",
+  
+  // Middle numbers - Easy to edit
+  numbers: [
+    {
+      value: "30",
+      suffix: "+",
+      label: "SUCCESSFUL PROJECTS"
     },
-    
-    // Optional: Add year started for longevity stat
-    established: "2017",
-    showEstablished: true // Set to false to hide
-  },
-
+    {
+      value: "200K",
+      suffix: "+",
+      label: "OUR CONTENT HAVE REACHED TO VIEWS"
+    },
+    {
+      value: "300K",
+      suffix: "+",
+      label: "ENGAGEMENT OVER SOCIAL MEDIA"
+    }
+  ],
+  
+  // "BY THE NUMBERS" text
+  byTheNumbers: "BY THE NUMBERS:",
+  
+  // Logo path
+  logo: "images/logo.png" // Update this path if needed
+},
 
   // Services
   services: [
