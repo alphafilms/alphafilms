@@ -240,7 +240,7 @@ function loadNews() {
   console.log(`Loaded ${latestNews.length} news items`);
 }
 
-// ===== TRACK RECORD STATS - INTERACTIVE SECTION =====
+// ===== TRACK RECORD STATS - REDESIGNED SECTION =====
 function loadTrackRecord() {
   const trackRecordSection = document.getElementById('track-record');
   if (!trackRecordSection || !AppData.stats) {
@@ -250,66 +250,70 @@ function loadTrackRecord() {
   
   const stats = AppData.stats;
   
-  // Build stats HTML dynamically
-  let statsHTML = '';
-  stats.numbers.forEach(stat => {
-    statsHTML += `
-      <div class="stat-item" style="flex: 1 1 200px;">
-        <div class="stat-icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">${stat.icon}</div>
-        <div class="stat-value" style="font-size: 4rem; font-weight: 700; color: var(--color-red); line-height: 1; margin-bottom: 0.5rem;">
-          ${stat.value}<span style="font-size: 1.5rem; vertical-align: super;">${stat.suffix}</span>
+  // Build the numbers list with dots and lines
+  let numbersListHTML = '';
+  stats.numbers.forEach((stat, index) => {
+    numbersListHTML += `
+      <div style="margin-bottom: 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <span style="color: var(--color-red); font-size: 1.5rem;">●</span>
+          <span style="font-size: 1.25rem; font-weight: 500; letter-spacing: 0.02em;">
+            ${stat.value}${stat.suffix} ${stat.label}
+          </span>
         </div>
-        <div class="stat-label" style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text);">
-          ${stat.label}
-        </div>
+        ${index < stats.numbers.length - 1 ? '<hr style="border: none; border-top: 1px solid var(--color-border); margin: 1rem 0;">' : ''}
       </div>
     `;
   });
   
-  // Add established year if enabled
-  let establishedHTML = '';
-  if (stats.showEstablished) {
-    const yearsActive = new Date().getFullYear() - parseInt(stats.established);
-    establishedHTML = `
-      <div style="text-align: center; margin-top: 2rem;">
-        <span style="display: inline-block; background: transparent; padding: 0.75rem 1.5rem; border: 1px dashed var(--color-red); color: var(--color-red); border-radius: 40px; font-weight: 500; letter-spacing: 0.05em;">
-          ⭐ Since ${stats.established} • ${yearsActive}+ Years of Storytelling
-        </span>
-      </div>
-    `;
-  }
-  
-  // Full HTML for the section
+  // Full HTML for the redesigned section
   trackRecordSection.innerHTML = `
     <div class="container">
-      <h2 class="section-title">By The Numbers</h2>
-      
-      <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
-        <p style="font-size: 1.25rem; color: var(--color-text-muted); font-weight: 300; letter-spacing: 0.02em;">
-          ${stats.headline}
-        </p>
+      <!-- Three-column layout -->
+      <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 2rem; align-items: center;">
+        
+        <!-- LEFT COLUMN: OUR PERFORMANCE (BIG) -->
+        <div style="text-align: left;">
+          <div style="font-size: 4rem; font-weight: 700; line-height: 0.9; color: var(--color-red); text-transform: uppercase; letter-spacing: -0.02em;">
+            ${stats.leftTitle}
+          </div>
+          <div style="font-size: 4rem; font-weight: 700; line-height: 0.9; color: var(--color-text); text-transform: uppercase; letter-spacing: -0.02em; margin-top: 0.25rem;">
+            ${stats.leftSubtitle}
+          </div>
+          <div style="margin-top: 1rem; font-size: 1rem; color: var(--color-text-muted); font-style: italic;">
+            #beingALPHA
+          </div>
+        </div>
+        
+        <!-- MIDDLE COLUMN: Numbers with dots and lines -->
+        <div style="text-align: left; padding: 2rem; background: var(--color-bg-soft); border-radius: 16px; border: 1px solid var(--color-border);">
+          
+          <!-- Headline -->
+          <div style="margin-bottom: 2rem; font-size: 1rem; line-height: 1.6; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.02em;">
+            ${stats.rightHeadline}
+          </div>
+          
+          <!-- BY THE NUMBERS -->
+          <div style="margin-bottom: 2rem; font-size: 1.25rem; font-weight: 600; color: var(--color-red); letter-spacing: 0.05em;">
+            ${stats.byTheNumbers}
+          </div>
+          
+          <!-- Numbers list with dots and lines -->
+          ${numbersListHTML}
+          
+        </div>
+        
+        <!-- RIGHT COLUMN: Logo -->
+        <div style="text-align: right;">
+          <img src="${stats.logo}" alt="Alpha Films Logo" style="max-width: 120px; height: auto; filter: brightness(0.8);">
+        </div>
+        
       </div>
-      
-      <!-- Stats Grid -->
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; text-align: center; margin-bottom: 2rem;">
-        ${statsHTML}
-      </div>
-      
-      <!-- Clients Badge -->
-      <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
-        <span style="display: inline-block; background: var(--color-red); color: white; padding: 0.75rem 2rem; border-radius: 40px; font-weight: 500; letter-spacing: 0.05em; box-shadow: 0 4px 12px rgba(255,0,0,0.2);">
-          ⚡ ${stats.clients.count}${stats.clients.suffix} ${stats.clients.label} & Counting
-        </span>
-      </div>
-      
-      ${establishedHTML}
-      
     </div>
   `;
   
-  console.log('Track record stats loaded successfully');
+  console.log('Redesigned track record section loaded successfully');
 }
-
 
 // ===== SMOOTH SCROLL =====
 function initSmoothScroll() {
