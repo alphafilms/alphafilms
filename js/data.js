@@ -17,11 +17,14 @@ const AppData = {
     }
   },
   
-// ===== TRACK RECORD STATS - NEW LOOK =====
+// ===== TRACK RECORD STATS - WITH LOGO PATH =====
 stats: {
   // Left side - Big text
   leftTitle: "OUR",
   leftSubtitle: "PERFORMANCE",
+  
+  // Logo under the text (NEW)
+  logo: "images/logo.png", // Path to your logo
   
   // Right side - Headline
   rightHeadline: "OUR TRACK RECORD REFLECTS OUR DEDICATION TO EXCELLENCE AND DELIVERING VALUE TO OUR CLIENTS.",
@@ -48,8 +51,8 @@ stats: {
   // "BY THE NUMBERS" text
   byTheNumbers: "BY THE NUMBERS:",
   
-  // Logo path
-  logo: "images/logo.png" // Update this path if needed
+  // Hashtag (made editable)
+  hashtag: "#beingALPHA"
 },
 
   // Services
