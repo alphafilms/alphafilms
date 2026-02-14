@@ -151,7 +151,7 @@ stats: {
       title: "Bull-ing",
       tag: "Short Film",
       category: "films", // Add this
-      image: "images/bulling.jpg",
+      image: "images/bulling.png",
       url: "https://www.instagram.com/p/C1w393xheBx/",
       description: "Our team is very proud to announce “BULL-ING”. We had a great time shooting for this film and waiting for you to watch this business drama."
     },
@@ -159,7 +159,7 @@ stats: {
       title: "NueGo Commercial",
       tag: "Commercial",
       category: "commercials", // Add this
-      image: "images/nuego.jpg",
+      image: "images/nuego.png",
       url: "https://www.instagram.com/alphafilmsofficial/reel/Cq2V7NVp1uX/?hl=en",
       description: "NueGo: Ab Ye Humara Safar Hai"
     },
