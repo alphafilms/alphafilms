@@ -136,8 +136,32 @@ stats: {
       tag: "Apparel Brand",
       category: "brands", // Add this
       image: "images/sui.jpg",
-      url: "https://www.instagram.com/reel/DMpYLNNzIs7/",
+      url: "https://www.instagram.com/chandniwalia_/reel/DMsVAlxPctz/",
       description: "Managing brands social media, website, product photoshoots and content creation."
+    },
+    {
+      title: "USS DIN",
+      tag: "Short Film",
+      category: "films", // Add this
+      image: "images/ussdin.jpg",
+      url: "https://www.instagram.com/alphafilmsofficial/p/Cp-a69mBrHF/?hl=en",
+      description: "Team Uss Din wins big in Indo French International Film Festival!"
+    },
+    {
+      title: "Bull-ing",
+      tag: "Short Film",
+      category: "films", // Add this
+      image: "images/bulling.jpg",
+      url: "https://www.instagram.com/p/C1w393xheBx/",
+      description: "Our team is very proud to announce “BULL-ING”. We had a great time shooting for this film and waiting for you to watch this business drama."
+    },
+    {
+      title: "NueGo Commercial",
+      tag: "Commercial",
+      category: "commercials", // Add this
+      image: "images/nuego.jpg",
+      url: "https://www.instagram.com/alphafilmsofficial/reel/Cq2V7NVp1uX/?hl=en",
+      description: "NueGo: Ab Ye Humara Safar Hai"
     },
     {
       title: "Autodaily_Satyam",
@@ -146,6 +170,70 @@ stats: {
       image: "images/autosatyam.jpg",
       url: "https://www.instagram.com/reel/DNCpNDvyPkn/",
       description: "Creating and editing reels and long form video for youtube and instagram."
+    },
+    {
+      title: "MOIRA",
+      tag: "Short Film",
+      category: "films", // Add this
+      image: "images/moira.png",
+      url: "https://www.youtube.com/watch?v=tyzMLpcjivQ",
+      description: "Fate is decided and karma plays its part well in everyones life."
+    },
+    {
+      title: "Armaan Malik",
+      tag: "Concert",
+      category: "events", // Add this
+      image: "images/armaan.jpg",
+      url: "portfolio.html",
+      description: "Armaan Malik concert covered by Alpha Films."
+    },
+    {
+      title: "Social Nation - Mumbai",
+      tag: "Youtube Event",
+      category: "events", // Add this
+      image: "images/socialnation.jpg",
+      url: "portfolio.html",
+      description: "Social Nation event in Mumbai covered by Alpha Films in collaboration with Sejal Kumar, Gaurav Taneja and many more..."
+    },
+    {
+      title: "KK",
+      tag: "Concert",
+      category: "events", // Add this
+      image: "images/kk.jpg",
+      url: "portfolio.html",
+      description: "One of the best concert's of KK covered by Alpha Films."
+    },
+    {
+      title: "The Local Train",
+      tag: "Concert",
+      category: "events", // Add this
+      image: "images/localtrain.jpg",
+      url: "portfolio.html",
+      description: "Outstanding performance by The Local Train covered by Alpha Films."
+    },
+    {
+      title: "Silver Peaks",
+      tag: "Commercial",
+      category: "commercials", // Add this
+      image: "images/silverpeaks.jpg",
+      url: "https://www.youtube.com/watch?v=HwyHW82-QPY&t=51s",
+      description: "Silver Peaks | A Piece of Paradise is a beautiful property in Ranikhet."
+    },
+    {
+      title: "POSHAAK",
+      tag: "Short Film",
+      category: "films", // Add this
+      image: "images/poshaak.png",
+      url: "https://www.youtube.com/watch?v=wPeLDbV9i4Q&t=4s",
+      description: "Their is always a bit of bad in good and a bit of good in bad, its on you to how crack your life."
+    },
+    {
+      title: "KING | Moment Hai",
+      tag: "Event",
+      category: "events", // Add this
+      image: "images/king.png",
+      url: "https://www.youtube.com/watch?v=mfAF9jSLpwA",
+      description: "Show Reel of King's another showdown at Kingdom Of Dream, Gurgaon."
     }
   ],
 
