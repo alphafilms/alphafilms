@@ -253,12 +253,6 @@ stats: {
       image: "team_images/daksh.jpg"
     },
     {
-      name: "Shivani Damle",
-      role: "Creative Lead",
-      bio: "With 3+ years in content strategy, Shivani turns ideas into engaging brand experiences across radio advertising and experiential branding platforms. An MBA in Media & Entertainment, she brings sharp storytelling and strategic thinking to every campaign.",
-      image: "team_images/shivani.jpeg"
-    },
-    {
       name: "Parth Sehgal",
       role: "Operations Manager",
       bio: "Ensures smooth operations and team coordination. Manages client relationships and project timelines with precision and care.",
