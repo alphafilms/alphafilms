@@ -92,6 +92,14 @@ stats: {
   // Featured Projects - MAKE SURE THIS ARRAY EXISTS AND HAS DATA
   projects: [
     {
+      title: "SAMSUNG S26 Ultra",
+      tag: "TVC",
+      category: "commercials", // Add this
+      image: "images/samsung.jpg",
+      url: "https://www.instagram.com/stories/highlights/18352000543230778/?hl=en",
+      description: "Watch the BTS from our studio here."
+    },
+    {
       title: "Night Shift",
       tag: "Short Film",
       category: "films", // Add this
