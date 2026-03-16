@@ -255,6 +255,12 @@ stats: {
       linkedin: "https://www.linkedin.com/in/deepsehgal"
     },
     {
+      name: "Shuchi Sharma",
+      role: "Creative Producer",
+      bio: "with experience across film, advertising, and branded content. A BA Acting graduate from Whistling Woods International, she brings an all-round perspective to storytelling, from concept development to on-set production. She has collaborated with Amazon, Vadilal, Havells, Samsung, Calvin Klein and Movado and many more.",
+      image: "team_images/shuchi.jpeg"
+    },
+    {
       name: "Daksh Mehta",
       role: "Content Director",
       bio: "Expert in content strategy and digital marketing with a focus on cinematic storytelling. Specializes in creating engaging video content for social media platforms.",
