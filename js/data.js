@@ -264,7 +264,7 @@ stats: {
       name: "Daksh Mehta",
       role: "Content Director",
       bio: "Expert in content strategy and digital marketing with a focus on cinematic storytelling. Specializes in creating engaging video content for social media platforms.",
-      image: "team_images/daksh.jpg"
+      image: "team_images/daksh.jpeg"
     },
     {
       name: "Parth Sehgal",
