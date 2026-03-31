@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Our Studio — Alpha Films | Amber · Emerald · Indigo</title>
-  <meta name="description" content="Professional studio spaces in Delhi NCR — Amber, Emerald, and Indigo. Book our premium shooting spaces with full equipment and production support." />
+  <title>Our Studio — Alpha Films</title>
+  <meta name="description" content="Professional studio spaces in Delhi NCR. Book our premium shooting spaces with full equipment and production support." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Alpha Films Studio Spaces" />
@@ -346,7 +346,7 @@
         name: "Amber",
         dotColor: "#f59e0b",
         description: "Warm, cinematic lighting · Perfect for narrative films & portraits",
-        images: ["images/amber.JPG", "images/amber1.JPG"],
+        images: ["images/amber.JPG", "images/amber1.JPG", "images/amber2.JPG"],
         whatsappText: "Studio Amber"
       },
       {
@@ -452,14 +452,14 @@
           prevId: `${studio.id}-prev`,
           nextId: `${studio.id}-next`,
           imagesArray: studio.images,
-          autoSpeed: 1000
+          autoSpeed: 2000
         });
       });
     }
 
     // Slideshow function
     function initStudioSlideshow(config) {
-      const { containerId, imgId, counterId, prevId, nextId, imagesArray, autoSpeed = 1000 } = config;
+      const { containerId, imgId, counterId, prevId, nextId, imagesArray, autoSpeed = 2000 } = config;
       
       const container = document.getElementById(containerId);
       const imgElement = document.getElementById(imgId);
