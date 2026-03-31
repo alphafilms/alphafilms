@@ -13,12 +13,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Our Studio — Alpha Films | Amber · Emerald · Indigo</title>
-  <meta name="description" content="Three distinct studio setups in Delhi NCR — Amber, Emerald, and Indigo. Professional shooting spaces with full equipment, AC, and production support." />
+  <meta name="description" content="Professional studio spaces in Delhi NCR — Amber, Emerald, and Indigo. Book our premium shooting spaces with full equipment and production support." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Alpha Films Studio Spaces — Amber · Emerald · Indigo" />
-  <meta property="og:description" content="Book our professional studio in Mayapuri, Delhi. Three curated setups for every creative vision. We will update more setups soon on our website." />
-  <meta property="og:image" content="images/studio-bs.JPG" />
+  <meta property="og:title" content="Alpha Films Studio Spaces" />
+  <meta property="og:description" content="Three curated studio setups in Mayapuri, Delhi. Book now for your next production." />
+  <meta property="og:image" content="images/amber.JPG" />
   <meta property="og:url" content="https://www.alphafilmsproduction.com/studio.html" />
 
   <!-- Favicon -->
@@ -30,6 +30,208 @@
 
   <!-- Shared stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* ===== STUDIO PAGE SPECIFIC STYLES ===== */
+    
+    /* Hero */
+    .studio-hero {
+      padding: 8rem 0 4rem;
+      text-align: center;
+      background: var(--color-bg-soft);
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .studio-hero h1 {
+      font-size: var(--text-5xl);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--color-text);
+    }
+    
+    .studio-hero h1 span {
+      color: var(--color-red);
+    }
+    
+    .studio-hero p {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Studio Grid */
+    .studio-grid-section {
+      padding: 4rem 0;
+    }
+    
+    .studio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    /* Studio Card */
+    .studio-card {
+      background: var(--color-bg-soft);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .studio-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-text);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Image Container with Hover Slideshow */
+    .studio-image-container {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--color-bg-dark);
+    }
+    
+    .studio-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .studio-image-container:hover img {
+      transform: scale(1.02);
+    }
+    
+    /* Image Counter */
+    .studio-img-counter {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      font-family: monospace;
+      pointer-events: none;
+      z-index: 2;
+    }
+    
+    .counter-current {
+      color: var(--color-red);
+      font-weight: bold;
+    }
+    
+    /* Studio Info */
+    .studio-info {
+      padding: 1.5rem;
+    }
+    
+    .studio-name {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .studio-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    
+    .studio-dot.amber { background: #f59e0b; }
+    .studio-dot.emerald { background: #10b981; }
+    .studio-dot.indigo { background: #6366f1; }
+    
+    .studio-name h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin: 0;
+    }
+    
+    .studio-short-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    
+    /* Book Button */
+    .studio-book-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+    }
+    
+    .studio-book-btn:hover {
+      background: var(--color-text);
+      color: var(--color-bg-dark);
+      border-color: var(--color-text);
+    }
+    
+    .studio-book-btn i {
+      font-size: 1rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 991px) {
+      .studio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .studio-hero {
+        padding: 6rem 0 3rem;
+      }
+      
+      .studio-hero h1 {
+        font-size: var(--text-3xl);
+      }
+      
+      .studio-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .studio-image-container {
+        height: 250px;
+      }
+    }
+    
+    /* More Studios Notice */
+    .more-studios-notice {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+    
+    .more-studios-notice i {
+      margin-right: 0.5rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -67,239 +269,105 @@
 
   <!-- ===== HERO ===== -->
   <section class="studio-hero">
-    <div class="studio-hero-bg"></div>
-    <div class="studio-hero-content">
-      <p class="studio-eyebrow">Alpha Films</p>
-      <h1 class="studio-hero-title">
-        Countless Spaces.<br>
-        <span>One Vision.</span>
-      </h1>
-      <p class="studio-hero-sub">
-        Professionally crafted studio environments — each with its own mood, 
-        light, and character. Built for filmmakers who care about every frame.
-      </p>
+    <div class="container">
+      <h1>Our Studio <span>Spaces</span></h1>
+      <p>Professionally crafted environments — each with its own mood, light, and character.</p>
     </div>
   </section>
 
-  <!-- ===== STICKY TABS ===== -->
-  <div class="studio-tabs-bar">
-    <div class="studio-tabs">
-      <a href="#amber" class="studio-tab active" data-tab="amber">
-        <span class="studio-tab-dot amber"></span>
-        <span class="studio-tab-label">Amber</span>
-      </a>
-      <a href="#emerald" class="studio-tab" data-tab="emerald">
-        <span class="studio-tab-dot emerald"></span>
-        <span class="studio-tab-label">Emerald</span>
-      </a>
-      <a href="#indigo" class="studio-tab" data-tab="indigo">
-        <span class="studio-tab-dot indigo"></span>
-        <span class="studio-tab-label">Indigo</span>
-      </a>
-    </div>
-  </div>
-
-
-<!-- ===== AMBER STUDIO ===== -->
-<section class="studio-section amber-studio" id="amber">
-  <div class="studio-section-inner">
-
-    <!-- IMAGE WITH HOVER SLIDESHOW -->
-    <div class="studio-img-block" id="amber-image-container">
-      <!-- Image slideshow container -->
-      <div class="studio-img-slideshow">
-        <img src="images/amber.JPG" alt="Amber Studio" class="studio-img-main" id="amber-slide-img">
-      </div>
-      <!-- Image counter indicator -->
-      <div class="studio-img-counter" id="amber-img-counter">
-        <span class="counter-current">1</span>/<span class="counter-total">3</span>
-      </div>
-      <!-- Color badge (optional - keep your existing style) -->
-      <div class="studio-color-badge">
-        <span style="width:8px;height:8px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></span>
-        Amber
-      </div>
-    </div>
-
-    <!-- TEXT -->
-    <div class="studio-text-block">
-      <div class="studio-number">01</div>
-      <div class="studio-name-tag">
-        <span class="studio-name-tag-dot" style="background:#f59e0b;"></span>
-        Studio Amber
-      </div>
-
-      <h2 class="studio-heading">Warm Light.<br>Cinematic Depth.</h2>
-
-      <p class="studio-desc">
-        Amber is our warmest, most versatile space — designed for narrative films, 
-        brand commercials, and portrait photography that demands richness and texture. 
-        Tungsten-balanced practicals and softbox rigs create that golden-hour feel at any hour.
-      </p>
-
-      <div class="studio-features">
-        <span class="studio-feature-pill"><span class="studio-feature-icon">💡</span> Tungsten Lighting Rig</span>
-        <span class="studio-feature-pill"><span class="studio-feature-icon">🎭</span> Cyclorama Wall</span>
-        <span class="studio-feature-pill"><span class="studio-feature-icon">🎙️</span> Soundproofed</span>
-        <span class="studio-feature-pill"><span class="studio-feature-icon">❄️</span> AC + Power Backup</span>
-        <span class="studio-feature-pill"><span class="studio-feature-icon">📷</span> Camera Gear Available</span>
-        <span class="studio-feature-pill"><span class="studio-feature-icon">🪑</span> Wardrobe & Props</span>
-      </div>
-
-      <div class="studio-cta-row">
-        <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Amber.%20What%27s%20the%20availability%3F"
-           target="_blank" class="studio-book-btn">
-          <i class="fab fa-whatsapp" style="margin-right:0.4rem;"></i> Book Amber
-        </a>
-        <div class="studio-avail">
-          <span class="studio-avail-dot"></span>
-          Available for booking
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-  <!-- ===== EMERALD STUDIO ===== -->
-  <section class="studio-section emerald-studio" id="emerald">
-    <div class="studio-section-inner reverse">
-
-      <!-- IMAGE -->
-      <div class="studio-img-block">
-        <!--
-          Replace the placeholder below with a real image:
-          <img src="images/studio-emerald.jpg" alt="Emerald Studio" class="studio-img-main">
-        -->
-        <div class="studio-img-placeholder emerald-bg">
-          <span>Add studio-emerald.jpg</span>
-          <div class="studio-color-badge">
-            <span style="width:8px;height:8px;border-radius:50%;background:#10b981;flex-shrink:0;"></span>
-            Emerald
+  <!-- ===== STUDIO GRID ===== -->
+  <section class="studio-grid-section">
+    <div class="container">
+      <div class="studio-grid" id="studio-grid">
+        
+        <!-- Amber Studio Card -->
+        <div class="studio-card" id="studio-amber">
+          <div class="studio-image-container" id="amber-image-container">
+            <img src="images/amber.JPG" alt="Amber Studio" id="amber-slide-img">
+            <div class="studio-img-counter" id="amber-img-counter">
+              <span class="counter-current">1</span>/<span class="counter-total">2</span>
+            </div>
+          </div>
+          <div class="studio-info">
+            <div class="studio-name">
+              <span class="studio-dot amber"></span>
+              <h3>Amber</h3>
+            </div>
+            <p class="studio-short-desc">Warm, cinematic lighting · Perfect for narrative films & portraits</p>
+            <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Amber.%20What%27s%20the%20availability%3F"
+               target="_blank" class="studio-book-btn">
+              <i class="fab fa-whatsapp"></i> Book Amber
+            </a>
           </div>
         </div>
-      </div>
-
-      <!-- TEXT -->
-      <div class="studio-text-block">
-        <div class="studio-number">02</div>
-        <div class="studio-name-tag">
-          <span class="studio-name-tag-dot" style="background:#10b981;"></span>
-          Studio Emerald
-        </div>
-
-        <h2 class="studio-heading">Clean &amp; Bright.<br>Content-Ready.</h2>
-
-        <p class="studio-desc">
-          Emerald is built for the modern content creator — high-key lighting, 
-          clean backdrops, and a flexible layout ideal for YouTube videos, Instagram Reels, 
-          product shoots, and online course recordings. Minimalist aesthetic, maximum adaptability.
-        </p>
-
-        <div class="studio-features">
-          <span class="studio-feature-pill"><span class="studio-feature-icon">☀️</span> High-Key LED Rig</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">🎬</span> Green Screen Option</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">📱</span> Reels / Shorts Ready</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">🎓</span> Course Recording Setup</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">🎤</span> Podcast Corner</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">❄️</span> AC + Power Backup</span>
-        </div>
-
-        <div class="studio-cta-row">
-          <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Emerald.%20What%27s%20the%20availability%3F"
-             target="_blank" class="studio-book-btn">
-            <i class="fab fa-whatsapp" style="margin-right:0.4rem;"></i> Book Emerald
-          </a>
-          <div class="studio-avail">
-            <span class="studio-avail-dot"></span>
-            Available for booking
+        
+        <!-- Emerald Studio Card -->
+        <div class="studio-card" id="studio-emerald">
+          <div class="studio-image-container" id="emerald-image-container">
+            <img src="images/emerald.JPG" alt="Emerald Studio" id="emerald-slide-img">
+            <div class="studio-img-counter" id="emerald-img-counter">
+              <span class="counter-current">1</span>/<span class="counter-total">2</span>
+            </div>
+          </div>
+          <div class="studio-info">
+            <div class="studio-name">
+              <span class="studio-dot emerald"></span>
+              <h3>Emerald</h3>
+            </div>
+            <p class="studio-short-desc">Clean, bright · Ideal for Reels, YouTube, product shoots</p>
+            <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Emerald.%20What%27s%20the%20availability%3F"
+               target="_blank" class="studio-book-btn">
+              <i class="fab fa-whatsapp"></i> Book Emerald
+            </a>
           </div>
         </div>
+        
+        <!-- Indigo Studio Card -->
+        <div class="studio-card" id="studio-indigo">
+          <div class="studio-image-container" id="indigo-image-container">
+            <img src="images/indigo.JPG" alt="Indigo Studio" id="indigo-slide-img">
+            <div class="studio-img-counter" id="indigo-img-counter">
+              <span class="counter-current">1</span>/<span class="counter-total">2</span>
+            </div>
+          </div>
+          <div class="studio-info">
+            <div class="studio-name">
+              <span class="studio-dot indigo"></span>
+              <h3>Indigo</h3>
+            </div>
+            <p class="studio-short-desc">Bold, dramatic · Perfect for music videos & fashion campaigns</p>
+            <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Indigo.%20What%27s%20the%20availability%3F"
+               target="_blank" class="studio-book-btn">
+              <i class="fab fa-whatsapp"></i> Book Indigo
+            </a>
+          </div>
+        </div>
+        
       </div>
-
+      
+      <!-- More Studios Coming Soon -->
+      <div class="more-studios-notice">
+        <i class="fas fa-plus-circle"></i> More studio spaces coming soon. Stay tuned.
+      </div>
     </div>
   </section>
-
-
-  <!-- ===== INDIGO STUDIO ===== -->
-  <section class="studio-section indigo-studio" id="indigo">
-    <div class="studio-section-inner">
-
-      <!-- IMAGE -->
-      <div class="studio-img-block">
-        <!--
-          Replace the placeholder below with a real image:
-          <img src="images/studio-indigo.jpg" alt="Indigo Studio" class="studio-img-main">
-        -->
-        <div class="studio-img-placeholder indigo-bg">
-          <span>Add studio-indigo.jpg</span>
-          <div class="studio-color-badge">
-            <span style="width:8px;height:8px;border-radius:50%;background:#6366f1;flex-shrink:0;"></span>
-            Indigo
-          </div>
-        </div>
-      </div>
-
-      <!-- TEXT -->
-      <div class="studio-text-block">
-        <div class="studio-number">03</div>
-        <div class="studio-name-tag">
-          <span class="studio-name-tag-dot" style="background:#6366f1;"></span>
-          Studio Indigo
-        </div>
-
-        <h2 class="studio-heading">Bold &amp; Dramatic.<br>For Big Ideas.</h2>
-
-        <p class="studio-desc">
-          Indigo is our most dramatic space — deep tones, precision lighting, 
-          and a raw industrial edge. Perfect for music videos, fashion campaigns, 
-          branded art films, and any project that demands a strong visual identity.
-        </p>
-
-        <div class="studio-features">
-          <span class="studio-feature-pill"><span class="studio-feature-icon">🎨</span> Dramatic Lighting Setup</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">🎵</span> Music Video Ready</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">👗</span> Fashion Shoot Setup</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">🔥</span> SFX Compatible</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">🎭</span> Full Blackout Capability</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">❄️</span> AC + Power Backup</span>
-        </div>
-
-        <div class="studio-cta-row">
-          <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Indigo.%20What%27s%20the%20availability%3F"
-             target="_blank" class="studio-book-btn">
-            <i class="fab fa-whatsapp" style="margin-right:0.4rem;"></i> Book Indigo
-          </a>
-          <div class="studio-avail">
-            <span class="studio-avail-dot"></span>
-            Available for booking
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
 
   <!-- ===== BOOKING STRIP ===== -->
-  <section class="studio-booking-strip">
-    <div class="container">
-      <h2>Not Sure Which Studio?</h2>
-      <p>Tell us your project — we'll recommend the perfect setup.</p>
+  <section class="studio-booking-strip" style="padding: 3rem 0; background: var(--color-bg-soft); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container" style="text-align: center;">
+      <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Not Sure Which Studio?</h2>
+      <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">Tell us your project — we'll recommend the perfect setup.</p>
       <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20need%20help%20choosing%20the%20right%20studio%20setup%20for%20my%20project."
-         target="_blank" class="studio-book-btn">
-        <i class="fab fa-whatsapp" style="margin-right:0.5rem;"></i>
-        Chat With Us
+         target="_blank" class="studio-book-btn" style="background: var(--color-text); color: var(--color-bg-dark);">
+        <i class="fab fa-whatsapp"></i> Chat With Us
       </a>
     </div>
   </section>
 
-
-  <!-- ===== FOOTER / CONTACT (identical to other pages) ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer id="contact" class="section">
     <div class="container">
       <div style="display:flex; flex-wrap:wrap; gap:3rem; align-items:flex-start; justify-content:space-between;">
-
         <div class="contact-content" style="flex:1 1 350px; text-align:left; margin:0;">
           <h2 style="text-align:left; margin-top:0; font-size:2.2rem; line-height:1.2;">
             LET'S CREATE SOMETHING<br>
@@ -313,19 +381,12 @@
             📧 <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a>
           </p>
           <div class="social-links" style="justify-content:flex-start;">
-            <a href="https://instagram.com/alphafilmsofficial" target="_blank" class="social-btn instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/alphafilms" target="_blank" class="social-btn linkedin">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://wa.me/918587090302" target="_blank" class="social-btn whatsapp">
-              <i class="fab fa-whatsapp"></i>
-            </a>
+            <a href="https://instagram.com/alphafilmsofficial" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/alphafilms" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/918587090302" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
           </div>
           <p style="margin-top:2rem; opacity:0.7; text-align:left;">© 2026 Alpha Films. All rights reserved.</p>
         </div>
-
         <div style="flex:1 1 400px;">
           <div style="width:100%; max-width:600px; border-radius:12px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,0.12);">
             <iframe
@@ -337,7 +398,6 @@
             </iframe>
           </div>
         </div>
-
       </div>
     </div>
   </footer>
@@ -348,7 +408,7 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- ===== JavaScript ===== -->
+  <!-- ===== JAVASCRIPT ===== -->
   <script>
     // Mobile menu
     (function() {
@@ -372,110 +432,95 @@
       });
     })();
 
-    // Sticky tab highlight on scroll
-    (function() {
-      const sections = ['amber', 'emerald', 'indigo'];
-      const tabs = document.querySelectorAll('.studio-tab');
-
-      function updateTab() {
-        let current = 'amber';
-        sections.forEach(id => {
-          const el = document.getElementById(id);
-          if (el && window.scrollY >= el.offsetTop - 120) current = id;
-        });
-        tabs.forEach(tab => {
-          tab.classList.toggle('active', tab.dataset.tab === current);
-        });
-      }
-
-      window.addEventListener('scroll', updateTab, { passive: true });
-      updateTab();
-    })();
-
-    // Smooth scroll for tab clicks
-    document.querySelectorAll('.studio-tab').forEach(tab => {
-      tab.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.getElementById(this.dataset.tab);
-        if (target) {
-          window.scrollTo({
-            top: target.offsetTop - 60,
-            behavior: 'smooth'
-          });
+    // ===== HOVER SLIDESHOW FUNCTION (Reusable) =====
+    function initStudioSlideshow(containerId, imgId, counterId, imagesArray) {
+      const container = document.getElementById(containerId);
+      const imgElement = document.getElementById(imgId);
+      const counterElement = document.getElementById(counterId);
+      
+      if (!container || !imgElement) return;
+      
+      let currentIndex = 0;
+      let slideshowInterval = null;
+      let isHovering = false;
+      const totalImages = imagesArray.length;
+      
+      // Update counter display
+      function updateCounter() {
+        if (counterElement) {
+          const currentSpan = counterElement.querySelector('.counter-current');
+          const totalSpan = counterElement.querySelector('.counter-total');
+          if (currentSpan) currentSpan.textContent = currentIndex + 1;
+          if (totalSpan) totalSpan.textContent = totalImages;
         }
+      }
+      
+      // Update image
+      function updateImage(index) {
+        if (imgElement && imagesArray[index]) {
+          imgElement.src = imagesArray[index];
+          updateCounter();
+        }
+      }
+      
+      // Start slideshow
+      function startSlideshow() {
+        if (slideshowInterval) clearInterval(slideshowInterval);
+        
+        slideshowInterval = setInterval(() => {
+          if (isHovering) {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateImage(currentIndex);
+          }
+        }, 2000);
+      }
+      
+      // Stop slideshow and reset
+      function stopSlideshow() {
+        if (slideshowInterval) {
+          clearInterval(slideshowInterval);
+          slideshowInterval = null;
+        }
+        currentIndex = 0;
+        updateImage(0);
+        isHovering = false;
+      }
+      
+      // Hover events
+      container.addEventListener('mouseenter', () => {
+        isHovering = true;
+        currentIndex = 0;
+        updateImage(0);
+        startSlideshow();
       });
-    });
+      
+      container.addEventListener('mouseleave', () => {
+        isHovering = false;
+        stopSlideshow();
+      });
+      
+      // Initial counter
+      updateCounter();
+    }
+    
+    // Initialize all studio slideshows
+    // Amber: 2 images (amber.JPG, amber1.JPG)
+    initStudioSlideshow('amber-image-container', 'amber-slide-img', 'amber-img-counter', [
+      'images/amber.JPG',
+      'images/amber1.JPG'
+    ]);
+    
+    // Emerald: 2 images (emerald.JPG, emerald1.JPG)
+    initStudioSlideshow('emerald-image-container', 'emerald-slide-img', 'emerald-img-counter', [
+      'images/emerald.JPG',
+      'images/emerald1.JPG'
+    ]);
+    
+    // Indigo: 2 images (indigo.JPG, indigo1.JPG)
+    initStudioSlideshow('indigo-image-container', 'indigo-slide-img', 'indigo-img-counter', [
+      'images/indigo.JPG',
+      'images/indigo1.JPG'
+    ]);
   </script>
-<script>
-
-  
-  // ===== AMBER STUDIO HOVER SLIDESHOW =====
-(function() {
-  // Define the images for Amber studio slideshow
-  const amberImages = [
-    "images/amber.JPG",
-    "images/amber1.JPG",
-    "images/amber2.JPG"
-  ];
-  
-  let currentIndex = 0;
-  let slideshowInterval = null;
-  let isHovering = false;
-  
-  const imgElement = document.getElementById('amber-slide-img');
-  const counterElement = document.querySelector('#amber-img-counter .counter-current');
-  const totalImages = amberImages.length;
-  
-  // Update the displayed image and counter
-  function updateImage(index) {
-    if (imgElement && amberImages[index]) {
-      imgElement.src = amberImages[index];
-      if (counterElement) {
-        counterElement.textContent = index + 1;
-      }
-    }
-  }
-  
-  // Start the slideshow (cycles through images)
-  function startSlideshow() {
-    if (slideshowInterval) clearInterval(slideshowInterval);
-    
-    slideshowInterval = setInterval(() => {
-      if (isHovering) {
-        currentIndex = (currentIndex + 1) % totalImages;
-        updateImage(currentIndex);
-      }
-    }, 2000); // 2 seconds between image changes
-  }
-  
-  // Stop the slideshow and reset to first image
-  function stopSlideshow() {
-    if (slideshowInterval) {
-      clearInterval(slideshowInterval);
-      slideshowInterval = null;
-    }
-    currentIndex = 0;
-    updateImage(0);
-    isHovering = false;
-  }
-  
-  // Add hover event listeners to the image container
-  const imageContainer = document.getElementById('amber-image-container');
-  
-  if (imageContainer) {
-    imageContainer.addEventListener('mouseenter', () => {
-      isHovering = true;
-      currentIndex = 0;
-      updateImage(0);
-      startSlideshow();
-    });
-    
-    imageContainer.addEventListener('mouseleave', () => {
-      isHovering = false;
-      stopSlideshow();
-    });
-  }
-})();
-</script>
 </body>
 </html>
