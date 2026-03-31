@@ -22,13 +22,11 @@
   <!-- Main CSS (shared with homepage) -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Studio-specific CSS (embedded) -->
   <style>
     /* ===== STUDIO PAGE ===== */
 
-    /* Studio Hero */
     .studio-hero {
-      padding: 6rem 0 3rem;
+      padding: 2rem 0 1rem;
       background: var(--color-bg-soft);
       text-align: center;
     }
@@ -36,7 +34,7 @@
     .studio-title {
       font-size: var(--text-5xl);
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       color: var(--color-text);
     }
 
@@ -45,15 +43,19 @@
     }
 
     .studio-subtitle {
-      font-size: var(--text-xl);
+      font-size: var(--text-base);
       color: var(--color-text-muted);
       max-width: 600px;
       margin: 0 auto;
     }
 
-    /* Studio Grid */
     .studio-grid-section {
-      padding: 3rem 0;
+      padding: 2rem 0;
+    }
+
+    .container-full {
+      max-width: 100%;
+      padding: 0 2rem;
     }
 
     .studio-grid {
@@ -62,13 +64,15 @@
       gap: 2rem;
     }
 
-    /* Studio Card - LARGER SIZE */
     .studio-card {
       background: var(--color-bg-soft);
       border: 1px solid var(--color-border);
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
       transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .studio-card:hover {
@@ -77,11 +81,10 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
-    /* Image Container with Navigation Arrows */
     .studio-image-container {
       position: relative;
       width: 100%;
-      height: 320px;
+      height: 380px;
       overflow: hidden;
       background: var(--color-bg-dark);
     }
@@ -90,20 +93,16 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      transition: opacity 0.2s ease;
+      opacity: 1;
     }
 
-    .studio-image-container:hover img {
-      transform: scale(1.02);
-    }
-
-    /* Navigation Arrows */
     .studio-nav-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(4px);
       border-radius: 50%;
@@ -112,7 +111,7 @@
       justify-content: center;
       cursor: pointer;
       color: white;
-      font-size: 1rem;
+      font-size: 1.1rem;
       transition: all 0.3s ease;
       z-index: 10;
       opacity: 0;
@@ -129,15 +128,9 @@
       transform: translateY(-50%) scale(1.1);
     }
 
-    .studio-nav-prev {
-      left: 12px;
-    }
+    .studio-nav-prev { left: 15px; }
+    .studio-nav-next { right: 15px; }
 
-    .studio-nav-next {
-      right: 12px;
-    }
-
-    /* Image Counter */
     .studio-img-counter {
       position: absolute;
       bottom: 1rem;
@@ -147,55 +140,23 @@
       color: white;
       padding: 0.25rem 0.75rem;
       border-radius: 20px;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 500;
       font-family: monospace;
       pointer-events: none;
       z-index: 2;
     }
 
-    .counter-current {
-      color: var(--color-red);
-      font-weight: bold;
-    }
+    .counter-current { color: var(--color-red); font-weight: bold; }
 
-    /* Studio Info */
-    .studio-info {
-      padding: 1.5rem;
-    }
+    .studio-info { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
 
-    .studio-name {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
+    .studio-name { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .studio-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .studio-name h3 { font-size: 1.6rem; font-weight: 600; color: var(--color-text); margin: 0; }
 
-    .studio-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
+    .studio-short-desc { font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 1.25rem; line-height: 1.5; }
 
-    .studio-dot.amber { background: #f59e0b; }
-    .studio-dot.emerald { background: #10b981; }
-    .studio-dot.indigo { background: #6366f1; }
-
-    .studio-name h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--color-text);
-      margin: 0;
-    }
-
-    .studio-short-desc {
-      font-size: 0.9rem;
-      color: var(--color-text-muted);
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-
-    /* Book Button */
     .studio-book-btn {
       display: inline-flex;
       align-items: center;
@@ -203,12 +164,14 @@
       background: transparent;
       border: 1px solid var(--color-border);
       color: var(--color-text);
-      padding: 0.6rem 1.2rem;
+      padding: 0.7rem 1.4rem;
       border-radius: 40px;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 500;
       text-decoration: none;
       transition: all 0.3s ease;
+      margin-top: auto;
+      align-self: flex-start;
     }
 
     .studio-book-btn:hover {
@@ -217,11 +180,6 @@
       border-color: var(--color-text);
     }
 
-    .studio-book-btn i {
-      font-size: 1rem;
-    }
-
-    /* Booking Strip */
     .studio-booking-strip {
       padding: 2.5rem 0;
       background: var(--color-bg-soft);
@@ -230,18 +188,9 @@
       text-align: center;
     }
 
-    .studio-booking-strip h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--color-text);
-    }
+    .studio-booking-strip h2 { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--color-text); }
+    .studio-booking-strip p { color: var(--color-text-muted); margin-bottom: 1rem; }
 
-    .studio-booking-strip p {
-      color: var(--color-text-muted);
-      margin-bottom: 1rem;
-    }
-
-    /* More Studios Notice */
     .more-studios-notice {
       text-align: center;
       margin-top: 2rem;
@@ -251,72 +200,22 @@
       font-size: 0.85rem;
     }
 
-    .more-studios-notice i {
-      margin-right: 0.5rem;
-    }
+    .more-studios-notice i { margin-right: 0.5rem; }
 
-    /* Back to Home */
-    .back-to-home {
-      padding: 2rem 0;
-      text-align: center;
-      border-top: 1px solid var(--color-border);
-    }
+    .back-to-home { padding: 2rem 0; text-align: center; border-top: 1px solid var(--color-border); }
 
-    /* Responsive */
-    @media (max-width: 991px) {
-      .studio-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-      }
-      
-      .studio-image-container {
-        height: 280px;
-      }
-    }
-
+    @media (max-width: 1200px) { .studio-image-container { height: 340px; } }
+    @media (max-width: 991px) { .studio-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } .studio-image-container { height: 320px; } }
     @media (max-width: 768px) {
-      .studio-hero {
-        padding: 5rem 0 2.5rem;
-      }
-      
-      .studio-title {
-        font-size: var(--text-3xl);
-      }
-      
-      .studio-subtitle {
-        font-size: var(--text-base);
-      }
-      
-      .studio-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .studio-image-container {
-        height: 260px;
-      }
-      
-      .studio-name h3 {
-        font-size: 1.35rem;
-      }
+      .studio-hero { padding: 1.5rem 0 1rem; }
+      .studio-title { font-size: var(--text-3xl); }
+      .studio-subtitle { font-size: var(--text-sm); }
+      .studio-grid { grid-template-columns: 1fr; }
+      .studio-image-container { height: 280px; }
+      .studio-name h3 { font-size: 1.4rem; }
+      .container-full { padding: 0 1rem; }
     }
-
-    @media (max-width: 480px) {
-      .studio-hero {
-        padding: 4rem 0 2rem;
-      }
-      
-      .studio-title {
-        font-size: var(--text-2xl);
-      }
-      
-      .studio-image-container {
-        height: 240px;
-      }
-      
-      .studio-info {
-        padding: 1.25rem;
-      }
-    }
+    @media (max-width: 480px) { .studio-image-container { height: 250px; } .studio-info { padding: 1.25rem; } .studio-name h3 { font-size: 1.3rem; } }
   </style>
 </head>
 <body>
@@ -328,25 +227,22 @@
         <img src="images/logo.png" alt="Alpha Films Logo">
         <span>ALPHA FILMS</span>
       </div>
-
       <div class="desktop-menu">
         <a href="index.html" class="nav-link">Home</a>
         <a href="index.html#featured-work" class="nav-link">Featured Work</a>
         <a href="index.html#services" class="nav-link">Services</a>
-        <a href="studio.html" class="nav-link active">Studio</a>
+        <a href="studio.html" class="nav-link active">Our Studio</a>
         <a href="index.html#team" class="nav-link">Team</a>
         <a href="index.html#contact" class="nav-link">Contact</a>
       </div>
-
       <button class="mobile-menu-toggle" id="mobileMenuToggle">
         <i class="fas fa-bars"></i>
       </button>
-
       <div class="mobile-menu" id="mobileMenu">
         <a href="index.html" class="mobile-nav-link">Home</a>
         <a href="index.html#featured-work" class="mobile-nav-link">Featured Work</a>
         <a href="index.html#services" class="mobile-nav-link">Services</a>
-        <a href="studio.html" class="mobile-nav-link active">Studio</a>
+        <a href="studio.html" class="mobile-nav-link active">Our Studio</a>
         <a href="index.html#team" class="mobile-nav-link">Team</a>
         <a href="index.html#contact" class="mobile-nav-link">Contact</a>
       </div>
@@ -363,93 +259,11 @@
 
   <!-- ===== STUDIO GRID ===== -->
   <section class="studio-grid-section">
-    <div class="container">
-      <div class="studio-grid">
-        
-        <!-- Amber Studio Card -->
-        <div class="studio-card">
-          <div class="studio-image-container" id="amber-image-container">
-            <img src="images/amber.JPG" alt="Amber Studio" id="amber-slide-img">
-            <div class="studio-nav-arrow studio-nav-prev" id="amber-prev">
-              <i class="fas fa-chevron-left"></i>
-            </div>
-            <div class="studio-nav-arrow studio-nav-next" id="amber-next">
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="studio-img-counter" id="amber-img-counter">
-              <span class="counter-current">1</span>/<span class="counter-total">2</span>
-            </div>
-          </div>
-          <div class="studio-info">
-            <div class="studio-name">
-              <span class="studio-dot amber"></span>
-              <h3>Amber</h3>
-            </div>
-            <p class="studio-short-desc">Warm, cinematic lighting · Perfect for narrative films & portraits</p>
-            <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Amber.%20What%27s%20the%20availability%3F"
-               target="_blank" class="studio-book-btn">
-              <i class="fab fa-whatsapp"></i> Book Amber
-            </a>
-          </div>
-        </div>
-        
-        <!-- Emerald Studio Card -->
-        <div class="studio-card">
-          <div class="studio-image-container" id="emerald-image-container">
-            <img src="images/emerald.JPG" alt="Emerald Studio" id="emerald-slide-img">
-            <div class="studio-nav-arrow studio-nav-prev" id="emerald-prev">
-              <i class="fas fa-chevron-left"></i>
-            </div>
-            <div class="studio-nav-arrow studio-nav-next" id="emerald-next">
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="studio-img-counter" id="emerald-img-counter">
-              <span class="counter-current">1</span>/<span class="counter-total">2</span>
-            </div>
-          </div>
-          <div class="studio-info">
-            <div class="studio-name">
-              <span class="studio-dot emerald"></span>
-              <h3>Emerald</h3>
-            </div>
-            <p class="studio-short-desc">Clean, bright · Ideal for Reels, YouTube, product shoots</p>
-            <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Emerald.%20What%27s%20the%20availability%3F"
-               target="_blank" class="studio-book-btn">
-              <i class="fab fa-whatsapp"></i> Book Emerald
-            </a>
-          </div>
-        </div>
-        
-        <!-- Indigo Studio Card -->
-        <div class="studio-card">
-          <div class="studio-image-container" id="indigo-image-container">
-            <img src="images/indigo.JPG" alt="Indigo Studio" id="indigo-slide-img">
-            <div class="studio-nav-arrow studio-nav-prev" id="indigo-prev">
-              <i class="fas fa-chevron-left"></i>
-            </div>
-            <div class="studio-nav-arrow studio-nav-next" id="indigo-next">
-              <i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="studio-img-counter" id="indigo-img-counter">
-              <span class="counter-current">1</span>/<span class="counter-total">2</span>
-            </div>
-          </div>
-          <div class="studio-info">
-            <div class="studio-name">
-              <span class="studio-dot indigo"></span>
-              <h3>Indigo</h3>
-            </div>
-            <p class="studio-short-desc">Bold, dramatic · Perfect for music videos & fashion campaigns</p>
-            <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Indigo.%20What%27s%20the%20availability%3F"
-               target="_blank" class="studio-book-btn">
-              <i class="fab fa-whatsapp"></i> Book Indigo
-            </a>
-          </div>
-        </div>
-        
+    <div class="container-full">
+      <div class="studio-grid" id="studio-grid">
+        <!-- Studios will be loaded dynamically from data -->
       </div>
       
-      <!-- More Studios Coming Soon -->
       <div class="more-studios-notice">
         <i class="fas fa-plus-circle"></i> More studio spaces coming soon. Stay tuned.
       </div>
@@ -481,13 +295,11 @@
   <footer id="contact" class="section">
     <div class="container">
       <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: flex-start; justify-content: space-between;">
-        
         <div class="contact-content" style="flex: 1 1 350px; text-align: left; margin: 0;">
           <h2 style="text-align: left; margin-top: 0; font-size: 2.2rem; line-height: 1.2;">
             LET'S CREATE SOMETHING<br>
             <span style="color: var(--color-red);">#ALPHA</span> TOGETHER
           </h2>
-          
           <p style="text-align: left; margin-top: 1.5rem;">
             📍 Unity Towers, B-93,<br>
             Mayapuri Industrial Area Phase I,<br>
@@ -495,16 +307,13 @@
             📱 +91 85870 90302<br>
             📧 <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a>
           </p>
-          
           <div class="social-links" style="justify-content: flex-start;">
             <a href="https://instagram.com/alphafilmsofficial" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
             <a href="https://www.linkedin.com/company/alphafilms" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://wa.me/918587090302" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
           </div>
-          
           <p style="margin-top: 2rem; opacity: 0.7; text-align: left;">© 2026 Alpha Films. All rights reserved.</p>
         </div>
-        
         <div style="flex: 1 1 400px;">
           <div style="width: 100%; max-width: 600px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
             <iframe 
@@ -518,7 +327,6 @@
             </iframe>
           </div>
         </div>
-        
       </div>
     </div>
   </footer>
@@ -531,6 +339,43 @@
 
   <!-- ===== JAVASCRIPT ===== -->
   <script>
+    // ===== STUDIO DATA - EDIT HERE TO ADD/MODIFY STUDIOS =====
+    const studiosData = [
+      {
+        id: "amber",
+        name: "Amber",
+        dotColor: "#f59e0b",
+        description: "Warm, cinematic lighting · Perfect for narrative films & portraits",
+        images: ["images/amber.JPG", "images/amber1.JPG"],
+        whatsappText: "Studio Amber"
+      },
+      {
+        id: "emerald",
+        name: "Emerald",
+        dotColor: "#10b981",
+        description: "Clean, bright · Ideal for Reels, YouTube, product shoots",
+        images: ["images/emerald.JPG", "images/emerald1.JPG"],
+        whatsappText: "Studio Emerald"
+      },
+      {
+        id: "indigo",
+        name: "Indigo",
+        dotColor: "#6366f1",
+        description: "Bold, dramatic · Perfect for music videos & fashion campaigns",
+        images: ["images/indigo.JPG", "images/indigo1.JPG"],
+        whatsappText: "Studio Indigo"
+      }
+      // ===== TO ADD A NEW STUDIO, COPY THE BLOCK BELOW =====
+      // {
+      //   id: "onyx",
+      //   name: "Onyx",
+      //   dotColor: "#2c2c2c",
+      //   description: "Dark, moody · Perfect for atmospheric shoots & music videos",
+      //   images: ["images/onyx.JPG", "images/onyx1.JPG"],
+      //   whatsappText: "Studio Onyx"
+      // }
+    ];
+
     // Mobile menu
     (function() {
       const toggle = document.getElementById('mobileMenuToggle');
@@ -553,7 +398,66 @@
       });
     })();
 
-    // Studio Slideshow with Navigation Arrows
+    // Function to generate HTML for a studio card
+    function createStudioCard(studio, index) {
+      const uniqueId = studio.id;
+      const imageCount = studio.images.length;
+      
+      return `
+        <div class="studio-card">
+          <div class="studio-image-container" id="${uniqueId}-container">
+            <img src="${studio.images[0]}" alt="${studio.name} Studio" id="${uniqueId}-img">
+            <div class="studio-nav-arrow studio-nav-prev" id="${uniqueId}-prev">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="studio-nav-arrow studio-nav-next" id="${uniqueId}-next">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="studio-img-counter" id="${uniqueId}-counter">
+              <span class="counter-current">1</span>/<span class="counter-total">${imageCount}</span>
+            </div>
+          </div>
+          <div class="studio-info">
+            <div class="studio-name">
+              <span class="studio-dot" style="background: ${studio.dotColor};"></span>
+              <h3>${studio.name}</h3>
+            </div>
+            <p class="studio-short-desc">${studio.description}</p>
+            <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20${encodeURIComponent(studio.whatsappText)}.%20What%27s%20the%20availability%3F"
+               target="_blank" class="studio-book-btn">
+              <i class="fab fa-whatsapp"></i> Book ${studio.name}
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Function to render all studios
+    function renderStudios() {
+      const grid = document.getElementById('studio-grid');
+      if (!grid) return;
+      
+      let html = '';
+      studiosData.forEach((studio, index) => {
+        html += createStudioCard(studio, index);
+      });
+      grid.innerHTML = html;
+      
+      // Initialize slideshows after rendering
+      studiosData.forEach(studio => {
+        initStudioSlideshow({
+          containerId: `${studio.id}-container`,
+          imgId: `${studio.id}-img`,
+          counterId: `${studio.id}-counter`,
+          prevId: `${studio.id}-prev`,
+          nextId: `${studio.id}-next`,
+          imagesArray: studio.images,
+          autoSpeed: 1000
+        });
+      });
+    }
+
+    // Slideshow function
     function initStudioSlideshow(config) {
       const { containerId, imgId, counterId, prevId, nextId, imagesArray, autoSpeed = 1000 } = config;
       
@@ -579,9 +483,19 @@
         }
       }
       
-      function updateImage(index) {
+      function updateImage(index, animate = true) {
         if (imgElement && imagesArray[index]) {
-          imgElement.src = imagesArray[index];
+          if (animate) {
+            imgElement.style.opacity = '0.5';
+            setTimeout(() => {
+              imgElement.src = imagesArray[index];
+              setTimeout(() => {
+                imgElement.style.opacity = '1';
+              }, 50);
+            }, 100);
+          } else {
+            imgElement.src = imagesArray[index];
+          }
           updateCounter();
         }
       }
@@ -598,11 +512,8 @@
       
       function startSlideshow() {
         if (slideshowInterval) clearInterval(slideshowInterval);
-        
         slideshowInterval = setInterval(() => {
-          if (isHovering) {
-            nextImage();
-          }
+          if (isHovering) nextImage();
         }, autoSpeed);
       }
       
@@ -620,7 +531,6 @@
         isHovering = false;
       }
       
-      // Hover events
       container.addEventListener('mouseenter', () => {
         isHovering = true;
         startSlideshow();
@@ -631,16 +541,11 @@
         resetAndStop();
       });
       
-      // Arrow button events
       if (prevBtn) {
         prevBtn.addEventListener('click', (e) => {
           e.stopPropagation();
           prevImage();
-          // Reset slideshow timer on manual click
-          if (isHovering) {
-            stopSlideshow();
-            startSlideshow();
-          }
+          if (isHovering) { stopSlideshow(); startSlideshow(); }
         });
       }
       
@@ -648,47 +553,16 @@
         nextBtn.addEventListener('click', (e) => {
           e.stopPropagation();
           nextImage();
-          // Reset slideshow timer on manual click
-          if (isHovering) {
-            stopSlideshow();
-            startSlideshow();
-          }
+          if (isHovering) { stopSlideshow(); startSlideshow(); }
         });
       }
       
       updateCounter();
+      imgElement.style.opacity = '1';
     }
-    
-    // Initialize all studio slideshows with 1-second auto speed
-    initStudioSlideshow({
-      containerId: 'amber-image-container',
-      imgId: 'amber-slide-img',
-      counterId: 'amber-img-counter',
-      prevId: 'amber-prev',
-      nextId: 'amber-next',
-      imagesArray: ['images/amber.JPG', 'images/amber1.JPG'],
-      autoSpeed: 1000
-    });
-    
-    initStudioSlideshow({
-      containerId: 'emerald-image-container',
-      imgId: 'emerald-slide-img',
-      counterId: 'emerald-img-counter',
-      prevId: 'emerald-prev',
-      nextId: 'emerald-next',
-      imagesArray: ['images/emerald.JPG', 'images/emerald1.JPG'],
-      autoSpeed: 1000
-    });
-    
-    initStudioSlideshow({
-      containerId: 'indigo-image-container',
-      imgId: 'indigo-slide-img',
-      counterId: 'indigo-img-counter',
-      prevId: 'indigo-prev',
-      nextId: 'indigo-next',
-      imagesArray: ['images/indigo.JPG', 'images/indigo1.JPG'],
-      autoSpeed: 1000
-    });
+
+    // Initialize page
+    renderStudios();
   </script>
 </body>
 </html>
