@@ -101,18 +101,18 @@ stats: {
     },
     {
       title: "Night Shift",
-      tag: "Short Film",
+      tag: "Producer - Short Film",
       category: "films", // Add this
       image: "images/nightshift.jpg",
-      url: "https://www.youtube.com/watch?v=kwVuPcAiNjY",
+      url: "https://www.youtube.com/watch?v=kwVuPcAiNjY&t=1s",
       description: "A gripping cinematic thriller exploring the dark corners of night shift work."
     },
     {
       title: "Into the Sea",
-      tag: "Short Film",
+      tag: "Producer - Short Film",
       category: "films", // Add this
       image: "images/intothesea.jpg",
-      url: "https://www.youtube.com/watch?v=vQYMIPsxp4c",
+      url: "https://www.youtube.com/watch?v=vQYMIPsxp4c&t=12s",
       description: "An emotional journey of self-discovery set against breathtaking ocean vistas."
     },
     {
@@ -125,7 +125,7 @@ stats: {
     },
     {
       title: "Broken Reflections",
-      tag: "Short Film",
+      tag: "Producer - Short Film",
       category: "films", // Add this
       image: "images/broken.jpg",
       url: "https://www.youtube.com/watch?v=AhzQTAfnsCs",
@@ -157,10 +157,10 @@ stats: {
     },
     {
       title: "Bull-ing",
-      tag: "Short Film",
+      tag: "Producer - Short Film",
       category: "films", // Add this
       image: "images/bulling.png",
-      url: "https://www.instagram.com/p/C1w393xheBx/",
+      url: "https://www.youtube.com/watch?v=34VQejVzgbA&t=17s",
       description: "Our team is very proud to announce “BULL-ING”. We had a great time shooting for this film and waiting for you to watch this business drama."
     },
     {
