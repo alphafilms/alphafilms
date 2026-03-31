@@ -3,55 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Studio — Alpha Films | Amber · Emerald · Indigo</title>
+  <meta name="description" content="Professional studio spaces in Delhi NCR — Amber, Emerald, and Indigo. Book our premium shooting spaces with full equipment and production support." />
 
-  <title>Our Studio — Alpha Films</title>
-  <meta name="description" content="Professional studio spaces — Amber, Emerald, Indigo. Book now." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Alpha Films Studio Spaces" />
+  <meta property="og:description" content="Three curated studio setups in Mayapuri, Delhi. Book now for your next production." />
+  <meta property="og:image" content="images/amber.JPG" />
+  <meta property="og:url" content="https://www.alphafilmsproduction.com/studio.html" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
 
-  <!-- Icons -->
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-  <!-- MAIN CSS -->
+  <!-- Main CSS (shared with homepage) -->
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- Studio-specific CSS (embedded) -->
   <style>
-    /* ===== FIX: Prevent global overlays breaking layout ===== */
-    .studio-hero,
-    .studio-grid-section {
-      position: relative;
-      z-index: 2;
-      isolation: isolate;
-      background: var(--color-bg-soft);
-    }
+    /* ===== STUDIO PAGE ===== */
 
-    /* ===== HERO ===== */
+    /* Studio Hero */
     .studio-hero {
-      padding: 5rem 0 2rem; /* reduced from 8rem */
-      text-align: center;
+      padding: 8rem 0 4rem;
       background: var(--color-bg-soft);
-      border-bottom: 1px solid var(--color-border);
+      text-align: center;
     }
 
-    .studio-hero h1 {
-      font-size: 2.8rem;
+    .studio-title {
+      font-size: var(--text-5xl);
       font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--color-text);
     }
 
-    .studio-hero span {
+    .studio-title span {
       color: var(--color-red);
     }
 
-    .studio-hero p {
+    .studio-subtitle {
+      font-size: var(--text-xl);
       color: var(--color-text-muted);
       max-width: 600px;
-      margin: 1rem auto 0;
+      margin: 0 auto;
     }
 
-    /* ===== GRID ===== */
+    /* Studio Grid */
     .studio-grid-section {
-      padding: 3rem 1rem;
+      padding: 4rem 0;
     }
 
     .studio-grid {
@@ -60,62 +62,73 @@
       gap: 2rem;
     }
 
-    @media (max-width: 900px) {
-      .studio-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ===== CARD ===== */
+    /* Studio Card */
     .studio-card {
       background: var(--color-bg-soft);
       border: 1px solid var(--color-border);
-      border-radius: 14px;
+      border-radius: 16px;
       overflow: hidden;
-      transition: 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .studio-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+      border-color: var(--color-text);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
-    /* ===== IMAGE ===== */
+    /* Image Container with Hover Slideshow */
     .studio-image-container {
-      height: 380px;
+      position: relative;
+      width: 100%;
+      height: 280px;
       overflow: hidden;
       cursor: pointer;
+      background: var(--color-bg-dark);
     }
 
     .studio-image-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .studio-image-container:hover img {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
 
-    @media (max-width: 768px) {
-      .studio-image-container {
-       height: 300px;
+    /* Image Counter */
+    .studio-img-counter {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      font-family: monospace;
+      pointer-events: none;
+      z-index: 2;
     }
 
-  .studio-hero {
-    padding: 4rem 0 2rem;
-  }
-}
-    /* ===== INFO ===== */
+    .counter-current {
+      color: var(--color-red);
+      font-weight: bold;
+    }
+
+    /* Studio Info */
     .studio-info {
-      padding: 1.4rem;
+      padding: 1.5rem;
     }
 
     .studio-name {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 0.5rem;
       margin-bottom: 0.5rem;
     }
 
@@ -125,132 +138,445 @@
       border-radius: 50%;
     }
 
-    .amber { background: #f59e0b; }
-    .emerald { background: #10b981; }
-    .indigo { background: #6366f1; }
+    .studio-dot.amber { background: #f59e0b; }
+    .studio-dot.emerald { background: #10b981; }
+    .studio-dot.indigo { background: #6366f1; }
 
-    .studio-info h3 {
+    .studio-name h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-text);
       margin: 0;
     }
 
-    .studio-info p {
+    .studio-short-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    /* Book Button */
+    .studio-book-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+    }
+
+    .studio-book-btn:hover {
+      background: var(--color-text);
+      color: var(--color-bg-dark);
+      border-color: var(--color-text);
+    }
+
+    .studio-book-btn i {
+      font-size: 1rem;
+    }
+
+    /* Booking Strip */
+    .studio-booking-strip {
+      padding: 3rem 0;
+      background: var(--color-bg-soft);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      text-align: center;
+    }
+
+    .studio-booking-strip h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
+    }
+
+    .studio-booking-strip p {
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* More Studios Notice */
+    .more-studios-notice {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem;
+      border-top: 1px solid var(--color-border);
       color: var(--color-text-muted);
       font-size: 0.9rem;
     }
 
-    /* ===== BUTTON ===== */
-    .studio-book-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border: 1px solid var(--color-border);
-      padding: 8px 14px;
-      border-radius: 30px;
-      text-decoration: none;
-      margin-top: 10px;
-      transition: 0.3s;
+    .more-studios-notice i {
+      margin-right: 0.5rem;
     }
 
-    .studio-book-btn:hover {
-      background: black;
-      color: white;
+    /* Back to Home */
+    .back-to-home {
+      padding: 3rem 0;
+      text-align: center;
+      border-top: 1px solid var(--color-border);
     }
 
-    /* ===== FOOTER SMALL FIX ===== */
-    footer {
-      margin-top: 3rem;
+    /* Responsive */
+    @media (max-width: 991px) {
+      .studio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      
+      .studio-image-container {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .studio-hero {
+        padding: 6rem 0 3rem;
+      }
+      
+      .studio-title {
+        font-size: var(--text-3xl);
+      }
+      
+      .studio-subtitle {
+        font-size: var(--text-lg);
+      }
+      
+      .studio-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .studio-image-container {
+        height: 220px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .studio-hero {
+        padding: 5rem 0 2.5rem;
+      }
+      
+      .studio-title {
+        font-size: var(--text-2xl);
+      }
+      
+      .studio-image-container {
+        height: 200px;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<!-- ===== HERO ===== -->
-<section class="studio-hero">
-  <h1>Our Studio <span>Spaces</span></h1>
-  <p>Professionally crafted environments — each with its own mood, light, and character.</p>
-</section>
-
-<!-- ===== GRID ===== -->
-<section class="studio-grid-section">
-  <div class="studio-grid">
-
-    <!-- AMBER -->
-    <div class="studio-card">
-      <div class="studio-image-container" data-images="images/amber.JPG,images/amber1.JPG">
-        <img src="images/amber.JPG">
+  <!-- ===== NAVIGATION ===== -->
+  <header>
+    <nav class="nav">
+      <div class="logo" onclick="window.location.href='index.html'">
+        <img src="images/logo.png" alt="Alpha Films Logo">
+        <span>ALPHA FILMS</span>
       </div>
-      <div class="studio-info">
-        <div class="studio-name">
-          <div class="studio-dot amber"></div>
-          <h3>Amber</h3>
+
+      <div class="desktop-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#featured-work" class="nav-link">Featured Work</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="studio.html" class="nav-link active">Studio</a>
+        <a href="index.html#team" class="nav-link">Team</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="index.html#featured-work" class="mobile-nav-link">Featured Work</a>
+        <a href="index.html#services" class="mobile-nav-link">Services</a>
+        <a href="studio.html" class="mobile-nav-link active">Studio</a>
+        <a href="index.html#team" class="mobile-nav-link">Team</a>
+        <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== STUDIO HERO ===== -->
+  <section class="studio-hero">
+    <div class="container">
+      <h1 class="studio-title">Our Studio <span>Spaces</span></h1>
+      <p class="studio-subtitle">Professionally crafted environments — each with its own mood, light, and character.</p>
+    </div>
+  </section>
+
+  <!-- ===== STUDIO GRID ===== -->
+  <section class="studio-grid-section">
+    <div class="container">
+      <div class="studio-grid" id="studio-grid">
+        
+        <!-- Amber Studio Card -->
+        <div class="studio-card">
+          <div class="studio-image-container" id="amber-image-container">
+            <img src="images/amber.JPG" alt="Amber Studio" id="amber-slide-img">
+            <div class="studio-img-counter" id="amber-img-counter">
+              <span class="counter-current">1</span>/<span class="counter-total">2</span>
+            </div>
+          </div>
+          <div class="studio-info">
+            <div class="studio-name">
+              <span class="studio-dot amber"></span>
+              <h3>Amber</h3>
+            </div>
+            <p class="studio-short-desc">Warm, cinematic lighting · Perfect for narrative films & portraits</p>
+            <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Amber.%20What%27s%20the%20availability%3F"
+               target="_blank" class="studio-book-btn">
+              <i class="fab fa-whatsapp"></i> Book Amber
+            </a>
+          </div>
         </div>
-        <p>Warm, cinematic lighting · Perfect for films & portraits</p>
-        <a href="https://wa.me/918587090302" target="_blank" class="studio-book-btn">
-          <i class="fab fa-whatsapp"></i> Book
-        </a>
+        
+        <!-- Emerald Studio Card -->
+        <div class="studio-card">
+          <div class="studio-image-container" id="emerald-image-container">
+            <img src="images/emerald.JPG" alt="Emerald Studio" id="emerald-slide-img">
+            <div class="studio-img-counter" id="emerald-img-counter">
+              <span class="counter-current">1</span>/<span class="counter-total">2</span>
+            </div>
+          </div>
+          <div class="studio-info">
+            <div class="studio-name">
+              <span class="studio-dot emerald"></span>
+              <h3>Emerald</h3>
+            </div>
+            <p class="studio-short-desc">Clean, bright · Ideal for Reels, YouTube, product shoots</p>
+            <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Emerald.%20What%27s%20the%20availability%3F"
+               target="_blank" class="studio-book-btn">
+              <i class="fab fa-whatsapp"></i> Book Emerald
+            </a>
+          </div>
+        </div>
+        
+        <!-- Indigo Studio Card -->
+        <div class="studio-card">
+          <div class="studio-image-container" id="indigo-image-container">
+            <img src="images/indigo.JPG" alt="Indigo Studio" id="indigo-slide-img">
+            <div class="studio-img-counter" id="indigo-img-counter">
+              <span class="counter-current">1</span>/<span class="counter-total">2</span>
+            </div>
+          </div>
+          <div class="studio-info">
+            <div class="studio-name">
+              <span class="studio-dot indigo"></span>
+              <h3>Indigo</h3>
+            </div>
+            <p class="studio-short-desc">Bold, dramatic · Perfect for music videos & fashion campaigns</p>
+            <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Indigo.%20What%27s%20the%20availability%3F"
+               target="_blank" class="studio-book-btn">
+              <i class="fab fa-whatsapp"></i> Book Indigo
+            </a>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- More Studios Coming Soon -->
+      <div class="more-studios-notice">
+        <i class="fas fa-plus-circle"></i> More studio spaces coming soon. Stay tuned.
       </div>
     </div>
+  </section>
 
-    <!-- EMERALD -->
-    <div class="studio-card">
-      <div class="studio-image-container" data-images="images/emerald.JPG,images/emerald1.JPG">
-        <img src="images/emerald.JPG">
-      </div>
-      <div class="studio-info">
-        <div class="studio-name">
-          <div class="studio-dot emerald"></div>
-          <h3>Emerald</h3>
+  <!-- ===== BOOKING STRIP ===== -->
+  <section class="studio-booking-strip">
+    <div class="container">
+      <h2>Not Sure Which Studio?</h2>
+      <p>Tell us your project — we'll recommend the perfect setup.</p>
+      <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20need%20help%20choosing%20the%20right%20studio%20setup%20for%20my%20project."
+         target="_blank" class="studio-book-btn" style="background: var(--color-text); color: var(--color-bg-dark);">
+        <i class="fab fa-whatsapp"></i> Chat With Us
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== BACK TO HOME ===== -->
+  <section class="back-to-home">
+    <div class="container">
+      <a href="index.html" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER / CONTACT ===== -->
+  <footer id="contact" class="section">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: flex-start; justify-content: space-between;">
+        
+        <!-- LEFT: Contact Information -->
+        <div class="contact-content" style="flex: 1 1 350px; text-align: left; margin: 0;">
+          <h2 style="text-align: left; margin-top: 0; font-size: 2.2rem; line-height: 1.2;">
+            LET'S CREATE SOMETHING<br>
+            <span style="color: var(--color-red);">#ALPHA</span> TOGETHER
+          </h2>
+          
+          <p style="text-align: left; margin-top: 1.5rem;">
+            📍 Unity Towers, B-93,<br>
+            Mayapuri Industrial Area Phase I,<br>
+            Mayapuri, New Delhi, Delhi 110064, India<br>
+            📱 +91 85870 90302<br>
+            📧 <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a>
+          </p>
+          
+          <div class="social-links" style="justify-content: flex-start;">
+            <a href="https://instagram.com/alphafilmsofficial" target="_blank" class="social-btn instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/alphafilms" target="_blank" class="social-btn linkedin">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://wa.me/918587090302" target="_blank" class="social-btn whatsapp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+          
+          <p style="margin-top: 2rem; opacity: 0.7; text-align: left;">© 2026 Alpha Films. All rights reserved.</p>
         </div>
-        <p>Clean, bright · Ideal for reels & product shoots</p>
-        <a href="https://wa.me/918587090302" target="_blank" class="studio-book-btn">
-          <i class="fab fa-whatsapp"></i> Book
-        </a>
+        
+        <!-- RIGHT: Google Maps -->
+        <div style="flex: 1 1 400px;">
+          <div style="width: 100%; max-width: 600px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2476.394905426891!2d77.1229886108917!3d28.62523484498174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03657af76e07%3A0x1dceebfdcaee0c9b!2sAlpha%20Films!5e0!3m2!1sen!2sde!4v1770832029216!5m2!1sen!2sde" 
+              width="100%" 
+              height="350" 
+              style="border:0; display: block;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+        
       </div>
     </div>
+  </footer>
 
-    <!-- INDIGO -->
-    <div class="studio-card">
-      <div class="studio-image-container" data-images="images/indigo.JPG,images/indigo1.JPG">
-        <img src="images/indigo.JPG">
-      </div>
-      <div class="studio-info">
-        <div class="studio-name">
-          <div class="studio-dot indigo"></div>
-          <h3>Indigo</h3>
-        </div>
-        <p>Bold, dramatic · Perfect for music & fashion</p>
-        <a href="https://wa.me/918587090302" target="_blank" class="studio-book-btn">
-          <i class="fab fa-whatsapp"></i> Book
-        </a>
-      </div>
-    </div>
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20your%20studio.%20What%27s%20next%3F"
+     class="whatsapp-book-now" target="_blank" title="Book Now on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-  </div>
-</section>
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // Mobile menu
+    (function() {
+      const toggle = document.getElementById('mobileMenuToggle');
+      const menu = document.getElementById('mobileMenu');
+      if (!toggle || !menu) return;
 
-<!-- ===== SCRIPT ===== -->
-<script>
-document.querySelectorAll('.studio-image-container').forEach(container => {
-  const images = container.dataset.images.split(',');
-  const img = container.querySelector('img');
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('active');
+      });
 
-  let i = 0, interval;
+      document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+          menu.classList.remove('active');
+        }
+      });
 
-  container.addEventListener('mouseenter', () => {
-    interval = setInterval(() => {
-      i = (i + 1) % images.length;
-      img.src = images[i];
-    }, 1800);
-  });
+      menu.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => menu.classList.remove('active'));
+      });
+    })();
 
-  container.addEventListener('mouseleave', () => {
-    clearInterval(interval);
-    i = 0;
-    img.src = images[0];
-  });
-});
-</script>
-
+    // ===== HOVER SLIDESHOW FUNCTION =====
+    function initStudioSlideshow(containerId, imgId, counterId, imagesArray) {
+      const container = document.getElementById(containerId);
+      const imgElement = document.getElementById(imgId);
+      const counterElement = document.getElementById(counterId);
+      
+      if (!container || !imgElement) return;
+      
+      let currentIndex = 0;
+      let slideshowInterval = null;
+      let isHovering = false;
+      const totalImages = imagesArray.length;
+      
+      function updateCounter() {
+        if (counterElement) {
+          const currentSpan = counterElement.querySelector('.counter-current');
+          const totalSpan = counterElement.querySelector('.counter-total');
+          if (currentSpan) currentSpan.textContent = currentIndex + 1;
+          if (totalSpan) totalSpan.textContent = totalImages;
+        }
+      }
+      
+      function updateImage(index) {
+        if (imgElement && imagesArray[index]) {
+          imgElement.src = imagesArray[index];
+          updateCounter();
+        }
+      }
+      
+      function startSlideshow() {
+        if (slideshowInterval) clearInterval(slideshowInterval);
+        
+        slideshowInterval = setInterval(() => {
+          if (isHovering) {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateImage(currentIndex);
+          }
+        }, 2000);
+      }
+      
+      function stopSlideshow() {
+        if (slideshowInterval) {
+          clearInterval(slideshowInterval);
+          slideshowInterval = null;
+        }
+        currentIndex = 0;
+        updateImage(0);
+        isHovering = false;
+      }
+      
+      container.addEventListener('mouseenter', () => {
+        isHovering = true;
+        currentIndex = 0;
+        updateImage(0);
+        startSlideshow();
+      });
+      
+      container.addEventListener('mouseleave', () => {
+        isHovering = false;
+        stopSlideshow();
+      });
+      
+      updateCounter();
+    }
+    
+    // Initialize all studio slideshows
+    initStudioSlideshow('amber-image-container', 'amber-slide-img', 'amber-img-counter', [
+      'images/amber.JPG',
+      'images/amber1.JPG'
+    ]);
+    
+    initStudioSlideshow('emerald-image-container', 'emerald-slide-img', 'emerald-img-counter', [
+      'images/emerald.JPG',
+      'images/emerald1.JPG'
+    ]);
+    
+    initStudioSlideshow('indigo-image-container', 'indigo-slide-img', 'indigo-img-counter', [
+      'images/indigo.JPG',
+      'images/indigo1.JPG'
+    ]);
+  </script>
 </body>
 </html>
