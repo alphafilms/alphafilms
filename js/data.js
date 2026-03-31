@@ -164,6 +164,14 @@ stats: {
       description: "Our team is very proud to announce “BULL-ING”. We had a great time shooting for this film and waiting for you to watch this business drama."
     },
     {
+      title: "Whispers of the Moonlight",
+      tag: "Producer - Short Film",
+      category: "films", // Add this
+      image: "images/moon.png",
+      url: "https://www.youtube.com/watch?v=KBNVoWpBSj0",
+      description: "A grieving father heals through dreams."
+    },
+    {
       title: "NueGo Commercial",
       tag: "Commercial",
       category: "commercials", // Add this
@@ -178,6 +186,14 @@ stats: {
       image: "images/autosatyam.jpg",
       url: "https://www.instagram.com/reel/DNCpNDvyPkn/",
       description: "Creating and editing reels and long form video for youtube and instagram."
+    },
+    {
+      title: "Sookha Patta",
+      tag: "Assistant Producer - Short Film",
+      category: "films", // Add this
+      image: "images/patta.png",
+      url: "https://www.youtube.com/watch?v=1tfCTZRG3Ao",
+      description: "A Vaastu-obsessed man strains family ties over beliefs."
     },
     {
       title: "MOIRA",
