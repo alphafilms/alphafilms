@@ -28,8 +28,9 @@
 
     /* ===== HERO ===== */
     .studio-hero {
-      padding: 7rem 1rem 3rem;
+      padding: 5rem 0 2rem; /* reduced from 8rem */
       text-align: center;
+      background: var(--color-bg-soft);
       border-bottom: 1px solid var(--color-border);
     }
 
@@ -81,7 +82,7 @@
 
     /* ===== IMAGE ===== */
     .studio-image-container {
-      height: 260px;
+      height: 380px;
       overflow: hidden;
       cursor: pointer;
     }
@@ -97,6 +98,15 @@
       transform: scale(1.05);
     }
 
+    @media (max-width: 768px) {
+      .studio-image-container {
+       height: 300px;
+    }
+
+  .studio-hero {
+    padding: 4rem 0 2rem;
+  }
+}
     /* ===== INFO ===== */
     .studio-info {
       padding: 1.4rem;
