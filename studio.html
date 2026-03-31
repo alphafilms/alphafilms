@@ -28,7 +28,7 @@
 
     /* Studio Hero */
     .studio-hero {
-      padding: 8rem 0 4rem;
+      padding: 6rem 0 3rem;
       background: var(--color-bg-soft);
       text-align: center;
     }
@@ -53,7 +53,7 @@
 
     /* Studio Grid */
     .studio-grid-section {
-      padding: 4rem 0;
+      padding: 3rem 0;
     }
 
     .studio-grid {
@@ -62,7 +62,7 @@
       gap: 2rem;
     }
 
-    /* Studio Card */
+    /* Studio Card - LARGER SIZE */
     .studio-card {
       background: var(--color-bg-soft);
       border: 1px solid var(--color-border);
@@ -77,13 +77,12 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
-    /* Image Container with Hover Slideshow */
+    /* Image Container with Navigation Arrows */
     .studio-image-container {
       position: relative;
       width: 100%;
-      height: 280px;
+      height: 320px;
       overflow: hidden;
-      cursor: pointer;
       background: var(--color-bg-dark);
     }
 
@@ -96,6 +95,46 @@
 
     .studio-image-container:hover img {
       transform: scale(1.02);
+    }
+
+    /* Navigation Arrows */
+    .studio-nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      z-index: 10;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .studio-image-container:hover .studio-nav-arrow {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .studio-nav-arrow:hover {
+      background: var(--color-red);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .studio-nav-prev {
+      left: 12px;
+    }
+
+    .studio-nav-next {
+      right: 12px;
     }
 
     /* Image Counter */
@@ -133,8 +172,8 @@
     }
 
     .studio-dot {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
     }
 
@@ -153,7 +192,7 @@
       font-size: 0.9rem;
       color: var(--color-text-muted);
       margin-bottom: 1rem;
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     /* Book Button */
@@ -170,7 +209,6 @@
       font-weight: 500;
       text-decoration: none;
       transition: all 0.3s ease;
-      margin-top: 0.5rem;
     }
 
     .studio-book-btn:hover {
@@ -185,7 +223,7 @@
 
     /* Booking Strip */
     .studio-booking-strip {
-      padding: 3rem 0;
+      padding: 2.5rem 0;
       background: var(--color-bg-soft);
       border-top: 1px solid var(--color-border);
       border-bottom: 1px solid var(--color-border);
@@ -193,24 +231,24 @@
     }
 
     .studio-booking-strip h2 {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       margin-bottom: 0.5rem;
       color: var(--color-text);
     }
 
     .studio-booking-strip p {
       color: var(--color-text-muted);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     /* More Studios Notice */
     .more-studios-notice {
       text-align: center;
-      margin-top: 3rem;
-      padding: 2rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
       border-top: 1px solid var(--color-border);
       color: var(--color-text-muted);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .more-studios-notice i {
@@ -219,7 +257,7 @@
 
     /* Back to Home */
     .back-to-home {
-      padding: 3rem 0;
+      padding: 2rem 0;
       text-align: center;
       border-top: 1px solid var(--color-border);
     }
@@ -232,13 +270,13 @@
       }
       
       .studio-image-container {
-        height: 250px;
+        height: 280px;
       }
     }
 
     @media (max-width: 768px) {
       .studio-hero {
-        padding: 6rem 0 3rem;
+        padding: 5rem 0 2.5rem;
       }
       
       .studio-title {
@@ -246,7 +284,7 @@
       }
       
       .studio-subtitle {
-        font-size: var(--text-lg);
+        font-size: var(--text-base);
       }
       
       .studio-grid {
@@ -254,13 +292,17 @@
       }
       
       .studio-image-container {
-        height: 220px;
+        height: 260px;
+      }
+      
+      .studio-name h3 {
+        font-size: 1.35rem;
       }
     }
 
     @media (max-width: 480px) {
       .studio-hero {
-        padding: 5rem 0 2.5rem;
+        padding: 4rem 0 2rem;
       }
       
       .studio-title {
@@ -268,7 +310,11 @@
       }
       
       .studio-image-container {
-        height: 200px;
+        height: 240px;
+      }
+      
+      .studio-info {
+        padding: 1.25rem;
       }
     }
   </style>
@@ -318,12 +364,18 @@
   <!-- ===== STUDIO GRID ===== -->
   <section class="studio-grid-section">
     <div class="container">
-      <div class="studio-grid" id="studio-grid">
+      <div class="studio-grid">
         
         <!-- Amber Studio Card -->
         <div class="studio-card">
           <div class="studio-image-container" id="amber-image-container">
             <img src="images/amber.JPG" alt="Amber Studio" id="amber-slide-img">
+            <div class="studio-nav-arrow studio-nav-prev" id="amber-prev">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="studio-nav-arrow studio-nav-next" id="amber-next">
+              <i class="fas fa-chevron-right"></i>
+            </div>
             <div class="studio-img-counter" id="amber-img-counter">
               <span class="counter-current">1</span>/<span class="counter-total">2</span>
             </div>
@@ -345,6 +397,12 @@
         <div class="studio-card">
           <div class="studio-image-container" id="emerald-image-container">
             <img src="images/emerald.JPG" alt="Emerald Studio" id="emerald-slide-img">
+            <div class="studio-nav-arrow studio-nav-prev" id="emerald-prev">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="studio-nav-arrow studio-nav-next" id="emerald-next">
+              <i class="fas fa-chevron-right"></i>
+            </div>
             <div class="studio-img-counter" id="emerald-img-counter">
               <span class="counter-current">1</span>/<span class="counter-total">2</span>
             </div>
@@ -366,6 +424,12 @@
         <div class="studio-card">
           <div class="studio-image-container" id="indigo-image-container">
             <img src="images/indigo.JPG" alt="Indigo Studio" id="indigo-slide-img">
+            <div class="studio-nav-arrow studio-nav-prev" id="indigo-prev">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="studio-nav-arrow studio-nav-next" id="indigo-next">
+              <i class="fas fa-chevron-right"></i>
+            </div>
             <div class="studio-img-counter" id="indigo-img-counter">
               <span class="counter-current">1</span>/<span class="counter-total">2</span>
             </div>
@@ -413,12 +477,11 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER / CONTACT ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer id="contact" class="section">
     <div class="container">
       <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: flex-start; justify-content: space-between;">
         
-        <!-- LEFT: Contact Information -->
         <div class="contact-content" style="flex: 1 1 350px; text-align: left; margin: 0;">
           <h2 style="text-align: left; margin-top: 0; font-size: 2.2rem; line-height: 1.2;">
             LET'S CREATE SOMETHING<br>
@@ -434,21 +497,14 @@
           </p>
           
           <div class="social-links" style="justify-content: flex-start;">
-            <a href="https://instagram.com/alphafilmsofficial" target="_blank" class="social-btn instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/alphafilms" target="_blank" class="social-btn linkedin">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://wa.me/918587090302" target="_blank" class="social-btn whatsapp">
-              <i class="fab fa-whatsapp"></i>
-            </a>
+            <a href="https://instagram.com/alphafilmsofficial" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/alphafilms" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/918587090302" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
           </div>
           
           <p style="margin-top: 2rem; opacity: 0.7; text-align: left;">© 2026 Alpha Films. All rights reserved.</p>
         </div>
         
-        <!-- RIGHT: Google Maps -->
         <div style="flex: 1 1 400px;">
           <div style="width: 100%; max-width: 600px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
             <iframe 
@@ -497,11 +553,15 @@
       });
     })();
 
-    // ===== HOVER SLIDESHOW FUNCTION =====
-    function initStudioSlideshow(containerId, imgId, counterId, imagesArray) {
+    // Studio Slideshow with Navigation Arrows
+    function initStudioSlideshow(config) {
+      const { containerId, imgId, counterId, prevId, nextId, imagesArray, autoSpeed = 1000 } = config;
+      
       const container = document.getElementById(containerId);
       const imgElement = document.getElementById(imgId);
       const counterElement = document.getElementById(counterId);
+      const prevBtn = document.getElementById(prevId);
+      const nextBtn = document.getElementById(nextId);
       
       if (!container || !imgElement) return;
       
@@ -526,15 +586,24 @@
         }
       }
       
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % totalImages;
+        updateImage(currentIndex);
+      }
+      
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        updateImage(currentIndex);
+      }
+      
       function startSlideshow() {
         if (slideshowInterval) clearInterval(slideshowInterval);
         
         slideshowInterval = setInterval(() => {
           if (isHovering) {
-            currentIndex = (currentIndex + 1) % totalImages;
-            updateImage(currentIndex);
+            nextImage();
           }
-        }, 2000);
+        }, autoSpeed);
       }
       
       function stopSlideshow() {
@@ -542,42 +611,84 @@
           clearInterval(slideshowInterval);
           slideshowInterval = null;
         }
+      }
+      
+      function resetAndStop() {
+        stopSlideshow();
         currentIndex = 0;
         updateImage(0);
         isHovering = false;
       }
       
+      // Hover events
       container.addEventListener('mouseenter', () => {
         isHovering = true;
-        currentIndex = 0;
-        updateImage(0);
         startSlideshow();
       });
       
       container.addEventListener('mouseleave', () => {
         isHovering = false;
-        stopSlideshow();
+        resetAndStop();
       });
+      
+      // Arrow button events
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          prevImage();
+          // Reset slideshow timer on manual click
+          if (isHovering) {
+            stopSlideshow();
+            startSlideshow();
+          }
+        });
+      }
+      
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          nextImage();
+          // Reset slideshow timer on manual click
+          if (isHovering) {
+            stopSlideshow();
+            startSlideshow();
+          }
+        });
+      }
       
       updateCounter();
     }
     
-    // Initialize all studio slideshows
-    initStudioSlideshow('amber-image-container', 'amber-slide-img', 'amber-img-counter', [
-      'images/amber.JPG',
-      'images/amber1.JPG',
-      'images/amber2.JPG'
-    ]);
+    // Initialize all studio slideshows with 1-second auto speed
+    initStudioSlideshow({
+      containerId: 'amber-image-container',
+      imgId: 'amber-slide-img',
+      counterId: 'amber-img-counter',
+      prevId: 'amber-prev',
+      nextId: 'amber-next',
+      imagesArray: ['images/amber.JPG', 'images/amber1.JPG'],
+      autoSpeed: 1000
+    });
     
-    initStudioSlideshow('emerald-image-container', 'emerald-slide-img', 'emerald-img-counter', [
-      'images/emerald.JPG',
-      'images/emerald1.JPG'
-    ]);
+    initStudioSlideshow({
+      containerId: 'emerald-image-container',
+      imgId: 'emerald-slide-img',
+      counterId: 'emerald-img-counter',
+      prevId: 'emerald-prev',
+      nextId: 'emerald-next',
+      imagesArray: ['images/emerald.JPG', 'images/emerald1.JPG'],
+      autoSpeed: 1000
+    });
     
-    initStudioSlideshow('indigo-image-container', 'indigo-slide-img', 'indigo-img-counter', [
-      'images/indigo.JPG',
-      'images/indigo1.JPG'
-    ]);
+    initStudioSlideshow({
+      containerId: 'indigo-image-container',
+      imgId: 'indigo-slide-img',
+      counterId: 'indigo-img-counter',
+      prevId: 'indigo-prev',
+      nextId: 'indigo-next',
+      imagesArray: ['images/indigo.JPG', 'images/indigo1.JPG'],
+      autoSpeed: 1000
+    });
   </script>
 </body>
 </html>
