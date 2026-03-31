@@ -69,9 +69,9 @@
   <section class="studio-hero">
     <div class="studio-hero-bg"></div>
     <div class="studio-hero-content">
-      <p class="studio-eyebrow">Alpha Films — Mayapuri, New Delhi</p>
+      <p class="studio-eyebrow">Alpha Films</p>
       <h1 class="studio-hero-title">
-        Three Spaces.<br>
+        Countless Spaces.<br>
         <span>One Vision.</span>
       </h1>
       <p class="studio-hero-sub">
@@ -100,65 +100,66 @@
   </div>
 
 
-  <!-- ===== AMBER STUDIO ===== -->
-  <section class="studio-section amber-studio" id="amber">
-    <div class="studio-section-inner">
+<!-- ===== AMBER STUDIO ===== -->
+<section class="studio-section amber-studio" id="amber">
+  <div class="studio-section-inner">
 
-      <!-- IMAGE -->
-      <div class="studio-img-block">
-        <!--
-          Replace the placeholder below with a real image:
-          <img src="images/studio-amber.jpg" alt="Amber Studio" class="studio-img-main">
-        -->
-        <div class="studio-img-placeholder amber-bg">
-          <span>Add studio-amber.jpg</span>
-          <div class="studio-color-badge">
-            <span style="width:8px;height:8px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></span>
-            Amber
-          </div>
-        </div>
+    <!-- IMAGE WITH HOVER SLIDESHOW -->
+    <div class="studio-img-block" id="amber-image-container">
+      <!-- Image slideshow container -->
+      <div class="studio-img-slideshow">
+        <img src="images/amber.JPG" alt="Amber Studio" class="studio-img-main" id="amber-slide-img">
       </div>
-
-      <!-- TEXT -->
-      <div class="studio-text-block">
-        <div class="studio-number">01</div>
-        <div class="studio-name-tag">
-          <span class="studio-name-tag-dot" style="background:#f59e0b;"></span>
-          Studio Amber
-        </div>
-
-        <h2 class="studio-heading">Warm Light.<br>Cinematic Depth.</h2>
-
-        <p class="studio-desc">
-          Amber is our warmest, most versatile space — designed for narrative films, 
-          brand commercials, and portrait photography that demands richness and texture. 
-          Tungsten-balanced practicals and softbox rigs create that golden-hour feel at any hour.
-        </p>
-
-        <div class="studio-features">
-          <span class="studio-feature-pill"><span class="studio-feature-icon">💡</span> Tungsten Lighting Rig</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">🎭</span> Cyclorama Wall</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">🎙️</span> Soundproofed</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">❄️</span> AC + Power Backup</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">📷</span> Camera Gear Available</span>
-          <span class="studio-feature-pill"><span class="studio-feature-icon">🪑</span> Wardrobe & Props</span>
-        </div>
-
-        <div class="studio-cta-row">
-          <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Amber.%20What%27s%20the%20availability%3F"
-             target="_blank" class="studio-book-btn">
-            <i class="fab fa-whatsapp" style="margin-right:0.4rem;"></i> Book Amber
-          </a>
-          <div class="studio-avail">
-            <span class="studio-avail-dot"></span>
-            Available for booking
-          </div>
-        </div>
+      <!-- Image counter indicator -->
+      <div class="studio-img-counter" id="amber-img-counter">
+        <span class="counter-current">1</span>/<span class="counter-total">3</span>
       </div>
-
+      <!-- Color badge (optional - keep your existing style) -->
+      <div class="studio-color-badge">
+        <span style="width:8px;height:8px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></span>
+        Amber
+      </div>
     </div>
-  </section>
 
+    <!-- TEXT -->
+    <div class="studio-text-block">
+      <div class="studio-number">01</div>
+      <div class="studio-name-tag">
+        <span class="studio-name-tag-dot" style="background:#f59e0b;"></span>
+        Studio Amber
+      </div>
+
+      <h2 class="studio-heading">Warm Light.<br>Cinematic Depth.</h2>
+
+      <p class="studio-desc">
+        Amber is our warmest, most versatile space — designed for narrative films, 
+        brand commercials, and portrait photography that demands richness and texture. 
+        Tungsten-balanced practicals and softbox rigs create that golden-hour feel at any hour.
+      </p>
+
+      <div class="studio-features">
+        <span class="studio-feature-pill"><span class="studio-feature-icon">💡</span> Tungsten Lighting Rig</span>
+        <span class="studio-feature-pill"><span class="studio-feature-icon">🎭</span> Cyclorama Wall</span>
+        <span class="studio-feature-pill"><span class="studio-feature-icon">🎙️</span> Soundproofed</span>
+        <span class="studio-feature-pill"><span class="studio-feature-icon">❄️</span> AC + Power Backup</span>
+        <span class="studio-feature-pill"><span class="studio-feature-icon">📷</span> Camera Gear Available</span>
+        <span class="studio-feature-pill"><span class="studio-feature-icon">🪑</span> Wardrobe & Props</span>
+      </div>
+
+      <div class="studio-cta-row">
+        <a href="https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Studio%20Amber.%20What%27s%20the%20availability%3F"
+           target="_blank" class="studio-book-btn">
+          <i class="fab fa-whatsapp" style="margin-right:0.4rem;"></i> Book Amber
+        </a>
+        <div class="studio-avail">
+          <span class="studio-avail-dot"></span>
+          Available for booking
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <!-- ===== EMERALD STUDIO ===== -->
   <section class="studio-section emerald-studio" id="emerald">
@@ -405,6 +406,76 @@
       });
     });
   </script>
+<script>
 
+  
+  // ===== AMBER STUDIO HOVER SLIDESHOW =====
+(function() {
+  // Define the images for Amber studio slideshow
+  const amberImages = [
+    "images/amber.JPG",
+    "images/amber1.JPG",
+    "images/amber2.JPG"
+  ];
+  
+  let currentIndex = 0;
+  let slideshowInterval = null;
+  let isHovering = false;
+  
+  const imgElement = document.getElementById('amber-slide-img');
+  const counterElement = document.querySelector('#amber-img-counter .counter-current');
+  const totalImages = amberImages.length;
+  
+  // Update the displayed image and counter
+  function updateImage(index) {
+    if (imgElement && amberImages[index]) {
+      imgElement.src = amberImages[index];
+      if (counterElement) {
+        counterElement.textContent = index + 1;
+      }
+    }
+  }
+  
+  // Start the slideshow (cycles through images)
+  function startSlideshow() {
+    if (slideshowInterval) clearInterval(slideshowInterval);
+    
+    slideshowInterval = setInterval(() => {
+      if (isHovering) {
+        currentIndex = (currentIndex + 1) % totalImages;
+        updateImage(currentIndex);
+      }
+    }, 2000); // 2 seconds between image changes
+  }
+  
+  // Stop the slideshow and reset to first image
+  function stopSlideshow() {
+    if (slideshowInterval) {
+      clearInterval(slideshowInterval);
+      slideshowInterval = null;
+    }
+    currentIndex = 0;
+    updateImage(0);
+    isHovering = false;
+  }
+  
+  // Add hover event listeners to the image container
+  const imageContainer = document.getElementById('amber-image-container');
+  
+  if (imageContainer) {
+    imageContainer.addEventListener('mouseenter', () => {
+      isHovering = true;
+      currentIndex = 0;
+      updateImage(0);
+      startSlideshow();
+    });
+    
+    imageContainer.addEventListener('mouseleave', () => {
+      isHovering = false;
+      stopSlideshow();
+    });
+  }
+})();
+</script>
 </body>
 </html>
