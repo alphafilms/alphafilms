@@ -167,7 +167,7 @@ stats: {
       title: "Whispers of the Moonlight",
       tag: "Producer - Short Film",
       category: "films", // Add this
-      image: "images/moon.png",
+      image: "images/whispers.jpg",
       url: "https://www.youtube.com/watch?v=KBNVoWpBSj0",
       description: "Producer - Deepanshu Sehgal. A grieving father heals through dreams."
     },
@@ -191,7 +191,7 @@ stats: {
       title: "Sookha Patta",
       tag: "Assistant Producer - Short Film",
       category: "films", // Add this
-      image: "images/patta.png",
+      image: "images/sookha.jpg",
       url: "https://www.youtube.com/watch?v=1tfCTZRG3Ao",
       description: "Assistant Producer - Deepanshu Sehgal. A Vaastu-obsessed man strains family ties over beliefs."
     },
