@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Load all content
   loadServices();
   loadFeaturedWork();
+  loadCollaborators();
   loadTeam();
   loadNews();
   loadTrackRecord(); // ← ADDED THIS LINE
@@ -78,6 +79,42 @@ function loadServices() {
 function loadFeaturedWork() {
   loadCinemaBelt();
 }
+
+
+// ===== COLLABORATOR LOGOS BELT =====
+function loadCollaborators() {
+  if (!AppData.collaborators) return;
+ 
+  const rows = [1, 2, 3];
+ 
+  rows.forEach(rowNum => {
+    const trackId = `collab-row-${rowNum}`;
+    const track = document.getElementById(trackId);
+    if (!track) return;
+ 
+    // Filter logos for this row
+    const items = AppData.collaborators.filter(c => c.row === rowNum);
+    if (items.length === 0) return;
+ 
+    // Duplicate 4× for seamless infinite scroll
+    const repeated = [...items, ...items, ...items, ...items];
+ 
+    track.innerHTML = repeated.map(collab => `
+      <div class="collab-logo-item">
+        <img
+          src="images/logos/${collab.file}"
+          alt="${collab.name}"
+          title="${collab.name}"
+          onerror="this.parentElement.style.display='none'"
+        >
+      </div>
+    `).join('');
+  });
+ 
+  console.log('Collaborator logos loaded');
+}
+
+
 
 function loadCinemaBelt() {
   const cinemaBelt = document.getElementById('cinema-belt');
