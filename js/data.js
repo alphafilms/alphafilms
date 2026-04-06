@@ -105,7 +105,7 @@ stats: {
       category: "films", // Add this
       image: "images/nightshift.jpg",
       url: "https://www.youtube.com/watch?v=kwVuPcAiNjY&t=1s",
-      description: "A gripping cinematic thriller exploring the dark corners of night shift work."
+      description: "Producer - Deepanshu Sehgal. A gripping cinematic thriller exploring the dark corners of night shift work."
     },
     {
       title: "Into the Sea",
@@ -113,7 +113,7 @@ stats: {
       category: "films", // Add this
       image: "images/intothesea.jpg",
       url: "https://www.youtube.com/watch?v=vQYMIPsxp4c&t=12s",
-      description: "An emotional journey of self-discovery set against breathtaking ocean vistas."
+      description: "Producer - Deepanshu Sehgal. An emotional journey of self-discovery set against breathtaking ocean vistas."
     },
     {
       title: "Goan Classic 350",
@@ -129,7 +129,7 @@ stats: {
       category: "films", // Add this
       image: "images/broken.jpg",
       url: "https://www.youtube.com/watch?v=AhzQTAfnsCs",
-      description: "A poignant exploration of identity and self-perception in modern society."
+      description: "Producer - Deepanshu Sehgal. A poignant exploration of identity and self-perception in modern society."
     },
     {
       title: "BND Motorsport Event - Delhi",
@@ -153,7 +153,7 @@ stats: {
       category: "films", // Add this
       image: "images/ussdin.jpg",
       url: "https://vimeo.com/811618824?fl=ip&fe=ec",
-      description: "Team Uss Din wins big in Indo French International Film Festival!"
+      description: "Producer - Deepanshu Sehgal. Team Uss Din wins big in Indo French International Film Festival!"
     },
     {
       title: "Bull-ing",
@@ -161,7 +161,7 @@ stats: {
       category: "films", // Add this
       image: "images/bulling.png",
       url: "https://www.youtube.com/watch?v=34VQejVzgbA&t=17s",
-      description: "Our team is very proud to announce “BULL-ING”. We had a great time shooting for this film and waiting for you to watch this business drama."
+      description: "Producer - Deepanshu Sehgal. Our team is very proud to announce “BULL-ING”. We had a great time shooting for this film and waiting for you to watch this business drama."
     },
     {
       title: "Whispers of the Moonlight",
@@ -169,7 +169,7 @@ stats: {
       category: "films", // Add this
       image: "images/moon.png",
       url: "https://www.youtube.com/watch?v=KBNVoWpBSj0",
-      description: "A grieving father heals through dreams."
+      description: "Producer - Deepanshu Sehgal. A grieving father heals through dreams."
     },
     {
       title: "NueGo Commercial",
@@ -193,7 +193,7 @@ stats: {
       category: "films", // Add this
       image: "images/patta.png",
       url: "https://www.youtube.com/watch?v=1tfCTZRG3Ao",
-      description: "A Vaastu-obsessed man strains family ties over beliefs."
+      description: "Assistant Producer - Deepanshu Sehgal. A Vaastu-obsessed man strains family ties over beliefs."
     },
     {
       title: "MOIRA",
@@ -314,6 +314,46 @@ stats: {
       excerpt: "End-to-end TVC production completed in 10 days for emerging D2C brand. Delivered concept-to-master with motion graphics."
     }
   ],
+
+  // ===== COLLABORATOR LOGOS =====
+  // HOW TO ADD A NEW LOGO:
+  // 1. Drop the image into images/logos/ folder
+  // 2. Copy any item below and paste it at the end of the array
+  // 3. Update name and file
+  // row: 1, 2, or 3 — controls which moving belt row it appears in
+  collaborators: [
+    // ROW 1
+    { name: "Autodaily Satyam",         file: "AutoDailySatyam.jpg",        row: 1 },
+    { name: "BNDM",           file: "BNDM.png",          row: 1 },
+    { name: "Cavora World",    file: "CavoraWorld.png",    row: 1 },
+    { name: "Decathlon",       file: "Decathlon.png",       row: 1 },
+    { name: "GST",   file: "GST.png",   row: 1 },
+    { name: "Chili",   file: "chili.png",   row: 1 },
+    { name: "Galeries Lafayette",   file: "galeries_lafayette.png",   row: 1 },
+    { name: "Metanestt",   file: "metanestt.jpeg",   row: 1 },
+ 
+    // ROW 2
+    { name: "KIA",    file: "KIA.png",         row: 2 },
+    { name: "Kohler", file: "Kohler.png",     row: 2 },
+    { name: "NHIT",              file: "NHIT.png",             row: 2 },
+    { name: "PMFBY",     file: "PMFBY.png",     row: 2 },
+    { name: "SANAM BAND",   file: "SANAM BAND.jpeg",   row: 2 },
+    { name: "Government",   file: "ministry.png",   row: 2 },
+    { name: "Nuego Logo",   file: "nuego_logo.jpeg",   row: 2 },
+    { name: "Pizza Express",   file: "pizza-express-1.svg",   row: 2 },
+ 
+    // ROW 3
+    { name: "Samsung",       file: "Samsung.webp",      row: 3 },
+    { name: "Social Nation",  file: "Social Nation.png",            row: 3 },
+    { name: "YT FANFEST",            file: "YTFANFEST.jpg",           row: 3 },
+    { name: "Zomato",   file: "Zomato.png",   row: 3 },
+    { name: "Barca Academy",     file: "barcaacademy.png",           row: 3 },
+    { name: "Royal Enfield",     file: "royal-enfield.png",           row: 3 },
+    { name: "barcaacademy",     file: "barcaacademy.png",           row: 3 },
+    { name: "Sui Dahghas",     file: "suidahghas.png",           row: 3 },
+  ],
+ 
+
 };
 
 console.log("Alpha Films Data Loaded Successfully - Projects:", AppData.projects.length);
