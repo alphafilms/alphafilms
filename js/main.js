@@ -97,7 +97,7 @@ function loadCollaborators() {
     if (items.length === 0) return;
  
     // Duplicate 4× for seamless infinite scroll
-    const repeated = [...items, ...items];
+    const repeated = [...items, ...items, ...items, ...items];
  
     track.innerHTML = repeated.map(collab => `
       <div class="collab-logo-item">
@@ -129,7 +129,7 @@ function loadCinemaBelt() {
   
   // Create multiple sets of projects for seamless looping
   // We need enough to fill the screen and create continuous effect
-  const projects = [...AppData.projects, ...AppData.projects];
+  const projects = [...AppData.projects];
   
   projects.forEach((project, index) => {
     const projectCard = document.createElement('div');
