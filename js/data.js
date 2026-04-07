@@ -334,7 +334,7 @@ stats: {
  
     // ROW 2
     { name: "KIA",    file: "KIA.png",         row: 2 },
-    { name: "Kohler", file: "Kohler.png",     row: 2 },
+    { name: "Kohler", file: "Kohler.svg",     row: 2 },
     { name: "NHIT",              file: "NHIT.png",             row: 2 },
     { name: "PMFBY",     file: "PMFBY.png",     row: 2 },
     { name: "SANAM BAND",   file: "SANAM BAND.jpeg",   row: 2 },
