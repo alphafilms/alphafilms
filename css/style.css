@@ -379,7 +379,7 @@ header {
 
 .project-image {
   width: 100%;
-  height: 200px;
+  height: 300px;
   overflow: hidden;
 }
 
@@ -1038,7 +1038,7 @@ footer {
   }
   
   .project-image {
-    height: 150px;
+    height: 220px;
   }
   
   #services-grid {
@@ -1069,7 +1069,7 @@ footer {
   }
   
   .project-image {
-    height: 120px;
+    height: 220px;
   }
   
   .project-info {
@@ -1120,7 +1120,7 @@ footer {
   }
   
   .project-image {
-    height: 100px;
+    height: 220px;
   }
   
   .project-info {
@@ -1227,7 +1227,6 @@ footer {
   width: auto;
   max-width: 120px;
   object-fit: contain;
-  filter: grayscale(100%);
   transition: filter 0.3s ease;
 }
 
@@ -1845,7 +1844,7 @@ footer {
   justify-content: center;
   height: 52px;
   padding: 0 1rem;
-  opacity: 0.45;
+  opacity: 1;
   transition: opacity 0.3s ease, filter 0.3s ease;
 }
  
@@ -1858,7 +1857,6 @@ footer {
   width: auto;
   max-width: 130px;
   object-fit: contain;
-  filter: grayscale(100%);
   transition: filter 0.3s ease;
 }
  
