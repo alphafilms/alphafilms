@@ -158,6 +158,23 @@ function loadCinemaBelt() {
     cinemaBelt.appendChild(projectCard);
   });
   
+  // Mobile arrow navigation
+  const prevBtn = document.getElementById('cinema-prev');
+  const nextBtn = document.getElementById('cinema-next');
+  const belt    = document.getElementById('cinema-belt');
+ 
+  if (prevBtn && nextBtn && belt) {
+    const scrollAmount = window.innerWidth * 0.82; // matches 80vw card + gap
+ 
+    nextBtn.addEventListener('click', function() {
+      belt.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+ 
+    prevBtn.addEventListener('click', function() {
+      belt.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+  }
+  
   console.log('Cinema belt loaded with', projects.length, 'project cards');
 }
 
