@@ -327,7 +327,7 @@ stats: {
     { name: "BNDM",           file: "BNDM.png",          row: 1 },
     { name: "Cavora World",    file: "CavoraWorld.png",    row: 1 },
     { name: "Decathlon",       file: "Decathlon.png",       row: 1 },
-    { name: "GST",   file: "GST.png",   row: 1 },
+    { name: "GST",   file: "gst.jpg",   row: 1 },
     { name: "Chili",   file: "chili.png",   row: 1 },
     { name: "Galeries Lafayette",   file: "galeries_lafayette.png",   row: 1 },
     { name: "Metanestt",   file: "metanestt.jpeg",   row: 1 },
