@@ -1895,4 +1895,81 @@ footer {
     gap: 1.75rem;
   }
 }
+
+/* ================================================================
+   CHANGE 1 — css/style.css
+   Paste at the VERY END of style.css
+   ================================================================ */
  
+/* --- Mobile: disable cinema belt auto-scroll, show arrows --- */
+@media (max-width: 768px) {
+ 
+  /* Stop the animation on mobile */
+  .cinema-belt {
+    animation: none !important;
+    transform: none !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+    width: 100% !important;
+  }
+ 
+  .cinema-belt::-webkit-scrollbar {
+    display: none;
+  }
+ 
+  .project-card {
+    scroll-snap-align: start;
+    flex: 0 0 80vw; /* each card takes 80% of screen width */
+  }
+ 
+  /* Show the arrow nav on mobile */
+  .cinema-belt-nav {
+    display: flex !important;
+  }
+ 
+  /* Collaborator logos — always full color on mobile */
+  .collab-logo-item {
+    opacity: 1 !important;
+  }
+ 
+  .collab-logo-item img {
+    filter: grayscale(0%) !important;
+  }
+}
+ 
+/* Cinema belt nav arrows — hidden by default (desktop has auto-scroll) */
+.cinema-belt-nav {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+ 
+.cinema-belt-arrow {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0;
+  flex-shrink: 0;
+}
+ 
+.cinema-belt-arrow:hover {
+  background: var(--color-text);
+  color: var(--color-bg-dark);
+}
+ 
+.cinema-belt-arrow:active {
+  transform: scale(0.95);
+}
