@@ -311,6 +311,30 @@
 </footer>
   
   <!-- JavaScript -->
+  <script>
+    // Frame counter animation
+    (function() {
+      const el = document.getElementById('frameCounter');
+      if (!el) return;
+      let frame = 0;
+      const target = 847;
+      const duration = 2200;
+      const start = performance.now();
+
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        frame = Math.floor(eased * target);
+        el.textContent = String(frame).padStart(3, '0');
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+
+      // Start after hero text animation completes
+      setTimeout(() => requestAnimationFrame(tick), 1400);
+    })();
+  </script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
