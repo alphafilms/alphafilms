@@ -32,17 +32,17 @@ stats: {
   // Middle numbers - Easy to edit
   numbers: [
     {
-      value: "30",
+      value: "40",
       suffix: "+",
       label: "SUCCESSFUL PROJECTS"
     },
     {
-      value: "200K",
+      value: "250K",
       suffix: "+",
       label: "OUR CONTENT HAVE REACHED TO VIEWS"
     },
     {
-      value: "300K",
+      value: "350K",
       suffix: "+",
       label: "ENGAGEMENT OVER SOCIAL MEDIA"
     }
