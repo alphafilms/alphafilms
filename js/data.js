@@ -37,7 +37,7 @@ stats: {
       label: "SUCCESSFUL PROJECTS"
     },
     {
-      value: "250K",
+      value: "1M",
       suffix: "+",
       label: "OUR CONTENT HAVE REACHED TO VIEWS"
     },
