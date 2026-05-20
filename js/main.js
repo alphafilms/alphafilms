@@ -389,10 +389,13 @@ function startCountUp() {
     const originalDisplayValue = targetValue;
     
     // Parse the target value for animation
-    let targetNumber;
     let hasK = false;
-    
-    if (targetValue.includes('K')) {
+    let hasM = false;
+
+    if (targetValue.includes('M')) {
+      targetNumber = parseFloat(targetValue.replace('M', '')) * 1000000;
+      hasM = true;
+    } else if (targetValue.includes('K')) {
       targetNumber = parseFloat(targetValue.replace('K', '')) * 1000;
       hasK = true;
     } else {
@@ -418,11 +421,12 @@ function startCountUp() {
         clearInterval(timer);
       } else {
         // Intermediate value - format based on whether original had K
-        if (hasK) {
-          // For numbers with K, show like "150" while counting up to "200K"
+        if (hasM) {
+          // Shows 0.1, 0.2 ... 1.4, 1.5 with M staying visible
+          el.textContent = (current / 1000000).toFixed(1);
+        } else if (hasK) {
           el.textContent = Math.floor(current / 1000);
         } else {
-          // For regular numbers, show the count
           el.textContent = Math.floor(current);
         }
       }
