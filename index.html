@@ -20,6 +20,7 @@
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <!-- CSS -->
@@ -125,8 +126,11 @@
        <section id="featured-work" class="section">
          <div class="container">
            <div class="featured-work-header">
-             <h2 class="section-title">Featured Work</h2>
-             <a href="portfolio.html" class="btn-secondary">View All Projects</a>
+            <h2 class="section-title">Featured <em>Work</em></h2>
+            <div class="featured-work-meta">
+             <span class="featured-work-count">Selected Projects</span>
+             <a href="portfolio.html" class="btn-secondary">View All</a>
+            </div>
            </div>
          </div>
   
@@ -205,19 +209,19 @@
 </section>
   
 <!-- Services -->
-  <section id="services" class="section">
-    <div class="container">
-      <h2 class="section-title">Our Services</h2>
-      
-      <div class="services-grid" id="services-grid">
-        <!-- JavaScript will add 6 service cards here -->
-      </div>
-
-      <div class="services-cta">
-        <a href="#contact" class="book-now-btn">Get a Quote</a>
-      </div>
+  <section id="services">
+  <div class="container">
+    <span class="services-eyebrow">What we do</span>
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid" id="services-grid">
+      <!-- JS loads cards here -->
     </div>
-  </section>
+    <div class="services-cta">
+      <div class="services-cta-line"></div>
+      <a href="#contact" class="book-now-btn">Get a Quote</a>
+    </div>
+  </div>
+</section>
 
   <!-- Team -->
   <section id="team" class="section">
@@ -255,59 +259,78 @@
   </section>-->
 
 <!-- Contact -->
-<footer id="contact" class="section">
-  <div class="container">
-    <!-- Flex container for side-by-side layout -->
-    <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: flex-start; justify-content: space-between;">
-      
-      <!-- LEFT: Contact Information -->
-      <div class="contact-content" style="flex: 1 1 350px; text-align: left; margin: 0;">
-        <!-- UPDATED: New tagline -->
-        <h2 style="text-align: left; margin-top: 0; font-size: 2.2rem; line-height: 1.2;">
-          LET'S CREATE SOMETHING<br>
-          <span style="color: var(--color-red);">#ALPHA</span> TOGETHER
-        </h2>
-        
-        <p style="text-align: left; margin-top: 1.5rem;">
-          📍 Unity Towers, B-93,<br>
-          Mayapuri Industrial Area Phase I,<br>
-          Mayapuri, New Delhi, Delhi 110064, India<br>
-          📱 +91 85870 90302<br>
-          📧 <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a>
-        </p>
-        
-        <div class="social-links" style="justify-content: flex-start;">
-          <a href="https://instagram.com/alphafilmsofficial" target="_blank" class="social-btn instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.linkedin.com/company/alphafilms" target="_blank" class="social-btn linkedin">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://wa.me/918587090302" target="_blank" class="social-btn whatsapp">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-        </div>
-        
-        <p style="margin-top: 2rem; opacity: 0.7; text-align: left;">© 2026 Alpha Films. All rights reserved.</p>
-      </div>
-      
-      <!-- RIGHT: Google Maps - Aligned directly to the right -->
-      <div style="flex: 1 1 400px;">
-        <div style="width: 100%; max-width: 600px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2476.394905426891!2d77.1229886108917!3d28.62523484498174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03657af76e07%3A0x1dceebfdcaee0c9b!2sAlpha%20Films!5e0!3m2!1sen!2sde!4v1770832029216!5m2!1sen!2sde" 
-            width="100%" 
-            height="350" 
-            style="border:0; display: block;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-      
+<footer id="contact">
+ 
+  <div class="footer-top-bar">
+    <div class="footer-top-inner">
+      <span class="footer-top-label">Alpha Films · Delhi NCR · Est. 2019</span>
+      <a href="https://wa.me/918587090302" target="_blank" class="footer-top-cta">
+        Available for projects →
+      </a>
     </div>
   </div>
+ 
+  <div class="footer-headline-block">
+    <h2 class="footer-headline">
+      LET'S CREATE<br>
+      SOMETHING<br>
+      <em>#ALPHA</em><br>
+      TOGETHER
+    </h2>
+  </div>
+ 
+  <div class="footer-details-row">
+ 
+    <div class="footer-col">
+      <span class="footer-col-label">Find Us</span>
+      <address>
+        Unity Towers, B-93<br>
+        Mayapuri Industrial Area Phase I<br>
+        New Delhi, Delhi 110064<br><br>
+        <a href="tel:+918587090302">+91 85870 90302</a><br>
+        <a href="mailto:alphafilmsofficial@gmail.com">alphafilmsofficial@gmail.com</a>
+      </address>
+    </div>
+ 
+    <div class="footer-col">
+      <span class="footer-col-label">Follow</span>
+      <div class="footer-socials">
+        <a href="https://instagram.com/alphafilmsofficial" target="_blank" class="footer-social-link">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.linkedin.com/company/alphafilms" target="_blank" class="footer-social-link">
+          <i class="fab fa-linkedin-in"></i> LinkedIn
+        </a>
+        <a href="https://wa.me/918587090302" target="_blank" class="footer-social-link">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </div>
+ 
+    <div class="footer-col footer-map-col">
+      <span class="footer-col-label">Location</span>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2476.394905426891!2d77.1229886108917!3d28.62523484498174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03657af76e07%3A0x1dceebfdcaee0c9b!2sAlpha%20Films!5e0!3m2!1sen!2sde!4v1770832029216!5m2!1sen!2sde"
+        width="100%" height="220"
+        style="border:0; display:block; border-radius:4px;"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+ 
+  </div>
+ 
+  <div class="footer-bottom-bar">
+    <div class="footer-bottom-inner">
+      <span class="footer-copy">© 2026 Alpha Films. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="portfolio.html">Portfolio</a>
+        <a href="studio.html">Studio</a>
+        <a href="news.html">News</a>
+      </div>
+    </div>
+  </div>
+ 
 </footer>
   
   <!-- JavaScript -->
