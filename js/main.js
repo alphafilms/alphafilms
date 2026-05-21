@@ -61,10 +61,11 @@ function loadServices() {
   // Make sure we have exactly 6 services for the 2×3 grid
   const services = AppData.services.slice(0, 6); // Take first 6 services
   
-  services.forEach(service => {
+  services.forEach((service, index) => {
     const serviceCard = document.createElement('div');
     serviceCard.className = 'service-card';
     serviceCard.innerHTML = `
+      <span class="service-number">0${index + 1}</span>
       <div class="service-icon">${service.icon}</div>
       <h3>${service.title}</h3>
       <p>${service.description}</p>
