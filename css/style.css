@@ -2711,4 +2711,235 @@ footer#contact::before {
     gap: 1rem;
   }
 }
+
+
+
+
+
+#track-logo {
+  filter: none !important;
+  max-width: 90px;
+  height: auto;
+}
  
+#track-logo:hover {
+  filter: none !important;
+  transform: scale(1.05);
+}
+ 
+/* ===== FIX 2 — Mobile menu toggle: white on dark hero ===== */
+/* The hamburger sits on the dark hero background — needs to be white */
+.mobile-menu-toggle {
+  color: #ffffff !important;
+  mix-blend-mode: normal;
+}
+ 
+/* When menu is open (white background) make it dark again */
+.mobile-menu.active ~ .mobile-menu-toggle,
+body.menu-open .mobile-menu-toggle {
+  color: var(--color-text) !important;
+}
+ 
+/* Simpler approach — just always keep toggle white, 
+   the mobile menu covers the whole screen anyway */
+header .mobile-menu-toggle {
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+ 
+ 
+/* ===== FIX 3 — Team section: dark editorial style ===== */
+#team {
+  background: #0a0a0a;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+ 
+#team .section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: -0.01em;
+  line-height: 0.9;
+  padding-bottom: 1.5rem;
+}
+ 
+#team .section-title::after {
+  background: var(--color-red);
+  width: 40px;
+  height: 2px;
+}
+ 
+.team-card {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  padding: 2.5rem 2rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+ 
+.team-card:hover {
+  border-color: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.02);
+}
+ 
+.team-avatar {
+  border-color: rgba(255,255,255,0.12);
+  width: 100px;
+  height: 100px;
+}
+ 
+.team-role {
+  color: var(--color-red);
+  letter-spacing: 0.2em;
+  font-size: 0.65rem;
+}
+ 
+.team-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+ 
+.team-bio {
+  color: rgba(255,255,255,0.35);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+ 
+/* LinkedIn icon in team */
+#team-carousel a[href*="linkedin"] {
+  color: rgba(255,255,255,0.3) !important;
+  transition: color 0.3s ease;
+}
+ 
+#team-carousel a[href*="linkedin"]:hover {
+  color: #fff !important;
+}
+ 
+/* Team nav arrows on dark background */
+.team-nav {
+  border-color: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.04);
+}
+ 
+.team-nav:hover {
+  background: var(--color-red);
+  border-color: var(--color-red);
+  color: #fff;
+}
+ 
+ 
+/* ===== FIX 4 — Shared dark footer for ALL pages ===== */
+/* This targets footer#contact everywhere — overrides old inline styles */
+ 
+footer#contact,
+footer#contact.section {
+  background: #0a0a0a !important;
+  border-top: 1px solid rgba(255,255,255,0.07) !important;
+  padding: 0 !important;
+  position: relative;
+  overflow: hidden;
+}
+ 
+footer#contact::before {
+  content: '#ALPHA';
+  position: absolute;
+  bottom: -2rem;
+  right: -2rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(8rem, 22vw, 22rem);
+  font-weight: 400;
+  color: rgba(255,255,255,0.02);
+  pointer-events: none;
+  line-height: 1;
+  user-select: none;
+  letter-spacing: -0.02em;
+  z-index: 0;
+}
+ 
+/* Override ALL inline-styled text inside footer to be light */
+footer#contact,
+footer#contact p,
+footer#contact h2,
+footer#contact address,
+footer#contact span,
+footer#contact div {
+  color: rgba(255,255,255,0.45) !important;
+}
+ 
+footer#contact h2 {
+  color: #fff !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: clamp(2.5rem, 6vw, 5rem) !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.01em !important;
+}
+ 
+footer#contact h2 span {
+  color: var(--color-red) !important;
+}
+ 
+footer#contact a {
+  color: rgba(255,255,255,0.4) !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+ 
+footer#contact a:hover {
+  color: #fff !important;
+}
+ 
+/* Social buttons inside footer */
+footer#contact .social-btn {
+  border-color: rgba(255,255,255,0.15) !important;
+  color: rgba(255,255,255,0.5) !important;
+  background: transparent !important;
+}
+ 
+footer#contact .social-btn:hover {
+  background: rgba(255,255,255,0.08) !important;
+  border-color: rgba(255,255,255,0.3) !important;
+  color: #fff !important;
+}
+ 
+/* Copyright text */
+footer#contact p[style*="opacity"] {
+  color: rgba(255,255,255,0.2) !important;
+  opacity: 1 !important;
+}
+ 
+/* Map iframe — dark tinted */
+footer#contact iframe {
+  filter: grayscale(100%) invert(85%) brightness(0.7) !important;
+  opacity: 0.7;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+ 
+footer#contact iframe:hover {
+  opacity: 1;
+}
+ 
+/* The inner container div in footer */
+footer#contact .container > div {
+  position: relative;
+  z-index: 1;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+ 
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .team-card {
+    padding: 2rem 1.5rem;
+  }
+ 
+  .team-name {
+    font-size: 1.5rem;
+  }
+}
