@@ -64,12 +64,25 @@ function loadServices() {
   services.forEach((service, index) => {
     const serviceCard = document.createElement('div');
     serviceCard.className = 'service-card';
+    serviceCard.style.cursor = 'pointer';
     serviceCard.innerHTML = `
       <span class="service-number">0${index + 1}</span>
       <div class="service-icon">${service.icon}</div>
       <h3>${service.title}</h3>
       <p>${service.description}</p>
     `;
+
+    // Make entire card clickable
+    if (service.link) {
+      serviceCard.addEventListener('click', () => {
+        if (service.link.startsWith('http')) {
+          window.open(service.link, '_blank');
+        } else {
+          window.location.href = service.link;
+        }
+      });
+    }
+
     servicesGrid.appendChild(serviceCard);
   });
   
