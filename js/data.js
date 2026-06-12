@@ -57,37 +57,43 @@ stats: {
 
   // Services
   services: [
-    {
-      icon: "🎬",
-      title: "Video Production",
-      description: "End-to-end production from concept to final cinematic edit. Commercials, films, corporate videos."
-    },
-    {
-      icon: "📸",
-      title: "Studio Rental",
-      description: "8-hour professional shooting space in Delhi with AC, power backup, and full equipment."
-    },
-    {
-      icon: "⚡",
-      title: "Studio + Gear",
-      description: "Complete package: studio, lights, cameras, audio, and production support."
-    },
-    {
-      icon: "✂️",
-      title: "Post Production",
-      description: "High-impact editing for reels, ads, courses, and social media content."
-    },
-    {
-      icon: "📱",
-      title: "Social Content",
-      description: "Instagram Reels, YouTube Shorts, TikTok videos optimized for maximum engagement."
-    },
-    {
-      icon: "🎓",
-      title: "Course Packages",
-      description: "Bulk production for online courses, educational content, and brand series."
-    }
-  ],
+  {
+    icon: "🎬",
+    title: "Video Production",
+    description: "End-to-end production from concept to final cinematic edit. Commercials, films, corporate videos.",
+    link: "https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Video%20Production%20services.%20Can%20you%20share%20more%20details%3F"
+  },
+  {
+    icon: "📸",
+    title: "Studio Rental",
+    description: "8-hour professional shooting space in Delhi with AC, power backup, and full equipment.",
+    link: "studio.html"
+  },
+  {
+    icon: "⚡",
+    title: "Studio + Gear",
+    description: "Complete package: studio, lights, cameras, audio, and production support.",
+    link: "studio.html"
+  },
+  {
+    icon: "✂️",
+    title: "Post Production",
+    description: "High-impact editing for reels, ads, courses, and social media content.",
+    link: "https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Post%20Production%20services.%20Can%20you%20share%20more%20details%3F"
+  },
+  {
+    icon: "📱",
+    title: "Social Content",
+    description: "Instagram Reels, YouTube Shorts, TikTok videos optimized for maximum engagement.",
+    link: "https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20Social%20Content%20creation%20services.%20Can%20you%20share%20more%20details%3F"
+  },
+  {
+    icon: "🎓",
+    title: "Course Packages",
+    description: "Bulk production for online courses, educational content, and brand series.",
+    link: "https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20inquire%20about%20Course%20Packages%2C%20Learning%20Production%2C%20or%20Internship%20opportunities.%20Is%20anything%20available%3F"
+  }
+],
 
   // Featured Projects - MAKE SURE THIS ARRAY EXISTS AND HAS DATA
   projects: [
