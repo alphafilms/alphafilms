@@ -284,8 +284,8 @@ stats: {
     },
     {
       name: "Parth Sehgal",
-      role: "Operations Manager",
-      bio: "Ensures smooth operations and team coordination. Manages client relationships and project timelines with precision and care.",
+      role: "Business Operations Manager",
+      bio: "Oversees day-to-day operations by streamlining workflows, managing the tech roadmap (Tech Lead), and auditing financial performance (Finance Manager)",
       image: "team_images/parth.JPG"
     }
   ],
