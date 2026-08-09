@@ -104,7 +104,8 @@ stats: {
       category: "brands",
       image: "images/logos/Nexxus.png",
       url: "https://www.instagram.com/p/DbXfhdQudG5/",
-      description: "Content creation and campaign coverage for Nexxus New York, a global haircare brand."
+      description: "Content creation and campaign coverage for Nexxus New York, a global haircare brand.",
+      thumbBg: "#ffffff"
     },
     {
       title: "FDCI",
@@ -112,7 +113,8 @@ stats: {
       category: "events",
       image: "images/logos/fdci.png",
       url: "https://www.instagram.com/p/DbbVKe-E45m/",
-      description: "Event coverage and content creation for FDCI — Fashion Design Council of India."
+      description: "Event coverage and content creation for FDCI — Fashion Design Council of India.",
+      thumbBg: "#ffffff"
     },
     {
       title: "Hashwear",
@@ -120,7 +122,8 @@ stats: {
       category: "brands",
       image: "images/logos/hashwear.png",
       url: "https://www.hashwear.in",
-      description: "Ongoing reels and campaign content production for Hashwear's apparel line."
+      description: "Ongoing reels and campaign content production for Hashwear's apparel line.",
+      thumbZoom: 1.5
     },
     {
       title: "Autodaily Satyam — Latest Campaign",
