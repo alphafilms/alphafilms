@@ -149,9 +149,9 @@ function loadCinemaBelt() {
     const projectCard = document.createElement('div');
     projectCard.className = 'project-card';
     projectCard.innerHTML = `
-      <div class="project-image">
+      <div class="project-image ${project.thumbBg ? 'thumb-white' : ''}" style="${project.thumbBg ? `background:${project.thumbBg};` : ''}">
         <div class="project-image-bg" style="background-image:url('${project.image}')"></div>
-        <img src="${project.image}" alt="${project.title}" loading="lazy" class="project-image-fg">
+        <img src="${project.image}" alt="${project.title}" loading="lazy" class="project-image-fg" style="--thumb-zoom:${project.thumbZoom || 1};">
       </div>
       <div class="project-info">
         <span class="project-tag">${project.tag}</span>
