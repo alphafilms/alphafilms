@@ -98,6 +98,14 @@ stats: {
   // Featured Projects - MAKE SURE THIS ARRAY EXISTS AND HAS DATA
   projects: [
     {
+      title: "PB 864 / AMIREE",
+      tag: "Music Video",
+      category: "music", // Add this
+      image: "https://img.youtube.com/vi/oocpyKONMwI/maxresdefault.jpg",
+      url: "https://youtu.be/oocpyKONMwI",
+      description: "Full cinematic music video shot, directed and edited in-house by Alpha Films."
+    },
+    {
       title: "SAMSUNG S26 Ultra",
       tag: "TVC",
       category: "commercials", // Add this
