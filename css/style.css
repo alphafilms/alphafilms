@@ -508,14 +508,23 @@ header {
   background: #000;
 }
 
-.project-image-bg {
+.project-image-bg,
+.portfolio-image-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
-  filter: blur(25px) brightness(0.45);
-  transform: scale(1.2);
+  filter: blur(30px) brightness(0.55) saturate(1.5);
+  transform: scale(1.3);
   z-index: 1;
+}
+
+.project-image-bg::after,
+.portfolio-image-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(255,0,0,0.08) 100%);
 }
 
 .project-image-fg {
