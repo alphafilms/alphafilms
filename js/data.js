@@ -13,7 +13,8 @@ const AppData = {
       address: "Delhi, India",
       whatsapp: "https://wa.me/918587090302?text=Hi%20Alpha%20Films%2C%20I%20want%20to%20book%20your%20studio%2Fvideo%20production%20services.%20What's%20next%3F",
       instagram: "https://instagram.com/alphafilmsofficial",
-      linkedin: "https://www.linkedin.com/company/alphafilms"
+      linkedin: "https://www.linkedin.com/company/alphafilms",
+      youtube: "https://www.youtube.com/channel/UC_C0sBHVMw5ekRbutmJhEGg"
     }
   },
   
@@ -97,6 +98,38 @@ stats: {
 
   // Featured Projects - MAKE SURE THIS ARRAY EXISTS AND HAS DATA
   projects: [
+    {
+      title: "Nexxus New York",
+      tag: "Brand Content",
+      category: "brands",
+      image: "images/Nexxus.png",
+      url: "https://www.instagram.com/p/DbXfhdQudG5/",
+      description: "Content creation and campaign coverage for Nexxus New York, a global haircare brand."
+    },
+    {
+      title: "FDCI",
+      tag: "Fashion Council",
+      category: "events",
+      image: "images/fdci.png",
+      url: "https://www.instagram.com/p/DbbVKe-E45m/",
+      description: "Event coverage and content creation for FDCI — Fashion Design Council of India."
+    },
+    {
+      title: "Hashwear",
+      tag: "Apparel Brand",
+      category: "brands",
+      image: "images/hashwear.png",
+      url: "https://www.hashwear.in",
+      description: "Ongoing reels and campaign content production for Hashwear's apparel line."
+    },
+    {
+      title: "Autodaily Satyam — Latest Campaign",
+      tag: "Social Media",
+      category: "social",
+      image: "images/autodaily2.jpg",
+      url: "https://www.instagram.com/reel/Da2l0_7IZAn/",
+      description: "Continued partnership with Autodaily Satyam — latest round of reels and long-form content."
+    },
     {
       title: "PB 864 / AMIREE",
       tag: "Music Video",
