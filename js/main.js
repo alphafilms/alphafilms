@@ -150,7 +150,8 @@ function loadCinemaBelt() {
     projectCard.className = 'project-card';
     projectCard.innerHTML = `
       <div class="project-image">
-        <img src="${project.image}" alt="${project.title}" loading="lazy">
+        <div class="project-image-bg" style="background-image:url('${project.image}')"></div>
+        <img src="${project.image}" alt="${project.title}" loading="lazy" class="project-image-fg">
       </div>
       <div class="project-info">
         <span class="project-tag">${project.tag}</span>
