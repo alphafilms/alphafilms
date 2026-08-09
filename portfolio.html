@@ -448,9 +448,10 @@
         portfolioItem.setAttribute('data-category', project.category || 'all');
         
         portfolioItem.innerHTML = `
-          <div class="portfolio-image">
+          <div class="portfolio-image ${project.thumbBg ? 'thumb-white' : ''}" style="${project.thumbBg ? `background:${project.thumbBg};` : ''}">
             <div class="portfolio-image-bg" style="background-image:url('${project.image}')"></div>
             <img src="${project.image}" alt="${project.title}" loading="lazy" class="portfolio-image-fg"
+                 style="--thumb-zoom:${project.thumbZoom || 1};"
                  onerror="this.src='https://via.placeholder.com/400x250/000000/FFFFFF?text=Alpha+Films'; this.previousElementSibling.style.display='none';">
           </div>
           <div class="portfolio-content">
