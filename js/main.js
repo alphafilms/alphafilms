@@ -141,17 +141,14 @@ function loadCinemaBelt() {
   
   cinemaBelt.innerHTML = '';
   
-  // Create multiple sets of projects for seamless looping
-  // We need enough to fill the screen and create continuous effect
   const projects = [...AppData.projects];
   
-  projects.forEach((project, index) => {
+  projects.forEach((project) => {
     const projectCard = document.createElement('div');
     projectCard.className = 'project-card';
     projectCard.innerHTML = `
-      <div class="project-image ${project.thumbBg ? 'thumb-white' : ''}" style="${project.thumbBg ? `background:${project.thumbBg};` : ''}">
-        <div class="project-image-bg" style="background-image:url('${project.image}')"></div>
-        <img src="${project.image}" alt="${project.title}" loading="lazy" class="project-image-fg" style="--thumb-zoom:${project.thumbZoom || 1};">
+      <div class="project-image${project.thumbBg ? ' thumb-white' : ''}">
+        <img src="${project.image}" alt="${project.title}" loading="lazy" class="project-image-fg">
       </div>
       <div class="project-info">
         <span class="project-tag">${project.tag}</span>
@@ -163,7 +160,6 @@ function loadCinemaBelt() {
       </div>
     `;
     
-    // Add click event to the entire card
     projectCard.addEventListener('click', (e) => {
       if (!e.target.closest('a')) {
         window.open(project.url, '_blank');
@@ -173,13 +169,16 @@ function loadCinemaBelt() {
     cinemaBelt.appendChild(projectCard);
   });
   
+  // Film-strip sizing: same height for every card, width follows each image
+  sizeCinemaCards();
+  
   // Mobile arrow navigation
   const prevBtn = document.getElementById('cinema-prev');
   const nextBtn = document.getElementById('cinema-next');
   const belt    = document.getElementById('cinema-belt');
  
   if (prevBtn && nextBtn && belt) {
-    const scrollAmount = window.innerWidth * 0.82; // matches 80vw card + gap
+    const scrollAmount = window.innerWidth * 0.82;
  
     nextBtn.addEventListener('click', function() {
       belt.scrollBy({ left: scrollAmount, behavior: 'smooth' });
@@ -193,6 +192,44 @@ function loadCinemaBelt() {
   console.log('Cinema belt loaded with', projects.length, 'project cards');
 }
 
+// ===== FILM-STRIP SIZING =====
+// Every card gets the exact same image height. Each card's WIDTH is derived
+// from its own image's natural aspect ratio — a widescreen thumbnail sits in
+// a wide card, a portrait/vertical thumbnail sits in a narrower one.
+function getCinemaSizing() {
+  const w = window.innerWidth;
+  if (w <= 480) return { height: 185, min: 140, max: 260 };
+  if (w <= 768) return { height: 210, min: 160, max: 300 };
+  if (w <= 991) return { height: 240, min: 190, max: 360 };
+  return { height: 280, min: 220, max: 420 };
+}
+
+function sizeCinemaCards() {
+  const { height, min, max } = getCinemaSizing();
+
+  document.querySelectorAll('#cinema-belt .project-card').forEach(card => {
+    const imageBox = card.querySelector('.project-image');
+    const img = card.querySelector('.project-image-fg');
+    if (!imageBox || !img) return;
+
+    imageBox.style.height = height + 'px';
+
+    function applyWidth() {
+      if (!img.naturalWidth || !img.naturalHeight) return;
+      const ratio = img.naturalWidth / img.naturalHeight;
+      let width = Math.round(height * ratio);
+      width = Math.max(min, Math.min(max, width));
+      imageBox.style.width = width + 'px';
+      card.style.width = width + 'px';
+    }
+
+    if (img.complete) {
+      applyWidth();
+    } else {
+      img.addEventListener('load', applyWidth);
+    }
+  });
+}
 // ===== TEAM =====
 function loadTeam() {
   const teamCarousel = document.getElementById('team-carousel');
