@@ -123,7 +123,7 @@ stats: {
       image: "images/logos/hashwear.png",
       url: "https://www.hashwear.in",
       description: "Ongoing reels and campaign content production for Hashwear's apparel line.",
-      thumbZoom: 1.5
+      thumbZoom: 2.9
     },
     {
       title: "Autodaily Satyam — Latest Campaign",
