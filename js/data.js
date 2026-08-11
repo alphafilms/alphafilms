@@ -375,6 +375,7 @@ stats: {
     // ROW 1
     { name: "Autodaily Satyam",         file: "AutoDailySatyam.jpg",        row: 1 },
     { name: "BNDM",           file: "BNDM.png",          row: 1 },
+    { name: "Nexxus",           file: "Nexxus.png",          row: 1 },
     { name: "Cavora World",    file: "CavoraWorld.png",    row: 1 },
     { name: "Decathlon",       file: "Decathlon.png",       row: 1 },
     { name: "GST",   file: "gst.jpg",   row: 1 },
@@ -384,6 +385,7 @@ stats: {
  
     // ROW 2
     { name: "KIA",    file: "KIA.png",         row: 2 },
+    { name: "Hashwear",    file: "hashwear.png",         row: 2 },
     { name: "Kohler", file: "Kohler.jpg",     row: 2 },
     { name: "NHIT",              file: "NHIT.png",             row: 2 },
     { name: "PMFBY",     file: "PMFBY.png",     row: 2 },
@@ -395,6 +397,7 @@ stats: {
     // ROW 3
     { name: "Samsung",       file: "Samsung.webp",      row: 3 },
     { name: "Social Nation",  file: "Social Nation.png",            row: 3 },
+    { name: "FDCI",  file: "fdci.png",            row: 3 },
     { name: "YT FANFEST",            file: "YTFANFEST.jpg",           row: 3 },
     { name: "Zomato",   file: "Zomato.png",   row: 3 },
     { name: "Barca Academy",     file: "barcaacademy.png",           row: 3 },
