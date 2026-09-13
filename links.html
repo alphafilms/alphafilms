@@ -14,97 +14,96 @@
     <title>Alpha Films Links</title>
     
     <!-- Links to your website's main stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* Specific styles for the Linktree layout */
         body {
-            /* Fallback background if style.css doesn't set one */
-            background-color: #121212; 
+            /* A dark, cinematic gradient is required for the glass effect to be visible */
+            background: linear-gradient(135deg, #0f172a 0%, #1e1e38 50%, #000000 100%);
             color: #ffffff;
-            font-family: Arial, sans-serif; /* Will be overridden by your style.css */
+            font-family: Arial, sans-serif; 
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         .link-container {
             width: 100%;
-            max-width: 600px;
+            max-width: 600px; /* Keeps it centered on desktop, adapts to screen size on phones */
             text-align: center;
+            padding: 40px 20px;
+            
+            /* Glassmorphism Effect for the Main Card */
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px); /* Required for iPhones/Safari */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
         }
 
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
-            border: 3px solid #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .profile-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             margin-bottom: 30px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .link-btn {
             display: block;
-            background-color: #333333; /* Dark button background */
             color: #ffffff;
             text-decoration: none;
-            padding: 18px 20px;
+            padding: 16px 20px;
             margin-bottom: 15px;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 16px;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 1px solid #444444;
+            
+            /* Glassmorphism Effect for the Buttons */
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); /* Required for iPhones/Safari */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .link-btn:hover {
-            background-color: #555555; /* Slightly lighter on hover */
+            background: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
 <body>
 
     <div class="link-container">
-        <!-- Assuming you have a logo.png based on your file list. Change the filename if needed -->
         <img src="images/logo.png" alt="Alpha Films" class="profile-img">
         
         <div class="profile-title">@ALPHAFILMS</div>
 
-        <a href="https://www.youtube.com/@ALPHAFILMS" target="_blank" class="link-btn">
-            Alpha Films - YouTube
-        </a>
-        
-        <a href="https://youtu.be/ykRKh6hDDz8" target="_blank" class="link-btn">
-            AF Labs - Latest Video on YouTube
-        </a>
-        
-        <a href="http://www.alphafilmsproduction.com" target="_blank" class="link-btn">
-            Alpha Films Production - Website
-        </a>
-        
-        <a href="https://drive.google.com/file/d/1IZ8n1BtD4H0OkU-1wa_ACsTo6kh5zMNF/view?usp=drivesdk" target="_blank" class="link-btn">
-            Our Selected Projects
-        </a>
-        
-        <a href="https://api.whatsapp.com/send/?phone=918587090302&text=Hi+Alpha+Films%2C+I+want+to+book+your+studio%2Fvideo+production+services.+What%27s+next%3F&type=phone_number&app_absent=0" target="_blank" class="link-btn">
-            Chat with us on WhatsApp
-        </a>
-        
-        <a href="https://youtu.be/WGKW1qVybpA?si=QcDXxVadqcJP_op8" target="_blank" class="link-btn">
-            USS DIN - ALPHA FILMS - SHORT FILM
-        </a>
+        <a href="https://www.youtube.com/@ALPHAFILMS" target="_blank" class="link-btn">Alpha Films - YouTube</a>
+        <a href="https://youtu.be/ykRKh6hDDz8" target="_blank" class="link-btn">AF Labs - Latest Video on YouTube</a>
+        <a href="http://www.alphafilmsproduction.com" target="_blank" class="link-btn">Alpha Films Production - Website</a>
+        <a href="https://drive.google.com/file/d/1IZ8n1BtD4H0OkU-1wa_ACsTo6kh5zMNF/view?usp=drivesdk" target="_blank" class="link-btn">Our Selected Projects</a>
+        <a href="https://api.whatsapp.com/send/?phone=918587090302&text=Hi+Alpha+Films%2C+I+want+to+book+your+studio%2Fvideo+production+services.+What%27s+next%3F&type=phone_number&app_absent=0" target="_blank" class="link-btn">Chat with us on WhatsApp</a>
+        <a href="https://youtu.be/WGKW1qVybpA?si=QcDXxVadqcJP_op8" target="_blank" class="link-btn">USS DIN - ALPHA FILMS - SHORT FILM</a>
     </div>
 
 </body>
